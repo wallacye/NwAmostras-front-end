@@ -32,7 +32,7 @@
 	<div class="containerBtnsInicioLogado">
 	<ul>
 		<li><button class="btnInicioLogado" onclick="location.href=''">Projetos</button></li>
-		<li><button class="btnInicioLogado" onclick="location.href=''">Mapa de Amostras</button></li>
+		<li><button class="btnInicioLogado" onclick="location.href='telaInicialMapaAmostras.jsp'">Mapa de Amostras</button></li>
 		<li><button class="btnInicioLogado" onclick="location.href=''">Artigos</button></li>
 		<li><button class="btnInicioLogado" onclick="location.href='perfil.jsp'">
 			<img src="../../img/imgPerfilExemplo.png" class="" id="" alt="Perfil">

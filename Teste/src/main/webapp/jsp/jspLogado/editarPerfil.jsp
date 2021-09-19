@@ -52,7 +52,7 @@
 			</div>
 		</div>
 		<div class="containersInformacoesMeuPerfil">
-			<div class="containerLinksMeuPerfil"><a href="" class="linksMeuPerfil palavrasAzul" >Sobre a empresa</a></div>
+			<div class="containerLinksMeuPerfil"><a href="https://nuwa-three.vercel.app/" class="linksMeuPerfil palavrasAzul" >Sobre a empresa</a></div>
 			<div class="containerTxtsInformacoesMeuPerfilEditarPerfil">
 				<div class="containerLblsTituloInformacoesMeuPerfil"><label class="lblsTituloInformacoesMeuPerfil palavrasAzul">CPF</label></div>
 				<input type="text" class="txtsInformacoesEditarPerfil" value="000.000.000-00"/>
@@ -81,7 +81,7 @@
 			</div>
 		</div>
 		<div class="containersInformacoesMeuPerfil">
-			<div class="containerLinksMeuPerfil"><a href="" class="linksMeuPerfil linkDeslogar" >Sair</a></div>
+			<div class="containerLinksMeuPerfil"><a href="../index.jsp" class="linksMeuPerfil linkDeslogar" >Sair</a></div>
 			<div class="containerTxtsInformacoesEditarPerfil">
 				<div class="containerLblsTituloInformacoesMeuPerfil"><label class="lblsTituloInformacoesMeuPerfil palavrasAzul">Instituição</label></div>
 				<input type="text" class="txtsInformacoesMeuPerfil" disabled="disabled" value="Não Possui"/>
