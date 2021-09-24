@@ -19,6 +19,8 @@ body{
   --bordaPesquisaArtigos: 2px solid #4472C4;
   --iverterImg: invert(0%);
   --fundoMenuResponsivo: #E5E5E5;
+  --scroll:rgba(0, 102, 255, 28%);
+  --scrollHover: rgba(0, 102, 255, 50%);
   background-color: var(--fundo);
 }
 
@@ -35,6 +37,8 @@ body.escuro{
   --iverterImg: invert(100%);
   --bordaPesquisaArtigos: 2px solid #47CF0C;
   --fundoMenuResponsivo: #2c2a2a;
+  --scroll:rgba(71, 207, 12, 28%);
+  --scrollHover: rgba(71, 207, 12, 50%);
 }
 
 /* Menu */
@@ -463,7 +467,8 @@ nav ul li button{
   .imgLupa{
     height: auto;
     max-height: 100%;
-    width: 100%;
+    width:auto;
+    max-width: 100%;
     filter: var(--iverterImg);
   }
 
@@ -588,7 +593,6 @@ nav ul li button{
     display: block;
     text-align:center;
     box-shadow: 0 0 0.5em black;
-    margin-top: 4%;
     width: 100%;
     line-height: 40px;
     float: left;
@@ -611,10 +615,9 @@ nav ul li button{
   }
 
   .containerInfoLogin{
-    margin-top: 80px;
     width: 448px;
     height: 468px;
-    margin: 10% 0% 3% 0%;
+    margin: 180px 0% 100px 0%;
     border-radius: 20px;
     box-shadow: 0 0 0.5em black;
   }
@@ -716,7 +719,7 @@ nav ul li button{
 }
 
 .containerInfoCad{
-  margin-top: 130px;
+  margin: 150px 0px 70px 0px;
   width: 448px;
   height: 740px;
   border-radius: 20px;
@@ -798,6 +801,7 @@ nav ul li button{
   font-size: 20px;
   background-color: var(--decoracaoTitulosCorFundo);
   color: var(--fundo);
+  margin: 50px 0px;
 }
 
 /* Tela Inicial Logada */
@@ -1857,3 +1861,462 @@ nav ul li button{
     width: 100%;
     }
   }
+  
+  /* Tela Mapa de Amostras */
+  
+  .containerTelaMapaDeAmsotras{
+  	width: 100%;
+  	height: auto;
+  	float: left;
+  	margin-top: 80px;
+  }
+  
+  .containerNomeMapaDeAmostras{
+  	width: 100%;
+  	height: 100px;
+  	border-bottom: 1px solid #767171;
+  	display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .lblNomeMapaDeAmostras{
+  	color: var(--detalhes);
+  	font-size: 20px;
+  	font-weight: bold;
+  }
+  
+  .containerDivsLocalizacaoMapaAmostra{
+  	width: 100%;
+  	height: 100px;
+  	float: left;
+  }
+  
+  .containerLblLocalizaçãoMapaAmostras{
+  	width: 33.33%;
+  	height: 100px;
+  	float: left;
+  	display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .lblFreezerEstanteCaixa{
+  	font-size: 18px;
+  	font-weight: bold;
+  }
+  
+  .lblLocallizacaoMapaAmostras{
+  	font-size: 18px;
+  	color: #767171;
+  }
+  
+  .divScrollMapaDeAmostras{
+  	height: 500px; width: 90%;
+  	margin: 0px 5% 0px 5%;
+    overflow-x: scroll; overflow-y: scroll;
+  }
+  
+  	/* width */
+   	.divScrollMapaDeAmostras::-webkit-scrollbar {
+ 	 width: 11px;
+ 	 height: 11px;
+   	}
+
+	/* Track */
+	.divScrollMapaDeAmostras::-webkit-scrollbar-track {
+  		background: transparent;
+	}
+
+	/* Handle */
+	.divScrollMapaDeAmostras::-webkit-scrollbar-thumb {
+  		background: var(--scroll);
+  		border-radius: 10px;
+	}
+
+	/* Handle on hover */
+	.divScrollMapaDeAmostras::-webkit-scrollbar-thumb:hover {
+  		background: var(--scrollHover);
+	}
+  
+  .divAmostraMapaDeAmostra{
+  	height:100px; min-height: 100px;
+  	width: 100px; min-width: 100px;
+  	border: 1px solid #767171;
+  	border-radius: 8px;
+  	text-align: center;
+  	color: var(--detalhes);
+  }
+  
+  .btnLegendaMapaAmostras{
+  	float: right;
+  	height: 20px; width: 20px;
+  	border: none;
+  	background-color: transparent;
+  	cursor: pointer;
+  	margin: 0px 2px 0px 0px;
+  }
+  
+  .imgLegendaMapaAmostras{
+  	height: auto;
+    max-height: 100%;
+    width:auto;
+    max-width: 100%;
+  }
+  
+  .containerBtnsAlterarExcluirMapaAmostra{
+  	height: 150px; width: 100%;
+  	display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .btnAlterarMapaAmostra{
+  	width: 188px;
+    height: 47px;
+    color: var(--fundo);
+    border-radius: 30px;
+    border: none;
+    background-color: var(--corPalavrasVerdeAzul);
+    margin: 0px 20px 0px 0px;
+    font-size: 20px;
+  }
+  
+  .btnExcluirMapaAmostra{
+  	width: 188px;
+    height: 47px;
+    color: var(--fundo);
+    border-radius: 30px;
+    border: none;
+    background-color: #FF0000;
+    margin: 0px 0px 0px 20px;
+    font-size: 20px;
+  }
+  
+  .btnVerCriarAmostra{
+  	height: 100%;
+  	border: none;
+  	background-color: transparent;
+  	cursor: pointer;
+  }
+  
+  @media (max-width: 650px){
+  	.containerDivsLocalizacaoMapaAmostra{
+  	 height: 210px;
+  	}
+  
+  	.containerLblLocalizaçãoMapaAmostras{
+  	width: 100%;
+  	height: 70px;
+  	}
+  
+  	.containerBtnsAlterarExcluirMapaAmostra{
+  	float: left;
+  	display: block;
+  	}
+  
+    .btnAlterarMapaAmostra{
+    width: 80%;
+    float: left;
+    margin: 0px 10% 10px 10%;
+    }
+    
+    .btnExcluirMapaAmostra{
+    width: 80%;
+    float: left;
+    margin: 10px 10% 0px 10%;
+    }
+  }
+  
+  /* Tela Inicial Amostra */
+  
+  .containerTelaIncialAmostra{
+  	width: 100%;
+  	height: auto;
+  	float: left;
+  	margin-top: 80px;
+  }
+  
+  .containerBuscarAmostra{
+  	width: 100%;
+    height: auto;
+    float: left;
+  }
+  
+  .containerPessquisarFiltroAmostras{
+  	margin: 40px 4% 0% 4%;
+    width: 92%; height: 40px;
+    border-radius: 30px;
+    border: var(--bordaPesquisaArtigos);
+  }
+  
+  .buttomPesquisarAmostra{
+  	height: 100%; width: 4%;
+    float: left;
+    margin-left: 1%;
+    border: none;
+    background-color: transparent;
+  }
+  
+  .inputBuscarAmostras{
+  	float: left;
+    background-color: transparent;
+    font-size: 18px;
+    border: none;
+    height: 100%;
+    width: 80%;
+    margin-left: 3%;
+    color: var(--detalhes);
+  }
+  
+  .buttonFiltrarAmostra{
+  	height: 100%;
+    width: 4%;
+    float: right;
+    margin-right: 3%;
+    border: none;
+    background-color: transparent;
+  }
+  
+  .containerFiltroListaAmostra{
+  	display: none;
+    background-color: var(--fundo);
+    height: 490px;
+    width: 349px;
+    position: absolute;
+    right: 5%;
+    margin-top: 40px;
+    border-radius: 8px;
+    border: 1px solid #767171;
+    box-shadow: -1px 3px 0.5em black;  
+  }
+  
+  .btnsFiltrosListaAmostra{
+  	height: 12.5%; width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #767171;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .containerCategoriaFiltroListaAmostra{
+  	display: none;
+  	background-color: var(--fundo);
+    height: 347px;
+    width: 210px;
+    position: absolute;
+    margin-top: -18%;
+    left: -62%;
+    border-radius: 8px;
+    border: 1px solid #767171;
+    box-shadow: -1px 3px 0.5em black;  
+  }
+  
+  .btnsFiltrosCategoriaListaAmostra{
+  	height: 20%; width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #767171;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .containerTituloAmostraData{
+    width: 100%;
+    height: auto;
+    float: left;
+    border-bottom: 1px solid #767171;
+  }
+  
+  .containerLblAmostrasTelaInicialAmostras{
+  	width: auto;
+    height: auto;
+    float: left;
+    margin: 50px 0% 30px 4%;
+  }
+  
+  .lblAmostrasTelaInicialAmostras{
+  	font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .containerLblDataTelaInicialAmostras{
+  	width: auto;
+    height: auto;
+    float: right;
+    margin: 50px 4% 30px 0%;
+  }
+  
+  .lblDataTelaInicialAmostras{
+  	font-size: 20px;
+    font-weight: bold;
+  }
+  
+/* Tela Amostra */
+
+.containerTelaAmostra{
+	width: 100%;
+    height: auto;
+    float: left;
+    margin-top: 80px;
+}
+
+.containerNomeAmostraBtnHistorico{
+	width: 100%;
+    height: auto;
+    float: left;
+    border-bottom: 1px solid #767171;
+}
+
+.containerLblNomeAmostras{
+	width: 100%;
+    height: auto;
+    float: left;
+}
+
+.containerLblNomeLegendaAmostras{
+	width: 80%;
+    height: auto;
+    text-align: center;
+    margin: 34px 0px 30px 0px;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lblNomeAmostra{
+	font-size: 20px;
+	font-weight: bold;
+	color: var(--detalhes);
+}
+
+.btnLegendaAmostras{
+    height: 20px;
+    width: 20px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 0px 0px 0px 5px;
+}
+
+.containerBtnHistoricoAmostra{
+	height: 100%; width: 20%;
+	float: left;
+	margin: 26px 0px 30px 0px;
+	text-align: center;
+}
+
+.btnExbirHistoricoAmostra{
+	width: 162px; height: 37px;
+    color: var(--fundo);
+    border-radius: 30px;
+    border: none;
+    background-color: var(--corPalavrasVerdeAzul);
+    font-size: 20px;
+}
+
+.containerLblDadosAmostra{
+	width: 100%; height: 100px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lblDadosAmostra{
+	font-size: 20px;
+    font-weight: bold;
+}
+
+.containerLblsDadoInfoAmostra{
+	width: 100%; height: auto;
+	border-top: 1px solid #767171;
+}
+
+.containerLblTipoInfo{
+	width: 25%; height: 100%;
+	float: left;
+}
+
+.lblsDadoInfoAmostra{
+	display: block;
+	margin: 20px 0px 20px 10%;
+	font-size: 18px; font-weight: bold;
+}
+
+.containerLblsInfoAmostra{
+	width: 75%; height: 100%;
+	float: left;
+	border-left: 1px solid #767171;
+}
+
+.lblsInfoAmostra{
+	display: block;
+	margin: 20px 0px 20px 4%;
+	font-size: 18px;
+	color: var(--detalhes);
+	float: left;
+}
+
+.btnColocarFaseColetaAmostra{
+	float: left;
+	width: 219px;
+    height: 37px;
+    color: var(--fundo);
+    border-radius: 30px;
+    border: none;
+    background-color: var(--corPalavrasVerdeAzul);
+    margin: 12px 0px 0px 2%;
+    font-size: 16px;
+}
+
+.linhaDadosAmostra{
+	width: 100%; height: auto;
+	border-bottom: 1px solid #767171;
+	float: left;
+}
+
+.containerBtnsEditarExcluirAmostra{
+	width: 100%; height: 200px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnEditarAmostra{
+	float: left;
+    width: 188px;
+    height: 47px;
+    color: var(--fundo);
+    border-radius: 30px;
+    border: none;
+    background-color: var(--corPalavrasVerdeAzul);
+    margin: 0px 0px 0px 0;
+    font-size: 20px;
+}
+
+.btnAdicionarRetirarVolumeAmostra{
+	float: left;
+    width: 295px;
+    height: 47px;
+    color: var(--fundo);
+    border-radius: 30px;
+    border: none;
+    background-color: var(--corPalavrasVerdeAzul);
+    margin: 0px 20px 0px 20px;
+    font-size: 20px;
+}
+
+.btnEcluirAmostra{
+	width: 188px;
+    height: 47px;
+    color: var(--fundo);
+    border-radius: 30px;
+    border: none;
+    background-color: #FF0000;
+    margin: 0px 0px 0px 0px;
+    font-size: 20px;
+}
+
+/* Tela Criar Amostra */

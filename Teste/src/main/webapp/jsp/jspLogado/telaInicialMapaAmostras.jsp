@@ -58,7 +58,7 @@
                 	<button class="btnsFiltrosListaMapaAmostra palavrasAzul" onclick="location.href=''">Mais antigo</button>
                 	<button class="btnsFiltrosListaMapaAmostra palavrasAzul" onclick="location.href=''">Nome (A - Z)</button>
                 	<button class="btnsFiltrosListaMapaAmostra palavrasAzul" onclick="location.href=''">Criador (A - Z)</button>
-                	<button class="btnFiltrarAmostraMapaAmostra palavrasAzul" onclick="location.href=''">Filtrar amostras</button>	
+                	<button class="btnFiltrarAmostraMapaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp'">Filtrar amostras</button>	
                 
                 </div>
                 
@@ -75,7 +75,7 @@
 			</div>
 		</div>
 		
-		<button class="btnListaMapaAmostras" onclick="location.href='#'">
+		<button class="btnListaMapaAmostras" onclick="location.href='mapaAmostras.jsp'">
 		<table class="listaMapaAmostras">
     		<tr>
         		<td class="palavrasAzul tituloMapaAmostraLista">Mapa de Amostras Exemplo A</td>

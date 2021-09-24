@@ -29,7 +29,7 @@
 				</div>
 				<div class="containerBtnAlterarFoto">
 					<button class="btnAlterarFoto" onclick="location.href=''">
-					<img src="../../img/imgAlterarFoto.png" class="imgAlterarFoto" id="" alt="Alterar Foto">Alterar Foto</button>
+					<img src="../../img/imgAlterarFoto.png" class="imgAlterarFoto" id="" alt="Alterar Foto">&nbsp;Alterar Foto</button>
 				</div>
 				<div class="containerNomeMeuPerfil">
 					<label class="lblNomeMeuPerfil">Josefina Bund Fin</label>
