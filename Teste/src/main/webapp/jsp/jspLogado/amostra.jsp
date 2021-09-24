@@ -20,10 +20,13 @@
 	<div class="containerTelaAmostra">
 		<div class="containerNomeAmostraBtnHistorico">
 			<div class="containerLblNomeAmostras">
+				
 				<div class="containerLblNomeLegendaAmostras">
+				<div class=centralizarNomeAmostra>
 					<label class="lblNomeAmostra">001 - Amostra A</label>
 					<button class="btnLegendaAmostras" onclick="location.href=''">
 					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"></button>
+				</div>
 				</div>
 				<div class="containerBtnHistoricoAmostra">
 					<button class="btnExbirHistoricoAmostra" onclick="location.href='criarAmostra'">Exibir histórico</button>
