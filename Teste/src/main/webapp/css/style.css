@@ -2286,6 +2286,12 @@ nav ul li button{
 
 .containerBtnsEditarExcluirAmostra{
 	width: 100%; height: 200px;
+	float: left;
+}
+
+.containerAjeitarBtnsAmostra{
+	width: 33.33%; height: 100%;
+	float: left;
 	display: flex;
     justify-content: center;
     align-items: center;
@@ -2326,4 +2332,214 @@ nav ul li button{
     font-size: 20px;
 }
 
-/* Tela Criar Amostra */
+@media (max-width: 820px){
+	.containerLblNomeLegendaAmostras{
+	width: 100%;
+	}
+	
+	.centralizarNomeAmostra{
+	width: 100%;
+	}
+	
+	.containerBtnHistoricoAmostra{
+	width: 100%;
+	margin: 0px 0px 30px 0px;
+	}
+	
+	.containerLblTipoInfo{
+	width: 100%;
+	}
+	.containerLblsInfoAmostra {
+    width: 100%;
+    border-left: none;
+	}
+	
+	.lblsInfoAmostra {
+    margin: 10px 10% 20px 10%;
+	}
+	
+	.btnColocarFaseColetaAmostra {
+    margin: 0px 10% 20px 10%;
+    width: 80%;
+	}
+	
+	.containerBtnsEditarExcluirAmostra{
+	margin: 40px 0 40px 0;
+	}
+	
+	.btnEditarAmostra {
+    width: 80%;
+    margin: 0px 10% 0px 10%;
+	}
+	
+	.btnAdicionarRetirarVolumeAmostra{
+	width: 80%;
+    margin: 0px 10% 0px 10%;
+	}
+	
+	.btnEcluirAmostra{
+	width: 80%;
+    margin: 0px 10% 0px 10%;
+	}
+	
+	.containerAjeitarBtnsAmostra{
+	width: 100%; height: 33.33%;
+	}
+	
+	.containerBtnsEditarExcluirAmostra{
+		height: 200px;
+	}
+}
+
+ /* Tela Criar Amostra */
+
+.containerTelaCriarAmostra{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+ 	justify-content: center;
+	align-items: center
+}
+
+.containerInfoCriarAmostra{
+    width: 90%;
+    height: auto;
+    margin: 140px 5% 60px 5%;
+    border-radius: 20px;
+    box-shadow: 0 0 0.5em black;
+}
+    
+.containerTituloCriarAmostra{
+	margin: 50px 0 0 5%;
+}
+    
+.txtCriarAmostra{
+      width: 133px;
+      font-size: 20px;
+      border-bottom:var(--bordaMenu) ;
+      font-weight: bold;
+      color: var(--detalhes);
+}
+   
+.txtDados{      
+      font-size: 20px;
+      color: var(--corPalavrasVerdeAzul);
+      font-weight: bold;
+}
+    
+.txtOrigem{
+      font-size: 20px;
+      color: var(--corPalavrasVerdeAzul);
+      font-weight: bold;
+}
+
+.containerEspaçosFormsCriarAmostra{
+      width: 100%;
+      height: auto;
+}
+    
+.containerLblsCriarAmostra{
+      width: 80%;
+      margin-top: 30px;
+}
+    
+.lblsCriarAmostra{
+      font-size: 20px;
+}
+
+.txtsCriarAmostra{
+      border: none;
+      width: 90%;
+      font-size: 20px;
+      color: #767171;
+      border-bottom: 1px solid #767171;
+      margin-top: 20px;
+      background-color: transparent;
+}
+
+.txtsCriarAmostraAnotacao{
+      border: none;
+      width: 100%;
+      font-size: 20px;
+      color: #767171;
+      border-bottom: 1px solid #767171;
+      margin-top: 20px;
+      background-color: transparent;
+}
+
+.btnCriarAmostra{
+      width: 188px;
+      height: 47px;
+      border-radius: 30px;
+      border: none;
+      background-color: var(--decoracaoTitulosCorFundo);
+      color: var(--fundo);
+      font-size: 20px;
+ }
+ 
+ .containerTxtsCriarDadosOrigem{
+ 	width: 45%;
+ 	margin: 30px 0 0 5%;
+    height: auto;
+    float: left;
+ }
+ 
+ .containerBtnCriarAmostra{
+ 	width: 100%;
+    height: 150px;
+    float: left;
+    display: flex;
+	flex-direction: row;
+ 	justify-content: center;
+	align-items: center
+ }
+ 
+ .containerLblTxtAnotacoes{
+ 	width: 90%;
+    height: auto;
+    margin: 0 0 0 5%;
+    float: left;
+ }
+ 
+ .listCatgoria{
+ 	width: 100%;
+    height: auto;
+ }
+ 
+ datalist {
+  position: absolute;
+  background-color: white;
+  border: 1px solid blue;
+  border-radius: 0 0 5px 5px;
+  border-top: none;
+  font-family: sans-serif;
+  width: 350px;
+  padding: 5px;
+
+}
+ 
+ .optionListCatgoria{
+ 	
+ }
+ 
+ @media (max-width: 820px){
+ 	.containerInfoCriarAmostra{
+ 	width: 100%;
+ 	margin: 120px 0 40px 0;
+    box-shadow: none;
+ 	}
+ 	
+ 	.containerTxtsCriarDadosOrigem{
+ 	width: 95%;
+ 	margin: 50px 0 0 5%;
+ 	}
+ 	
+ 	.containerLblTxtAnotacoes{
+ 	width: 85%;
+ 	}
+ 	
+ 	.containerTituloCriarAmostra{
+ 	margin: 20px 0 0 5%;
+ 	}
+ }

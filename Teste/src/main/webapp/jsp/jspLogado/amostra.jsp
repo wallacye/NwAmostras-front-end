@@ -254,9 +254,15 @@
 		</div>
 		
 		<div class="containerBtnsEditarExcluirAmostra">
-		<button class="btnEditarAmostra" onclick="location.href=''">Editar</button>
+		<div class="containerAjeitarBtnsAmostra">
+			<button class="btnEditarAmostra" onclick="location.href=''">Editar</button>
+		</div>
+		<div class="containerAjeitarBtnsAmostra">
 		<button class="btnAdicionarRetirarVolumeAmostra" onclick="location.href=''">Adicionar ou retirar volume</button>
+		</div>
+		<div class="containerAjeitarBtnsAmostra">
 		<button class="btnEcluirAmostra" onclick="location.href=''">Excluir</button>
+		</div>
 		</div>
 		
 		<%@ include file="../../includes/rodape.jsp" %>
