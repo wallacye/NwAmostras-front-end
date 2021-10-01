@@ -15,7 +15,6 @@ public class MapaDeAmostras extends HttpServlet {
 	private String caixa_mapa_amostra;
 	private Integer n_coluna_mapa_amostra;
 	private Integer n_linha_mapa_amostra;
-	private Integer id_pesq;
 	private LocalDateTime data_inativacao_mapa_amostra;
 	
 	public LocalDateTime getData_inativacao_mapa_amostra() {
@@ -24,12 +23,7 @@ public class MapaDeAmostras extends HttpServlet {
 	public void setData_inativacao_mapa_amostra(LocalDateTime data_inativacao_mapa_amostra) {
 		this.data_inativacao_mapa_amostra = data_inativacao_mapa_amostra;
 	}
-	public Integer getId_pesq() {
-		return id_pesq;
-	}
-	public void setId_pesq(Integer id_pesq) {
-		this.id_pesq = id_pesq;
-	}
+
 	public Integer getN_linha_mapa_amostra() {
 		return n_linha_mapa_amostra;
 	}
