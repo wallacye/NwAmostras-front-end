@@ -6,7 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 
 
-@WebServlet(name = "cliente", urlPatterns = {"/cliente"})
+@WebServlet(name = "amostra", urlPatterns = {"/amostra"})
 public class Amostra extends HttpServlet {
     	
     	private Integer id_amostra;
@@ -16,6 +16,7 @@ public class Amostra extends HttpServlet {
     	private Integer id_categoria;
     	private Integer id_origem;
     	private LocalDateTime data_inativacao_amostra;
+    	private String nome_amostra;
     	
 		public int getId_amostra() {
 			return id_amostra;
@@ -58,6 +59,12 @@ public class Amostra extends HttpServlet {
 		}
 		public void setData_inativacao_amostra(LocalDateTime data_inativacao_amostra) {
 			this.data_inativacao_amostra = data_inativacao_amostra;
+		}
+		public String getNome_amostra() {
+			return nome_amostra;
+		}
+		public void setNome_amostra(String nome_amostra) {
+			this.nome_amostra = nome_amostra;
 		}
 
 }

@@ -22,10 +22,12 @@ public class inserirAmostra extends HttpServlet {
     			PrintWriter out = response.getWriter();
                 try {
                 	
-                	String coletador_amostra = request.getParameter("txtColetadorAmostra");;						
+                	Integer id_amostra = Integer.parseInt(request.getParameter("txtCodigoAmostra"));
+                	String nome_amostra = request.getParameter("txtNomeAmostra");		
+                	String coletador_amostra = request.getParameter("txtColetadorAmostra");						
                 	String anotacoes_amostra = request.getParameter("txtAnotacoesAmostra");
                 	String tipo_amostra = request.getParameter("txtTipoAmostra");
-                	Integer id_categoria = Integer.parseInt(request.getParameter("txtIdCategoria"));
+                	Integer id_categoria = Integer.parseInt(request.getParameter("txtCategoriaAmostra"));
                 	Integer id_origem = Integer.parseInt(request.getParameter("txtIdOrigem"));
                 	LocalDateTime data_inativacao_amostra = LocalDateTime.parse(request.getParameter("txtDataInativacaoAmostra"));
 
