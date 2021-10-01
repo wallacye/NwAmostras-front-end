@@ -13,6 +13,15 @@
 <script type="text/javascript" src="../../js/nwAmostrasScript.js" defer></script>
 
 <script type="text/javascript" src="../../js/menuResponsivo.js" defer></script>
+
+<script type="text/javascript">
+
+	function abrirLegendaMapaAmostra(){
+		document.getElementById('idLegendaMapaAmostras').style.display = 'flex';
+	}
+	
+</script>
+
 </head>
 <body>
 	<%@ include file="../../includes/menuLogado.jsp" %>
@@ -37,19 +46,27 @@
 			</div>
 		</div>
 		
+		<div class="legendaMapaAmostras" id="idLegendaMapaAmostras">
+			<div class="popUpLegendaMapaAmostras">
+			<div class="containerLblLegendaMapaAmostras"><label class="lblLegendaMapaAmostras">Legenda</label></div>
+			<button class="containerImagemXMapaAmostras"><img src="../../img/x.png" class="imgX"></button>
+			</div>
+		</div>
+		
 		<div class="divScrollMapaDeAmostras" >
 		<table>
 		<tr>
 		<td class="divAmostraMapaDeAmostra">
-		<button class="btnLegendaMapaAmostras" onclick="location.href=''">
+		<button class="btnLegendaMapaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
 		<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"></button>
+		
 		<button class="btnVerCriarAmostra" onclick="location.href='amostra.jsp'"><br>
 		15 uL <br> Amostra A<br> 09/06/21 </button></td>
+		
 		<td class="divAmostraMapaDeAmostra">
-		<button class="btnLegendaMapaAmostras" onclick="location.href=''">
-		<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"></button>
-		<button class="btnVerCriarAmostra" onclick="location.href='criarAmostra.jsp'"><br>
-		15 uL <br> Amostra A<br> 09/06/21 </button></td>
+		<button class="btnCriarAmostraNoMapaAmostras" onclick="location.href='criarAmostra.jsp'">
+		</button></td>
+
 		</tr>
 		</table>
 		</div>
