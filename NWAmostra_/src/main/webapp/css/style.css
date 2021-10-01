@@ -2024,7 +2024,7 @@ nav ul li button{
     left: 0;
     right: 0;
     margin: auto;
-    width: 400px;
+    width: 300px;
     height: 209px;
     box-shadow: 0 0 0.5em black;
     background-color: var(--fundo);
@@ -2057,6 +2057,27 @@ nav ul li button{
     width: auto;
     max-width: 100%;
     filter: var(--iverterImg);
+  }
+  
+  .containerInfosLegendaMapaAmostra{
+  	width: 88%; height: auto;
+  	margin: 0 5% 0 7%;
+  	float: left;
+  }
+  
+  .containerImgLblLegendaMapaAmostra{
+  	width: auto; height: 25px;
+  	float: left;
+  	display: flex;
+  	margin: 10px 30% 0 0;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .lblsAcabouVencidaFaseColeta{
+  	font-size: 16px;
+  	color: var(--detalhes);
+  	margin-left: 5px;
   }
   
   @media (max-width: 650px){

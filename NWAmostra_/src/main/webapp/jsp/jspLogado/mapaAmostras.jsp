@@ -20,6 +20,10 @@
 		document.getElementById('idLegendaMapaAmostras').style.display = 'flex';
 	}
 	
+	function fecharLegendaMapaAmostra(){
+		document.getElementById('idLegendaMapaAmostras').style.display = 'none';
+	}
+	
 </script>
 
 </head>
@@ -49,7 +53,23 @@
 		<div class="legendaMapaAmostras" id="idLegendaMapaAmostras">
 			<div class="popUpLegendaMapaAmostras">
 			<div class="containerLblLegendaMapaAmostras"><label class="lblLegendaMapaAmostras">Legenda</label></div>
-			<button class="containerImagemXMapaAmostras"><img src="../../img/x.png" class="imgX"></button>
+			<button class="containerImagemXMapaAmostras" onclick="location.href='javascript: fecharLegendaMapaAmostra()'">
+			<img src="../../img/x.png" class="imgX"></button>
+			<div class="containerInfosLegendaMapaAmostra">
+				<div class="containerImgLblLegendaMapaAmostra">
+					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras">
+					<label class="lblsAcabouVencidaFaseColeta">Acabou</label>
+				</div>
+				<div class="containerImgLblLegendaMapaAmostra">
+					<img src="../../img/imgAmostraVencida.png" class="imgLegendaMapaAmostras">
+					<label class="lblsAcabouVencidaFaseColeta">Vencida</label>
+				</div>
+				<div class="containerImgLblLegendaMapaAmostra">
+					<img src="../../img/imgAmostraFaseColeta.png" class="imgLegendaMapaAmostras">
+					<label class="lblsAcabouVencidaFaseColeta">Fase de Coleta</label>
+				</div>
+			</div>
+			
 			</div>
 		</div>
 		
