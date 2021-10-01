@@ -32,48 +32,48 @@
             
                 <div class="containerEspaçosFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra "><label class="lblsCriarAmostra palavrasAzul">Código*</label></div>
-                    <input type="text" class="txtsCriarAmostra" placeholder="Digite o código da amostra"/>
+                    <input type="text" class="txtsCriarAmostra" placeholder="Digite o código da amostra" id="txtCodigoAmostra" name="txtCodigoAmostra"/>
                 </div>
                 <div class="containerEspaçosFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Nome*</label></div>
-                    <input type="text" class="txtsCriarAmostra" placeholder="Digite o nome da amostra"/>
+                    <input type="text" class="txtsCriarAmostra" placeholder="Digite o nome da amostra" id="txtNomeAmostra" name="txtNomeAmostra"/>
                 </div>
                 <div class="containerEspaçosFormsCriarAmostra">
                 
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Categoria*</label></div>
-                    <input type="text" class="txtsCriarAmostra" list="listCategoria" placeholder="Selecione a categoria da amostra"/>
+                    <input type="text" class="txtsCriarAmostra" list="listCategoria" placeholder="Selecione a categoria da amostra" id="txtCategoriaAmostra" name="txtCategoriaAmostra"/>
                     <datalist class="listCatgoria" id="listCategoria">
-    					<option class="optionListCatgoria palavrasAzul" value="Bactéria"></option>
-						<option class="optionListCatgoria palavrasAzul" value="Fungo"></option>
-						<option class="optionListCatgoria palavrasAzul" value="Parasita"></option>
-						<option class="optionListCatgoria palavrasAzul" value="Príon"></option>
-						<option class="optionListCatgoria palavrasAzul" value="Vírus"></option>
+    					<option class="optionListCatgoria palavrasAzul" value="1">Bactéria</option>
+						<option class="optionListCatgoria palavrasAzul" value="2">Fungo</option>
+						<option class="optionListCatgoria palavrasAzul" value="4">Parasita</option>
+						<option class="optionListCatgoria palavrasAzul" value="3">Príon</option>
+						<option class="optionListCatgoria palavrasAzul" value="5">Vírus</option>
   					</datalist>
                 </div>
                 
                 <div class="containerEspaçosFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Tipo*</label></div>
-                    <input type="text" class="txtsCriarAmostra" placeholder="Digite o tipo da amostra (ex: DNA, plasma...)"/>
+                    <input type="text" class="txtsCriarAmostra" placeholder="Digite o tipo da amostra (ex: DNA, plasma...)" id="txtTipoAmostra" name="txtTipoAmostra"/>
                 </div>
                 <div class="containerEspaçosFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Volume (uL)*</label></div>
-                    <input type="text" class="txtsCriarAmostra" placeholder="Digite o volume da amostra"/>
+                    <input type="text" class="txtsCriarAmostra" placeholder="Digite o volume da amostra" id="txtVolumeAmostra" name="txtVolumeAmostra"/>
                 </div>
                 <div class="containerEspaçosFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Data de Coleta*</label></div>
-                    <input type="text" class="txtsCriarAmostra" placeholder="Digite a data da coleta da amostra"/>
+                    <input type="text" class="txtsCriarAmostra" placeholder="Digite a data da coleta da amostra" id="txtDataColetaAmostra" name="txtDataColetaAmostra"/>
                 </div>
                 <div class="containerEspaçosFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Hora da Coleta*</label></div>
-                    <input type="text" class="txtsCriarAmostra" placeholder="Digite a hora da coleta da amostra"/>
+                    <input type="text" class="txtsCriarAmostra" placeholder="Digite a hora da coleta da amostra" id="txtHoraColetaAmostra" name="txtHoraColetaAmostra"/>
                 </div>
                 <div class="containerEspaçosFormsCriarAmostra">
-                    <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Coletador*</label></div>
-                    <input type="text" class="txtsCriarAmostra" placeholder="Digite o nome do coletador e selecione"/>
+                    <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Coletador</label></div>
+                    <input type="text" class="txtsCriarAmostra" placeholder="Digite o nome do coletador e selecione" id="txtColetadorAmostra" name="txtColetadorAmostra"/>
                 </div>
                 <div class="containerEspaçosFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Data de Validade*</label></div>
-                    <input type="text" class="txtsCriarAmostra" placeholder="Digite a data de validade da amostra"/>
+                    <input type="text" class="txtsCriarAmostra" placeholder="Digite a data de validade da amostra" id="txtDataValidadeAmostra" name="txtDataValidadeAmostra"/>
                 </div>
             </div>
             

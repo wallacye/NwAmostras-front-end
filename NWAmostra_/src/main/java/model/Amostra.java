@@ -2,12 +2,15 @@ package model;
 
 import java.time.LocalDateTime;
 
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
 
-@jakarta.servlet.annotation.WebServlet(name = "cliente", urlPatterns = {"/cliente"})
-public class Amostra extends jakarta.servlet.http.HttpServlet {
+
+@WebServlet(name = "cliente", urlPatterns = {"/cliente"})
+public class Amostra extends HttpServlet {
     	
     	private Integer id_amostra;
-    	private String coletador_amostra;						
+    	private String coletador_amostra;
     	private String anotacoes_amostra;
     	private String tipo_amostra;
     	private Integer id_categoria;
