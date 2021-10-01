@@ -2024,7 +2024,7 @@ nav ul li button{
     left: 0;
     right: 0;
     margin: auto;
-    width: 400px;
+    width: 300px;
     height: 209px;
     box-shadow: 0 0 0.5em black;
     background-color: var(--fundo);
@@ -2057,6 +2057,27 @@ nav ul li button{
     width: auto;
     max-width: 100%;
     filter: var(--iverterImg);
+  }
+  
+  .containerInfosLegendaMapaAmostra{
+  	width: 88%; height: auto;
+  	margin: 0 5% 0 7%;
+  	float: left;
+  }
+  
+  .containerImgLblLegendaMapaAmostra{
+  	width: auto; height: 25px;
+  	float: left;
+  	display: flex;
+  	margin: 10px 30% 0 0;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .lblsAcabouVencidaFaseColeta{
+  	font-size: 16px;
+  	color: var(--detalhes);
+  	margin-left: 5px;
   }
   
   @media (max-width: 650px){
@@ -2518,7 +2539,9 @@ nav ul li button{
 
 .txtsCriarAmostraAnotacao{
       border: none;
-      width: 100%;
+      width: 90%;
+      max-width: 90%;
+      height: 30px;
       font-size: 20px;
       color: #767171;
       border-bottom: 1px solid #767171;
@@ -2554,28 +2577,32 @@ nav ul li button{
  }
  
  .containerLblTxtAnotacoes{
- 	width: 90%;
+ 	width: 100%;
     height: auto;
-    margin: 0 0 0 5%;
     float: left;
  }
  
- .listCatgoria{
- 	width: 100%;
-    height: auto;
+ .containerOrigemAmostra{
+ 	width: 90%; height: auto;
+ 	float: left;
+ 	margin: 30px 0 0 5%;
  }
  
- datalist {
-  position: absolute;
-  background-color: white;
-  border: 1px solid blue;
-  border-radius: 0 0 5px 5px;
-  border-top: none;
-  font-family: sans-serif;
-  width: 350px;
-  padding: 5px;
-
-}
+ .txtInputOrigemAmostra{
+ 	border: none;
+    width: 45%;
+    font-size: 20px;
+    color: #767171;
+    border-bottom: 1px solid #767171;
+    margin-top: 20px;
+    background-color: transparent;
+ }
+ 
+ .linkCriarOrigem{
+ 	display: block;
+ 	width: 100%;
+ 	margin-top: 20px;
+ }
  
  @media (max-width: 820px){
  	.containerInfoCriarAmostra{
@@ -2586,14 +2613,99 @@ nav ul li button{
  	
  	.containerTxtsCriarDadosOrigem{
  	width: 95%;
- 	margin: 50px 0 0 5%;
+ 	margin: 30px 0 0 5%;
  	}
  	
  	.containerLblTxtAnotacoes{
- 	width: 85%;
+ 	width: 100%;
  	}
  	
  	.containerTituloCriarAmostra{
  	margin: 20px 0 0 5%;
+ 	}
+ 	
+ 	.txtInputOrigemAmostra{
+ 	width: 95%;
+ 	}
+ }
+ 
+ /* Tela Criar Origem */
+ 
+ .containerTelaCriarOrigem{
+ 	width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    float: left;
+ }
+ 
+ .containerInfosCriarOrigem{
+ 	width: 90%;
+    height: auto;
+    margin: 80px 5% 80px 5%;
+    border-radius: 20px;
+    box-shadow: 0 0 0.5em black;
+    float: left;
+ }
+ 
+ .containerTituloCriarOrigem{
+ 	margin: 50px 0 0 5%;
+ }
+ 
+ .txtCriarOrigem{
+ 	width: 133px;
+    font-size: 20px;
+    border-bottom: var(--bordaMenu);
+    font-weight: bold;
+    color: var(--detalhes);
+ }
+ 
+ .containerMetadeOrigem{
+ 	width: 45%;
+    margin: 30px 0 0 5%;
+    height: auto;
+    float: left;
+ }
+ 
+ .containerBtnCriarOrigem{
+ 	width: 100%;
+    height: 150px;
+    float: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ .btnCriarOrigem{
+ 	width: 188px; height: 47px;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--decoracaoTitulosCorFundo);
+    color: var(--fundo);
+    font-size: 20px;
+ }
+ 
+ @media (max-width: 820px){
+ 	.containerInfosCriarOrigem{
+ 	width: 100%;
+    margin: 60px 0 60px 0;
+    box-shadow: none;
+ 	}
+ 	
+ 	.containerTituloCriarOrigem{
+ 	margin: 20px 0 0 5%;
+ 	}
+ 	
+ 	.containerMetadeOrigem{
+ 	width: 95%;
+    margin: 30px 0 0 5%;
+ 	}
+ 	
+ 	.lblBairroCriarOrigemMargin{
+ 	margin-top: 0;
  	}
  }
