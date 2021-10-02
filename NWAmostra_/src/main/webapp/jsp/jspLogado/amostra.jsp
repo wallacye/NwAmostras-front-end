@@ -255,7 +255,7 @@
 		
 		<div class="containerBtnsEditarExcluirAmostra">
 		<div class="containerAjeitarBtnsAmostra">
-			<button class="btnEditarAmostra" onclick="location.href=''">Editar</button>
+			<button class="btnEditarAmostra" onclick="location.href='amostraEditando.jsp'">Editar</button>
 		</div>
 		<div class="containerAjeitarBtnsAmostra">
 		<button class="btnAdicionarRetirarVolumeAmostra" onclick="location.href=''">Adicionar ou retirar volume</button>
