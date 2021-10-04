@@ -30,10 +30,9 @@ public class inserirMapaDeAmostras extends HttpServlet {
         	String caixa_mapa_amostra = request.getParameter("txtCaixaMapaDeAmostras");
         	Integer n_coluna_mapa_amostra = Integer.parseInt(request.getParameter("txtColunasMapaDeAmostras"));
         	Integer n_linha_mapa_amostra = Integer.parseInt(request.getParameter("txtLinhasMapaDeAmostras"));
-        	LocalDateTime data_inativacao_mapa_amostra = LocalDateTime.parse(request.getParameter("txtDataInativacaoAmostra"));
 
-            String sqlInserirMapaDeAmostras = "INSERT INTO mapa_de_amostras (estante_mapa_amostra, nome_mapa_amostra, freezer_mapa_amostra, caixa_mapa_amostra, n_coluna_mapa_amostra, n_linha_mapa_amostra, data_inativacao_mapa_amostra)"
-            + " VALUES ('" + estante_mapa_amostra  + "','" + nome_mapa_amostra + "','" + freezer_mapa_amostra + "','" + caixa_mapa_amostra + "','" + n_coluna_mapa_amostra + "','" + n_linha_mapa_amostra + "','" + data_inativacao_mapa_amostra + "')";
+            String sqlInserirMapaDeAmostras = "INSERT INTO mapa_de_amostras (estante_mapa_amostra, nome_mapa_amostra, freezer_mapa_amostra, caixa_mapa_amostra, n_coluna_mapa_amostra, n_linha_mapa_amostra)"
+            + " VALUES ('" + estante_mapa_amostra  + "','" + nome_mapa_amostra + "','" + freezer_mapa_amostra + "','" + caixa_mapa_amostra + "','" + n_coluna_mapa_amostra + "','" + n_linha_mapa_amostra + "')";
 
             Connection con = Conexao.conexao();
             Statement stInserirMapaDeAmostras = con.prepareStatement(sqlInserirMapaDeAmostras);
