@@ -20,6 +20,7 @@
 	
 	<div class="containerTelaCriarMapaAmostras">
 		<div class="containerTituloTxtsBtnCriarMapaAmostra">
+		<form method="post" action="/inserirMapaDeAmostras" role="form">
 		
 			<div class="containerTituloCriarMapaAmostra">
 				<div class="containerLblTituloCriarMapaAmostra">
@@ -28,7 +29,6 @@
 				</div>
 			</div>
 			
-			<form method="post" action="/inserirMapaDeAmostras" role="form">
 			
 			<div class="containerTxtsCriarMapaAmostrasCentralizar">
 			<div class="containersTxtsCriarMapaAmostras">

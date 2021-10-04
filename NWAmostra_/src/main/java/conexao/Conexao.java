@@ -7,7 +7,8 @@ import java.sql.SQLException;
 public class Conexao {
 
     public static Connection conexao() throws SQLException {
-        try {
+       
+    	try {
             Class.forName("com.mysql.jdbc.Driver");
             return DriverManager.getConnection("jdbc:mysql://localhost:3306/nw_amostras_bd?serverTimezone=GMT", "root", "");
         }
@@ -15,5 +16,7 @@ public class Conexao {
             System.out.println("erro "+e);
         }
         return null;
-    }
+    } 
+    
+     
 }
