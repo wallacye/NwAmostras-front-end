@@ -20,7 +20,7 @@
 	
 	<div class="containerTelaCriarMapaAmostras">
 		<div class="containerTituloTxtsBtnCriarMapaAmostra">
-		<form method="post" action="/inserirMapaDeAmostras" role="form">
+		<form method="post" action="/inserirMapaDeAmostra" role="form">
 		
 			<div class="containerTituloCriarMapaAmostra">
 				<div class="containerLblTituloCriarMapaAmostra">
