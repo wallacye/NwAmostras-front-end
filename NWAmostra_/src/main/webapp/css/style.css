@@ -2713,49 +2713,49 @@ nav ul li button{
  /* Tela Editar Amostra*/
 
 .containerTelaEditarAmostra{
-	width: 100%;
+    width: 100%;
     height: auto;
     float: left;
     margin-top: 80px;
 }
-
+ 
 .containerNomeAmostra{
-	width: 100%;
+    width: 100%;
     height: auto;
     float: left;
     border-bottom: 1px solid #767171;
 }
-
+ 
 .containerLblNomeAmostrasTelaEditarAmostra{
-	width: 100%;
+    width: 100%;
     height: auto;
     float: left;
 }
-
+ 
 .containerLblNomeLegendaAmostrasTelaEditarAmostra{
-	width: 80%;
+    width: 80%;
     height: auto;
     text-align: center;
     margin: 34px 0px 30px 0px;
     float: left;
-    
-}
 
+}
+ 
 .centralizarNomeAmostraTelaEditarAmostra{
-	width: 75%;
+    width: 75%;
     height: auto;
     float: right;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
+ 
 .lblNomeAmostraTelaEditarAmostra{
-	font-size: 20px;
-	font-weight: bold;
-	color: var(--detalhes);
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--detalhes);
 }
-
+ 
 .btnLegendaAmostrasTelaEditarAmostra{
     height: 20px;
     width: 20px;
@@ -2764,66 +2764,66 @@ nav ul li button{
     cursor: pointer;
     margin: 0px 0px 0px 5px;
 }
-
+ 
 .containerLblDadosAmostraTelaEditarAmostra{
-	width: 100%; height: 100px;
-	display: flex;
+    width: 100%; height: 100px;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 .lblDadosAmostraTelaEditarAmostra{
-	font-size: 20px;
+    font-size: 20px;
     font-weight: bold;
 }
-
+ 
 .containerLblsDadoInfoAmostraTelaEditarAmostra{
-	width: 100%; height: auto;
-	border-top: 1px solid #767171;
+    width: 100%; height: auto;
+    border-top: 1px solid #767171;
 }
-
+ 
 .containerLblTipoInfoTelaEditarAmostra{
-	width: 25%; height: 100%;
-	float: left;
+    width: 25%; height: 100%;
+    float: left;
 }
-
+ 
 .lblsDadoInfoAmostraTelaEditarAmostra{
-	display: block;
-	margin: 20px 0px 20px 10%;
-	font-size: 18px; font-weight: bold;
+    display: block;
+    margin: 20px 0px 20px 10%;
+    font-size: 18px; font-weight: bold;
 }
-
+ 
 .containerLblsInfoAmostraTelaEditarAmostra{
-	width: 75%; height: 100%;
-	float: left;
-	border-left: 1px solid #767171;
+    width: 75%; height: 100%;
+    float: left;
+    border-left: 1px solid #767171;
 }
-
+ 
 .lblsInfoAmostraTelaEditarAmostra{
-	display: block;
-	margin: 20px 0px 20px 4%;
-	font-size: 18px;
-	color: var(--detalhes);
-	float: left;
-	border:none;
-	border-bottom:1px solid #767171;
-	background-color:transparent;
+    display: block;
+    margin: 20px 0px 20px 4%;
+    font-size: 18px;
+    color: var(--detalhes);
+    float: left;
+    border:none;
+    border-bottom:1px solid #767171;
+    background-color:transparent;
 }
-
+ 
 .linhaDadosAmostraTelaEditarAmostra{
-	width: 100%; height: auto;
-	border-bottom: 1px solid #767171;
-	float: left;
+    width: 100%; height: auto;
+    border-bottom: 1px solid #767171;
+    float: left;
 }
-
+ 
 .containerBtnsFinalizarExcluirAmostra{
-	width: 100%; height: 200px;
-	display: flex;
+    width: 100%; height: 200px;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
-
+ 
 .btnFinalizarAmostra{
-	float: left;
+    float: left;
     width: 188px;
     height: 47px;
     color: var(--fundo);
@@ -2833,10 +2833,10 @@ nav ul li button{
     margin: 0px 0px 0px 0;
     font-size: 20px;
 }
-
+ 
 
 .btnEcluirAmostra2{
-	width: 188px;
+    width: 188px;
     height: 47px;
     color: var(--fundo);
     border-radius: 30px;
@@ -2844,4 +2844,45 @@ nav ul li button{
     background-color: #FF0000;
     margin: 0px 0px 0px 0px;
     font-size: 20px;
+}
+ 
+.containerAjeitarBtnsEditarAmostra{
+    width: 33.33%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+@media (max-width: 820px){
+    .containerLblTipoInfoTelaEditarAmostra{
+    width: 100%;
+    }
+
+    .containerLblsInfoAmostraTelaEditarAmostra{
+    width: 100%;
+    border-left: none;
+    }
+
+    .lblsInfoAmostraTelaEditarAmostra{
+    margin: 10px 10% 20px 10%;
+    }
+
+    .btnFinalizarAmostra{
+    width: 100%;
+    }
+
+    .btnEcluirAmostra2{
+    width: 100%;
+    }
+
+    .containerBtnsFinalizarExcluirAmostra{
+    float: left;
+    }
+
+    .containerAjeitarBtnsEditarAmostra{
+    width: 100%;
+    height: 50%;
+    }
 }
