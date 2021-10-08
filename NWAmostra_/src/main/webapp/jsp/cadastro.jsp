@@ -4,7 +4,7 @@
 <html>
     <head>
         <title>Cadastre-se</title>
-        <link rel="icon" type="img/png" href="./img/logoNwAmostras.png" />
+        <link rel="icon" type="img/png" href="../img/logoNwAmostrasClaro.png" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

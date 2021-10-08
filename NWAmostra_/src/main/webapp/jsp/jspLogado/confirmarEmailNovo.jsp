@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Confirmar Alteração de Email</title>
-<link rel="icon" type="img/png" href="../../img/logoNwAmostras.png" />
+<link rel="icon" type="img/png" href="../../img/logoNwAmostrasClaro.png" />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

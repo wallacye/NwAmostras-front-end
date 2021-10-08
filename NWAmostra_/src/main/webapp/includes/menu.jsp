@@ -12,7 +12,6 @@
 
                 <ul>
                     <li><button class="buttonMenu" onclick="location.href='index.jsp#idConhecaNossasFuncionalidades'">Funcionalidades</button></li>
-                    <li><button class="buttonMenu" onclick="location.href='artigos.jsp'">Artigos</button></li>
                     <li><button class="buttonMenu" onclick="location.href='#contato'">Contato</button></li>
                     <li><button class="buttonMenu" onclick="location.href='login.jsp'">Login</button></li>
                     <li><button class="buttonMenu" id="btnModoClaroEscuro">

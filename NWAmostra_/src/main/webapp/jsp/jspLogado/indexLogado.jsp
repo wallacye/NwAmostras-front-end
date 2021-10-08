@@ -6,7 +6,7 @@
 		<meta charset="ISO-8859-1">
 		<title>Início</title>
 
-		<link rel="icon" type="img/png" href="../../img/logoNwAmostras.png" />
+		<link rel="icon" type="img/png" href="../../img/logoNwAmostrasClaro.png" />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -33,7 +33,7 @@
 	<ul>
 		<li><button class="btnInicioLogado" onclick="location.href=''">Projetos</button></li>
 		<li><button class="btnInicioLogado" onclick="location.href='telaInicialMapaAmostras.jsp'">Mapa de Amostras</button></li>
-		<li><button class="btnInicioLogado" onclick="location.href=''">Artigos</button></li>
+		<li><button class="btnInicioLogado" onclick="location.href='telaInicialAmostra.jsp'">Amostras</button></li>
 		<li><button class="btnInicioLogado" onclick="location.href='perfil.jsp'">
 			<img src="../../img/imgPerfilExemplo.png" class="" id="" alt="Perfil">
 		</button></li>
