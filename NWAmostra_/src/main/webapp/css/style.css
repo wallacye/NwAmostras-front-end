@@ -440,30 +440,6 @@ nav ul li button{
 
   /* Pagina Index Artigo */
 
-  .containerArtigoIndex{
-    float: left;
-    margin-top: 4%;
-    width: 100%;
-    text-align: center;
-  }
-
-  .containerPesquisaFiltro{
-    margin: 4% 5% 0% 5%;
-    width: 90%;
-    height: 40px;
-    border-radius: 30px;
-    border: var(--bordaPesquisaArtigos);
-  }
-
-  .buttonPesquisarArtigo{
-    height: 100%;
-    width: 4%;
-    float: left;
-    margin-left: 1%;
-    border: none;
-    background-color:transparent;
-  }
-
   .imgLupa{
     height: auto;
     max-height: 100%;
@@ -482,50 +458,12 @@ nav ul li button{
     margin-left: 1%;
   }
 
-  .buttonFiltrarArtigo{
-    height: 100%;
-    width: 4%;
-    float: right;
-    margin-right: 1%;
-    border: none;
-    background-color:transparent;
-  }
-
   .imgFiltro{
     height: auto;
     max-height: 100%;
     width:auto;
     max-width: 100%;
     filter: var(--iverterImg);
-  }
-
-  .containerPrincipaisArtigosIndex{
-    width: 90%;
-    height: auto;
-    margin: 4% 5% 0% 5%;
-    float: left;
-  }
-
-  .principaisArtigosIndex{
-    width: 50%;
-    float: left;
-  }
-
-  .containerImgInfoArtigo{
-    text-align: left;
-    width: 100%;
-    height: auto;
-  }
-
-  .imgArtigoIndex{
-    border: 1px solid #000;
-    float: left;
-    margin: 0% 3% 0% 0%;
-    height: 300px;
-  }
-
-  .lblArtigosIndex{
-    line-height: 35px;
   }
 
   .palavrasAzul{
@@ -539,49 +477,6 @@ nav ul li button{
   .palavrasPreto{
     color: var(--detalhes);
     font-size: 18px;
-  }
-
-  .containerResumoArtigoIndex{
-    width: 98%;
-    margin-top: 2%;
-    margin-right: 2%;
-    margin-bottom: 10%;
-    text-align: left;
-  }
-
-  @media (max-width:952px){
-    .principaisArtigosIndex{
-      width: 100%;
-      float: left;
-    }
-    .buttonFiltrarArtigo{
-      margin-right: 5%;
-    }
-    .inputBuscarArtigoIndex{
-      margin-left: 2%;
-      width: 78%;
-    }
-  }
-  
-  @media (max-width: 858px){
-    .principaisArtigosIndex{
-      width: 100%;
-      float: left;
-    }
-    .buttonFiltrarArtigo{
-      margin-right: 10%;
-    }
-    .inputBuscarArtigoIndex{
-      margin-left: 2%;
-      width: 78%;
-    }
-  }
-
-  @media (max-width: 620px){
-    .inputBuscarArtigoIndex{
-      margin-left: 5%;
-      width: 75%;
-    }
   }
 
   /*Rodape*/
@@ -1685,22 +1580,12 @@ nav ul li button{
   }
   
   .btnsFiltrosListaMapaAmostra{
-  	height: 20%;
+  	height: 25%;
   	width: 100%;
   	background-color: transparent;
   	border:none;
   	border-bottom: 1px solid #767171;
   	font-size: 20px;
-  	cursor: pointer;
-  }
-  
-  .btnFiltrarAmostraMapaAmostra{
-  	height: 20%;
-  	width: 100%;
-  	background-color: transparent;
-  	border:none;
-  	font-size: 20px;
-  	font-weight: bold;
   	cursor: pointer;
   }
   
@@ -1882,7 +1767,6 @@ nav ul li button{
   }
   
   .lblNomeMapaDeAmostras{
-  	color: var(--detalhes);
   	font-size: 20px;
   	font-weight: bold;
   }
@@ -1905,6 +1789,7 @@ nav ul li button{
   .lblFreezerEstanteCaixa{
   	font-size: 18px;
   	font-weight: bold;
+  	color: var(--detalhes);
   }
   
   .lblLocallizacaoMapaAmostras{

@@ -32,20 +32,20 @@
 	
 	<div class="containerTelaMapaDeAmsotras">
 		<div class="containerNomeMapaDeAmostras">
-			<label class="lblNomeMapaDeAmostras">Exemplo de nome do Mapa de Amostra</label>
+			<label class="lblNomeMapaDeAmostras palavrasAzul">Exemplo de nome do Mapa de Amostra</label>
 		</div>
 		
 		<div class="containerDivsLocalizacaoMapaAmostra">
 			<div class="containerLblLocalizaçãoMapaAmostras">
-				<label class="palavrasAzul lblFreezerEstanteCaixa">Freezer -</label>
+				<label class="lblFreezerEstanteCaixa">Freezer -</label>
 				<label class="lblLocallizacaoMapaAmostras">&nbsp; 1</label>
 			</div>
 			<div class="containerLblLocalizaçãoMapaAmostras">
-				<label class="palavrasAzul lblFreezerEstanteCaixa">Estante -</label>
+				<label class="lblFreezerEstanteCaixa">Estante -</label>
 				<label class="lblLocallizacaoMapaAmostras">&nbsp; A</label>
 			</div>
 			<div class="containerLblLocalizaçãoMapaAmostras">
-				<label class="palavrasAzul lblFreezerEstanteCaixa">Caixa -</label>
+				<label class="lblFreezerEstanteCaixa">Caixa -</label>
 				<label class="lblLocallizacaoMapaAmostras">&nbsp; A10</label>
 			</div>
 		</div>

@@ -87,6 +87,32 @@
 			</div>
 		</div>
 		
+		<button class="btnListaMapaAmostras" onclick="location.href='amostra.jsp'">
+		<table class="listaMapaAmostras">
+    		<tr>
+        		<td class="palavrasAzul tituloMapaAmostraLista">Mapa de Amostras Exemplo A</td>
+        		<td></td>
+        		<td></td>
+    		</tr>
+    		<tr>
+        		<td> &emsp;</td>
+        		<td> &emsp;</td>
+        		<td> &emsp;</td>
+    		</tr>
+    		<tr>
+        		<td class="autorMapaAmostraLista">Categoria Vírus</td>
+        		<td></td>
+        		<td class="palavrasAzul dataMapaAmostrasLista">00/00/0000</td>
+    		</tr>
+    		<tr>
+    			<td class="autorMapaAmostraLista">Localização: Mapa de Amostra exemplo A</td>
+    		</tr>
+    		<tr>
+    			<td class="autorMapaAmostraLista">Posição: 1 - 1</td>
+    		</tr>
+		</table>
+		</button>
+		
 	</div>
 
 </body>
