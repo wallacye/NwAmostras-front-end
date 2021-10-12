@@ -24,6 +24,14 @@
 		document.getElementById('idLegendaMapaAmostras').style.display = 'none';
 	}
 	
+	function abrirPopUpExcluirMapaAmostras(){
+		document.getElementById('idPopUpAtencaoExcluirMapaAmostras').style.display = 'block';
+	}
+
+	function fecharPopUpExcluirMapaAmostras(){
+		document.getElementById('idPopUpAtencaoExcluirMapaAmostras').style.display = 'none';
+	}
+	
 </script>
 
 </head>
@@ -92,9 +100,36 @@
 		</div>
 		
 		<div class="containerBtnsAlterarExcluirMapaAmostra">
-			<button class="btnAlterarMapaAmostra" onclick="location.href=''">Alterar</button>
-			<button class="btnExcluirMapaAmostra" onclick="location.href=''">Excluir</button>
+			<button class="btnAlterarMapaAmostra" onclick="location.href='alterarMapaDeAmostras.jsp'">Alterar</button>
+			<button class="btnExcluirMapaAmostra" onclick="location.href='javascript: abrirPopUpExcluirMapaAmostras();'">Excluir</button>
 		</div>
+			
+		<div class="popUpAtencaoExcluirMapaAmostras" id="idPopUpAtencaoExcluirMapaAmostras">
+			<div class="containerPopUpAtencaoExcluirMapaAmostras">
+				<div class="containerTituloAtencaoExcluirMapaAmostras">
+					<div style="width:100%;display: flex;justify-content: center;align-items: center; margin-top: 30px;">
+						<label class="lblTituloAtencaoExcluirMapaAmostras">ATENÇÂO</label>
+					</div>
+					<div style="width:100%;display: flex;justify-content: center;align-items: center; margin-top: 5px;">
+						<div class="detalheLblTituloAtençaoExcluirMapaAmostras"></div>
+					</div>
+					
+					<div class="containerLblInfoExcluirMapaAmostra">
+						<label class="lblInfoExcluirMapaAmostras">Tem certeza que deseja excluir o mapa de amostra?</label>
+					</div>
+					
+					<div class="containerMasterExcluirMapaAmostras">
+						<div class="containersBtnsExcluirMapaAmostras">
+							<button class="btnSimExcluirMapaAmostras" onclick="location.href=''">Sim</button>
+						</div>
+						<div class="containersBtnsExcluirMapaAmostras">
+							<button class="btnCancelarExcluirMapaAmostras" onclick="location.href='javascript: fecharPopUpExcluirMapaAmostras();'">Cancelar</button>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>	
 			
 		<%@ include file="../../includes/rodape.jsp" %>
 	</div>

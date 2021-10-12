@@ -13,6 +13,18 @@
 <script type="text/javascript" src="../../js/nwAmostrasScript.js" defer></script>
 
 <script type="text/javascript" src="../../js/menuResponsivo.js" defer></script>
+
+<script type="text/javascript">
+	function abrirPopUpExcluirAmostra(){
+		document.getElementById('idPopUpAtencaoExcluirAmostra').style.display = 'block';
+	}
+
+	function fecharPopUpExcluirAmostra(){
+		document.getElementById('idPopUpAtencaoExcluirAmostra').style.display = 'none';
+	}
+	
+</script>
+
 </head>
 <body>
 	<%@ include file="../../includes/menuLogado.jsp" %>
@@ -261,9 +273,36 @@
 		<button class="btnAdicionarRetirarVolumeAmostra" onclick="location.href=''">Adicionar ou retirar volume</button>
 		</div>
 		<div class="containerAjeitarBtnsAmostra">
-		<button class="btnEcluirAmostra" onclick="location.href=''">Excluir</button>
+		<button class="btnEcluirAmostra" onclick="location.href='javascript: abrirPopUpExcluirAmostra();'">Excluir</button>
 		</div>
 		</div>
+		
+		<div class="popUpAtencaoExcluirAmostra" id="idPopUpAtencaoExcluirAmostra">
+			<div class="containerPopUpAtencaoExcluirMapaAmostras">
+				<div class="containerTituloAtencaoExcluirMapaAmostras">
+					<div style="width:100%;display: flex;justify-content: center;align-items: center; margin-top: 30px;">
+						<label class="lblTituloAtencaoExcluirMapaAmostras">ATENÇÂO</label>
+					</div>
+					<div style="width:100%;display: flex;justify-content: center;align-items: center; margin-top: 5px;">
+						<div class="detalheLblTituloAtençaoExcluirMapaAmostras"></div>
+					</div>
+					
+					<div class="containerLblInfoExcluirMapaAmostra">
+						<label class="lblInfoExcluirMapaAmostras">Tem certeza que deseja excluir essa amostra?</label>
+					</div>
+					
+					<div class="containerMasterExcluirMapaAmostras">
+						<div class="containersBtnsExcluirMapaAmostras">
+							<button class="btnSimExcluirMapaAmostras" onclick="location.href=''">Sim</button>
+						</div>
+						<div class="containersBtnsExcluirMapaAmostras">
+							<button class="btnCancelarExcluirMapaAmostras" onclick="location.href='javascript: fecharPopUpExcluirAmostra();'">Cancelar</button>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>	
 		
 		<%@ include file="../../includes/rodape.jsp" %>
 	</div>

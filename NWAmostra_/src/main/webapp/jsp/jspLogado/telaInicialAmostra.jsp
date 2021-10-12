@@ -90,7 +90,7 @@
 		<button class="btnListaMapaAmostras" onclick="location.href='amostra.jsp'">
 		<table class="listaMapaAmostras">
     		<tr>
-        		<td class="palavrasAzul tituloMapaAmostraLista">Mapa de Amostras Exemplo A</td>
+        		<td class="palavrasAzul tituloMapaAmostraLista">001 Amostra A</td>
         		<td></td>
         		<td></td>
     		</tr>
