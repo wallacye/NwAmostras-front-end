@@ -14,10 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import conexao.Conexao;
 
-@WebServlet(name = "inserirMapaDeAmostras", urlPatterns = {"/inserirMapaDeAmostra"})
-
+@WebServlet("/inserirMapaDeAmostra")
 public class inserirMapaDeAmostras extends HttpServlet {
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
