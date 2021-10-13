@@ -41,11 +41,11 @@
 				</div>
 				<div class="containerLblTxtCriarMapaAmostra">
 					<label class="lblTxtCriarMapaAmostra palavrasAzul">Número de colunas*</label>
-					<input type="text" class="txtCriarMapaAmostras" placeholder="Digite o número de colunas do mapa" id="txtColunasMapaDeAmostras" name="txtNumeroColunasMapaDeAmostras"/>
+					<input type="number" class="txtCriarMapaAmostras" placeholder="Digite o número de colunas do mapa" id="txtColunasMapaDeAmostras" name="txtColunasMapaDeAmostras"/>
 				</div>
 				<div class="containerLblTxtCriarMapaAmostra">
 					<label class="lblTxtCriarMapaAmostra palavrasAzul">Número de linhas*</label>
-					<input type="text" class="txtCriarMapaAmostras" placeholder="Digite o número de linhas do mapa" id="txtLinhasMapaDeAmostras" name="txtLinhasMapaDeAmostras"/>
+					<input type="number" class="txtCriarMapaAmostras" placeholder="Digite o número de linhas do mapa" id="txtLinhasMapaDeAmostras" name="txtLinhasMapaDeAmostras"/>
 				</div>
 			</div>
 			
