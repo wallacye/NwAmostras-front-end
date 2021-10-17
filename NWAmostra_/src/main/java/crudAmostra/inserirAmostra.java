@@ -36,7 +36,7 @@ public class inserirAmostra extends HttpServlet {
                     String sqlInserirAmostra = "INSERT INTO amostra (coletador_amostra, anotacoes_amostra, tipo_amostra, id_categoria, id_origem, data_inativacao_amostra)"
                     + " VALUES ('" + coletador_amostra  + "','" + anotacoes_amostra + "','" + tipo_amostra + "','" + id_categoria + "','" + id_origem + "','" + data_inativacao_amostra + "')";
 
-                    Connection con = Conexao.conexao();
+                    Connection con = Conexao.Conectar();
                     Statement stInserirAmostra = con.prepareStatement(sqlInserirAmostra);
                     stInserirAmostra.execute(sqlInserirAmostra);
                     response.sendRedirect("/jspLogado/mapaAmostras.jsp");
