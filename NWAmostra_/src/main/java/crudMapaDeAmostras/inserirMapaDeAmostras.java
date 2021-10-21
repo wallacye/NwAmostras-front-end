@@ -18,11 +18,13 @@ import conexao.Conexao;
 @WebServlet("/inserirMapaDeAmostra")
 public class inserirMapaDeAmostras extends HttpServlet {
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
+		
 		PrintWriter out = response.getWriter();
-        try {
-        	
+		
+        try{
         	String estante_mapa_amostra = request.getParameter("txtEstanteMapaDeAmostras");		
         	String nome_mapa_amostra = request.getParameter("txtNomeMapaDeAmostras");						
         	String freezer_mapa_amostra = request.getParameter("txtFreezerMapaDeAmostras");

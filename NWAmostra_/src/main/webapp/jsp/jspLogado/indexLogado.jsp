@@ -31,7 +31,7 @@
 	
 	<div class="containerBtnsInicioLogado">
 	<ul>
-		<li><button class="btnInicioLogado" onclick="location.href=''">Projetos</button></li>
+		<li><button class="btnInicioLogado" onclick="location.href='telaInicialProjetos.jsp'">Projetos</button></li>
 		<li><button class="btnInicioLogado" onclick="location.href='telaInicialMapaAmostras.jsp'">Mapa de Amostras</button></li>
 		<li><button class="btnInicioLogado" onclick="location.href='telaInicialAmostra.jsp'">Amostras</button></li>
 		<li><button class="btnInicioLogado" onclick="location.href='perfil.jsp'">

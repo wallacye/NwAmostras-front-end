@@ -2907,3 +2907,140 @@ nav ul li button{
     background-color: var(--decoracaoTitulosCorFundo);
     margin-top: 10px;
 }
+
+/* Tela Inicial Projetos */
+
+.containerTelaInicialProjetos{
+	width: 100%;
+    height: auto;
+    float: left;
+    margin-top: 80px;
+}
+
+.containerBtnNovoBuscarProjetos{
+	width: 100%;
+    height: auto;
+    float: left;
+}
+
+.containerBtnNovoProjeto{
+	width: 30%;
+    height: auto;
+    float: left;
+}
+
+.btnNovoProjeto{
+	width: 75%;
+    height: 40px;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--decoracaoTitulosCorFundo);
+    color: var(--fundo);
+    font-size: 20px;
+    margin: 40px 12.5% 0px 12.5%;
+}
+
+.containerBuscarProjeto{
+	width: 70%;
+    height: auto;
+    float: left;
+}
+
+.containerPessquisarFiltroProjeto{
+	margin: 40px 7% 0% 3%;
+    width: 90%;
+    height: 40px;
+    border-radius: 30px;
+    border: var(--bordaPesquisaArtigos);
+}
+
+.buttonPesquisarProjeto{
+	height: 100%;
+    width: 4%;
+    float: left;
+    margin-left: 1%;
+    border: none;
+    background-color: transparent;
+}
+
+.inputBuscarProjeto{
+	float: left;
+    background-color: transparent;
+    font-size: 18px;
+    border: none;
+    height: 100%;
+    width: 80%;
+    margin-left: 3%;
+    color: var(--detalhes);
+}
+
+.buttonFiltrarProjeto{
+	height: 100%;
+    width: 4%;
+    float: right;
+    margin-right: 3%;
+    border: none;
+    background-color: transparent;
+}
+
+.containerFiltroListaProjeto{
+	display: none;
+    background-color: var(--fundo);
+    height: 377px;
+    width: 300px;
+    position: absolute;
+    right: 5%;
+    margin-top: 40px;
+    border-radius: 8px;
+    border: 1px solid #767171;
+    box-shadow: -1px 3px 0.5em black;
+}
+
+.btnsFiltrosListaProjeto{
+	height: 16.66%;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #767171;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.containerTituloProjetosData{
+	width: 100%;
+    height: auto;
+    float: left;
+    border-bottom: 1px solid #767171;
+	
+}
+
+@media (max-width: 820px){
+	.containerBtnNovoBuscarProjetos{
+	width: 100%;
+	}
+	
+	.containerBuscarProjetos{
+    width: 100%;
+	}
+	
+	.containerBtnNovoProjeto {
+    width: 100%;
+	}
+	
+	.btnNovoProjeto {
+    width: 90%;
+    margin: 40px 5% 0px 5%;
+	}
+	
+	.containerBuscarProjeto {
+    width: 100%;
+	}
+
+	.containerPessquisarFiltroProjeto {
+    margin: 25px 5% 0% 5%;
+	}
+	
+	.containerFiltroListaProjeto {
+    width: 90%;
+	}
+}

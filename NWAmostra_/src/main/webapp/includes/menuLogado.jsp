@@ -11,7 +11,7 @@
                 </button>
 
                 <ul>
-                    <li><button class="buttonMenu" onclick="location.href=''">Projetos</button></li>
+                    <li><button class="buttonMenu" onclick="location.href='telaInicialProjetos.jsp'">Projetos</button></li>
                     <li><button class="buttonMenu" onclick="location.href='telaInicialMapaAmostras.jsp'">Mapa de Amostras</button></li>
                     <li><button class="buttonMenu" onclick="location.href='telaInicialAmostra.jsp'">Amostras</button></li>
                     <li><button class="buttonMenu" id="idButtonMenuPerfilLogado" onclick="location.href='perfil.jsp'">
