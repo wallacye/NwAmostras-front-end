@@ -16,7 +16,7 @@
 
 <script type="text/javascript">
 
-	function abrirFiltrarMapaAmostra(){
+	function abrirFiltrarProjeto(){
 	
 	if(document.getElementById('idContainerFiltroListaProjeto').style.display == 'block'){
 		document.getElementById('idContainerFiltroListaProjeto').style.display = 'none';
@@ -37,7 +37,7 @@
 	
 		<div class="containerBtnNovoBuscarProjetos">
 			<div class="containerBtnNovoProjeto">
-			<button class="btnNovoProjeto" onclick="location.href='criarMapaAmostras.jsp'">Novo +</button>
+			<button class="btnNovoProjeto" onclick="location.href=''">Novo +</button>
 			</div>
 			<div class="containerBuscarProjeto">
 				<div class="containerPessquisarFiltroProjeto">
@@ -48,7 +48,7 @@
                 
                 <input type="text" class="inputBuscarProjeto" placeholder="Buscar"/>
                 
-                <button class="buttonFiltrarProjeto" onclick="location.href='javascript: abrirFiltrarMapaAmostra();'">
+                <button class="buttonFiltrarProjeto" onclick="location.href='javascript: abrirFiltrarProjeto();'">
                     <img src="../../img/filtro.png" class="imgFiltro" alt="">
                 </button>
                 
