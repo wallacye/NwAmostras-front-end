@@ -3,6 +3,7 @@ package crudMapaDeAmostras;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDateTime;
@@ -31,17 +32,25 @@ public class inserirMapaDeAmostras extends HttpServlet {
         	String caixa_mapa_amostra = request.getParameter("txtCaixaMapaDeAmostras");
         	Integer n_coluna_mapa_amostra = Integer.parseInt(request.getParameter("txtColunasMapaDeAmostras"));
         	Integer n_linha_mapa_amostra = Integer.parseInt(request.getParameter("txtLinhasMapaDeAmostras"));
-        	LocalDateTime data_inativacao_mapa_amostra = null;
+        	//LocalDateTime data_inativacao_mapa_amostra = null;
 
             String sqlInserirMapaDeAmostras = 
             "INSERT INTO mapa_de_amostras (estante_mapa_amostra, nome_mapa_amostra, freezer_mapa_amostra, caixa_mapa_amostra, n_coluna_mapa_amostra, n_linha_mapa_amostra, data_inativacao_mapa_amostra)"
-            + " VALUES "
-            + "('" + estante_mapa_amostra  + "','" + nome_mapa_amostra + "','" + freezer_mapa_amostra + "','" + caixa_mapa_amostra + "','" + n_coluna_mapa_amostra + "','" + n_linha_mapa_amostra + "','" + data_inativacao_mapa_amostra + "')";
+            + " VALUES (?, ?, ?, ?, ?, ?, ?)";
+            //+ "('" + estante_mapa_amostra  + "','" + nome_mapa_amostra + "','" + freezer_mapa_amostra + "','" + caixa_mapa_amostra + "','" + n_coluna_mapa_amostra + "','" + n_linha_mapa_amostra + "','" + data_inativacao_mapa_amostra + "')";
 
             Connection con = Conexao.Conectar();
-            Statement stInserirMapaDeAmostras = con.prepareStatement(sqlInserirMapaDeAmostras);
-            stInserirMapaDeAmostras.execute(sqlInserirMapaDeAmostras);
-            response.sendRedirect("/jspLogado/telaInicialMapaAmostras.jsp");
+            PreparedStatement stInserirMapaDeAmostras = con.prepareStatement(sqlInserirMapaDeAmostras);
+            stInserirMapaDeAmostras.setString(1, estante_mapa_amostra);
+            stInserirMapaDeAmostras.setString(2, nome_mapa_amostra);
+            stInserirMapaDeAmostras.setString(3, freezer_mapa_amostra);
+            stInserirMapaDeAmostras.setString(4, caixa_mapa_amostra);
+            stInserirMapaDeAmostras.setInt(5, n_coluna_mapa_amostra);
+            stInserirMapaDeAmostras.setInt(6, n_linha_mapa_amostra);
+            stInserirMapaDeAmostras.setDate(7, null);
+            stInserirMapaDeAmostras.executeUpdate();
+            
+            response.sendRedirect("./jsp/jspLogado/telaInicialMapaAmostras.jsp");
 
         } catch (SQLException ex) {
             out.print("Erro na conexão: " + ex);
