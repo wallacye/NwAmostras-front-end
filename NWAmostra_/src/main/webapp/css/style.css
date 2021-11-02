@@ -567,7 +567,7 @@ nav ul li button{
   .containerEsqueceuSenha{
     width: 80%;
     margin-left: 35px;
-    margin-top: 35px;
+    margin-top: 20px;
   }
 
   .containerBtnLogar{
@@ -588,6 +588,17 @@ nav ul li button{
     color: var(--fundo);
     font-size: 20px;
   }
+
+.containerErrosLogin{
+	width: 80%;
+    margin-left: 35px;
+    margin-top: 10px;
+}
+
+.errosLoginP{
+	color:#FF0000;
+	font-size: 18px;
+}
 
   @media (max-width: 858px){
     
