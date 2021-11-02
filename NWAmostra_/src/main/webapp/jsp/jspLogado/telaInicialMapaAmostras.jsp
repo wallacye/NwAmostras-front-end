@@ -1,3 +1,4 @@
+<%@ include file="../../includes/validacao.jsp" %>
 <%@page import="model.MapaDeAmostras" %>
 <%@page import="java.util.ArrayList" %>
 <%@page import="crudMapaDeAmostras.exibirMapaDeAmostras" %>

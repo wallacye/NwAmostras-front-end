@@ -82,7 +82,7 @@ function fecharPopUpDesativar(){
 			</div>
 		</div>
 		<div class="containersInformacoesMeuPerfil">
-			<div class="containerLinksMeuPerfil"><a href="../index.jsp" class="linksMeuPerfil linkDeslogar" >Sair</a></div>
+			<div class="containerLinksMeuPerfil"><a href="/NWAmostra_/Logout" class="linksMeuPerfil linkDeslogar" >Sair</a></div>
 			<div class="containerTxtsInformacoesMeuPerfil">
 				<a href="" class="linkCriarInstituicaoMeuPerfil palavrasAzul">Criar instituição</a>
 			</div>
@@ -94,7 +94,7 @@ function fecharPopUpDesativar(){
 			<div class="containerLinksMeuPerfil containerLinksMeuPerfilModoCelular"><a href="" class="linksMeuPerfil palavrasAzul" >Sobre a empresa</a></div>
 			<div class="containerLinksMeuPerfil containerLinksMeuPerfilModoCelular"><a href="" class="linksMeuPerfil palavrasAzul" >Sugestão</a></div>
 			<div class="containerLinksMeuPerfil containerLinksMeuPerfilModoCelular" id="idContainerLinksMeuPerfilModoCelularDesativarConta"><a href="javascript: abrirPopUpDesativar();" class="linksMeuPerfil palavrasAzul" >Desativar  conta</a></div>
-			<div class="containerLinksMeuPerfil containerLinksMeuPerfilModoCelular"><a href="../index.jsp" class="linksMeuPerfil linkDeslogar" >Sair</a></div>
+			<div class="containerLinksMeuPerfil containerLinksMeuPerfilModoCelular"><a href="../../NWAmostra_/Logout" class="linksMeuPerfil linkDeslogar" >Sair</a></div>
 		</div>
 	</div>
 	
