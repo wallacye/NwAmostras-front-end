@@ -6,7 +6,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,11 +34,13 @@ public class inserirMapaDeAmostras extends HttpServlet {
         	String caixa_mapa_amostra = request.getParameter("txtCaixaMapaDeAmostras");
         	Integer n_coluna_mapa_amostra = Integer.parseInt(request.getParameter("txtColunasMapaDeAmostras"));
         	Integer n_linha_mapa_amostra = Integer.parseInt(request.getParameter("txtLinhasMapaDeAmostras"));
+        	
+            java.sql.Date data_mapa_amostra = new java.sql.Date(System.currentTimeMillis());
         	//LocalDateTime data_inativacao_mapa_amostra = null;
 
             String sqlInserirMapaDeAmostras = 
-            "INSERT INTO mapa_de_amostras (estante_mapa_amostra, nome_mapa_amostra, freezer_mapa_amostra, caixa_mapa_amostra, n_coluna_mapa_amostra, n_linha_mapa_amostra, data_inativacao_mapa_amostra)"
-            + " VALUES (?, ?, ?, ?, ?, ?, ?)";
+            "INSERT INTO mapa_de_amostras (estante_mapa_amostra, nome_mapa_amostra, freezer_mapa_amostra, caixa_mapa_amostra, n_coluna_mapa_amostra, n_linha_mapa_amostra, data_inativacao_mapa_amostra, data_mapa_amostra)"
+            + " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             //+ "('" + estante_mapa_amostra  + "','" + nome_mapa_amostra + "','" + freezer_mapa_amostra + "','" + caixa_mapa_amostra + "','" + n_coluna_mapa_amostra + "','" + n_linha_mapa_amostra + "','" + data_inativacao_mapa_amostra + "')";
 
             Connection con = Conexao.Conectar();
@@ -48,6 +52,7 @@ public class inserirMapaDeAmostras extends HttpServlet {
             stInserirMapaDeAmostras.setInt(5, n_coluna_mapa_amostra);
             stInserirMapaDeAmostras.setInt(6, n_linha_mapa_amostra);
             stInserirMapaDeAmostras.setDate(7, null);
+            stInserirMapaDeAmostras.setDate(8, data_mapa_amostra);
             stInserirMapaDeAmostras.executeUpdate();
             
             response.sendRedirect("./jsp/jspLogado/telaInicialMapaAmostras.jsp");

@@ -17,6 +17,8 @@ public class MapaDeAmostras extends HttpServlet {
 	private Integer n_coluna_mapa_amostra;
 	private Integer n_linha_mapa_amostra;
 	private Date data_inativacao_mapa_amostra;
+	private Date data_mapa_amostra;
+	private String data_mapa_amostra_formatada;
 	
 	public Integer getN_linha_mapa_amostra() {
 		return n_linha_mapa_amostra;
@@ -65,6 +67,18 @@ public class MapaDeAmostras extends HttpServlet {
 	}
 	public void setData_inativacao_mapa_amostra(Date data_inativacao_mapa_amostra) {
 		this.data_inativacao_mapa_amostra = data_inativacao_mapa_amostra;
+	}
+	public Date getData_mapa_amostra() {
+		return data_mapa_amostra;
+	}
+	public void setData_mapa_amostra(Date data_mapa_amostra) {
+		this.data_mapa_amostra = data_mapa_amostra;
+	}
+	public String getData_mapa_amostra_formatada() {
+		return data_mapa_amostra_formatada;
+	}
+	public void setData_mapa_amostra_formatada(String data_mapa_amostra_formatada) {
+		this.data_mapa_amostra_formatada = data_mapa_amostra_formatada;
 	}
 
 }

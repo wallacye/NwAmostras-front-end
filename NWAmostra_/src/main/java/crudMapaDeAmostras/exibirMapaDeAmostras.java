@@ -5,8 +5,10 @@ import conexao.Conexao;
 import model.MapaDeAmostras;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.annotation.WebServlet;
@@ -37,6 +39,19 @@ public class exibirMapaDeAmostras extends HttpServlet {
                 dados.setN_coluna_mapa_amostra(rsExibirMapaDeAmostras.getInt("n_coluna_mapa_amostra"));
                 dados.setN_linha_mapa_amostra(rsExibirMapaDeAmostras.getInt("n_linha_mapa_amostra"));
                 dados.setData_inativacao_mapa_amostra(rsExibirMapaDeAmostras.getDate("data_inativacao_mapa_amostra"));
+                dados.setData_mapa_amostra(rsExibirMapaDeAmostras.getDate("data_mapa_amostra"));
+                
+                Date dataParaConverter = rsExibirMapaDeAmostras.getDate("data_mapa_amostra"); 
+                
+                if(dataParaConverter != null) {
+                java.util.Date utilDate = new java.util.Date(dataParaConverter.getTime());
+                String DataFormatada = new SimpleDateFormat("dd/MM/yyyy").format(utilDate);  
+
+                dados.setData_mapa_amostra_formatada(DataFormatada);
+                }
+                else {
+                    dados.setData_mapa_amostra_formatada(null);
+                }
                 Conteudo.add(dados);
             }
             rsExibirMapaDeAmostras.close();
