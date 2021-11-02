@@ -1,6 +1,6 @@
 package model;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,15 +16,8 @@ public class MapaDeAmostras extends HttpServlet {
 	private String caixa_mapa_amostra;
 	private Integer n_coluna_mapa_amostra;
 	private Integer n_linha_mapa_amostra;
-	private LocalDateTime data_inativacao_mapa_amostra;
+	private Date data_inativacao_mapa_amostra;
 	
-	public LocalDateTime getData_inativacao_mapa_amostra() {
-		return data_inativacao_mapa_amostra;
-	}
-	public void setData_inativacao_mapa_amostra(LocalDateTime data_inativacao_mapa_amostra) {
-		this.data_inativacao_mapa_amostra = data_inativacao_mapa_amostra;
-	}
-
 	public Integer getN_linha_mapa_amostra() {
 		return n_linha_mapa_amostra;
 	}
@@ -66,6 +59,12 @@ public class MapaDeAmostras extends HttpServlet {
 	}
 	public void setNome_mapa_amostra(String nome_mapa_amostra) {
 		this.nome_mapa_amostra = nome_mapa_amostra;
+	}
+	public Date getData_inativacao_mapa_amostra() {
+		return data_inativacao_mapa_amostra;
+	}
+	public void setData_inativacao_mapa_amostra(Date data_inativacao_mapa_amostra) {
+		this.data_inativacao_mapa_amostra = data_inativacao_mapa_amostra;
 	}
 
 }

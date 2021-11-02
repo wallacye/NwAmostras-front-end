@@ -1,4 +1,13 @@
 <%@ include file="../../includes/validacao.jsp" %>
+<%@page import="model.MapaDeAmostras" %>
+<%@page import="java.util.ArrayList" %>
+<%@page import="crudMapaDeAmostras.exibirMapaDeAmostras" %>
+
+<%
+	exibirMapaDeAmostras dao = new exibirMapaDeAmostras();
+    ArrayList<MapaDeAmostras> lista = dao.listar();
+%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -76,27 +85,31 @@
 			</div>
 		</div>
 		
+		<% if(lista.size() >= 1){ %>
+		<% for(MapaDeAmostras conteudo : lista) {%>		
 		<button class="btnListaMapaAmostras" onclick="location.href='mapaAmostras.jsp'">
 		<table class="listaMapaAmostras">
     		<tr>
-        		<td class="palavrasAzul tituloMapaAmostraLista">Mapa de Amostras Exemplo A</td>
+        		<td class="palavrasAzul tituloMapaAmostraLista"><%= conteudo.getNome_mapa_amostra() %></td>
         		<td></td>
         		<td></td>
     		</tr>
     		<tr>
         		<td></td>
         		<td></td>
-        		<td class="palavrasAzul dataMapaAmostrasLista">00/00/00</td>
+        		<td class="palavrasAzul dataMapaAmostrasLista"><%= conteudo.getId_mapa_amostra() %></td>
     		</tr>
     		<tr>
-        		<td class="autorMapaAmostraLista">Autor: Exemplo 1</td>
+        		<td class="autorMapaAmostraLista"><%= conteudo.getFreezer_mapa_amostra() %> <%= conteudo.getEstante_mapa_amostra() %> <%= conteudo.getCaixa_mapa_amostra() %></td>
         		<td></td>
         		<td></td>
     		</tr>
 		</table>
 		</button>
-		
-	</div>
-	
+		<%
+                 								}
+								}
+        %>                  
+		</div>	
 </body>
 </html>
