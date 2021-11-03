@@ -512,7 +512,7 @@ nav ul li button{
 
   .containerInfoLogin{
     width: 448px;
-    height: 468px;
+    height: auto;
     margin: 180px 0% 100px 0%;
     border-radius: 20px;
     box-shadow: 0 0 0.5em black;
@@ -587,6 +587,7 @@ nav ul li button{
     background-color: var(--decoracaoTitulosCorFundo);
     color: var(--fundo);
     font-size: 20px;
+    margin-bottom: 30px;
   }
 
 .containerErrosLogin{
@@ -616,6 +617,11 @@ nav ul li button{
 
 /*Tela cadastro*/
 
+.containerErrosCadPesq{
+  width: 80%;
+  margin-left: 35px;
+}
+
 .containerTelaCad{
   width: 100%;
   height: auto;
@@ -628,7 +634,7 @@ nav ul li button{
 .containerInfoCad{
   margin: 150px 0px 70px 0px;
   width: 448px;
-  height: 740px;
+  height: auto;
   border-radius: 20px;
   box-shadow: 0 0 0.5em black;
 }

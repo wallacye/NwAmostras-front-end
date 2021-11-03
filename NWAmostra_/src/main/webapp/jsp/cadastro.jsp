@@ -1,3 +1,15 @@
+<%
+    int erro;
+
+    request.getSession().getAttribute("erro");
+   // int erro = (Integer) session.getAttribute("erro");
+    if ((Integer) session.getAttribute("erro") == null){
+       erro = 0;
+    }
+    else{
+       erro = (Integer) session.getAttribute("erro") ;
+    }
+%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -35,6 +47,11 @@
                     <div class="containerEmailSenha">
                         <div class="containerLblsLoginCad"><label class="palavrasAzul lblsLoginCad">Nome*</label></div>
                         <input type="text" class="txtLoginCad" id="nomePesqTxtLoginCad" name="nomePesqTxtLoginCad" placeholder="Digite seu nome"/>
+                        <%if (erro == 1){%>
+                        <div class="containerErrosCadPesq">
+                    	<p class="errosLoginP">Não pode conter caracteres especiais!</p>
+                    	</div>
+        				<%}%>
                     </div>
                     <div class="containerEmailSenha">
                         <div class="containerLblsLoginCad"><label class="palavrasAzul lblsLoginCad">CPF*</label></div>

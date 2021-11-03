@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import javax.servlet.ServletException;
@@ -21,6 +23,8 @@ public class inserirPesquisador extends HttpServlet {
 		PrintWriter out = response.getWriter();
         
         try{
+        	HttpSession session = request.getSession();
+        	
             String nome_pesq = request.getParameter("nomePesqTxtLoginCad");
             String cpf_pesq = request.getParameter("cpfPesqTxtLoginCad");
             String email_pesq  = request.getParameter("emailPesqTxtLoginCad");
@@ -31,6 +35,16 @@ public class inserirPesquisador extends HttpServlet {
             
             String passMD5 = Senha.passMD5(senha_pesq);
             String passSHA512 = Senha.passSHA512(passMD5);
+            
+            Pattern p = Pattern.compile("[^A-Za-z0-9 ]");
+            Matcher m = p.matcher(nome_pesq);
+           // boolean b = m.matches();
+            boolean b = m.find();
+            
+            if(b == true){
+            	session.setAttribute("erro",1);
+                response.sendRedirect("./jsp/cadastro.jsp");
+            }else {
             
             String sqlInserirPesquisador = "INSERT INTO pesquisador (nome_pesq, cpf_pesq, email_pesq, senha_pesq, cargo, tema_claro_escuro) "
             + "VALUES (?, ?, ?, ?, ?, ?)";
@@ -44,7 +58,7 @@ public class inserirPesquisador extends HttpServlet {
             stInserirPesquisador.setInt(5, cargo);
             stInserirPesquisador.setInt(6, tema_claro_escuro);
             stInserirPesquisador.executeUpdate();
-            response.sendRedirect("./jsp/login.jsp");
+            response.sendRedirect("./jsp/login.jsp");}
         }
         catch(SQLException e){
             out.print("Erro na inserção de dados: " + e);
