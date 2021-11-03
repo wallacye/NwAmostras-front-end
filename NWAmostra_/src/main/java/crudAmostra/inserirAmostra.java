@@ -32,7 +32,7 @@ public class inserirAmostra extends HttpServlet {
                 	LocalDateTime data_inativacao_amostra = LocalDateTime.parse(request.getParameter("txtDataInativacaoAmostra"));
 
                     String sqlInserirAmostra = "INSERT INTO amostra (coletador_amostra, anotacoes_amostra, tipo_amostra, id_categoria, id_origem, data_inativacao_amostra)"
-                    + " VALUES ('" + coletador_amostra  + "','" + anotacoes_amostra + "','" + tipo_amostra + "','" + id_categoria + "','" + id_origem + "','" + data_inativacao_amostra + "')";
+                    + " VALUES ";
 
                     Connection con = Conexao.Conectar();
                     Statement stInserirAmostra = con.prepareStatement(sqlInserirAmostra);

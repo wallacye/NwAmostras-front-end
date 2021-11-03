@@ -81,7 +81,9 @@
 	
 	<div class="containerTelaCriarOrigem">
 		<div class="containerInfosCriarOrigem">
-		<form method="post" action="">
+		
+		<form method="post" action="/inserirOrigem">
+		
 			<div class="containerTituloCriarOrigem">
 				<p class="txtCriarOrigem">Criar Origem</p>
 			</div>

@@ -9,6 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
   <servlet>
     <servlet-name>inserirMapaDeAmostras</servlet-name>
     <servlet-class>crudMapaDeAmostras.inserirMapaDeAmostras</servlet-class>  
@@ -16,7 +17,18 @@
   <servlet-mapping>
     <servlet-name>inserirMapaDeAmostras</servlet-name>
     <url-pattern>/inserirMapaDeAmostras</url-pattern>
-  </servlet-mapping>  <session-config>
+  </servlet-mapping>  
+  
+  <servlet>
+    <servlet-name>inserirOrigem</servlet-name>
+    <servlet-class>crudAmostra.inserirOrigem</servlet-class>  
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>inserirOrigem</servlet-name>
+    <url-pattern>/inserirOrigem</url-pattern>
+  </servlet-mapping>  
+  
+  <session-config>
         <session-timeout>
             30
         </session-timeout>

@@ -1,3 +1,18 @@
+<%@page import="model.MapaDeAmostras"  %>
+<%@page import="model.Amostra"  %>
+
+<%@page import="crudMapaDeAmostras.exibirMapaAmostrasEspecifico" %>
+<%@page import="crudMapaDeAmostras.exibirMapaDeAmostras" %>
+
+<%@page import="java.util.ArrayList"%>
+
+<%
+    Integer id_mapa_amostra = Integer.parseInt(request.getParameter("id_mapa_amostra")) ;
+    
+	exibirMapaAmostrasEspecifico dao = new exibirMapaAmostrasEspecifico();
+    ArrayList<Amostra> lista = dao.listar(id_mapa_amostra);
+ %>
+
 <%@ include file="../../includes/validacao.jsp" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>

@@ -87,7 +87,7 @@
 		
 		<% if(lista.size() >= 1){ %>
 		<% for(MapaDeAmostras conteudo : lista) {%>		
-		<button class="btnListaMapaAmostras" onclick="location.href='mapaAmostras.jsp'">
+		<button class="btnListaMapaAmostras" onclick="location.href='mapaAmostras.jsp?id_mapa_amostra=<%= conteudo.getId_mapa_amostra() %>'">
 		<table class="listaMapaAmostras">
     		<tr>
         		<td class="palavrasAzul tituloMapaAmostraLista"><%= conteudo.getNome_mapa_amostra() %></td>
