@@ -1,4 +1,13 @@
 <%@ include file="../../includes/validacao.jsp" %>
+<%@page import="model.AmostraNoMapa" %>
+<%@page import="java.util.ArrayList" %>
+<%@page import="crudAmostra.exibirAmostras" %>
+
+<%
+	exibirAmostras dao = new exibirAmostras();
+    ArrayList<AmostraNoMapa> lista = dao.listar();
+%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -87,11 +96,15 @@
 				<label class="lblDataTelaInicialAmostras palavrasAzul">Data de validade</label>
 			</div>
 		</div>
-		
+
+		<% if(lista.size() >= 1){ %>
+		<% for(AmostraNoMapa conteudo : lista) {%>		
+
+
 		<button class="btnListaMapaAmostras" onclick="location.href='amostra.jsp'">
 		<table class="listaMapaAmostras">
     		<tr>
-        		<td class="palavrasAzul tituloMapaAmostraLista">001 Amostra A</td>
+        		<td class="palavrasAzul tituloMapaAmostraLista"><%= conteudo.getId_amostra() %> <%= conteudo.getNome_amostra() %></td>
         		<td></td>
         		<td></td>
     		</tr>
@@ -101,18 +114,23 @@
         		<td> &emsp;</td>
     		</tr>
     		<tr>
-        		<td class="autorMapaAmostraLista">Categoria Vírus</td>
+        		<td class="autorMapaAmostraLista">Categoria <%= conteudo.getNome_categoria() %></td>
         		<td></td>
-        		<td class="palavrasAzul dataMapaAmostrasLista">00/00/0000</td>
+        		<td class="palavrasAzul dataMapaAmostrasLista"><%= conteudo.getData_formatada_vencimento() %></td>
     		</tr>
     		<tr>
-    			<td class="autorMapaAmostraLista">Localização: Mapa de Amostra exemplo A</td>
+    			<td class="autorMapaAmostraLista">Localização: Mapa de Amostra <%= conteudo.getNome_mapa_amostra() %>/td>
     		</tr>
     		<tr>
-    			<td class="autorMapaAmostraLista">Posição: 1 - 1</td>
+    			<td class="autorMapaAmostraLista">Posição: <%= conteudo.getN_linha_mapa_amostra() %> - <%= conteudo.getN_coluna_mapa_amostra() %></td>
     		</tr>
 		</table>
 		</button>
+		
+		<%
+                 								}
+								}
+        %>                  	
 		
 	</div>
 

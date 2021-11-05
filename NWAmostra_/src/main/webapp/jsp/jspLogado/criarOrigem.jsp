@@ -82,7 +82,7 @@
 	<div class="containerTelaCriarOrigem">
 		<div class="containerInfosCriarOrigem">
 		
-		<form method="post" action="/inserirOrigem">
+		<form method="post" action="/NWAmostra_/inserirOrigem">
 		
 			<div class="containerTituloCriarOrigem">
 				<p class="txtCriarOrigem">Criar Origem</p>
@@ -93,16 +93,16 @@
             
                 <div class="containerEspaçosFormsCriarAmostra2">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Nome da instituição</label></div>
-                    <input type="text" class="txtsCriarAmostra" id="idTxtNomeInstituicaoOrigem" placeholder="Digite o nome da instituição de origem"/>
+                    <input type="text" class="txtsCriarAmostra" id="idTxtNomeInstituicaoOrigem" name="idTxtNomeInstituicaoOrigem" placeholder="Digite o nome da instituição de origem"/>
                 </div>
                 
                 <div class="containerEspaçosFormsCriarAmostra2">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">CEP</label></div>
-                    <input type="text" class="txtsCriarAmostra"  id="idTxtCepCriarAmostra" placeholder="Digite o CEP de origem"/>
+                    <input type="text" class="txtsCriarAmostra"  id="idTxtCepCriarAmostra" name="idTxtCepCriarAmostra" placeholder="Digite o CEP de origem"/>
                 </div>
                 <div class="containerEspaçosFormsCriarAmostra2">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Rua</label></div>
-                    <input type="text" class="txtsCriarAmostra" id="idTxtRuaCriarAmostra" placeholder="Digite a rua de origem"/>
+                    <input type="text" class="txtsCriarAmostra" id="idTxtRuaCriarAmostra" name="idTxtRuaCriarAmostra" placeholder="Digite a rua de origem"/>
                 </div>
                
               </div>
@@ -113,15 +113,15 @@
               
                 <div class="containerEspaçosFormsCriarAmostra2">
                     <div class="containerLblsCriarAmostra lblBairroCriarOrigemMargin"><label class="lblsCriarAmostra palavrasAzul">Bairro</label></div>
-                    <input type="text" class="txtsCriarAmostra" id="idTxtBairroCriarAmostra" placeholder="Digite o bairro de origem"/>
+                    <input type="text" class="txtsCriarAmostra" id="idTxtBairroCriarAmostra" name="idTxtBairroCriarAmostra" placeholder="Digite o bairro de origem"/>
                 </div>
                 <div class="containerEspaçosFormsCriarAmostra2">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Número</label></div>
-                    <input type="text" class="txtsCriarAmostra" id="idTxtNumeroOrigem" placeholder="Digite o número de origem"/>
+                    <input type="text" class="txtsCriarAmostra" id="idTxtNumeroOrigem" name="idTxtNumeroOrigem" placeholder="Digite o número de origem"/>
                 </div>
                 <div class="containerEspaçosFormsCriarAmostra2">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Complemento</label></div>
-                    <input type="text" class="txtsCriarAmostra" id="idTxtComplementoOrigem" placeholder="Digite o complemento de origem"/>
+                    <input type="text" class="txtsCriarAmostra" id="idTxtComplementoOrigem" name="idTxtComplementoOrigem" placeholder="Digite o complemento de origem"/>
                 </div>
               </div>
               

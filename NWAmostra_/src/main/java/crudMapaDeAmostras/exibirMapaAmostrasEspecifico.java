@@ -17,6 +17,8 @@ import model.MapaDeAmostras;
 //Amostra (com o código do mapa)
 //Amostra no mapa
 
+//Colocar getters e setters de amostra e mapa em AmostraNoMapa e puxar tudo de uma vez.
+
 @WebServlet("/exibirMapaAmostrasEspecifico")
 public class exibirMapaAmostrasEspecifico extends HttpServlet {
        

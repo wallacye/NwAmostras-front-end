@@ -17,6 +17,7 @@ public class Amostra extends HttpServlet {
     	private Integer id_origem;
     	private LocalDateTime data_inativacao_amostra;
     	private String nome_amostra;
+    	private String nome_categoria;
     	
 		public int getId_amostra() {
 			return id_amostra;
@@ -66,5 +67,12 @@ public class Amostra extends HttpServlet {
 		public void setNome_amostra(String nome_amostra) {
 			this.nome_amostra = nome_amostra;
 		}
+		public String getNome_categoria() {
+			return nome_categoria;
+		}
+		public void setNome_categoria(String nome_categoria) {
+			this.nome_categoria = nome_categoria;
+		}
+
 
 }
