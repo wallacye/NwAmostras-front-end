@@ -1,3 +1,13 @@
+<%@page import="model.AmostraNoMapa"  %>
+<%@page import="crudAmostra.exibirAmostra" %>
+<%@page import="java.util.ArrayList"%>
+
+<%
+    Integer id_amostra_mapa = Integer.parseInt(request.getParameter("id_amostra_mapa")) ;
+    
+    exibirAmostra dao = new exibirAmostra();
+    ArrayList<AmostraNoMapa> lista = dao.listar(id_amostra_mapa);
+ %>
 <%@ include file="../../includes/validacao.jsp" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -30,13 +40,18 @@
 <body>
 	<%@ include file="../../includes/menuLogado.jsp" %>
 
+	<% 
+	if(lista.size() >= 1){
+	for(AmostraNoMapa conteudo : lista) 
+	{%>		
+	
 	<div class="containerTelaAmostra">
 		<div class="containerNomeAmostraBtnHistorico">
 			<div class="containerLblNomeAmostras">
 				
 				<div class="containerLblNomeLegendaAmostras">
 				<div class=centralizarNomeAmostra>
-					<label class="lblNomeAmostra">001 - Amostra A</label>
+					<label class="lblNomeAmostra"> <%= conteudo.getId_amostra() %> - <%= conteudo.getNome_amostra() %></label>
 					<button class="btnLegendaAmostras" onclick="location.href=''">
 					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"></button>
 				</div>
@@ -56,7 +71,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Código</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">001</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getId_amostra() %></label>
 			</div>
 		</div>
 		
@@ -65,7 +80,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Nome</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">Amostra A</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getNome_amostra() %></label>
 			</div>
 		</div>
 		
@@ -74,7 +89,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Categoria</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">Vírus</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getNome_categoria() %></label>
 			</div>
 		</div>
 		
@@ -83,7 +98,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Tipo</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">DNA</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getTipo_amostra() %></label>
 			</div>
 		</div>
 		
@@ -92,7 +107,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Volume</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">0 uL</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getVolume_amostra() %> uL</label>
 				<button class="btnColocarFaseColetaAmostra" onclick="location.href=''">Colocar em fase de coleta</button>
 			</div>
 		</div>
@@ -102,7 +117,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Data de coleta</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">04/06/2021</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getData_formatada_coleta() %></label>
 			</div>
 		</div>
 		
@@ -111,7 +126,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Hora da coleta</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">12:20</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getHora_coleta_amostra() %></label>
 			</div>
 		</div>
 		
@@ -120,7 +135,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Coletador</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">Lindolfo Britines</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getColetador_amostra() %></label>
 			</div>
 		</div>
 		
@@ -129,7 +144,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Data de Validade</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">10/07/2021</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getData_formatada_vencimento() %></label>
 			</div>
 		</div>
 		
@@ -138,7 +153,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Anotações</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getAnotacoes_amostra() %></label>
 			</div>
 		</div>
 		
@@ -153,7 +168,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Nome da Instituição</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">XXX</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getNome_origem() %></label>
 			</div>
 		</div>
 		<div class="linhaDadosAmostra">
@@ -161,7 +176,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Endereço</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">Rua Amendoin</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getRua_origem() %></label>
 			</div>
 		</div>
 		<div class="linhaDadosAmostra">
@@ -169,7 +184,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">CEP</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">000000-00</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getCep_origem() %></label>
 			</div>
 		</div>
 		<div class="linhaDadosAmostra">
@@ -177,7 +192,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Bairro</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">Jardim Food</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getBairro_origem() %></label>
 			</div>
 		</div>
 		<div class="linhaDadosAmostra">
@@ -185,7 +200,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Número</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">809</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getNumero_origem() %></label>
 			</div>
 		</div>
 		<div class="linhaDadosAmostra">
@@ -193,7 +208,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Complemento</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">Próximo ao shopping</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getComplemento_origem() %></label>
 			</div>
 		</div>
 		
@@ -210,7 +225,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Mapa de amostras</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">Exemplo de nome do mapa de amostras</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getNome_mapa_amostra() %></label>
 			</div>
 		</div>
 		<div class="linhaDadosAmostra">
@@ -218,7 +233,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Freezer</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">1</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getFreezer_mapa_amostra() %></label>
 			</div>
 		</div>
 		<div class="linhaDadosAmostra">
@@ -226,7 +241,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Estante</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">A</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getEstante_mapa_amostra() %></label>
 			</div>
 		</div>
 		<div class="linhaDadosAmostra">
@@ -234,7 +249,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Caixa</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">A10</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getCaixa_mapa_amostra() %></label>
 			</div>
 		</div>
 		
@@ -251,7 +266,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Linha</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">1</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getN_linha_amostra() %></label>
 			</div>
 		</div>
 		<div class="linhaDadosAmostra">
@@ -259,12 +274,15 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Coluna</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">1</label>
+				<label class="lblsInfoAmostra"><%= conteudo.getN_coluna_amostra() %></label>
 			</div>
 		</div>
 		
 		</div>
 		</div>
+		
+		<% }
+		} %>
 		
 		<div class="containerBtnsEditarExcluirAmostra">
 		<div class="containerAjeitarBtnsAmostra">

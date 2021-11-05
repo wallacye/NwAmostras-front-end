@@ -43,6 +43,22 @@ public class AmostraNoMapa extends HttpServlet {
 
 	private String nome_origem;
 	
+	private String endereco_origem;
+	private String rua_origem;
+	private String cep_origem;
+	private String numero_origem;
+	private String complemento_origem;
+	private String bairro_origem;
+	
+	private String data_formatada_coleta;
+	
+	public String getEndereco_origem() {
+		return endereco_origem;
+	}
+	public void setEndereco_origem(String endereco_origem) {
+		this.endereco_origem = endereco_origem;
+	}
+	
 	public Integer getId_amostra_mapa() {
 		return id_amostra_mapa;
 	}
@@ -216,5 +232,41 @@ public class AmostraNoMapa extends HttpServlet {
 	}
 	public void setNome_origem(String nome_origem) {
 		this.nome_origem = nome_origem;
+	}	
+	public String getRua_origem() {
+		return rua_origem;
+	}
+	public void setRua_origem(String rua_origem) {
+		this.rua_origem = rua_origem;
+	}
+	public String getCep_origem() {
+		return cep_origem;
+	}
+	public void setCep_origem(String cep_origem) {
+		this.cep_origem = cep_origem;
+	}
+	public String getNumero_origem() {
+		return numero_origem;
+	}
+	public void setNumero_origem(String numero_origem) {
+		this.numero_origem = numero_origem;
+	}
+	public String getComplemento_origem() {
+		return complemento_origem;
+	}
+	public void setComplemento_origem(String complemento_origem) {
+		this.complemento_origem = complemento_origem;
+	}
+	public String getBairro_origem() {
+		return bairro_origem;
+	}
+	public void setBairro_origem(String bairro_origem) {
+		this.bairro_origem = bairro_origem;
+	}
+	public String getData_formatada_coleta() {
+		return data_formatada_coleta;
+	}
+	public void setData_formatada_coleta(String data_formatada_coleta) {
+		this.data_formatada_coleta = data_formatada_coleta;
 	}	
 }

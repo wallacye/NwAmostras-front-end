@@ -30,7 +30,7 @@ public class inserirOrigem extends HttpServlet {
         	String numero_origem = request.getParameter("idTxtNumeroOrigem");	
         	String complemento_origem = request.getParameter("idTxtComplementoOrigem");  
         	String s = ", ";
-        	String endereco_origem = rua_origem + " " + numero_origem + s + bairro_origem + s + cep_origem + s + complemento_origem;
+        	String endereco_origem = rua_origem + s + numero_origem + s + bairro_origem + s + cep_origem + s + complemento_origem;
         	
             String sqlInserirOrigem = 
             "INSERT INTO origem (endereco_origem, nome_origem)"

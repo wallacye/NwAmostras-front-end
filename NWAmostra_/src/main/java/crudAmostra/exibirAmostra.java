@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,11 +14,14 @@ import javax.servlet.http.HttpServlet;
 import conexao.Conexao;
 import model.AmostraNoMapa;
 
+/**
+ * Servlet implementation class exibirAmostra
+ */
 @WebServlet("/exibirAmostra")
-public class exibirAmostras extends HttpServlet {
+public class exibirAmostra extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ArrayList<AmostraNoMapa> listar(){
+    public ArrayList<AmostraNoMapa> listar(Integer id_amostra_mapa){
     	
     	ArrayList<AmostraNoMapa> Conteudo = new ArrayList<AmostraNoMapa>();
     	
@@ -26,7 +30,8 @@ public class exibirAmostras extends HttpServlet {
             		+ "INNER JOIN mapa_de_amostras ON mapa_de_amostras.id_mapa_amostra = amostra_no_mapa_contem.id_mapa_amostra "
             		+ "INNER JOIN amostra ON amostra_no_mapa_contem.id_amostra = amostra.id_amostra "
             		+ "INNER JOIN origem ON origem.id_origem = amostra.id_origem "
-            		+ "INNER JOIN categoria ON categoria.id_categoria = amostra.id_categoria";            		
+            		+ "INNER JOIN categoria ON categoria.id_categoria = amostra.id_categoria"
+            		+ "WHERE amostra_no_mapa_contem.id_amostra ="+id_amostra_mapa;            		
             
             Connection con = Conexao.Conectar();
             Statement stExibirAmostras = con.createStatement();
@@ -59,6 +64,18 @@ public class exibirAmostras extends HttpServlet {
                 dados.setId_origem(rsExibirAmostras.getInt("id_origem"));
                 dados.setNome_amostra(rsExibirAmostras.getString("nome_amostra"));
                 dados.setNome_categoria(rsExibirAmostras.getString("nome_categoria"));
+                dados.setNome_origem(rsExibirAmostras.getString("nome_origem"));
+                
+                String EnderecoParaSeparar = rsExibirAmostras.getString("endereco_origem");
+                
+                String Endereco[] = EnderecoParaSeparar.split(Pattern.quote(","));
+                
+                
+                dados.setRua_origem(Endereco[0]);
+                dados.setNumero_origem(Endereco[1]);
+                dados.setBairro_origem(Endereco[2]);
+                dados.setCep_origem(Endereco[3]);
+                dados.setComplemento_origem(Endereco[4]);
                 
                 Date dataMapaAmostrasParaConverter = rsExibirAmostras.getDate("data_mapa_amostra");                 
                 if(dataMapaAmostrasParaConverter != null) {
@@ -80,13 +97,15 @@ public class exibirAmostras extends HttpServlet {
                     dados.setData_formatada_vencimento(null);
                 }               
                 
-                dados.setEndereco_origem(rsExibirAmostras.getString("endereco_origem"));
-                dados.setRua_origem(rsExibirAmostras.getString("rua_origem"));
-                dados.setCep_origem(rsExibirAmostras.getString("cep_origem"));
-                dados.setNumero_origem(rsExibirAmostras.getString("numero_origem"));
-                dados.setComplemento_origem(rsExibirAmostras.getString("complemento_origem"));
-                dados.setBairro_origem(rsExibirAmostras.getString("bairro_origem"));
-                
+                Date dataColetaAmostraParaConverter = rsExibirAmostras.getDate("dt_coleta_amostra");                 
+                if(dataColetaAmostraParaConverter != null) {
+                java.util.Date utilDate = new java.util.Date(dataColetaAmostraParaConverter.getTime());
+                String DataColetaAmostraFormatada = new SimpleDateFormat("dd/MM/yyyy").format(utilDate);  
+                dados.setData_formatada_coleta(DataColetaAmostraFormatada);
+                }
+                else {
+                    dados.setData_formatada_coleta(null);
+                }               
                 Conteudo.add(dados);
             }
             rsExibirAmostras.close();
@@ -98,5 +117,6 @@ public class exibirAmostras extends HttpServlet {
         return Conteudo;
 
     }
+
 
 }
