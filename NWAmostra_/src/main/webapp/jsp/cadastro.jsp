@@ -60,14 +60,30 @@
                     <div class="containerEmailSenha">
                         <div class="containerLblsLoginCad"><label class="palavrasAzul lblsLoginCad">E-mail*</label></div>
                         <input type="text" class="txtLoginCad" id="emailPesqTxtLoginCad" name="emailPesqTxtLoginCad" placeholder="Digite seu e-mail"/>
+                        <%if (erro == 2){%>
+                        <div class="containerErrosCadPesq">
+                    	<p class="errosLoginP">E-mail já cadastrado!</p>
+                    	</div>
+        				<%}%>
                     </div>
                     <div class="containerEmailSenha">
                         <div class="containerLblsLoginCad"><label class="palavrasAzul lblsLoginCad">Senha*</label></div>
                         <input type="password" class="txtLoginCad" id="senhaPesqTxtLoginCad" name="senhaPesqTxtLoginCad" placeholder="Digite sua senha"/>
+                    	<%if (erro == 3){%>
+                        <div class="containerErrosCadPesq">
+                    	<p class="errosLoginP">Deve ter no mínimo 8 caracteres,  1 letra maiúscula
+						e 1 minúscula, 1 número e 1 caractere especial!</p>
+                    	</div>
+        				<%}%>
                     </div>
                     <div class="containerEmailSenha">
                         <div class="containerLblsLoginCad"><label class="palavrasAzul lblsLoginCad">Confirmar Senha*</label></div>
                         <input type="password" class="txtLoginCad" id="confirmarSenhaPesqTxtLoginCad" name="confirmarSenhaPesqTxtLoginCad" placeholder="Confirme sua senha"/>
+                    	<%if (erro == 4){%>
+                        <div class="containerErrosCadPesq">
+                    	<p class="errosLoginP">As senhas devem ser idênticas!</p>
+                    	</div>
+        				<%}%>
                     </div>
 
                     <div class="containerCamposObrigatorios">
