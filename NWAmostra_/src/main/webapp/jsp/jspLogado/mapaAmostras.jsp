@@ -1,5 +1,5 @@
 <%@page import="model.MapaDeAmostras"  %>
-<%@page import="model.Amostra"  %>
+<%@page import="model.AmostraNoMapa"  %>
 
 <%@page import="crudMapaDeAmostras.exibirMapaAmostrasEspecifico" %>
 <%@page import="crudMapaDeAmostras.exibirMapaDeAmostras" %>
@@ -10,7 +10,7 @@
     Integer id_mapa_amostra = Integer.parseInt(request.getParameter("id_mapa_amostra")) ;
     
 	exibirMapaAmostrasEspecifico dao = new exibirMapaAmostrasEspecifico();
-    ArrayList<Amostra> lista = dao.listar(id_mapa_amostra);
+    ArrayList<AmostraNoMapa> lista = dao.listar(id_mapa_amostra);
  %>
 
 <%@ include file="../../includes/validacao.jsp" %>

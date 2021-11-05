@@ -101,7 +101,7 @@
 		<% for(AmostraNoMapa conteudo : lista) {%>		
 
 
-		<button class="btnListaMapaAmostras" onclick="location.href='amostra.jsp'">
+		<button class="btnListaMapaAmostras" onclick="location.href='amostra.jsp?id_amostra=<%= conteudo.getId_mapa_amostra() %>'">
 		<table class="listaMapaAmostras">
     		<tr>
         		<td class="palavrasAzul tituloMapaAmostraLista"><%= conteudo.getId_amostra() %> <%= conteudo.getNome_amostra() %></td>
@@ -119,10 +119,10 @@
         		<td class="palavrasAzul dataMapaAmostrasLista"><%= conteudo.getData_formatada_vencimento() %></td>
     		</tr>
     		<tr>
-    			<td class="autorMapaAmostraLista">Localização: Mapa de Amostra <%= conteudo.getNome_mapa_amostra() %>/td>
+    			<td class="autorMapaAmostraLista">Localização: <%= conteudo.getNome_mapa_amostra() %></td>
     		</tr>
     		<tr>
-    			<td class="autorMapaAmostraLista">Posição: <%= conteudo.getN_linha_mapa_amostra() %> - <%= conteudo.getN_coluna_mapa_amostra() %></td>
+    			<td class="autorMapaAmostraLista">Posição: <%= conteudo.getN_coluna_amostra() %> - <%= conteudo.getN_coluna_amostra() %></td>
     		</tr>
 		</table>
 		</button>

@@ -46,29 +46,12 @@ public class exibirAmostras extends HttpServlet {
             	dados.setId_amostra(rsExibirAmostras.getInt("id_amostra"));
             	dados.setId_mapa_amostra(rsExibirAmostras.getInt("id_mapa_amostra"));
             	
-                dados.setId_mapa_amostra(rsExibirAmostras.getInt("id_mapa_amostra"));
                 dados.setEstante_mapa_amostra(rsExibirAmostras.getString("estante_mapa_amostra"));
                 dados.setNome_mapa_amostra(rsExibirAmostras.getString("nome_mapa_amostra"));
                 dados.setFreezer_mapa_amostra(rsExibirAmostras.getString("freezer_mapa_amostra"));
                 dados.setCaixa_mapa_amostra(rsExibirAmostras.getString("caixa_mapa_amostra"));
-                dados.setN_coluna_mapa_amostra(rsExibirAmostras.getInt("n_coluna_mapa_amostra"));
-                dados.setN_linha_mapa_amostra(rsExibirAmostras.getInt("n_linha_mapa_amostra"));
-                dados.setData_inativacao_mapa_amostra(rsExibirAmostras.getDate("data_inativacao_mapa_amostra"));
                 dados.setData_mapa_amostra(rsExibirAmostras.getDate("data_mapa_amostra"));
                 
-                Date dataParaConverter = rsExibirAmostras.getDate("data_mapa_amostra");                 
-                if(dataParaConverter != null) {
-                java.util.Date utilDate = new java.util.Date(dataParaConverter.getTime());
-                String DataFormatada = new SimpleDateFormat("dd/MM/yyyy").format(utilDate);  
-
-                dados.setData_mapa_amostra_formatada(DataFormatada);
-                }
-                else {
-                    dados.setData_mapa_amostra_formatada(null);
-                }
-                Conteudo.add(dados);
-            	
-                dados.setId_amostra(rsExibirAmostras.getInt("id_amostra"));
                 dados.setColetador_amostra(rsExibirAmostras.getString("coletador_amostra"));
                 dados.setAnotacoes_amostra(rsExibirAmostras.getString("anotacoes_amostra"));
                 dados.setTipo_amostra(rsExibirAmostras.getString("tipo_amostra"));
@@ -77,11 +60,21 @@ public class exibirAmostras extends HttpServlet {
                 dados.setNome_amostra(rsExibirAmostras.getString("nome_amostra"));
                 dados.setNome_categoria(rsExibirAmostras.getString("nome_categoria"));
                 
+                Date dataMapaAmostrasParaConverter = rsExibirAmostras.getDate("data_mapa_amostra");                 
+                if(dataMapaAmostrasParaConverter != null) {
+                java.util.Date utilDate = new java.util.Date(dataMapaAmostrasParaConverter.getTime());
+                String DataMapaAmostrasFormatada = new SimpleDateFormat("dd/MM/yyyy").format(utilDate);  
+                dados.setData_mapa_amostra_formatada(DataMapaAmostrasFormatada);
+                }
+                else {
+                    dados.setData_mapa_amostra_formatada(null);
+                }          	
+                
                 Date dataAmostraParaConverter = rsExibirAmostras.getDate("validade_amostra");                 
                 if(dataAmostraParaConverter != null) {
                 java.util.Date utilDate = new java.util.Date(dataAmostraParaConverter.getTime());
-                String DataFormatada = new SimpleDateFormat("dd/MM/yyyy").format(utilDate);  
-                dados.setData_formatada_vencimento(DataFormatada);
+                String DataValidadeAmostraFormatada = new SimpleDateFormat("dd/MM/yyyy").format(utilDate);  
+                dados.setData_formatada_vencimento(DataValidadeAmostraFormatada);
                 }
                 else {
                     dados.setData_formatada_vencimento(null);
