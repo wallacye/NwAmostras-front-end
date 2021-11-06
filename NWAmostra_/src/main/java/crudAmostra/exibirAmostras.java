@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import conexao.Conexao;
 import model.AmostraNoMapa;
 
-@WebServlet("/exibirAmostra")
+@WebServlet("/exibirAmostras")
 public class exibirAmostras extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

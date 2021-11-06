@@ -78,7 +78,7 @@
 			</div>
 		</div>
 		
-		<button class="btnListaMapaAmostras" onclick="location.href=''">
+		<button class="btnListaMapaAmostras" onclick="location.href='projeto.jsp'">
 		<table class="listaMapaAmostras">
     		<tr>
         		<td class="palavrasAzul tituloMapaAmostraLista">Projeto A</td>

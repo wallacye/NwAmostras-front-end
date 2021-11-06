@@ -3064,3 +3064,145 @@ nav ul li button{
     width: 90%;
 	}
 }
+
+/* Tela Projeto */
+
+.containerTelaProjeto{
+	width: 100%;
+    height: auto;
+    float: left;
+    margin-top: 80px;
+}
+
+.containerNomeProjeto{
+	width: 100%;
+    height: 100px;
+    border-bottom: 1px solid #767171;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.lblNomeTelaProjeto{
+	font-size: 20px;
+    font-weight: bold;
+    color: var(--detalhes);
+}
+
+.containerIntegrantesInformaçõesProjeto{
+	width: 100%;
+    height: auto;
+    float: left;
+    border-bottom: 1px solid #767171;
+}
+
+.divisaoIntegrantesInformaçõesProjeto{
+	width: 50%;
+    height: auto;
+    float: left;
+}
+
+.centralizarIntegrantesInformacoesProjeto{
+	width: 90%;
+    height: auto;
+    float: left;
+    margin: 0% 5% 0% 5%;
+}
+
+.containerLblsIntegrantesInformacaoProjeto{
+	margin: 30px 0 30px 0;
+}
+
+.lblsIntegrantesInformacaoProjeto{
+	font-size: 20px;
+    font-weight: bold;
+    color: var(--detalhes);
+	border-bottom: var(--bordaMenu);
+}
+
+.containerListaIntegrantes{
+	width: 100%;
+    height: 340px;
+    float: left;
+    overflow-y: scroll;
+    border: 1px solid #767171;
+    border-radius: 8px;
+    margin: 0 0 30px 0;
+}
+
+/* width */
+   	.containerListaIntegrantes::-webkit-scrollbar {
+ 	 width: 11px;
+ 	 height: 11px;
+   	}
+
+	/* Track */
+	.containerListaIntegrantes::-webkit-scrollbar-track {
+  		background: transparent;
+	}
+
+	/* Handle */
+	.containerListaIntegrantes::-webkit-scrollbar-thumb {
+  		background: var(--scroll);
+  		border-radius: 10px;
+	}
+
+	/* Handle on hover */
+	.containerListaIntegrantes::-webkit-scrollbar-thumb:hover {
+  		background: var(--scrollHover);
+	}
+	
+.btnsIntegrantesProjeto{
+	width: 100%;
+    height: 75px;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #767171;
+    font-size: 20px;
+    color: var(--detalhes);
+}
+
+.containerListaInformacoes{
+	width: 100%;
+    height: auto;
+    float: left;
+    border: 1px solid #767171;
+    border-radius: 8px;
+    margin: 0 0 30px 0;
+}
+
+.containersLblInfoProjeto{
+	width: 100%;
+    height: auto;
+    border-bottom: 1px solid #767171;
+    float: left;
+}
+
+.containerLblsInicioTerminoPrivado{
+	width: 30%;
+    height: auto;
+    margin: 10px 0 10px 5%;
+    float: left;
+}
+
+.lblsInicioTerminoPrivado{
+	font-size: 20px;
+}
+
+.containerLblsInicioTerminoPrivadoData{
+	width: 40%;
+    height: auto;
+    margin: 10px 0 10px 5%;
+    float: left;
+}
+
+.lblsInicioTerminoPrivadoData{
+	font-size: 20px;
+	color: var(--detalhes);
+}
+
+.bntSairDoProjeto{
+	width: 100%;
+	height: 29px;
+}
