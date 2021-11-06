@@ -3206,3 +3206,79 @@ nav ul li button{
 	width: 100%;
 	height: 29px;
 }
+
+/* Tela Criar Projeto */
+
+.containerTelaCriarProjeto{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+  }
+  
+  .containerInfoCriarProjeto{
+    width: 492px;
+    height: auto;
+    margin: 180px 0% 100px 0%;
+    border-radius: 20px;
+    box-shadow: 0 0 0.5em black;
+  }
+  
+  .containerTituloCriarProjeto{
+	margin: 50px 0 0 5%;
+}
+
+.txtCriarProjeto{
+      width: 133px;
+      font-size: 20px;
+      border-bottom:var(--bordaMenu) ;
+      font-weight: bold;
+      color: var(--detalhes);
+}
+
+.containerEspaçosFormsCriarProjeto{
+      width: 100%;
+      height: auto;
+}
+
+.containerLblsCriarProjeto{
+      width: 80%;
+      margin-top: 30px;
+}
+
+.lblsCriarProjeto{
+      font-size: 20px;
+}
+   
+.txtsCriarProjeto{
+      border: none;
+      width: 90%;
+      font-size: 20px;
+      color: #767171;
+      border-bottom: 1px solid #767171;
+      margin-top: 20px;
+      background-color: transparent;
+}
+
+
+ .containerBtnCriarProjeto{
+    width: 80%;
+    margin: 40px 10% 0% 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+  }
+   
+.btnCriarProjeto{
+      width: 188px;
+      height: 47px;
+      border-radius: 30px;
+      border: none;
+      background-color: var(--decoracaoTitulosCorFundo);
+      color: var(--fundo);
+      font-size: 20px;
+ } 
+
