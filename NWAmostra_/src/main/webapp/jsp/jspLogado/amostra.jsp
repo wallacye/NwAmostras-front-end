@@ -3,7 +3,7 @@
 <%@page import="java.util.ArrayList"%>
 
 <%
-    Integer id_amostra_mapa = Integer.parseInt(request.getParameter("id_amostra_mapa")) ;
+    Integer id_amostra_mapa = Integer.parseInt(request.getParameter("id_amostra_mapa"));
     
     exibirAmostra dao = new exibirAmostra();
     ArrayList<AmostraNoMapa> lista = dao.listar(id_amostra_mapa);
@@ -41,7 +41,6 @@
 	<%@ include file="../../includes/menuLogado.jsp" %>
 
 	<% 
-	if(lista.size() >= 1){
 	for(AmostraNoMapa conteudo : lista) 
 	{%>		
 	
@@ -281,8 +280,6 @@
 		</div>
 		</div>
 		
-		<% }
-		} %>
 		
 		<div class="containerBtnsEditarExcluirAmostra">
 		<div class="containerAjeitarBtnsAmostra">
@@ -322,7 +319,8 @@
 				</div>
 			</div>
 		</div>	
-		
+		<% 
+		} %>
 		<%@ include file="../../includes/rodape.jsp" %>
 	</div>
 </body>

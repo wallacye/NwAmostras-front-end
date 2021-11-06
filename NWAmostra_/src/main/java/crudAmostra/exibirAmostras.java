@@ -80,13 +80,7 @@ public class exibirAmostras extends HttpServlet {
                     dados.setData_formatada_vencimento(null);
                 }               
                 
-                dados.setEndereco_origem(rsExibirAmostras.getString("endereco_origem"));
-                dados.setRua_origem(rsExibirAmostras.getString("rua_origem"));
-                dados.setCep_origem(rsExibirAmostras.getString("cep_origem"));
-                dados.setNumero_origem(rsExibirAmostras.getString("numero_origem"));
-                dados.setComplemento_origem(rsExibirAmostras.getString("complemento_origem"));
-                dados.setBairro_origem(rsExibirAmostras.getString("bairro_origem"));
-                
+              
                 Conteudo.add(dados);
             }
             rsExibirAmostras.close();

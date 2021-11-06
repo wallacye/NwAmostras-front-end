@@ -1,12 +1,14 @@
 package crudAmostra;
 
+import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.regex.Pattern;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,8 +32,7 @@ public class exibirAmostra extends HttpServlet {
             		+ "INNER JOIN mapa_de_amostras ON mapa_de_amostras.id_mapa_amostra = amostra_no_mapa_contem.id_mapa_amostra "
             		+ "INNER JOIN amostra ON amostra_no_mapa_contem.id_amostra = amostra.id_amostra "
             		+ "INNER JOIN origem ON origem.id_origem = amostra.id_origem "
-            		+ "INNER JOIN categoria ON categoria.id_categoria = amostra.id_categoria"
-            		+ "WHERE amostra_no_mapa_contem.id_amostra ="+id_amostra_mapa;            		
+            		+ "INNER JOIN categoria ON categoria.id_categoria = amostra.id_categoria WHERE id_amostra_mapa ="+id_amostra_mapa;            		
             
             Connection con = Conexao.Conectar();
             Statement stExibirAmostras = con.createStatement();
@@ -68,15 +69,14 @@ public class exibirAmostra extends HttpServlet {
                 
                 String EnderecoParaSeparar = rsExibirAmostras.getString("endereco_origem");
                 
-                String Endereco[] = EnderecoParaSeparar.split(Pattern.quote(","));
+                List<String> listaEndereco = Arrays.asList(EnderecoParaSeparar.split(","));
                 
-                
-                dados.setRua_origem(Endereco[0]);
-                dados.setNumero_origem(Endereco[1]);
-                dados.setBairro_origem(Endereco[2]);
-                dados.setCep_origem(Endereco[3]);
-                dados.setComplemento_origem(Endereco[4]);
-                
+                dados.setRua_origem(listaEndereco.get(0));
+                dados.setNumero_origem(listaEndereco.get(1));
+                dados.setBairro_origem(listaEndereco.get(2));
+                dados.setCep_origem(listaEndereco.get(3));
+                dados.setComplemento_origem(listaEndereco.get(4));
+
                 Date dataMapaAmostrasParaConverter = rsExibirAmostras.getDate("data_mapa_amostra");                 
                 if(dataMapaAmostrasParaConverter != null) {
                 java.util.Date utilDate = new java.util.Date(dataMapaAmostrasParaConverter.getTime());
@@ -111,7 +111,7 @@ public class exibirAmostra extends HttpServlet {
             rsExibirAmostras.close();
             con.close();
         } catch (Exception e) {
-            System.out.println("listarAmostras::ERRO");
+            System.out.println("listarAmostra::ERRO");
             System.out.println(e.getMessage());
         }
         return Conteudo;
