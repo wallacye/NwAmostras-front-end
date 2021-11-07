@@ -1,5 +1,6 @@
-<%@page import="model.MapaDeAmostras"  %>
 <%@page import="model.AmostraNoMapa"  %>
+<%@page import="model.MapaDeAmostras"  %>
+
 
 <%@page import="crudMapaDeAmostras.exibirMapaAmostrasEspecifico" %>
 <%@page import="crudMapaDeAmostras.exibirMapaDeAmostras" %>
@@ -54,9 +55,11 @@
 <body>
 	<%@ include file="../../includes/menuLogado.jsp" %>
 	
+	
+	<% for(AmostraNoMapa conteudo : lista) {%>	
 	<div class="containerTelaMapaDeAmsotras">
 		<div class="containerNomeMapaDeAmostras">
-			<label class="lblNomeMapaDeAmostras palavrasAzul">Exemplo de nome do Mapa de Amostra</label>
+			<label class="lblNomeMapaDeAmostras palavrasAzul"><%= conteudo.getNome_mapa_amostra() %></label>
 		</div>
 		
 		<div class="containerDivsLocalizacaoMapaAmostra">
@@ -66,11 +69,11 @@
 			</div>
 			<div class="containerLblLocalizaçãoMapaAmostras">
 				<label class="lblFreezerEstanteCaixa">Estante -</label>
-				<label class="lblLocallizacaoMapaAmostras">&nbsp; A</label>
+				<label class="lblLocallizacaoMapaAmostras">&nbsp; <%= conteudo.getFreezer_mapa_amostra() %></label>
 			</div>
 			<div class="containerLblLocalizaçãoMapaAmostras">
 				<label class="lblFreezerEstanteCaixa">Caixa -</label>
-				<label class="lblLocallizacaoMapaAmostras">&nbsp; A10</label>
+				<label class="lblLocallizacaoMapaAmostras">&nbsp; <%= conteudo.getEstante_mapa_amostra() %></label>
 			</div>
 		</div>
 		
@@ -99,19 +102,51 @@
 		
 		<div class="divScrollMapaDeAmostras" >
 		<table>
-		<tr>
-		<td class="divAmostraMapaDeAmostra">
-		<button class="btnLegendaMapaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
-		<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"></button>
 		
-		<button class="btnVerCriarAmostra" onclick="location.href='amostra.jsp'"><br>
-		15 uL <br> Amostra A<br> 09/06/21 </button></td>
+		<% 
+		int c = 1;
+		int l = 1;
+		int linhas = conteudo.getN_linha_mapa_amostra();
+		int colunas = conteudo.getN_coluna_mapa_amostra();
+		%>
 		
-		<td class="divAmostraMapaDeAmostra">
-		<button class="btnCriarAmostraNoMapaAmostras" onclick="location.href='criarAmostra.jsp'">
-		</button></td>
-
-		</tr>
+		<%
+		while(c <= colunas) {
+		%>
+			<tr>			
+			<% 
+			while(l <= linhas) {
+			%>
+				<td class="divAmostraMapaDeAmostra">
+				<button class="btnLegendaMapaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
+				<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"></button>
+			
+				<% 
+				if(l==conteudo.getN_linha_amostra()&&c==conteudo.getN_coluna_amostra()) 
+				{ %>
+					<button class="btnVerCriarAmostra" onclick="location.href='amostra.jsp'"><br>
+					<%= conteudo.getVolume_amostra() %> uL <br> <%= conteudo.getNome_amostra() %><br> <%= conteudo.getData_formatada_vencimento() %></button>
+				<% 
+				}
+				else 
+				{
+				%>
+					<button class="btnVerCriarAmostra" onclick="location.href='criarAmostra.jsp?id_mapa_amostra=<%= conteudo.getId_mapa_amostra() %>&n_linha_amostra=<%= l %>&n_coluna_amostra=<%= c %>'"></td></button>
+				<%
+				}
+				%>
+				</td>
+			<% 
+				l++;
+			} 
+			%>
+		
+			</tr>
+		<% 
+			c++;
+			l=1;
+		} 
+		%>
 		</table>
 		</div>
 		
@@ -146,7 +181,9 @@
 				</div>
 			</div>
 		</div>	
-			
+		<% 
+		}
+		%>	
 		<%@ include file="../../includes/rodape.jsp" %>
 	</div>
 </body>
