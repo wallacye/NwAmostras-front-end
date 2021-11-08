@@ -3204,7 +3204,30 @@ nav ul li button{
 
 .bntSairDoProjeto{
 	width: 100%;
-	height: 29px;
+	height: 52px;
+	color: var(--fundo);
+    border-radius: 30px;
+    border: none;
+    background-color: #FF0000;
+    font-size: 20px;
+}
+
+.containerBtnFerramentasProjeto{
+	width: 100%;
+	height: 100px;
+	float: left;
+}
+
+.bntFerramentasProjeto{
+	width: 254px;
+    height: 52px;
+    color: var(--fundo);
+    border-radius: 30px;
+    border: none;
+    float: right;
+    background-color: var(--corPalavrasVerdeAzul);
+    margin: 20px 2.5% 0px 0px;
+    font-size: 20px;
 }
 
 /* Tela Criar Projeto */

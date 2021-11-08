@@ -89,6 +89,15 @@
 				</div>
 			</div>
 		</div>
+		
+		<div class="containerBtnFerramentasProjeto">
+			<button class="bntFerramentasProjeto">Ferramentas +</button>
+		</div>
+		
+		<div class="container">
+		
+		</div>
+		
 	</div>
 
 </body>
