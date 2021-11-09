@@ -94,11 +94,19 @@
 			<button class="bntFerramentasProjeto">Ferramentas +</button>
 		</div>
 		
-		<div class="container">
-		
+		<div class="containerProjetoTabela">
+			<table class="tabelaProjeto">
+				<tr>
+					 <th><input type="text" value="Nome da Amostra" class="inputsTituloTabelaProjeto"></th>
+				<tr>
+				<tr>
+					<td><input type="text" value="Amostra A" class="inputsTabelaProjeto"></td>
+				<tr>
+			</table>
 		</div>
 		
+		<%@ include file="../../includes/rodape.jsp" %>
+		
 	</div>
-
 </body>
 </html>

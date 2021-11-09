@@ -3305,3 +3305,69 @@ nav ul li button{
       font-size: 20px;
  } 
 
+.containerProjetoTabela{
+	height: 500px; width: 90%;
+  	margin: 0px 5% 50px 5%;
+    overflow-x: scroll; overflow-y: scroll;
+  }
+  
+  	/* width */
+   	.containerProjetoTabela::-webkit-scrollbar {
+ 	 width: 11px;
+ 	 height: 11px;
+   	}
+
+	/* Track */
+	.containerProjetoTabela::-webkit-scrollbar-track {
+  		background: transparent;
+	}
+
+	/* Handle */
+	.containerProjetoTabela::-webkit-scrollbar-thumb {
+  		background: var(--scroll);
+  		border-radius: 10px;
+	}
+
+	/* Handle on hover */
+	.containerProjetoTabela::-webkit-scrollbar-thumb:hover {
+  		background: var(--scrollHover);
+	}
+
+.tabelaProjeto tr{
+	border: 1px solid #767171;
+}
+
+.tabelaProjeto tr th{
+	border: 1px solid #767171;
+	height:50px; min-height: 50px;
+  	width: auto; min-width: 150px;
+  	text-align: center;
+  	border-radius: 6px;
+}
+
+.tabelaProjeto tr td{
+	border: 1px solid #767171;
+	height:70px; min-height: 70px;
+  	width: 150px; min-width: 150px;
+  	text-align: center;
+  	border-radius: 6px;
+}
+
+.inputsTituloTabelaProjeto{
+	background-color: transparent;
+	border: none;
+	width: auto; height: auto;
+	text-align: center;
+	color: var(--detalhes);
+	font-size: 20px;
+	font-weight:bold;
+}
+
+.inputsTabelaProjeto{
+	background-color: transparent;
+	border: none;
+	width: auto; height: auto;
+	text-align: center;
+	color: var(--detalhes);
+	font-size: 20px;
+}
