@@ -1,3 +1,14 @@
+<%@page import="model.Origem"  %>
+
+<%@page import="crudAmostra.exibirOrigem" %>
+
+<%@page import="java.util.ArrayList"%>
+
+<%
+    exibirOrigens dao = new exibirOrigens();
+    ArrayList<Origem> lista = dao.listar();
+%>
+
 <%@ include file="../../includes/validacao.jsp" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -27,41 +38,41 @@
        </div>
         
         <form>
-        <div class="EspaçosdoformsCriarAmostra">
+        <div class="EspaÃ§osdoformsCriarAmostra">
         	
             <div class="containerTxtsCriarDadosOrigem">   
             
             <p class="txtDados" >Dados</p>
             
-                <div class="containerEspaçosFormsCriarAmostra">
-                    <div class="containerLblsCriarAmostra "><label class="lblsCriarAmostra palavrasAzul">Código*</label></div>
-                    <input type="text" class="txtsCriarAmostra" placeholder="Digite o código da amostra" id="txtCodigoAmostra" name="txtCodigoAmostra"/>
+                <div class="containerEspaÃ§osFormsCriarAmostra">
+                    <div class="containerLblsCriarAmostra "><label class="lblsCriarAmostra palavrasAzul">CÃ³digo*</label></div>
+                    <input type="text" class="txtsCriarAmostra" placeholder="Digite o cÃ³digo da amostra" id="txtCodigoAmostra" name="txtCodigoAmostra"/>
                 </div>
-                <div class="containerEspaçosFormsCriarAmostra">
+                <div class="containerEspaÃ§osFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Nome*</label></div>
                     <input type="text" class="txtsCriarAmostra" placeholder="Digite o nome da amostra" id="txtNomeAmostra" name="txtNomeAmostra"/>
                 </div>
-                <div class="containerEspaçosFormsCriarAmostra">
+                <div class="containerEspaÃ§osFormsCriarAmostra">
                 
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Categoria*</label></div>
                     <input type="text" class="txtsCriarAmostra" list="listCategoria" placeholder="Selecione a categoria da amostra" id="txtCategoriaAmostra" name="txtCategoriaAmostra"/>
                     <datalist class="listCatgoria" id="listCategoria">
-    					<option class="optionListCatgoria palavrasAzul" value="1">Bactéria</option>
+    					<option class="optionListCatgoria palavrasAzul" value="1">BactÃ©ria</option>
 						<option class="optionListCatgoria palavrasAzul" value="2">Fungo</option>
 						<option class="optionListCatgoria palavrasAzul" value="4">Parasita</option>
-						<option class="optionListCatgoria palavrasAzul" value="3">Príon</option>
-						<option class="optionListCatgoria palavrasAzul" value="5">Vírus</option>
+						<option class="optionListCatgoria palavrasAzul" value="3">PrÃ­on</option>
+						<option class="optionListCatgoria palavrasAzul" value="5">VÃ­rus</option>
 						<option class="optionListCatgoria palavrasAzul" value="6">Humana</option>
 						<option class="optionListCatgoria palavrasAzul" value="7">Ambiental</option>
 						<option class="optionListCatgoria palavrasAzul" value="6">Animal</option>
   					</datalist>
                 </div>
                 
-                <div class="containerEspaçosFormsCriarAmostra">
+                <div class="containerEspaÃ§osFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Tipo*</label></div>
                     <input type="text" class="txtsCriarAmostra" placeholder="Digite o tipo da amostra (ex: DNA, plasma...)" id="txtTipoAmostra" name="txtTipoAmostra"/>
                 </div>
-                <div class="containerEspaçosFormsCriarAmostra">
+                <div class="containerEspaÃ§osFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Volume (uL)*</label></div>
                     <input type="text" class="txtsCriarAmostra" placeholder="Digite o volume da amostra" id="txtVolumeAmostra" name="txtVolumeAmostra"/>
                 </div>
@@ -72,26 +83,26 @@
             	
             	<p class="txtOrigem" >&nbsp;</p>
             	
-            	<div class="containerEspaçosFormsCriarAmostra">
+            	<div class="containerEspaÃ§osFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Data de Coleta*</label></div>
                     <input type="text" class="txtsCriarAmostra" placeholder="Digite a data da coleta da amostra" id="txtDataColetaAmostra" name="txtDataColetaAmostra"/>
                 </div>
-                <div class="containerEspaçosFormsCriarAmostra">
+                <div class="containerEspaÃ§osFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Hora da Coleta*</label></div>
                     <input type="text" class="txtsCriarAmostra" placeholder="Digite a hora da coleta da amostra" id="txtHoraColetaAmostra" name="txtHoraColetaAmostra"/>
                 </div>
-                <div class="containerEspaçosFormsCriarAmostra">
+                <div class="containerEspaÃ§osFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Coletador</label></div>
                     <input type="text" class="txtsCriarAmostra" placeholder="Digite o nome do coletador e selecione" id="txtColetadorAmostra" name="txtColetadorAmostra"/>
                 </div>
-                <div class="containerEspaçosFormsCriarAmostra">
+                <div class="containerEspaÃ§osFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Data de Validade*</label></div>
                     <input type="text" class="txtsCriarAmostra" placeholder="Digite a data de validade da amostra" id="txtDataValidadeAmostra" name="txtDataValidadeAmostra"/>
                 </div>
             	
             	<div class="containerLblTxtAnotacoes">
-             		<div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Anotações*</label></div>
-             		<textarea class="txtsCriarAmostraAnotacao" placeholder="Digite as anotações da amostra"/></textarea>
+             		<div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">AnotaÃ§Ãµes*</label></div>
+             		<textarea class="txtsCriarAmostraAnotacao" placeholder="Digite as anotaÃ§Ãµes da amostra"/></textarea>
         		</div>
             	
             </div>
@@ -100,11 +111,21 @@
         
         <div class="containerOrigemAmostra">
         	<p class="txtOrigem" >Origem</p>
-        	<div class="containerEspaçosFormsCriarAmostra2">
-                    <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Selecione a instituição</label></div>
-                    <input type="text" class="txtInputOrigemAmostra" placeholder="Selecione a instituição de origem"/>
-                    <a href="criarOrigem.jsp" class="linkCriarOrigem palavrasAzul">Não encontrou a instituição de origem? Crie aqui!</a>
-            		<p class="lblCamposObrigatorios" style="text-align: right; margin-top: 20px;">*Campos obrigatórios</p>
+        	<div class="containerEspaÃ§osFormsCriarAmostra2">
+                    <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Selecione a instituiÃ§Ã£o</label></div>
+                    <input type="text" class="txtInputOrigemAmostra" placeholder="Selecione a instituiÃ§Ã£o de origem"/>
+                    <datalist class="listOrigem" id="listOrigem">
+			  <%
+			  for(Origem conteudo : lista){
+			  %>
+    					<option class="optionListOrigem palavrasAzul" value="<%= conteudo.getId_origem() %>"><%= conteudo.getNome_origem() %></option>
+			  <%
+			  }
+			  %>
+  		    </datalist>
+                </div>
+                    <a href="criarOrigem.jsp" class="linkCriarOrigem palavrasAzul">NÃ£o encontrou a instituiÃ§Ã£o de origem? Crie aqui!</a>
+            		<p class="lblCamposObrigatorios" style="text-align: right; margin-top: 20px;">*Campos obrigatÃ³rios</p>
             </div>
         </div>
         
