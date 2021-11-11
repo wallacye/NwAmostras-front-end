@@ -22,7 +22,7 @@ public class exibirOrigens extends HttpServlet {
     	ArrayList<Origem> Conteudo = new ArrayList<Origem>();
     	
         try {
-            String sqlExibirOrigens = "SELECT * FROM origem ORDER BY id_origem "
+            String sqlExibirOrigens = "SELECT * FROM origem ORDER BY id_origem ";
             
             Connection con = Conexao.Conectar();
             Statement stExibirOrigens = con.createStatement();
