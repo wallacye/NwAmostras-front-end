@@ -29,18 +29,24 @@ public class inserirAmostra extends HttpServlet {
                 	String tipo_amostra = request.getParameter("txtTipoAmostra");
                 	Integer id_categoria = Integer.parseInt(request.getParameter("txtCategoriaAmostra"));
                 	Integer id_origem = Integer.parseInt(request.getParameter("txtIdOrigem"));
-                	LocalDateTime data_inativacao_amostra = LocalDateTime.parse(request.getParameter("txtDataInativacaoAmostra"));
 
                     String sqlInserirAmostra = "INSERT INTO amostra (coletador_amostra, anotacoes_amostra, tipo_amostra, id_categoria, id_origem, data_inativacao_amostra)"
-                    + " VALUES ";
+                    + " VALUES (?, ?, ?, ?, ?, ?) ";
 
                     Connection con = Conexao.Conectar();
-                    Statement stInserirAmostra = con.prepareStatement(sqlInserirAmostra);
-                    stInserirAmostra.execute(sqlInserirAmostra);
-                    response.sendRedirect("/jspLogado/mapaAmostras.jsp");
+            	    PreparedStatement stInserirOrigem = con.prepareStatement(sqlInserirOrigem);
+           	    stInserirOrigem.setString(1, coletador_amostra);
+            	    stInserirOrigem.setString(2, anotacoes_amostra);
+           	    stInserirOrigem.setString(3, tipo_amostra);
+            	    stInserirOrigem.setString(4, id_categoria);
+           	    stInserirOrigem.setString(5, id_origem);
+            	    stInserirOrigem.setString(6, null);
+            	    stInserirOrigem.executeUpdate();
+			
+                    response.sendRedirect("/jspLogado/amostra.jsp");
 
                 } catch (SQLException ex) {
-                    out.print("Erro na conex„o: " + ex);
+                    out.print("Erro na conex√£o, inserir amostra: " + ex);
                 } 
 	}
 
