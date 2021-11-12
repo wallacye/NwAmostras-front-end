@@ -1,10 +1,8 @@
 package crudAmostra;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +20,7 @@ public class exibirOrigens extends HttpServlet {
     	ArrayList<Origem> Conteudo = new ArrayList<Origem>();
     	
         try {
-            String sqlExibirOrigens = "SELECT * FROM origem ORDER BY id_origem ";
+            String sqlExibirOrigens = "SELECT * FROM origem";
             
             Connection con = Conexao.Conectar();
             Statement stExibirOrigens = con.createStatement();

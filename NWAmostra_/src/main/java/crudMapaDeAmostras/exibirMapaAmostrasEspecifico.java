@@ -26,7 +26,8 @@ public class exibirMapaAmostrasEspecifico extends HttpServlet {
         try{
             String sqlExibirMapaDeAmostrasEspecifico = "SELECT * FROM amostra_no_mapa_contem "
             		+ "INNER JOIN mapa_de_amostras ON mapa_de_amostras.id_mapa_amostra = amostra_no_mapa_contem.id_mapa_amostra "
-            		+ "INNER JOIN amostra ON amostra_no_mapa_contem.id_amostra = amostra.id_amostra WHERE amostra_no_mapa_contem.id_mapa_amostra= "+id_mapa_amostra;
+            		+ "INNER JOIN amostra ON amostra_no_mapa_contem.id_amostra = amostra.id_amostra "
+            		+ "WHERE amostra_no_mapa_contem.id_mapa_amostra= "+id_mapa_amostra;
             
             Connection con = Conexao.Conectar();
             Statement stExibirMapaDeAmostrasEspecifico = con.createStatement();
@@ -66,7 +67,43 @@ public class exibirMapaAmostrasEspecifico extends HttpServlet {
             return Conteudo;
         }
         catch(Exception e){
-            System.out.print("ErroExibirMapaAmostras: ");
+            System.out.print("ErroExibirMapaAmostrasAMOSTRA: ");
+            System.out.print(e.getMessage());
+        }
+        return null;
+    }
+	public ArrayList<MapaDeAmostras> listarMapa(Integer id_mapa_amostra){
+        
+        ArrayList<MapaDeAmostras> ConteudoMapa = new ArrayList<MapaDeAmostras>();
+        
+        try{
+            String sqlExibirMapaDeAmostras = "SELECT * FROM mapa_de_amostras "
+            		+ "WHERE id_mapa_amostra= "+id_mapa_amostra;
+            
+            Connection con = Conexao.Conectar();
+            Statement stExibirMapaDeAmostras = con.createStatement();
+            ResultSet rsExibirMapaDeAmostras = stExibirMapaDeAmostras.executeQuery(sqlExibirMapaDeAmostras);
+            while ( rsExibirMapaDeAmostras.next() ) {
+            	
+            	MapaDeAmostras dadosMapa = new MapaDeAmostras();
+              
+            	dadosMapa.setId_mapa_amostra(rsExibirMapaDeAmostras.getInt("id_mapa_amostra"));
+            	dadosMapa.setEstante_mapa_amostra(rsExibirMapaDeAmostras.getString("estante_mapa_amostra"));
+            	dadosMapa.setNome_mapa_amostra(rsExibirMapaDeAmostras.getString("nome_mapa_amostra"));
+            	dadosMapa.setFreezer_mapa_amostra(rsExibirMapaDeAmostras.getString("freezer_mapa_amostra"));
+            	dadosMapa.setCaixa_mapa_amostra(rsExibirMapaDeAmostras.getString("caixa_mapa_amostra"));
+            	dadosMapa.setN_coluna_mapa_amostra(rsExibirMapaDeAmostras.getInt("n_coluna_mapa_amostra"));
+            	dadosMapa.setN_linha_mapa_amostra(rsExibirMapaDeAmostras.getInt("n_linha_mapa_amostra"));
+            	dadosMapa.setData_inativacao_mapa_amostra(rsExibirMapaDeAmostras.getDate("data_inativacao_mapa_amostra"));
+                ConteudoMapa.add(dadosMapa);
+            }
+            rsExibirMapaDeAmostras.close();
+            con.close();
+            
+            return ConteudoMapa;
+        }
+        catch(Exception e){
+            System.out.print("ErroExibirMapaAmostrasMAPA: ");
             System.out.print(e.getMessage());
         }
         return null;

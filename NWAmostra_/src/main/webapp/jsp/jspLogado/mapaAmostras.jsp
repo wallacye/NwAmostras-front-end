@@ -12,6 +12,8 @@
     
 	exibirMapaAmostrasEspecifico dao = new exibirMapaAmostrasEspecifico();
     ArrayList<AmostraNoMapa> lista = dao.listar(id_mapa_amostra);
+    
+    ArrayList<MapaDeAmostras> listaMapa = dao.listarMapa(id_mapa_amostra);
  %>
 
 <%@ include file="../../includes/validacao.jsp" %>
@@ -56,24 +58,26 @@
 	<%@ include file="../../includes/menuLogado.jsp" %>
 	
 	
-	<% for(AmostraNoMapa conteudo : lista) {%>	
+	<% for(MapaDeAmostras ConteudoMapa : listaMapa) 
+	{
+	%>	
 	<div class="containerTelaMapaDeAmsotras">
 		<div class="containerNomeMapaDeAmostras">
-			<label class="lblNomeMapaDeAmostras palavrasAzul"><%= conteudo.getNome_mapa_amostra() %></label>
+			<label class="lblNomeMapaDeAmostras palavrasAzul"><%= ConteudoMapa.getNome_mapa_amostra() %></label>
 		</div>
 		
 		<div class="containerDivsLocalizacaoMapaAmostra">
 			<div class="containerLblLocalizaçãoMapaAmostras">
 				<label class="lblFreezerEstanteCaixa">Freezer -</label>
-				<label class="lblLocallizacaoMapaAmostras">&nbsp; 1</label>
+				<label class="lblLocallizacaoMapaAmostras">&nbsp; <%= ConteudoMapa.getFreezer_mapa_amostra() %></label>
 			</div>
 			<div class="containerLblLocalizaçãoMapaAmostras">
 				<label class="lblFreezerEstanteCaixa">Estante -</label>
-				<label class="lblLocallizacaoMapaAmostras">&nbsp; <%= conteudo.getFreezer_mapa_amostra() %></label>
+				<label class="lblLocallizacaoMapaAmostras">&nbsp; <%= ConteudoMapa.getEstante_mapa_amostra() %></label>
 			</div>
 			<div class="containerLblLocalizaçãoMapaAmostras">
 				<label class="lblFreezerEstanteCaixa">Caixa -</label>
-				<label class="lblLocallizacaoMapaAmostras">&nbsp; <%= conteudo.getEstante_mapa_amostra() %></label>
+				<label class="lblLocallizacaoMapaAmostras">&nbsp; <%= ConteudoMapa.getCaixa_mapa_amostra() %></label>
 			</div>
 		</div>
 		
@@ -106,35 +110,57 @@
 		<% 
 		int c = 1;
 		int l = 1;
-		int linhas = conteudo.getN_linha_mapa_amostra();
-		int colunas = conteudo.getN_coluna_mapa_amostra();
-		%>
+		int linhas = ConteudoMapa.getN_linha_mapa_amostra();
+		int colunas = ConteudoMapa.getN_coluna_mapa_amostra();
+		%>			
 		
 		<%
 		while(c <= colunas) {
 		%>
 			<tr>			
 			<% 
-			while(l <= linhas) {
+			while(l <= linhas) {				
 			%>
-				<td class="divAmostraMapaDeAmostra">
-				<button class="btnLegendaMapaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
-				<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"></button>
-			
-				<% 
-				if(l==conteudo.getN_linha_amostra()&&c==conteudo.getN_coluna_amostra()) 
-				{ %>
-					<button class="btnVerCriarAmostra" onclick="location.href='amostra.jsp'"><br>
-					<%= conteudo.getVolume_amostra() %> uL <br> <%= conteudo.getNome_amostra() %><br> <%= conteudo.getData_formatada_vencimento() %></button>
-				<% 
-				}
-				else 
-				{
-				%>
-					<button class="btnVerCriarAmostra" onclick="location.href='criarAmostra.jsp?id_mapa_amostra=<%= conteudo.getId_mapa_amostra() %>&n_linha_amostra=<%= l %>&n_coluna_amostra=<%= c %>'"></td></button>
-				<%
-				}
-				%>
+					<td class="divAmostraMapaDeAmostra">
+					<button class="btnLegendaMapaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
+					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"></button>
+					<button class="btnVerCriarAmostra" 
+					<% for (AmostraNoMapa conteudo : lista) { 
+						if(l==conteudo.getN_linha_amostra()&&c==conteudo.getN_coluna_amostra()) 
+						{ 
+							String redirecionarAmostra="onclick='location.href='amostra.jsp?id_mapa_amostra=?" + conteudo.getId_mapa_amostra();%> 
+							<%=redirecionarAmostra%> 
+							<% 
+						} 
+						else 
+						{ 
+							String redirecionarAmostra = "onclick='location.href='criarAmostra.jsp?id_mapa_amostra=" + conteudo.getId_mapa_amostra() +"&n_linha_amostra=" + l + "&n_coluna_amostra=" + c;
+							%> 
+							<%=redirecionarAmostra%> 
+							<%
+						}
+					}
+						%>
+					'">									
+					<% 
+					for(AmostraNoMapa conteudo : lista) 
+					{
+					if(l==conteudo.getN_linha_amostra()&&c==conteudo.getN_coluna_amostra()) 
+					{ %>
+					<br> <%= conteudo.getVolume_amostra() %> uL 
+					<br> <%= conteudo.getNome_amostra() %>
+					<br> <%= conteudo.getData_formatada_vencimento() %>
+					</button>
+					<% 
+					}
+					else 
+					{
+					%>
+					</button>
+					<%
+					}
+					}
+					%>
 				</td>
 			<% 
 				l++;
@@ -181,9 +207,9 @@
 				</div>
 			</div>
 		</div>	
-		<% 
-		}
-		%>	
+<% 
+}
+%>	
 		<%@ include file="../../includes/rodape.jsp" %>
 	</div>
 </body>
