@@ -112,65 +112,56 @@
 		int l = 1;
 		int linhas = ConteudoMapa.getN_linha_mapa_amostra();
 		int colunas = ConteudoMapa.getN_coluna_mapa_amostra();
+		String redirecionarBotao = "";	
+		String A = "AA";
+		int mapaDeAmostras = ConteudoMapa.getId_mapa_amostra();
 		%>			
 		
 		<%
-		while(c <= colunas) {
+		while(l <= linhas) {
 		%>
 			<tr>			
 			<% 
-			while(l <= linhas) {				
+			while(c <= colunas) {				
 			%>
-					<td class="divAmostraMapaDeAmostra">
+				<td class="divAmostraMapaDeAmostra">
 					<button class="btnLegendaMapaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
 					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"></button>
-					<button class="btnVerCriarAmostra" 
-					<% for (AmostraNoMapa conteudo : lista) { 
+					<button class="btnVerCriarAmostra" 					
+					<% 
+					redirecionarBotao = "onclick=\"location.href='criarAmostra.jsp?id_mapa_amostra=" + mapaDeAmostras +"&n_linha_amostra=" + l + "&n_coluna_amostra=" + c + "'\"";
+					for (AmostraNoMapa conteudo : lista) 
+					{ 
 						if(l==conteudo.getN_linha_amostra()&&c==conteudo.getN_coluna_amostra()) 
 						{ 
-							String redirecionarAmostra="onclick='location.href='amostra.jsp?id_mapa_amostra=?" + conteudo.getId_mapa_amostra();%> 
-							<%=redirecionarAmostra%> 
-							<% 
+							redirecionarBotao = "onclick=\"location.href='amostra.jsp?id_amostra_mapa=" + conteudo.getId_amostra_mapa() + "'\"";
 						} 
-						else 
-						{ 
-							String redirecionarAmostra = "onclick='location.href='criarAmostra.jsp?id_mapa_amostra=" + conteudo.getId_mapa_amostra() +"&n_linha_amostra=" + l + "&n_coluna_amostra=" + c;
-							%> 
-							<%=redirecionarAmostra%> 
-							<%
-						}
 					}
-						%>
-					'">									
-					<% 
+					%>
+					<%= redirecionarBotao %>
+					<%
 					for(AmostraNoMapa conteudo : lista) 
 					{
-					if(l==conteudo.getN_linha_amostra()&&c==conteudo.getN_coluna_amostra()) 
-					{ %>
-					<br> <%= conteudo.getVolume_amostra() %> uL 
-					<br> <%= conteudo.getNome_amostra() %>
-					<br> <%= conteudo.getData_formatada_vencimento() %>
-					</button>
-					<% 
-					}
-					else 
-					{
-					%>
-					</button>
-					<%
-					}
+						if(l==conteudo.getN_linha_amostra()&&c==conteudo.getN_coluna_amostra()) 
+						{ 
+						%>
+						<br> <%= conteudo.getVolume_amostra() %> uL 
+						<br> <%= conteudo.getNome_amostra() %>
+						<br> <%= conteudo.getData_formatada_vencimento() %>	
+						<% 
+						}
 					}
 					%>
+					</button>
 				</td>
 			<% 
-				l++;
+				c++;
 			} 
 			%>
-		
 			</tr>
 		<% 
-			c++;
-			l=1;
+			l++;
+			c=1;
 		} 
 		%>
 		</table>

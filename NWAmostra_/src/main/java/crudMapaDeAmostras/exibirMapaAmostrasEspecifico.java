@@ -1,8 +1,10 @@
 package crudMapaDeAmostras;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.annotation.WebServlet;
@@ -39,26 +41,26 @@ public class exibirMapaAmostrasEspecifico extends HttpServlet {
             	dadosAmostraNoMapa.setId_div_mapa_amostra(rsExibirMapaDeAmostrasEspecifico.getInt("id_div_mapa_amostra"));
             	dadosAmostraNoMapa.setN_coluna_amostra(rsExibirMapaDeAmostrasEspecifico.getInt("n_coluna_amostra"));
             	dadosAmostraNoMapa.setN_linha_amostra(rsExibirMapaDeAmostrasEspecifico.getInt("n_linha_amostra"));
-            	dadosAmostraNoMapa.setValidade_amostra(rsExibirMapaDeAmostrasEspecifico.getDate("validade_amostra"));
             	dadosAmostraNoMapa.setDt_coleta_amostra(rsExibirMapaDeAmostrasEspecifico.getDate("dt_coleta_amostra"));
             	dadosAmostraNoMapa.setVolume_amostra(rsExibirMapaDeAmostrasEspecifico.getDouble("volume_amostra"));
             	dadosAmostraNoMapa.setHora_coleta_amostra(rsExibirMapaDeAmostrasEspecifico.getTime("hora_coleta_amostra"));
             	dadosAmostraNoMapa.setId_amostra(rsExibirMapaDeAmostrasEspecifico.getInt("id_amostra"));
             	dadosAmostraNoMapa.setId_mapa_amostra(rsExibirMapaDeAmostrasEspecifico.getInt("id_mapa_amostra"));
                 
-                dadosAmostraNoMapa.setId_mapa_amostra(rsExibirMapaDeAmostrasEspecifico.getInt("id_mapa_amostra"));
-                dadosAmostraNoMapa.setEstante_mapa_amostra(rsExibirMapaDeAmostrasEspecifico.getString("estante_mapa_amostra"));
-                dadosAmostraNoMapa.setNome_mapa_amostra(rsExibirMapaDeAmostrasEspecifico.getString("nome_mapa_amostra"));
-                dadosAmostraNoMapa.setFreezer_mapa_amostra(rsExibirMapaDeAmostrasEspecifico.getString("freezer_mapa_amostra"));
-                dadosAmostraNoMapa.setCaixa_mapa_amostra(rsExibirMapaDeAmostrasEspecifico.getString("caixa_mapa_amostra"));
-                dadosAmostraNoMapa.setN_coluna_mapa_amostra(rsExibirMapaDeAmostrasEspecifico.getInt("n_coluna_mapa_amostra"));
-                dadosAmostraNoMapa.setN_linha_mapa_amostra(rsExibirMapaDeAmostrasEspecifico.getInt("n_linha_mapa_amostra"));
-                dadosAmostraNoMapa.setData_inativacao_mapa_amostra(rsExibirMapaDeAmostrasEspecifico.getDate("data_inativacao_mapa_amostra"));
-
                 dadosAmostraNoMapa.setColetador_amostra(rsExibirMapaDeAmostrasEspecifico.getString("coletador_amostra"));
                 dadosAmostraNoMapa.setAnotacoes_amostra(rsExibirMapaDeAmostrasEspecifico.getString("anotacoes_amostra"));
                 dadosAmostraNoMapa.setTipo_amostra(rsExibirMapaDeAmostrasEspecifico.getString("tipo_amostra"));
                 dadosAmostraNoMapa.setNome_amostra(rsExibirMapaDeAmostrasEspecifico.getString("nome_amostra"));
+                
+                Date dataAmostraParaConverter = rsExibirMapaDeAmostrasEspecifico.getDate("validade_amostra");                 
+                if(dataAmostraParaConverter != null) {
+                java.util.Date utilDate = new java.util.Date(dataAmostraParaConverter.getTime());
+                String DataValidadeAmostraFormatada = new SimpleDateFormat("dd/MM/yyyy").format(utilDate);  
+                dadosAmostraNoMapa.setData_formatada_vencimento(DataValidadeAmostraFormatada);
+                }
+                else {
+                	dadosAmostraNoMapa.setData_formatada_vencimento(null);
+                }               
                 Conteudo.add(dadosAmostraNoMapa);
             }
             rsExibirMapaDeAmostrasEspecifico.close();
