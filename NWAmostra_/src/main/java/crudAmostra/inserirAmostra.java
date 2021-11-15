@@ -1,8 +1,11 @@
 package crudAmostra;
 
 import java.io.*;
-import java.sql.*;
-import java.time.LocalDateTime;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.text.*;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,6 +32,18 @@ public class inserirAmostra extends HttpServlet {
                 	String tipo_amostra = request.getParameter("txtTipoAmostra");
                 	Integer id_categoria = Integer.parseInt(request.getParameter("txtCategoriaAmostra"));
                 	Integer id_origem = Integer.parseInt(request.getParameter("txtIdOrigem"));
+                	String txtDataColetaAmostra = request.getParameter("txtDataColetaAmostra");
+                	
+                	DateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
+                	df.setLenient (false); 
+
+                	try {
+						Date dt_coleta_amostra = df.parse (txtDataColetaAmostra);
+					} catch (ParseException e) {
+	                    out.print("ERRO CONVERSÃO DATAS AMOSTRA" + e);
+					}
+                	java.sql.Date dt_coleta_amostra = new java.sql.Date(dt_coleta_amostra.getTime());
+                	
 
                     String sqlInserirOrigem = "INSERT INTO amostra (coletador_amostra, anotacoes_amostra, tipo_amostra, id_categoria, id_origem, data_inativacao_amostra)"
                     + " VALUES (?, ?, ?, ?, ?, ?) ";

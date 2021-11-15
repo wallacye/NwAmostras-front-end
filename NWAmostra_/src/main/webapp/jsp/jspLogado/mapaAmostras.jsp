@@ -139,7 +139,7 @@
 					%>
 					<%= redirecionarBotao %> 
 					>
-					<p class="letraCorDeFundo">ESPAÇOOO</p>
+					<p class="letraCorDeFundo"> _________ </p>
 					<%
 					for(AmostraNoMapa conteudo : lista) 
 					{

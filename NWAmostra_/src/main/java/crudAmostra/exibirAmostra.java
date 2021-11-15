@@ -41,7 +41,6 @@ public class exibirAmostra extends HttpServlet {
             	AmostraNoMapa dados = new AmostraNoMapa();
             	
             	dados.setId_amostra_mapa(rsExibirAmostras.getInt("id_amostra_mapa"));
-            	dados.setId_div_mapa_amostra(rsExibirAmostras.getInt("id_div_mapa_amostra"));
             	dados.setN_coluna_amostra(rsExibirAmostras.getInt("n_coluna_amostra"));
             	dados.setN_linha_amostra(rsExibirAmostras.getInt("n_linha_amostra"));
             	dados.setValidade_amostra(rsExibirAmostras.getDate("validade_amostra"));

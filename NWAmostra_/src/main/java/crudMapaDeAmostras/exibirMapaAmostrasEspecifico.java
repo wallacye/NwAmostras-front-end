@@ -38,7 +38,6 @@ public class exibirMapaAmostrasEspecifico extends HttpServlet {
             	
             	AmostraNoMapa dadosAmostraNoMapa = new AmostraNoMapa();
             	dadosAmostraNoMapa.setId_amostra_mapa(rsExibirMapaDeAmostrasEspecifico.getInt("id_amostra_mapa"));
-            	dadosAmostraNoMapa.setId_div_mapa_amostra(rsExibirMapaDeAmostrasEspecifico.getInt("id_div_mapa_amostra"));
             	dadosAmostraNoMapa.setN_coluna_amostra(rsExibirMapaDeAmostrasEspecifico.getInt("n_coluna_amostra"));
             	dadosAmostraNoMapa.setN_linha_amostra(rsExibirMapaDeAmostrasEspecifico.getInt("n_linha_amostra"));
             	dadosAmostraNoMapa.setDt_coleta_amostra(rsExibirMapaDeAmostrasEspecifico.getDate("dt_coleta_amostra"));

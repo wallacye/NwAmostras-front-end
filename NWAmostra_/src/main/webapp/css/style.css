@@ -3373,5 +3373,6 @@ nav ul li button{
 }
 /*Letra cor de fundo (mapa de amostras)*/
 .letraCorDeFundo{
-      color: (--fundo);
+	color: var(--fundo); 
+  	opacity: 0.0;    
 }
