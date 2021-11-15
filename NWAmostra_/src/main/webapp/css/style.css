@@ -3371,3 +3371,7 @@ nav ul li button{
 	color: var(--detalhes);
 	font-size: 20px;
 }
+/*Letra cor de fundo (mapa de amostras)*/
+.letraCorDeFundo{
+      color: (--fundo);
+}

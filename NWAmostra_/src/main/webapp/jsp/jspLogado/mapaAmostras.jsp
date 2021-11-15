@@ -113,7 +113,6 @@
 		int linhas = ConteudoMapa.getN_linha_mapa_amostra();
 		int colunas = ConteudoMapa.getN_coluna_mapa_amostra();
 		String redirecionarBotao = "";	
-		String A = "AA";
 		int mapaDeAmostras = ConteudoMapa.getId_mapa_amostra();
 		%>			
 		
@@ -127,18 +126,20 @@
 				<td class="divAmostraMapaDeAmostra">
 					<button class="btnLegendaMapaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
 					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"></button>
-					<button class="btnVerCriarAmostra" 					
+					<button class="btnVerCriarAmostra" 
 					<% 
-					redirecionarBotao = "onclick=\"location.href='criarAmostra.jsp?id_mapa_amostra=" + mapaDeAmostras +"&n_linha_amostra=" + l + "&n_coluna_amostra=" + c + "'\"";
+					redirecionarBotao = "onclick=\"location.href='criarAmostra.jsp?id_mapa_amostra=" + mapaDeAmostras +"&n_linha_amostra=" + l + "&n_coluna_amostra=" + c + "'\""; 
 					for (AmostraNoMapa conteudo : lista) 
 					{ 
 						if(l==conteudo.getN_linha_amostra()&&c==conteudo.getN_coluna_amostra()) 
 						{ 
-							redirecionarBotao = "onclick=\"location.href='amostra.jsp?id_amostra_mapa=" + conteudo.getId_amostra_mapa() + "'\"";
+							redirecionarBotao = "onclick=\"location.href='amostra.jsp?id_amostra_mapa=" + conteudo.getId_amostra_mapa() + "'\""; 
 						} 
 					}
 					%>
-					<%= redirecionarBotao %>
+					<%= redirecionarBotao %> 
+					>
+					<p class="letraCorDeFundo">ESPAÇOOO</p>
 					<%
 					for(AmostraNoMapa conteudo : lista) 
 					{
