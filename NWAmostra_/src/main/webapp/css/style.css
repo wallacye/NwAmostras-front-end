@@ -3376,3 +3376,78 @@ nav ul li button{
 	color: var(--fundo); 
   	opacity: 0.0;    
 }
+
+/* Tela criar laboratório*/
+
+.containerTelaCriarLaboratorio{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+ 	justify-content: center;
+	align-items: center
+}
+.containerInfoCriarLaboratorio{
+    width: 80%;
+    height: auto;
+    margin: 140px 5% 60px 5%;
+    border-radius: 20px;
+    box-shadow: 0 0 0.5em black;
+}
+.containerTituloCriarlaboratorio{
+	margin: 50px 0 0 5%;
+}
+.txtCriarLaboratorio{
+      width: 165px;
+      font-size: 20px;
+      border-bottom:var(--bordaMenu) ;
+      font-weight: bold;
+      color: var(--detalhes);
+}
+.containerTxtsCriarDados{
+ 	width: 45%;
+ 	margin: 30px 0 0 5%;
+    height: auto;
+    float: left;
+ }
+ .containerEspaçosFormsCriarLaboratorio{
+      width: 100%;
+      height: auto;
+}
+.containerLblsCriarLaboratorio{
+      width: 80%;
+      margin-top: 30px;
+}
+.lblsCriarLaboratorio{
+      font-size: 20px;
+}
+.txtsCriarLaboratorio{
+      border: none;
+      width: 90%;
+      font-size: 20px;
+      color: #767171;
+      border-bottom: 1px solid #767171;
+      margin-top: 20px;
+      background-color: transparent;
+}
+.containerBtnCriarInstituicao{
+ 	width: 100%;
+    height: 150px;
+    float: left;
+    display: flex;
+	flex-direction: row;
+ 	justify-content: center;
+	align-items: center
+ }
+ .btnCriarLaboratorio{
+      width: 188px;
+      height: 47px;
+      border-radius: 30px;
+      border: none;
+      background-color: var(--decoracaoTitulosCorFundo);
+      color: var(--fundo);
+      font-size: 20px;
+ }
+ .EspaçosdoformsCriarLaboratorio{
+ 
+ }
