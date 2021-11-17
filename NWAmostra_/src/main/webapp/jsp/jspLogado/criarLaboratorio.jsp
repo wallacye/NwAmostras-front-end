@@ -30,6 +30,7 @@
        </div>
         
         <form>
+        
         <div class="EspaçosdoformsCriarLaboratorio">
         	
             <div class="containerTxtsCriarDados">   
@@ -52,7 +53,7 @@
                     <input type="text" class="txtsCriarLaboratorio" placeholder="Digite o CEP da instituição" id="txtCEPInstituicao" name="txtCEPInstituicao"/>
                 </div>
                 
-                
+                </div>
             
             <div class="containerTxtsCriarDados">
             	
@@ -77,13 +78,13 @@
             	
             </div>
             
-        </div>
+
         
         
         <div class="containerBtnCriarInstituicao">
             <input class="btnCriarLaboratorio" type="submit" value="Criar">
         </div>
-       
+       </div>
        </form>
 
    
