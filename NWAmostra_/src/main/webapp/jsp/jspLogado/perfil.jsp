@@ -84,7 +84,7 @@ function fecharPopUpDesativar(){
 		<div class="containersInformacoesMeuPerfil">
 			<div class="containerLinksMeuPerfil"><a href="/NWAmostra_/Logout" class="linksMeuPerfil linkDeslogar" >Sair</a></div>
 			<div class="containerTxtsInformacoesMeuPerfil">
-				<a href="" class="linkCriarInstituicaoMeuPerfil palavrasAzul">Criar instituição</a>
+				<a href="criarLaboratorio.jsp" class="linkCriarInstituicaoMeuPerfil palavrasAzul">Criar instituição</a>
 			</div>
 		</div>
 		
