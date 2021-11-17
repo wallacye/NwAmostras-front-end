@@ -53,8 +53,7 @@
                     <input type="text" class="txtsCriarLaboratorio" placeholder="Digite o CEP da instituição" id="txtCEPInstituicao" name="txtCEPInstituicao"/>
                 </div>
                 
-                </div>
-                
+                </div>  
             
             <div class="containerTxtsCriarDados">
             	
