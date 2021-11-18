@@ -3295,7 +3295,7 @@ nav ul li button{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2%;
+    margin-bottom: 4%;
   }
    
 .btnCriarProjeto{
@@ -3401,7 +3401,7 @@ nav ul li button{
 	margin: 50px 0 0 5%;
 }
 .txtCriarLaboratorio{
-      width: 165px;
+      width: 155px;
       font-size: 20px;
       border-bottom:var(--bordaMenu) ;
       font-weight: bold;
