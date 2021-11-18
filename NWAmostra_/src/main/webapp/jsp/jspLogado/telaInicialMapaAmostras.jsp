@@ -100,7 +100,7 @@
         		<td class="palavrasAzul dataMapaAmostrasLista"><%= conteudo.getData_mapa_amostra_formatada() %></td>
     		</tr>
     		<tr>
-        		<td class="autorMapaAmostraLista"><%= conteudo.getFreezer_mapa_amostra() %> <%= conteudo.getEstante_mapa_amostra() %> <%= conteudo.getCaixa_mapa_amostra() %></td>
+        		<td class="autorMapaAmostraLista"> Freezer: <%= conteudo.getFreezer_mapa_amostra() %> Estante: <%= conteudo.getEstante_mapa_amostra() %> Caixa: <%= conteudo.getCaixa_mapa_amostra() %></td>
         		<td></td>
         		<td></td>
     		</tr>
