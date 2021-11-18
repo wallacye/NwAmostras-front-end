@@ -36,11 +36,11 @@
 	}
 	
 	function abrirPopUpSairProjeto(){
-		document.getElementById('popUpDestivarConta').style.display = 'block';
+		document.getElementById('popUpSairProjeto').style.display = 'block';
 	}
 
 	function fecharPopUpSairProjeto(){
-		document.getElementById('popUpDestivarConta').style.display = 'none';
+		document.getElementById('popUpSairProjeto').style.display = 'none';
 	}
 	
 </script>
@@ -152,7 +152,7 @@
 			</div>
 		</div>
 		
-		<div class="popUpDestivarConta" id="popUpDestivarConta">
+		<div class="popUpDestivarConta" id="popUpSairProjeto">
 		<div class="containerInformacoesPopUp">
 		
 		<div class="containerTituloAvisoDesativarConta">
