@@ -48,7 +48,7 @@
   					</datalist>
             </div>
             
-            <p class="lblCamposObrigatorios" style="text-align: right; margin-top: 20px;">*Campos obrigatórios</p>
+            <p class="lblCamposObrigatorios" style="text-align: right; margin-top: 20px; margin-right:2%;">*Campos obrigatórios</p>
             
             <div class="containerBtnCriarProjeto">
             <input class="btnCriarProjeto" type="submit" value="Criar">

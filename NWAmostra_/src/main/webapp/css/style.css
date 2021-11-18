@@ -3254,7 +3254,7 @@ nav ul li button{
 }
 
 .txtCriarProjeto{
-      width: 133px;
+      width: 123px;
       font-size: 20px;
       border-bottom:var(--bordaMenu) ;
       font-weight: bold;
@@ -3269,6 +3269,7 @@ nav ul li button{
 .containerLblsCriarProjeto{
       width: 80%;
       margin-top: 30px;
+      margin-left: 5%;
 }
 
 .lblsCriarProjeto{
@@ -3283,16 +3284,18 @@ nav ul li button{
       border-bottom: 1px solid #767171;
       margin-top: 20px;
       background-color: transparent;
+      margin-left:5%;
 }
 
 
  .containerBtnCriarProjeto{
     width: 80%;
-    margin: 40px 10% 0% 10%;
+    margin: 30px 10% 0% 10%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    margin-bottom: 2%;
   }
    
 .btnCriarProjeto{

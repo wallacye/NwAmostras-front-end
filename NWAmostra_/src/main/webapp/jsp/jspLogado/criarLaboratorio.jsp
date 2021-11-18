@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Criar Laboratório</title>
+<title>Criar Instituição</title>
 <link rel="icon" type="img/png" href="../../img/logoNwAmostrasClaro.png" />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +26,7 @@
 	<div class="containerTelaCriarLaboratorio">
     <div class="containerInfoCriarLaboratorio">
        <div class="containerTituloCriarlaboratorio">
-        <p class="txtCriarLaboratorio" >Criar Laboratório</p> 
+        <p class="txtCriarLaboratorio" >Criar Instituição</p> 
        </div>
         
         <form>
