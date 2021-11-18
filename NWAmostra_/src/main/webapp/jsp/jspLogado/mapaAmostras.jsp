@@ -125,7 +125,8 @@
 			%>
 				<td class="divAmostraMapaDeAmostra">
 					<button class="btnLegendaMapaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
-					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"></button>
+					<!--  <img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"> -->
+					</button>
 					<button class="btnVerCriarAmostra" 
 					<% 
 					redirecionarBotao = "onclick=\"location.href='criarAmostra.jsp?id_mapa_amostra=" + mapaDeAmostras +"&n_linha_amostra=" + l + "&n_coluna_amostra=" + c + "'\""; 

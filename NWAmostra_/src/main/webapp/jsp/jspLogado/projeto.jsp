@@ -15,6 +15,36 @@
 
 <script type="text/javascript" src="../../js/menuResponsivo.js" defer></script>
 
+<script type="text/javascript">
+
+	function abrirFerramentasProjeto(){
+	
+	if(document.getElementById('idContainerFerramentasProjeto').style.display == 'block'){
+		document.getElementById('idContainerFerramentasProjeto').style.display = 'none';
+	}else{
+		document.getElementById('idContainerFerramentasProjeto').style.display = 'block';
+	}
+	
+	}
+	
+	function abrirOpcoesAlterarTabela(){
+		document.getElementById('idContainerMasterOpcoesAlterarTabela').style.display = 'block';
+	}
+
+	function fecharOpcoesAlterarTabela(){
+		document.getElementById('idContainerMasterOpcoesAlterarTabela').style.display = 'none';
+	}
+	
+	function abrirPopUpSairProjeto(){
+		document.getElementById('popUpDestivarConta').style.display = 'block';
+	}
+
+	function fecharPopUpSairProjeto(){
+		document.getElementById('popUpDestivarConta').style.display = 'none';
+	}
+	
+</script>
+
 </head>
 <body>
 
@@ -84,14 +114,20 @@
 						</div>
 					</div>
 					
-					<button class="bntSairDoProjeto">Sair do Projeto</button>
+					<button class="bntSairDoProjeto" onclick="location.href='javascript: abrirPopUpSairProjeto();'">Sair do Projeto</button>
 					
 				</div>
 			</div>
 		</div>
 		
 		<div class="containerBtnFerramentasProjeto">
-			<button class="bntFerramentasProjeto">Ferramentas +</button>
+			<button class="bntFerramentasProjeto" onclick="location.href='javascript: abrirFerramentasProjeto();'">Ferramentas +</button>
+			<div class="containerFerramentasProjeto" id="idContainerFerramentasProjeto">
+			<button class="btnsFerramentasProjeto palavrasAzul" onclick="location.href=''">Importar dados</button>
+			<button class="btnsFerramentasProjeto palavrasAzul" onclick="location.href=''">Exportar dados</button>
+			<button class="btnsFerramentasProjeto palavrasAzul" onclick="location.href=''">Inserir linha</button>
+			<button class="btnsFerramentasProjeto palavrasAzul" onclick="location.href=''">Inserir coluna</button>
+			</div>
 		</div>
 		
 		<div class="containerProjetoTabela">
@@ -100,9 +136,44 @@
 					 <th><input type="text" value="Nome da Amostra" class="inputsTituloTabelaProjeto"></th>
 				<tr>
 				<tr>
-					<td><input type="text" value="Amostra A" class="inputsTabelaProjeto"></td>
+					<td><button class="" onclick="location.href='javascript: abrirOpcoesAlterarTabela();'">A</button>
+					<input type="text" value="Amostra A" class="inputsTabelaProjeto">
+					</td>
 				<tr>
 			</table>
+		</div>
+		
+		<div class="containerMasterOpcoesAlterarTabela" id="idContainerMasterOpcoesAlterarTabela">
+			<div class="containerOpcoesAlterarTabela">
+			<button class="btnsOpcoesAlterarTabela palavrasAzul" onclick="location.href=''">Excluir célula</button>
+			<button class="btnsOpcoesAlterarTabela palavrasAzul" onclick="location.href=''">Excluir coluna</button>
+			<button class="btnsOpcoesAlterarTabela palavrasAzul" onclick="location.href=''">Excluir linha</button>
+			<button class="btnsOpcoesAlterarTabela" style="color: #FF0000" onclick="location.href='javascript: fecharOpcoesAlterarTabela();'">Cancelar</button>
+			</div>
+		</div>
+		
+		<div class="popUpDestivarConta" id="popUpDestivarConta">
+		<div class="containerInformacoesPopUp">
+		
+		<div class="containerTituloAvisoDesativarConta">
+				<div style="width:100%;display: flex;justify-content: center;align-items: center; margin-top: 30px;">
+				<label class="lblTituloAvisoDesativarConta" style="border-bottom: 4px solid #FF0000">ATENÇÃO</label></div>
+				
+				<div class="containerLblInfoDesativarConta">
+				<label class="lblInfoDesativarConta">Tem certeza que deseja sair do projeto?</label>
+				</div>
+				
+				<div class="containerMasterBtnsDesativarConta">
+				<div class="containersBtnsDesativarConta">
+					<button class="btnSimDesativarConta" onclick="location.href=''">Sim</button>
+				</div>
+				<div class="containersBtnsDesativarConta">
+					<button class="btnCancelarDesativarConta" onclick="location.href='javascript: fecharPopUpSairProjeto();'">Cancelar</button>
+				</div>
+				</div>
+		</div>
+		
+		</div>
 		</div>
 		
 		<%@ include file="../../includes/rodape.jsp" %>
