@@ -73,7 +73,7 @@
                 <div class="txtFuncionalidades">
                     <div class="containerTituloTxtFuncionalidades">
                         <div class="divTitulosFuncionalidades"><label class="tituloFuncionalidadesIndex palavrasAzul">CRIA PROJETOS</label></div><br>
-                        <label class="txtFuncionalidadesIndex">A criação de projetos facilita na organização dos dados de pesquisas, seja ela solo ou em grupo€‹</label>
+                        <label class="txtFuncionalidadesIndex">A criação de projetos facilita na organização dos dados de pesquisas, seja ela solo ou grupal, de forma simples e rápida para que não haja perca de tempo no seu trabalho.</label>
                     </div>
                 </div>
 
