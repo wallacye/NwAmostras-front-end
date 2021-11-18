@@ -38,7 +38,7 @@
 	
 		<div class="containerBtnNovoBuscarProjetos">
 			<div class="containerBtnNovoProjeto">
-			<button class="btnNovoProjeto" onclick="location.href=''">Novo +</button>
+			<button class="btnNovoProjeto" onclick="location.href='criarProjeto.jsp'">Novo +</button>
 			</div>
 			<div class="containerBuscarProjeto">
 				<div class="containerPessquisarFiltroProjeto">
