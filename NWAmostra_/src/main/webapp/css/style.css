@@ -785,7 +785,7 @@ nav ul li button{
 .containerGeralMinhaConta{
 	float: left;
 	width: 100%;
-	height: 300px;
+	height: 250px;
 	border-bottom: 1px solid #767171;
 }
 
@@ -801,7 +801,7 @@ nav ul li button{
 	color: var(--corPalavrasVerdeAzul);
 	font-weight: bold;
 	font-size: 24px;
-	margin: 250px 0px 0px 35px;
+	margin: 195px 0px 0px 35px;
 }
 
 .containerMinhaConta{
@@ -884,6 +884,10 @@ nav ul li button{
 	border-bottom: 1px solid #767171;
 }
 
+#celularContainersInformacoesMeuPerfil{
+	display: none;
+}
+
 .containerLinksMeuPerfil{
 	float: left;
 	width: 30%;
@@ -930,7 +934,7 @@ nav ul li button{
 	display: inline-block;
 	margin: 68px 0px 0px 35px;
 	font-size: 18px;
-	font-weight: bold;
+	text-decoration: none;
 }
 
 .containerLinksModoCelular{
@@ -938,6 +942,10 @@ nav ul li button{
 	width: 100%;
 	height: auto;
 	float: left;
+}
+
+#idContainerInstituiçãoTxtsInformacoesEditarPerfil{
+	width: 75%;
 }
 
 @media (max-width: 820px){
@@ -984,6 +992,10 @@ nav ul li button{
 	
 	.linkCriarInstituicaoMeuPerfil{
 	margin: 43px 0px 0px 35px;
+	}
+	
+	#celularContainersInformacoesMeuPerfil{
+	display: block;
 	}
   }
   @media (max-width: 650px){
@@ -1050,19 +1062,32 @@ nav ul li button{
   .containerBtnConcluirEditarPerfil{
   	float: right;
 	width: 100%;
-	height: 140px;
+	height: auto;
 	border-bottom: 1px solid #767171;
   }
   
+  .btnCancelarEditarPerfil{
+	float: right;
+    width: 188px;
+    height: 47px;
+    background-color: #FF0000;
+    color: var(--fundo);
+    border: none;
+    border-radius: 30px;
+    margin: 52px 60px 52px 0px;
+    font-size: 18px;
+    cursor: pointer;
+}
+  
   .btnConcluirEditarPerfil{
   	float: right;
-  	width: 120px;
-	height: 35px;
+  	width: 188px;
+	height: 47px;
   	background-color: var(--corPalavrasVerdeAzul);
   	color: var(--fundo);
   	border: none;
   	border-radius: 30px;
-  	margin: 52px 60px 0px 0px;
+  	margin: 52px 60px 52px 0px;
   	font-size: 18px;
   	cursor: pointer;
   }
@@ -1070,7 +1095,7 @@ nav ul li button{
   .containerGeralMinhaContaEditarPerfil{
 	float: left;
 	width: 100%;
-	height: 300px;
+	height: 250px;
 	border-bottom: 1px solid #767171;
    }
   
@@ -1113,18 +1138,21 @@ nav ul li button{
   		width: 80%;
   	}
   	
-  	.containerBtnConcluirEditarPerfil{
-  		display:flex;
-		align-items: center;
-		justify-content: center;
-  	}
-  	
   	.btnConcluirEditarPerfil{
-  		margin: 0px;
+  	float: left;
+  	width: 80%;
+  	margin: 30px 10% 0px 10%;
   	}
   	
   	.containerLblEditarPerfilCelular{
   		display: block;
+  	}
+  	
+  	.btnCancelarEditarPerfil{
+  	width: 80%;
+  	margin: 0px;
+  	float: left;
+  	margin: 30px 10% 30px 10%;
   	}
   }
   @media (max-width: 650px){
