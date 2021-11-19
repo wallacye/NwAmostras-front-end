@@ -84,7 +84,7 @@
                 <div class="txtFuncionalidades">
                     <div class="containerTituloTxtFuncionalidades">
                         <div class="divTitulosFuncionalidades"><label class="tituloFuncionalidadesIndex palavrasAzul">CRIA MAPA DE AMOSTRAS</label></div><br>
-                        <label class="txtFuncionalidadesIndex">A criação dos mapas de amostras facilita a dncfwiuhfr8iw jnwf8cjre9ifjcw uwhf8jf9ewjfienf dushncdfuesheisn shd9e8jf98redhif.â€‹â€‹â€‹â€‹</label>
+                        <label class="txtFuncionalidadesIndex">A criação do mapa de amostras desenvolvida de modo minimalista auxilia na sua visualização e não compromete sua funcionalidade, trazendo rapidez ao trabalho.</label>
                     </div>
                 </div>
 
