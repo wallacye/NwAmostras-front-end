@@ -33,6 +33,12 @@ public class inserirAmostra extends HttpServlet {
                 	Integer id_categoria = Integer.parseInt(request.getParameter("txtCategoriaAmostra"));
                 	Integer id_origem = Integer.parseInt(request.getParameter("txtIdOrigem"));
                 	String txtDataColetaAmostra = request.getParameter("txtDataColetaAmostra");
+                	String txtDataValidadeAmostra = request.getParameter("txtDataValidadeAmostra");
+                	Integer id_mapa_amostra = Integer.parseInt(request.getParameter("inputMapaDeAmostras"));
+                	Integer n_coluna_amostra = Integer.parseInt(request.getParameter("inputColunaAmostra"));
+                	Integer n_linha_amostra = Integer.parseInt(request.getParameter("inputLinhaAmostra"));
+                	Double volume_amostra = Double.parseDouble(request.getParameter("txtVolumeAmostra"));
+                	String hora_coleta_amostra = request.getParameter("txtHoraColetaAmostra");
                 	
                 	DateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
                 	df.setLenient (false); 
@@ -40,23 +46,42 @@ public class inserirAmostra extends HttpServlet {
                 	try {
 						Date dt_coleta_amostra = df.parse (txtDataColetaAmostra);
 					} catch (ParseException e) {
-	                    out.print("ERRO CONVERSÃO DATAS AMOSTRA" + e);
+	                    out.print("ERRO CONVERSÃO DATA COLETA AMOSTRA" + e);
 					}
                 	java.sql.Date dt_coleta_amostra = new java.sql.Date(dt_coleta_amostra.getTime());
                 	
+                	
+                	try {
+						Date validade_amostra = df.parse (txtDataValidadeAmostra);
+					} catch (ParseException e) {
+	                    out.print("ERRO CONVERSÃO DATA VALIDADE AMOSTRA" + e);
+					}
+                	java.sql.Date validade_amostra = new java.sql.Date(validade_amostra.getTime());
 
-                    String sqlInserirOrigem = "INSERT INTO amostra (coletador_amostra, anotacoes_amostra, tipo_amostra, id_categoria, id_origem, data_inativacao_amostra)"
-                    + " VALUES (?, ?, ?, ?, ?, ?) ";
+                    String sqlInserirAmostra = "INSERT INTO amostra (id_amostra, coletador_amostra, anotacoes_amostra, tipo_amostra, id_categoria, id_origem, data_inativacao_amostra)"
+                    + " VALUES (?, ?, ?, ?, ?, ?, ?) "
+                    + "INSERT INTO amostra_no_mapa_contem (n_coluna_amostra, n_linha_amostra, validade_amostra, dt_coleta_amostra, volume_amostra, hora_coleta_amostra, id_amostra, id_mapa_amostra)"
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
                     Connection con = Conexao.Conectar();
-            	    PreparedStatement stInserirOrigem = con.prepareStatement(sqlInserirOrigem);
-            	    stInserirOrigem.setString(1, coletador_amostra);
-            	    stInserirOrigem.setString(2, anotacoes_amostra);
-            	    stInserirOrigem.setString(3, tipo_amostra);
-            	    stInserirOrigem.setInt(4, id_categoria);
-            	    stInserirOrigem.setInt(5, id_origem);
-            	    stInserirOrigem.setString(6, null);
-            	    stInserirOrigem.executeUpdate();
+            	    PreparedStatement stInserirAmostra = con.prepareStatement(sqlInserirAmostra);
+            	    stInserirAmostra.setInt(1, id_amostra);
+            	    stInserirAmostra.setString(2, coletador_amostra);
+            	    stInserirAmostra.setString(3, anotacoes_amostra);
+            	    stInserirAmostra.setString(4, tipo_amostra);
+            	    stInserirAmostra.setInt(5, id_categoria);
+            	    stInserirAmostra.setInt(6, id_origem);
+            	    stInserirAmostra.setString(7, null);
+            	    
+            	    stInserirAmostra.setInt(8, n_coluna_amostra);
+            	    stInserirAmostra.setInt(9, n_linha_amostra);
+            	    stInserirAmostra.setDate(10, validade_amostra);
+            	    stInserirAmostra.setDate(11, dt_coleta_amostra);
+            	    stInserirAmostra.setDouble(12, volume_amostra);
+            	    stInserirAmostra.setString(13, hora_coleta_amostra);
+            	    stInserirAmostra.setInt(14, id_amostra);
+            	    stInserirAmostra.setInt(15, id_mapa_amostra);
+            	    stInserirAmostra.executeUpdate();
 			
                     response.sendRedirect("/jspLogado/amostra.jsp");
 

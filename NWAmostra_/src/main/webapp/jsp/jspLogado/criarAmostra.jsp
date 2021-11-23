@@ -5,8 +5,14 @@
 <%@page import="java.util.ArrayList"%>
 
 <%
-    exibirOrigens dao = new exibirOrigens();
-    ArrayList<Origem> lista = dao.listar();
+Integer id_mapa_amostra = Integer.parseInt(request.getParameter("id_mapa_amostra")) ;
+Integer n_linha_amostra = Integer.parseInt(request.getParameter("n_linha_amostra")) ;
+Integer n_coluna_amostra = Integer.parseInt(request.getParameter("n_coluna_amostra")) ;
+
+exibirOrigens dao = new exibirOrigens();
+   
+ArrayList<Origem> lista = dao.listar();
+    
 %>
 
 <%@ include file="../../includes/validacao.jsp" %>
@@ -128,6 +134,10 @@
             </div>
         </div>
         
+ 		<input type="hidden" id="inputMapaDeAmostras" name="inputMapaDeAmostras" value="<%= id_mapa_amostra %>">
+ 		<input type="hidden" id="inputColunaAmostra" name="inputColunaAmostra" value="<%= n_coluna_amostra %>">
+ 		<input type="hidden" id="inputLinhaAmostra" name="inputLinhaAmostra" value="<%= n_linha_amostra %>">
+ 		
         <div class="containerBtnCriarAmostra">
             <input class="btnCriarAmostra" type="submit" value="Criar">
         </div>
