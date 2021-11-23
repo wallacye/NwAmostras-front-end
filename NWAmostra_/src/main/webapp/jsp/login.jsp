@@ -65,7 +65,7 @@
                 	%>
                     
                     <div class="containerEsqueceuSenha">
-                        <a class="palavrasAzul lblsLoginCad" href="">Esqueceu sua senha?</a>
+                        <a class="palavrasAzul lblsLoginCad" href="esqueceuSenha.jsp">Esqueceu sua senha?</a>
                     </div>
                     <div class="containerBtnLogar">
                         <input class="bntLogar" type="submit" value="Logar">

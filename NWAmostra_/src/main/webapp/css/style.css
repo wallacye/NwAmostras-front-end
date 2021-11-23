@@ -1986,7 +1986,7 @@ nav ul li button{
   }
   
   .containerBtnsAlterarExcluirMapaAmostra{
-  	height: 150px; width: 100%;
+  	height: auto; width: 100%;
   	display: flex;
     justify-content: center;
     align-items: center;
@@ -2005,7 +2005,7 @@ nav ul li button{
     border-radius: 30px;
     border: none;
     background-color: var(--corPalavrasVerdeAzul);
-    margin: 0px 20px 0px 0px;
+    margin: 30px 20px 30px 0px;
     font-size: 20px;
   }
   
@@ -2016,7 +2016,7 @@ nav ul li button{
     border-radius: 30px;
     border: none;
     background-color: #FF0000;
-    margin: 0px 0px 0px 20px;
+    margin: 30px 0px 30px 20px;
     font-size: 20px;
   }
   
@@ -2141,13 +2141,13 @@ nav ul li button{
     .btnAlterarMapaAmostra{
     width: 80%;
     float: left;
-    margin: 0px 10% 10px 10%;
+    margin: 30px 10% 10px 10%;
     }
     
     .btnExcluirMapaAmostra{
     width: 80%;
     float: left;
-    margin: 10px 10% 0px 10%;
+    margin: 10px 10% 30px 10%;
     }
     
     .containerPopUpAtencaoExcluirMapaAmostras{
@@ -3565,3 +3565,105 @@ nav ul li button{
  .containerTxtsCriarDados{
  float:left;
  }
+ 
+ /* Tela Esqueceu a Senha */
+ 
+ .containerTelaEsqueceuSenha{
+ 	width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ .containerInfoTxtEsqueceuSenha{
+ 	float: left;
+    width: 448px;
+    height: 386px;
+    margin: 200px 0% 150px 0%;
+    border-radius: 20px;
+    box-shadow: 0 0 0.5em black;
+ }
+ 
+ .containerTituloEsqueceuSenha{
+ 	float: left;
+    width: 100%;
+    height: auto;
+ }
+ 
+ .lblTituloEsqueceuSenha{
+ 	color: var(--detalhes);
+    font-size: 20px;
+    font-weight: bold;
+ }
+ 
+ .detalheLblTituloEsqueceuSenha{
+ 	width: 240px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--decoracaoTitulosCorFundo);
+ }
+ 
+ .containerTextoExplicacaoEsqueceuSenha{
+ 	float: left;
+    width: 80%;
+    height: auto;
+    margin: 30px 10% 0px 10%;
+ }
+ 
+ .textoExplicacaoEsqueceuSenha{
+ 	color: var(--detalhes);
+    font-size: 20px;
+ }
+ 
+ .containerLblTxtEsqueceuSenha{
+ 	float: left;
+    width: 80%;
+    height: auto;
+    margin: 30px 10% 0px 10%;
+ }
+ 
+ .lblEmailEsqueceuSenha{
+ 	font-size: 20px;
+ }
+ 
+ .txtEmailEsqueceuSenha{
+ 	color: #767171;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #767171;
+    background-color: transparent;
+    font-size: 20px;
+    margin: 10px 0px 0px 0px;
+ }
+ 
+ .containerBtnConfirmarEsqueceuSenha{
+ 	width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ .btnConfirmarEsqueceuSenha{
+ 	float: right;
+    width: 170px;
+    height: 40px;
+    background-color: var(--corPalavrasVerdeAzul);
+    color: var(--fundo);
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    margin-top: 50px;
+    cursor: pointer;
+ }
+ 
+ @media (max-width: 820px){
+	.containerInfoTxtEsqueceuSenha{
+    float: left;
+    width: 100%;
+    height: 386px;
+    box-shadow: none;
+}
+}
