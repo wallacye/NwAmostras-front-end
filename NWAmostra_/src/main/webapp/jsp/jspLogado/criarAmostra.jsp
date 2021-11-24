@@ -5,9 +5,9 @@
 <%@page import="java.util.ArrayList"%>
 
 <%
-Integer id_mapa_amostra = Integer.parseInt(request.getParameter("id_mapa_amostra")) ;
-Integer n_linha_amostra = Integer.parseInt(request.getParameter("n_linha_amostra")) ;
-Integer n_coluna_amostra = Integer.parseInt(request.getParameter("n_coluna_amostra")) ;
+Integer id_mapa_amostra = (Integer) request.getSession().getAttribute("id_mapa_amostra"); 
+Integer n_linha_amostra = (Integer) request.getSession().getAttribute("n_linha_amostra"); 
+Integer n_coluna_amostra = (Integer) request.getSession().getAttribute("n_coluna_amostra"); 
 
 exibirOrigens dao = new exibirOrigens();
    

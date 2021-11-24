@@ -1,3 +1,4 @@
+<%@ include file="../../includes/validacao.jsp" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -17,6 +18,11 @@
 
 </head>
 <body>
+
+			<% String nome_pesq = (String) request.getSession().getAttribute("nome_pesq"); 
+               String id = (String) request.getSession().getAttribute("id");  
+               String email_pesq = (String) request.getSession().getAttribute("email_pesq");
+               String cpf_pesq = (String) request.getSession().getAttribute("cpf_pesq");%>
 
 	<%@ include file="../../includes/menuLogado.jsp" %>
 	
@@ -42,21 +48,21 @@
 			<div class="containerLinksMeuPerfil"><a href="editarPerfil.jsp" class="linksMeuPerfil palavrasAzul" >Editar Perfil</a></div>
 			<div class="containerTxtsInformacoesMeuPerfil">
 				<div class="containerLblsTituloInformacoesMeuPerfil"><label class="lblsTituloInformacoesMeuPerfil palavrasAzul">Nome</label></div>
-				<input type="text" class="txtsInformacoesMeuPerfil" disabled="disabled" value="Josefina Bund Fin"/>
+				<input type="text" class="txtsInformacoesMeuPerfil" disabled="disabled" value="<%=nome_pesq%>"/>
 			</div>
 		</div>
 		<div class="containersInformacoesMeuPerfil">
 			<div class="containerLinksMeuPerfil"><a href="criarLaboratorio.jsp" class="linkCriarInstituicaoMeuPerfil palavrasAzul">Criar instituição</a></div>
 			<div class="containerTxtsInformacoesMeuPerfil">
 				<div class="containerLblsTituloInformacoesMeuPerfil"><label class="lblsTituloInformacoesMeuPerfil palavrasAzul">CPF</label></div>
-				<input type="text" class="txtsInformacoesMeuPerfil" disabled="disabled" value="000.000.000-00"/>
+				<input type="text" class="txtsInformacoesMeuPerfil" disabled="disabled" value="<%=cpf_pesq%>"/>
 			</div>
 		</div>
 		<div class="containersInformacoesMeuPerfil">
 			<div class="containerLinksMeuPerfil"><a href="/NWAmostra_/Logout" class="linksMeuPerfil linkDeslogar" >Sair</a></div>
 			<div class="containerTxtsInformacoesMeuPerfil">
 				<div class="containerLblsTituloInformacoesMeuPerfil"><label class="lblsTituloInformacoesMeuPerfil palavrasAzul">E-mail</label></div>
-				<input type="text" class="txtsInformacoesMeuPerfil" disabled="disabled" value="josefinabundfin@gmail.com"/>
+				<input type="text" class="txtsInformacoesMeuPerfil" disabled="disabled" value="<%=email_pesq%>"/>
 			</div>
 		</div>
 		<div class="containersInformacoesMeuPerfil">

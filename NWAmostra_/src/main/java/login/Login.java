@@ -40,9 +40,9 @@ public class Login extends HttpServlet {
                 session.setAttribute("erro",0);
                 session.setAttribute("logado","TRUE");
                 session.setAttribute("id",rsLogin.getString("id_pesq"));
-                session.setAttribute("nome",rsLogin.getString("nome_pesq"));
-                session.setAttribute("email",rsLogin.getString("email_pesq"));
-                session.setAttribute("cpf",rsLogin.getString("cpf_pesq"));
+                session.setAttribute("nome_pesq",rsLogin.getString("nome_pesq"));
+                session.setAttribute("email_pesq",rsLogin.getString("email_pesq"));
+                session.setAttribute("cpf_pesq",rsLogin.getString("cpf_pesq"));
                 response.sendRedirect("./jsp/jspLogado/indexLogado.jsp");
             }
             else{
