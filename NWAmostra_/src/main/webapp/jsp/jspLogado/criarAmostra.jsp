@@ -43,7 +43,7 @@ ArrayList<Origem> lista = dao.listar();
         <p class="txtCriarAmostra" >Criar Amostra</p> 
        </div>
         
-        <form>
+        <form method="post" action="/NWAmostra_/inserirAmostra">
         <div class="EspaçosdoformsCriarAmostra">
         	
             <div class="containerTxtsCriarDadosOrigem">   

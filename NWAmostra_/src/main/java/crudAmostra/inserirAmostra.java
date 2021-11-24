@@ -39,26 +39,31 @@ public class inserirAmostra extends HttpServlet {
                 	Integer n_linha_amostra = Integer.parseInt(request.getParameter("inputLinhaAmostra"));
                 	Double volume_amostra = Double.parseDouble(request.getParameter("txtVolumeAmostra"));
                 	String hora_coleta_amostra = request.getParameter("txtHoraColetaAmostra");
+                	Date UTILdt_coleta_amostra = null;
+                	java.sql.Date dt_coleta_amostra;
+                	Date UTILvalidade_amostra = null;
+                	java.sql.Date validade_amostra;
                 	
                 	DateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
                 	df.setLenient (false); 
 
                 	try {
-						Date dt_coleta_amostra = df.parse (txtDataColetaAmostra);
+						UTILdt_coleta_amostra = df.parse (txtDataColetaAmostra);
 					} catch (ParseException e) {
 	                    out.print("ERRO CONVERSÃO DATA COLETA AMOSTRA" + e);
 					}
-                	java.sql.Date dt_coleta_amostra = new java.sql.Date(dt_coleta_amostra.getTime());
+                	dt_coleta_amostra = new java.sql.Date(UTILdt_coleta_amostra.getTime());
                 	
-                	
+               	
                 	try {
-						Date validade_amostra = df.parse (txtDataValidadeAmostra);
+						UTILvalidade_amostra = df.parse (txtDataValidadeAmostra);
 					} catch (ParseException e) {
 	                    out.print("ERRO CONVERSÃO DATA VALIDADE AMOSTRA" + e);
 					}
-                	java.sql.Date validade_amostra = new java.sql.Date(validade_amostra.getTime());
+                	validade_amostra = new java.sql.Date(UTILvalidade_amostra.getTime());
 
-                    String sqlInserirAmostra = "INSERT INTO amostra (id_amostra, coletador_amostra, anotacoes_amostra, tipo_amostra, id_categoria, id_origem, data_inativacao_amostra)"
+                	
+                    String sqlInserirAmostra = "INSERT INTO amostra (id_amostra, coletador_amostra, anotacoes_amostra, tipo_amostra, id_categoria, id_origem, data_inativacao_amostra, nome_amostra)"
                     + " VALUES (?, ?, ?, ?, ?, ?, ?) "
                     + "INSERT INTO amostra_no_mapa_contem (n_coluna_amostra, n_linha_amostra, validade_amostra, dt_coleta_amostra, volume_amostra, hora_coleta_amostra, id_amostra, id_mapa_amostra)"
                     + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -72,15 +77,16 @@ public class inserirAmostra extends HttpServlet {
             	    stInserirAmostra.setInt(5, id_categoria);
             	    stInserirAmostra.setInt(6, id_origem);
             	    stInserirAmostra.setString(7, null);
+            	    stInserirAmostra.setString(8, nome_amostra);
             	    
-            	    stInserirAmostra.setInt(8, n_coluna_amostra);
-            	    stInserirAmostra.setInt(9, n_linha_amostra);
-            	    stInserirAmostra.setDate(10, validade_amostra);
-            	    stInserirAmostra.setDate(11, dt_coleta_amostra);
-            	    stInserirAmostra.setDouble(12, volume_amostra);
-            	    stInserirAmostra.setString(13, hora_coleta_amostra);
-            	    stInserirAmostra.setInt(14, id_amostra);
-            	    stInserirAmostra.setInt(15, id_mapa_amostra);
+            	    stInserirAmostra.setInt(9, n_coluna_amostra);
+            	    stInserirAmostra.setInt(10, n_linha_amostra);
+            	    stInserirAmostra.setDate(11, validade_amostra);
+            	    stInserirAmostra.setDate(12, dt_coleta_amostra);
+            	    stInserirAmostra.setDouble(13, volume_amostra);
+            	    stInserirAmostra.setString(14, hora_coleta_amostra);
+            	    stInserirAmostra.setInt(15, id_amostra);
+            	    stInserirAmostra.setInt(16, id_mapa_amostra);
             	    stInserirAmostra.executeUpdate();
 			
                     response.sendRedirect("/jspLogado/amostra.jsp");
