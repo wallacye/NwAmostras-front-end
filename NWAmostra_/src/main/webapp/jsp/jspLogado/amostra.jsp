@@ -293,6 +293,31 @@
 		</div>
 		</div>
 		
+		<!-- Pop ups -->
+		
+		<!-- 
+		<div class="popupAdicionarVolume">
+			<div class="containerInformaçõesPopUp">
+				<div class="containerBtnsAdicionarRetirar">
+					<button class="btnAdicionarVolume">Adicionar</button>
+					<button class="btnRetirarVolume">Retirar</button>
+				</div>
+				<div class="containerVolumeAtual">
+					<label class="palavrasAzul lblVolumeAtualAlterar">Volume atual -</label>
+					<label class="lblVolumeAtualNumero"> <%= conteudo.getVolume_amostra() %>uL</label>
+				</div>
+				<div class="containerLblAdicionarInput">
+					<label class="palavrasAzul lblAdicionarVolume">Adicionar</label>
+					<input type="text" class="inputAdicionarVolume" placeholder="Digite o volume a ser adicionado">
+				</div>
+				<div class="containerBtnAdicionarVolume" 
+				style="width:100%;display: flex;justify-content: center;align-items: center;">
+					<button class="btnImputAdicionarVolume" onclick="location.href=''">Adicionar</button>
+					<button class="btnImputCancelarAdicionarVolume" onclick="location.href=''">Cancelar</button>
+				</div>
+			</div>
+		</div> -->
+		
 		<div class="popUpAtencaoExcluirAmostra" id="idPopUpAtencaoExcluirAmostra">
 			<div class="containerPopUpAtencaoExcluirMapaAmostras">
 				<div class="containerTituloAtencaoExcluirMapaAmostras">

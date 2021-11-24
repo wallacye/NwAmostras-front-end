@@ -76,7 +76,7 @@ public class inserirAmostra extends HttpServlet {
             	    stInserirAmostra.setString(4, tipo_amostra);
             	    stInserirAmostra.setInt(5, id_categoria);
             	    stInserirAmostra.setInt(6, id_origem);
-            	    stInserirAmostra.setString(7, null);
+            	    stInserirAmostra.setDate(7, null);
             	    stInserirAmostra.setString(8, nome_amostra);
             	    
             	    stInserirAmostra.setInt(9, n_coluna_amostra);
