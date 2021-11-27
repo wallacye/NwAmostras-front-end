@@ -64,7 +64,7 @@ public class inserirAmostra extends HttpServlet {
 
                 	
                     String sqlInserirAmostra = "INSERT INTO amostra (id_amostra, coletador_amostra, anotacoes_amostra, tipo_amostra, id_categoria, id_origem, data_inativacao_amostra, nome_amostra)"
-                    + " VALUES (?, ?, ?, ?, ?, ?, ?) "
+                    + " VALUES (?, ?, ?, ?, ?, ?, ?, ?) "
                     + "INSERT INTO amostra_no_mapa_contem (n_coluna_amostra, n_linha_amostra, validade_amostra, dt_coleta_amostra, volume_amostra, hora_coleta_amostra, id_amostra, id_mapa_amostra)"
                     + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 

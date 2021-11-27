@@ -5,9 +5,13 @@
 <%@page import="java.util.ArrayList"%>
 
 <%
-Integer id_mapa_amostra = (Integer) request.getSession().getAttribute("id_mapa_amostra"); 
-Integer n_linha_amostra = (Integer) request.getSession().getAttribute("n_linha_amostra"); 
-Integer n_coluna_amostra = (Integer) request.getSession().getAttribute("n_coluna_amostra"); 
+//Integer id_mapa_amostra = (Integer) request.getSession().getAttribute("id_mapa_amostra"); 
+//Integer n_linha_amostra = (Integer) request.getSession().getAttribute("n_linha_amostra"); 
+//Integer n_coluna_amostra = (Integer) request.getSession().getAttribute("n_coluna_amostra"); 
+
+Integer id_mapa_amostra = Integer.parseInt(request.getParameter("id_mapa_amostra"));
+Integer n_linha_amostra = Integer.parseInt(request.getParameter("n_linha_amostra"));
+Integer n_coluna_amostra = Integer.parseInt(request.getParameter("n_coluna_amostra"));
 
 exibirOrigens dao = new exibirOrigens();
    
@@ -132,7 +136,7 @@ ArrayList<Origem> lista = dao.listar();
                     <a href="criarOrigem.jsp" class="linkCriarOrigem palavrasAzul">Não encontrou a instituição de origem? Crie aqui!</a>
             		<p class="lblCamposObrigatorios" style="text-align: right; margin-top: 20px;">*Campos obrigatórios</p>
             </div>
-        </div>
+        </div><%= id_mapa_amostra %>
         
  		<input type="hidden" id="inputMapaDeAmostras" name="inputMapaDeAmostras" value="<%= id_mapa_amostra %>">
  		<input type="hidden" id="inputColunaAmostra" name="inputColunaAmostra" value="<%= n_coluna_amostra %>">
