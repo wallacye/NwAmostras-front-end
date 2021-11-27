@@ -17,7 +17,7 @@ public class AmostraNoMapa extends HttpServlet {
 	private Date validade_amostra;
 	private Date dt_coleta_amostra;
 	private Double volume_amostra;
-	private Time hora_coleta_amostra;
+	private String hora_coleta_amostra;
 	private Integer id_amostra;
 	private Integer id_mapa_amostra;
 	private String data_formatada_vencimento;
@@ -95,10 +95,10 @@ public class AmostraNoMapa extends HttpServlet {
 	public void setDt_coleta_amostra(Date dt_coleta_amostra) {
 		this.dt_coleta_amostra = dt_coleta_amostra;
 	}
-	public Time getHora_coleta_amostra() {
+	public String getHora_coleta_amostra() {
 		return hora_coleta_amostra;
 	}
-	public void setHora_coleta_amostra(Time hora_coleta_amostra) {
+	public void setHora_coleta_amostra(String hora_coleta_amostra) {
 		this.hora_coleta_amostra = hora_coleta_amostra;
 	}
 	public Double getVolume_amostra() {

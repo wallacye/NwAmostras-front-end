@@ -42,7 +42,7 @@ public class exibirMapaAmostrasEspecifico extends HttpServlet {
             	dadosAmostraNoMapa.setN_linha_amostra(rsExibirMapaDeAmostrasEspecifico.getInt("n_linha_amostra"));
             	dadosAmostraNoMapa.setDt_coleta_amostra(rsExibirMapaDeAmostrasEspecifico.getDate("dt_coleta_amostra"));
             	dadosAmostraNoMapa.setVolume_amostra(rsExibirMapaDeAmostrasEspecifico.getDouble("volume_amostra"));
-            	dadosAmostraNoMapa.setHora_coleta_amostra(rsExibirMapaDeAmostrasEspecifico.getTime("hora_coleta_amostra"));
+            	dadosAmostraNoMapa.setHora_coleta_amostra(rsExibirMapaDeAmostrasEspecifico.getString("hora_coleta_amostra"));
             	dadosAmostraNoMapa.setId_amostra(rsExibirMapaDeAmostrasEspecifico.getInt("id_amostra"));
             	dadosAmostraNoMapa.setId_mapa_amostra(rsExibirMapaDeAmostrasEspecifico.getInt("id_mapa_amostra"));
                 

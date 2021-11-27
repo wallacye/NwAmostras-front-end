@@ -41,7 +41,7 @@ public class exibirAmostras extends HttpServlet {
             	dados.setValidade_amostra(rsExibirAmostras.getDate("validade_amostra"));
             	dados.setDt_coleta_amostra(rsExibirAmostras.getDate("dt_coleta_amostra"));
             	dados.setVolume_amostra(rsExibirAmostras.getDouble("volume_amostra"));
-            	dados.setHora_coleta_amostra(rsExibirAmostras.getTime("hora_coleta_amostra"));
+            	dados.setHora_coleta_amostra(rsExibirAmostras.getString("hora_coleta_amostra"));
             	dados.setId_amostra(rsExibirAmostras.getInt("id_amostra"));
             	dados.setId_mapa_amostra(rsExibirAmostras.getInt("id_mapa_amostra"));
             	

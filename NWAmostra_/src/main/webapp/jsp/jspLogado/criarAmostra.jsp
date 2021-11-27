@@ -95,11 +95,11 @@ ArrayList<Origem> lista = dao.listar();
             	
             	<div class="containerEspaçosFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Data de Coleta*</label></div>
-                    <input type="text" class="txtsCriarAmostra" placeholder="Digite a data da coleta da amostra" id="txtDataColetaAmostra" name="txtDataColetaAmostra"/>
+                    <input type="date" class="txtsCriarAmostra" id="txtDataColetaAmostra" name="txtDataColetaAmostra"/>
                 </div>
                 <div class="containerEspaçosFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Hora da Coleta*</label></div>
-                    <input type="text" class="txtsCriarAmostra" placeholder="Digite a hora da coleta da amostra" id="txtHoraColetaAmostra" name="txtHoraColetaAmostra"/>
+                    <input type="time" class="txtsCriarAmostra" placeholder="Digite a hora da coleta da amostra" id="txtHoraColetaAmostra" name="txtHoraColetaAmostra"/>
                 </div>
                 <div class="containerEspaçosFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Coletador</label></div>
@@ -107,11 +107,11 @@ ArrayList<Origem> lista = dao.listar();
                 </div>
                 <div class="containerEspaçosFormsCriarAmostra">
                     <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Data de Validade*</label></div>
-                    <input type="text" class="txtsCriarAmostra" placeholder="Digite a data de validade da amostra" id="txtDataValidadeAmostra" name="txtDataValidadeAmostra"/>
+                    <input type="date" class="txtsCriarAmostra" id="txtDataValidadeAmostra" name="txtDataValidadeAmostra"/>
                 </div>
             	
             	<div class="containerLblTxtAnotacoes">
-             		<div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Anotações*</label></div>
+             		<div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Anotações</label></div>
              		<textarea class="txtsCriarAmostraAnotacao" name="txtAnotacoesAmostra" id="txtAnotacoesAmostra" placeholder="Digite as anotações da amostra"/></textarea>
         		</div>
             	

@@ -32,8 +32,10 @@ public class inserirAmostra extends HttpServlet {
                 	String tipo_amostra = request.getParameter("txtTipoAmostra");
                 	Integer id_categoria = Integer.parseInt(request.getParameter("txtCategoriaAmostra"));
                 	Integer id_origem = Integer.parseInt(request.getParameter("txtIdOrigem"));
+                	
                 	String txtDataColetaAmostra = request.getParameter("txtDataColetaAmostra");
                 	String txtDataValidadeAmostra = request.getParameter("txtDataValidadeAmostra");
+                	
                 	Integer id_mapa_amostra = Integer.parseInt(request.getParameter("inputMapaDeAmostras"));
                 	Integer n_coluna_amostra = Integer.parseInt(request.getParameter("inputColunaAmostra"));
                 	Integer n_linha_amostra = Integer.parseInt(request.getParameter("inputLinhaAmostra"));
@@ -44,9 +46,10 @@ public class inserirAmostra extends HttpServlet {
                 	Date UTILvalidade_amostra = null;
                 	java.sql.Date validade_amostra;
                 	
-                	DateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
+                	DateFormat df = new SimpleDateFormat ("yyyy-MM-dd");
                 	df.setLenient (false); 
 
+                	
                 	try {
 						UTILdt_coleta_amostra = df.parse (txtDataColetaAmostra);
 					} catch (ParseException e) {
