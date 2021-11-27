@@ -64,9 +64,7 @@ public class inserirAmostra extends HttpServlet {
 
                 	
                     String sqlInserirAmostra = "INSERT INTO amostra (id_amostra, coletador_amostra, anotacoes_amostra, tipo_amostra, id_categoria, id_origem, data_inativacao_amostra, nome_amostra)"
-                    + " VALUES (?, ?, ?, ?, ?, ?, ?, ?) "
-                    + "INSERT INTO amostra_no_mapa_contem (n_coluna_amostra, n_linha_amostra, validade_amostra, dt_coleta_amostra, volume_amostra, hora_coleta_amostra, id_amostra, id_mapa_amostra)"
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                    + " VALUES (?, ?, ?, ?, ?, ?, ?, ?) ";
 
                     Connection con = Conexao.Conectar();
             	    PreparedStatement stInserirAmostra = con.prepareStatement(sqlInserirAmostra);
@@ -79,17 +77,24 @@ public class inserirAmostra extends HttpServlet {
             	    stInserirAmostra.setDate(7, null);
             	    stInserirAmostra.setString(8, nome_amostra);
             	    
-            	    stInserirAmostra.setInt(9, n_coluna_amostra);
-            	    stInserirAmostra.setInt(10, n_linha_amostra);
-            	    stInserirAmostra.setDate(11, validade_amostra);
-            	    stInserirAmostra.setDate(12, dt_coleta_amostra);
-            	    stInserirAmostra.setDouble(13, volume_amostra);
-            	    stInserirAmostra.setString(14, hora_coleta_amostra);
-            	    stInserirAmostra.setInt(15, id_amostra);
-            	    stInserirAmostra.setInt(16, id_mapa_amostra);
             	    stInserirAmostra.executeUpdate();
 			
-                    response.sendRedirect("/jspLogado/amostra.jsp");
+            	    String sqlInserirAmostraNoMapaContem = "INSERT INTO amostra_no_mapa_contem (n_coluna_amostra, n_linha_amostra, validade_amostra, dt_coleta_amostra, volume_amostra, hora_coleta_amostra, id_amostra, id_mapa_amostra)"
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            	    
+            	    PreparedStatement stInserirAmostraNoMapaContem = con.prepareStatement(sqlInserirAmostraNoMapaContem);
+            	    
+            	    stInserirAmostraNoMapaContem.setInt(1, n_coluna_amostra);
+            	    stInserirAmostraNoMapaContem.setInt(2, n_linha_amostra);
+            	    stInserirAmostraNoMapaContem.setDate(3, validade_amostra);
+            	    stInserirAmostraNoMapaContem.setDate(4, dt_coleta_amostra);
+            	    stInserirAmostraNoMapaContem.setDouble(5, volume_amostra);
+            	    stInserirAmostraNoMapaContem.setString(6, hora_coleta_amostra);
+            	    stInserirAmostraNoMapaContem.setInt(7, id_amostra);
+            	    stInserirAmostraNoMapaContem.setInt(8, id_mapa_amostra);
+            	    stInserirAmostraNoMapaContem.executeUpdate();
+            	    
+                    response.sendRedirect("./jsp/jspLogado/amostra.jsp?id_amostra_mapa=" + id_amostra);
 
                 } catch (SQLException ex) {
                     out.print("Erro na conexão, inserir amostra: " + ex);

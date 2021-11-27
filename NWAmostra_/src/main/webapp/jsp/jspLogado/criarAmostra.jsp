@@ -112,7 +112,7 @@ ArrayList<Origem> lista = dao.listar();
             	
             	<div class="containerLblTxtAnotacoes">
              		<div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Anotações*</label></div>
-             		<textarea class="txtsCriarAmostraAnotacao" placeholder="Digite as anotações da amostra"/></textarea>
+             		<textarea class="txtsCriarAmostraAnotacao" name="txtAnotacoesAmostra" id="txtAnotacoesAmostra" placeholder="Digite as anotações da amostra"/></textarea>
         		</div>
             	
             </div>
