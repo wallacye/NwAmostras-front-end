@@ -6,6 +6,8 @@
 <%@page import="crudMapaDeAmostras.exibirMapaDeAmostras" %>
 
 <%@page import="java.util.ArrayList"%>
+<%@ page import="java.io.*,java.util.*" %>
+<%@ page import="javax.servlet.*,java.text.*" %>
 
 <%
     Integer id_mapa_amostra = Integer.parseInt(request.getParameter("id_mapa_amostra")) ;
@@ -125,8 +127,25 @@
 			%>
 				<td class="divAmostraMapaDeAmostra">
 					<button class="btnLegendaMapaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
-					<!--  <img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"> -->
+					
+					<%for (AmostraNoMapa conteudo : lista){ 
+					
+					java.sql.Date atual = new java.sql.Date(System.currentTimeMillis());
+					Date vencimento = conteudo.getValidade_amostra();
+		
+					Double alterarImgLegenda = conteudo.getVolume_amostra();
+					
+					if(l==conteudo.getN_linha_amostra()&&c==conteudo.getN_coluna_amostra()){
+						//out.println(vencimento);
+						if(alterarImgLegenda == 00.00){%>
+						
+					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras">
 					</button>
+					<%}else if(atual.after(atual)){
+						%>
+					<img src="../../img/imgAmostraVencida.png" class="imgLegendaMapaAmostras">
+					<% }}}%>
+					
 					<button class="btnVerCriarAmostra" 
 					<% 
 					redirecionarBotao = "onclick=\"location.href='criarAmostra.jsp?id_mapa_amostra=" + mapaDeAmostras +"&n_linha_amostra=" + l + "&n_coluna_amostra=" + c + "'\""; 

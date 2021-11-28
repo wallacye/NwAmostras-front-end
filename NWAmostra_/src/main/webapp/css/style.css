@@ -1975,7 +1975,7 @@ nav ul li button{
   	border: none;
   	background-color: transparent;
   	cursor: pointer;
-  	margin: 0px 2px 0px 0px;
+  	margin: 0 2px 0px 0px;
   }
   
   .imgLegendaMapaAmostras{
@@ -2021,11 +2021,12 @@ nav ul li button{
   }
   
   .btnVerCriarAmostra{
-  	height: 100%;
+  	min-height: 80%;
   	border: none;
   	background-color: transparent;
   	cursor: pointer;
   	color: var(--detalhes);
+  	font-weight: bold;
   }
   
   .legendaMapaAmostras{
