@@ -1,6 +1,19 @@
 <%@ include file="../../includes/validacao.jsp" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@page import="model.Pesquisador"  %>
+
+<%@page import="crudPesquisador.exibirPesquisadores" %>
+
+<%@page import="java.util.ArrayList"%>
+
+<%  
+exibirPesquisadores dao = new exibirPesquisadores();
+
+ArrayList<Pesquisador> lista = dao.listar();
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,14 +39,14 @@
         <p class="txtCriarProjeto" >Criar Projeto</p> 
         </div>
     
-    	<form>
+    	<form method="post" action="/NWAmostra_/inserirProjeto">
     		<div class="containerEspaçosFormsCriarProjeto">
             	<div class="containerLblsCriarProjeto "><label class="lblsCriarProjeto palavrasAzul">Nome do projeto*</label></div>
                 <input type="text" class="txtsCriarProjeto" placeholder="Digite o nome do projeto" id="txtNomeProjeto" name="txtNomeProjeto"/>
             </div>
             <div class="containerEspaçosFormsCriarProjeto">
             	<div class="containerLblsCriarProjeto "><label class="lblsCriarProjeto palavrasAzul">Visibilidade*</label></div>
-                <input type="text" class="txtsCriarProjeto" placeholder="Seu projeto será visível para seu laboratório?" id="txtVisibilidadeProjeto" name="txtVisibilidadeProjeto"/>
+                <input type="text" class="txtsCriarProjeto" list="listVisibilidade" placeholder="Seu projeto será visível para seu laboratório?" id="txtVisibilidadeProjeto" name="txtVisibilidadeProjeto"/>
                 	<datalist class="listVisibilidade" id="listVisibilidade">
     					<option class="optionListVisibilidade palavrasAzul" value="1">Sim</option>
 						<option class="optionListVisibilidade palavrasAzul" value="2">Não</option>
@@ -41,11 +54,16 @@
             </div>
             <div class="containerEspaçosFormsCriarProjeto">
             	<div class="containerLblsCriarProjeto "><label class="lblsCriarProjeto palavrasAzul">Adicionar pesquisador</label></div>
-                <input type="text" class="txtsCriarProjeto" placeholder="Digite o nome do pesquisador" id="txtAdicionarpesquisadorProjeto" name="txtAdicionarpesquisadorProjeto"/>
-            <datalist class="listVisibilidade" id="listVisibilidade">
-    					<option class="optionListVisibilidade palavrasAzul" value="1"></option>
-						<option class="optionListVisibilidade palavrasAzul" value="2"></option>
-  					</datalist>
+                <input type="email" class="txtsCriarProjeto" list="listPesquisadores" placeholder="Digite os pesquisadores, separados por vírgula" id="txtAdicionarpesquisadorProjeto" name="txtAdicionarpesquisadorProjeto" multiple/>
+            	<datalist class="listPesquisadores" id="listPesquisadores">
+			  		<%
+			  		for(Pesquisador conteudo : lista){
+			  		%>
+    					<option class="optionListOrigem palavrasAzul" value="<%= conteudo.getEmail_pesq() %>"><%= conteudo.getNome_pesq()%>, CPF: <%= conteudo.getCpf_pesq()%></option>
+			  		<%
+			  		}
+			 		%>
+  				</datalist>
             </div>
             
             <p class="lblCamposObrigatorios" style="text-align: right; margin-top: 20px; margin-right:2%;">*Campos obrigatórios</p>

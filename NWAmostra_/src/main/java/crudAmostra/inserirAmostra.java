@@ -97,7 +97,7 @@ public class inserirAmostra extends HttpServlet {
             	    stInserirAmostraNoMapaContem.setInt(8, id_mapa_amostra);
             	    stInserirAmostraNoMapaContem.executeUpdate();
             	    
-                    response.sendRedirect("./jsp/jspLogado/amostra.jsp?id_amostra_mapa=" + id_amostra);
+                    response.sendRedirect("./jsp/jspLogado/mapaAmostras.jsp?id_mapa_amostra=" + id_mapa_amostra);
 
                 } catch (SQLException ex) {
                     out.print("Erro na conexão, inserir amostra: " + ex);
