@@ -97,11 +97,7 @@ public class inserirAmostra extends HttpServlet {
             	    stInserirAmostraNoMapaContem.setInt(8, id_mapa_amostra);
             	    stInserirAmostraNoMapaContem.executeUpdate();
             	    
-<<<<<<< HEAD
                     response.sendRedirect("./jsp/jspLogado/mapaAmostras.jsp?id_mapa_amostra=" + id_mapa_amostra);
-=======
-                    response.sendRedirect("./jsp/jspLogado/amostra.jsp?id_amostra_mapa=" + id_mapa_amostra);
->>>>>>> branch 'main' of https://github.com/wallacye/NwAmostras-front-end.git
 
                 } catch (SQLException ex) {
                     out.print("Erro na conexão, inserir amostra: " + ex);

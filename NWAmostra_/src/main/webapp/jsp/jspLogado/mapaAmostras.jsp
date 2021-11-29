@@ -1,13 +1,14 @@
-<%@page import="model.AmostraNoMapa"  %>
-<%@page import="model.MapaDeAmostras"  %>
-
-
-<%@page import="crudMapaDeAmostras.exibirMapaAmostrasEspecifico" %>
-<%@page import="crudMapaDeAmostras.exibirMapaDeAmostras" %>
+<%@ include file="../../includes/validacao.jsp" %>
 
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.io.*,java.util.*" %>
 <%@ page import="javax.servlet.*,java.text.*" %>
+
+<%@page import="model.AmostraNoMapa"  %>
+<%@page import="model.MapaDeAmostras"  %>
+
+<%@page import="crudMapaDeAmostras.exibirMapaAmostrasEspecifico" %>
+<%@page import="crudMapaDeAmostras.exibirMapaDeAmostras" %>
 
 <%
     Integer id_mapa_amostra = Integer.parseInt(request.getParameter("id_mapa_amostra")) ;
@@ -17,8 +18,15 @@
     
     ArrayList<MapaDeAmostras> listaMapa = dao.listarMapa(id_mapa_amostra);
  %>
+ 
+<% for(MapaDeAmostras ConteudoMapa : listaMapa){
+    Date mapaDesativado = ConteudoMapa.getData_inativacao_mapa_amostra();
+    if(mapaDesativado != null){
+        response.sendRedirect(request.getContextPath()+"/jsp/jspLogado/telaInicialMapaAmostras.jsp");
+        
+    }}
+%>
 
-<%@ include file="../../includes/validacao.jsp" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -209,7 +217,7 @@
 					
 					<div class="containerMasterExcluirMapaAmostras">
 						<div class="containersBtnsExcluirMapaAmostras">
-							<button class="btnSimExcluirMapaAmostras" onclick="location.href=''">Sim</button>
+							<button class="btnSimExcluirMapaAmostras" onclick="location.href='/NWAmostra_/desativarMapaDeAmostra?id_mapa_amostra=<%= ConteudoMapa.getId_mapa_amostra() %>'">Sim</button>
 						</div>
 						<div class="containersBtnsExcluirMapaAmostras">
 							<button class="btnCancelarExcluirMapaAmostras" onclick="location.href='javascript: fecharPopUpExcluirMapaAmostras();'">Cancelar</button>

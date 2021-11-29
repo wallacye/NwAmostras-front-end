@@ -23,7 +23,7 @@ public class exibirMapaDeAmostras extends HttpServlet {
     	ArrayList<MapaDeAmostras> Conteudo = new ArrayList<MapaDeAmostras>();
     	
         try {
-            String sqlExibirMapaDeAmostras = "SELECT * FROM mapa_de_amostras ORDER BY nome_mapa_amostra";
+            String sqlExibirMapaDeAmostras = "SELECT * FROM mapa_de_amostras  WHERE data_inativacao_mapa_amostra IS NULL ORDER BY nome_mapa_amostra";
             
             Connection con = Conexao.Conectar();
             Statement stExibirMapaDeAmostras = con.createStatement();

@@ -109,7 +109,8 @@
 		<%
                  								}
 								}
-        %>                  
+        %>           
+        <%@ include file="../../includes/rodape.jsp" %>       
 		</div>	
 </body>
 </html>
