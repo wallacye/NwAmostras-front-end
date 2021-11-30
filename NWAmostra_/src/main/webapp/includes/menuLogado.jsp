@@ -9,7 +9,6 @@
                     <img src="../../img/logoNwAmostrasClaro.png" class="imgLogo" id="imgLogoClaro" alt="Logo da NW Amostras">
                     <img src="../../img/logoNwAmostrasEscuro.png" class="imgLogo" id="imgLogoEscuro" alt="Logo da NW Amostras">
                 </button>
-
                 <ul>
                     <li><button class="buttonMenu" onclick="location.href='telaInicialProjetos.jsp'">Projetos</button></li>
                     <li><button class="buttonMenu" onclick="location.href='telaInicialMapaAmostras.jsp'">Mapa de Amostras</button></li>

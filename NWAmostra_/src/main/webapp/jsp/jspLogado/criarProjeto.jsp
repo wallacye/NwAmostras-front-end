@@ -12,8 +12,9 @@
 exibirPesquisadores dao = new exibirPesquisadores();
 
 ArrayList<Pesquisador> lista = dao.listar();
-%>
 
+String id = (String) request.getSession().getAttribute("id"); 
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,6 +66,8 @@ ArrayList<Pesquisador> lista = dao.listar();
 			 		%>
   				</datalist>
             </div>
+            
+            <input type="hidden" value="<%= id %>" id="inputPesquisadorChefe" name="inputPesquisadorChefe">
             
             <p class="lblCamposObrigatorios" style="text-align: right; margin-top: 20px; margin-right:2%;">*Campos obrigatórios</p>
             

@@ -1,4 +1,13 @@
 <%@ include file="../../includes/validacao.jsp" %>
+<%@page import="model.Projeto" %>
+<%@page import="java.util.ArrayList" %>
+<%@page import="crudProjeto.exibirProjetos" %>
+
+<%
+	exibirProjetos dao = new exibirProjetos();
+    ArrayList<Projeto> lista = dao.listar();
+%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -78,26 +87,31 @@
 			</div>
 		</div>
 		
-		<button class="btnListaMapaAmostras" onclick="location.href='projeto.jsp'">
+		<% if(lista.size() >= 1){ %>
+		<% for(Projeto conteudo : lista) {%>		
+		<button class="btnListaMapaAmostras" onclick="location.href='projeto.jsp?id_projeto=<%= conteudo.getId_projeto() %>'">
 		<table class="listaMapaAmostras">
     		<tr>
-        		<td class="palavrasAzul tituloMapaAmostraLista">Projeto A</td>
+        		<td class="palavrasAzul tituloMapaAmostraLista"><%= conteudo.getNome_projeto() %></td>
         		<td></td>
         		<td></td>
     		</tr>
     		<tr>
         		<td></td>
         		<td></td>
-        		<td class="palavrasAzul dataMapaAmostrasLista">00/00/0000</td>
+        		<td class="palavrasAzul dataMapaAmostrasLista"><%= conteudo.getDt_inicio_projeto() %></td>
     		</tr>
     		<tr>
-        		<td class="autorMapaAmostraLista">Criador (a): Josefina Bund Fin</td>
+        		<td class="autorMapaAmostraLista">Criador (a): <%= conteudo.getPesquisador_chefe() %></td>
         		<td></td>
         		<td></td>
     		</tr>
 		</table>
 		</button>
-		
+		<%
+                 								}
+								}
+        %>           
 	</div>
 	
 </body>

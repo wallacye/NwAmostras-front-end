@@ -40,6 +40,7 @@ public class inserirProjeto extends HttpServlet
                     java.sql.Date dt_inicio_projeto = new java.sql.Date(System.currentTimeMillis()); 
                     int id_projeto;
                     long id_para_converter = -1L;
+                	Integer pesquisador_chefe = Integer.parseInt(request.getParameter("inputPesquisadorChefe"));		
                     
                     List<String> listaPesquisadores = Arrays.asList(pesquisadores.split(","));
                                         
@@ -47,14 +48,15 @@ public class inserirProjeto extends HttpServlet
                     
                     Connection con = Conexao.Conectar();               
                     
-            	    String sqlInserirProjeto = "INSERT INTO projeto (dt_termino_projeto, nome_projeto, dt_inicio_projeto, privado_publico_projeto)"
-                            + "VALUES (?, ?, ?, ?)";
+            	    String sqlInserirProjeto = "INSERT INTO projeto (dt_termino_projeto, nome_projeto, dt_inicio_projeto, privado_publico_projeto, fk_pesquisador_chefe)"
+                            + "VALUES (?, ?, ?, ?, ?)";
                     	    
                     	    PreparedStatement stInserirProjeto = con.prepareStatement(sqlInserirProjeto, Statement.RETURN_GENERATED_KEYS);
                     	    stInserirProjeto.setDate(1, null);
                     	    stInserirProjeto.setString(2, nome_projeto);
                     	    stInserirProjeto.setDate(3, dt_inicio_projeto);
                     	    stInserirProjeto.setInt(4, privado_publico_projeto);
+                    	    stInserirProjeto.setInt(5, pesquisador_chefe);
                     	    stInserirProjeto.executeUpdate();
 
                         try (ResultSet generatedKeys = stInserirProjeto.getGeneratedKeys()) 
