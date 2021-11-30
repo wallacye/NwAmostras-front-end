@@ -197,7 +197,7 @@
 		</div>
 		
 		<div class="containerBtnsAlterarExcluirMapaAmostra">
-			<button class="btnAlterarMapaAmostra" onclick="location.href='alterarMapaDeAmostras.jsp'">Alterar</button>
+			<button class="btnAlterarMapaAmostra" onclick="location.href='alterarMapaDeAmostras.jsp?id_mapa_amostra=<%= ConteudoMapa.getId_mapa_amostra() %>'">Alterar</button>
 			<button class="btnExcluirMapaAmostra" onclick="location.href='javascript: abrirPopUpExcluirMapaAmostras();'">Excluir</button>
 		</div>
 			

@@ -1,4 +1,15 @@
 <%@ include file="../../includes/validacao.jsp" %>
+
+<%@page import="model.AmostraNoMapa"  %>
+<%@page import="crudAmostra.exibirAmostra" %>
+<%@page import="java.util.ArrayList"%>
+
+<%
+    Integer id_amostra_mapa = Integer.parseInt(request.getParameter("id_amostra_mapa"));
+    
+    exibirAmostra dao = new exibirAmostra();
+    ArrayList<AmostraNoMapa> lista = dao.listar(id_amostra_mapa);
+ %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
