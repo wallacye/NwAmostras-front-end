@@ -1,4 +1,22 @@
 <%@ include file="../../includes/validacao.jsp" %>
+
+<%@page import="model.Projeto"  %>
+<%@page import="model.Pesquisador"  %>
+<%@page import="crudProjeto.exibirProjeto" %>
+<%@page import="java.util.ArrayList"%>
+
+<%
+    Integer id_projeto = Integer.parseInt(request.getParameter("id_projeto")) ;
+    
+	exibirProjeto dao = new exibirProjeto();
+	
+    ArrayList<Projeto> lista = dao.listar(id_projeto);    
+    ArrayList<Pesquisador> listaIntegrantes = dao.listarIntegrantes(id_projeto);
+ %>
+ <% 
+ for(Projeto Conteudo : lista){
+ %>
+ 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -52,7 +70,7 @@
 
 	<div class="containerTelaProjeto">
 		<div class="containerNomeProjeto">
-			<label class="lblNomeTelaProjeto">Projeto A</label>
+			<label class="lblNomeTelaProjeto"><%= Conteudo.getNome_projeto() %></label>
 		</div>
 		
 		<div class="containerIntegrantesInformaçõesProjeto">
@@ -62,21 +80,15 @@
 						<label class="lblsIntegrantesInformacaoProjeto">Integrantes</label>
 					</div>
 					<div class="containerListaIntegrantes">
-						<button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button>
-						
-						<button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button>
-						<button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button>
-						<button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button>
-						<button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button>
-						<button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button>
-						<button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button>
-						<button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button>
-						<button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button>
-						<button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button>
-						<button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button>
-						<button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button>
-						<button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button><button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button>
-						<button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button>
+					
+						<button class="btnsIntegrantesProjeto" onclick="location.href=''"><%= Conteudo.getPesquisador_chefe() %></button>					
+						<% for(Pesquisador ConteudoIntegrantes : listaIntegrantes) 
+						{
+						%>					
+						<button class="btnsIntegrantesProjeto" onclick="location.href=''"><%= ConteudoIntegrantes.getNome_pesq() %></button>
+						<%  
+						}
+						%>
 						
 					</div>
 				</div>
@@ -93,7 +105,7 @@
 								<label class="palavrasAzul lblsInicioTerminoPrivado">Início em:</label>
 							</div>		
 							<div class="containerLblsInicioTerminoPrivadoData">
-								<label class="lblsInicioTerminoPrivadoData">00/00/0000</label>
+								<label class="lblsInicioTerminoPrivadoData"><%= Conteudo.getDt_inicio_projeto() %></label>
 							</div>
 						</div>
 						<div class="containersLblInfoProjeto">
@@ -109,7 +121,21 @@
 								<label class="palavrasAzul lblsInicioTerminoPrivado">Privado:</label>
 							</div>		
 							<div class="containerLblsInicioTerminoPrivadoData">
-								<label class="lblsInicioTerminoPrivadoData">Não</label>
+								<label class="lblsInicioTerminoPrivadoData">
+								<%
+								int privado_publico = Conteudo.getPrivado_publico_projeto();
+								if(privado_publico == 1){
+								%>
+								Sim
+								<%
+								}
+								else{
+								%>
+								Não
+								<%  
+								}
+								%>
+								</label>
 							</div>
 						</div>
 					</div>
@@ -175,7 +201,9 @@
 		
 		</div>
 		</div>
-		
+<%
+ }
+%>
 		<%@ include file="../../includes/rodape.jsp" %>
 		
 	</div>
