@@ -71,9 +71,9 @@ public class exibirProjeto extends HttpServlet {
         ArrayList<Pesquisador> ConteudoIntegrantes = new ArrayList<Pesquisador>();
         
         try{
-            String sqlIntegrantes = "SELECT id_pesq FROM projeto_pesquisador_participa "
+            String sqlIntegrantes = "SELECT * FROM projeto_pesquisador_participa "
             		+ "INNER JOIN pesquisador ON projeto_pesquisador_participa.fk_id_pequisador = pesquisador.id_pesq "
-            		+ "WHERE fk_id_projeto= " +id_projeto;
+            		+ "WHERE projeto_pesquisador_participa.fk_id_projeto= " +id_projeto;
             
             Connection con = Conexao.Conectar();
             Statement stExibirIntegrantes = con.createStatement();
