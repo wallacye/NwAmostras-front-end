@@ -106,7 +106,7 @@ public class inserirProjeto extends HttpServlet
                    } 
                        catch (SQLException ex) 
                        {
-                            out.print("Erro na conexão, inserir projeto: " + ex);
+                            out.print("Erro na conexão, inserir projetoo: " + ex);
                        } 
                 
     }
