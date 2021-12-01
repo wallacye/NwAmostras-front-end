@@ -69,7 +69,7 @@ String id = (String) request.getSession().getAttribute("id");
             
             <input type="hidden" value="<%= id %>" id="inputPesquisadorChefe" name="inputPesquisadorChefe">
             
-            <p class="lblCamposObrigatorios" style="text-align: right; margin-top: 20px; margin-right:2%;">*Campos obrigatórios</p>
+            <p class="lblCamposObrigatorios" style="text-align: right; margin-top: 20px; margin-right:7.5%;">*Campos obrigatórios</p>
             
             <div class="containerBtnCriarProjeto">
             <input class="btnCriarProjeto" type="submit" value="Criar">

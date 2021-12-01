@@ -136,7 +136,7 @@ ArrayList<Origem> lista = dao.listar();
                     <a href="criarOrigem.jsp" class="linkCriarOrigem palavrasAzul">Não encontrou a instituição de origem? Crie aqui!</a>
             		<p class="lblCamposObrigatorios" style="text-align: right; margin-top: 20px;">*Campos obrigatórios</p>
             </div>
-        </div><%= id_mapa_amostra %>
+        </div>
         
  		<input type="hidden" id="inputMapaDeAmostras" name="inputMapaDeAmostras" value="<%= id_mapa_amostra %>">
  		<input type="hidden" id="inputColunaAmostra" name="inputColunaAmostra" value="<%= n_coluna_amostra %>">

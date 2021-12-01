@@ -91,6 +91,14 @@
 						%>
 						
 					</div>
+					
+					<!-- Parte do Pesquisador Chefe popup-->
+					<div>
+						<label class="palavrasAzul lblAdicionarPesqProjeto">Adicionar pesquisador</label>
+						<input type="text" class="txtAdicionarPesquisadorAoProjeto" placeholder="Digite o nome do pesquisador" id="txtAdicionarPesquisadorAoProjeto" name="txtAdicionarPesquisadorAoProjeto">
+					</div>
+					<!-- Fim da Parte do Pesquisador Chefe -->
+					
 				</div>
 			</div>
 			<div class="divisaoIntegrantesInformaçõesProjeto">
@@ -114,6 +122,11 @@
 							</div>		
 							<div class="containerLblsInicioTerminoPrivadoData">
 								<label class="lblsInicioTerminoPrivadoData">00/00/0000</label>
+								
+								<!-- Parte do Pesquisador Chefe -->
+								<button class="bntConcluirProjeto" onclick="location.href=''">Concluir Projeto</button>
+								<!-- Fim da  Parte do Pesquisador Chefe -->
+								
 							</div>
 						</div>
 						<div class="containersLblInfoProjeto">
@@ -136,9 +149,17 @@
 								}
 								%>
 								</label>
+								<!-- Parte do Pesquisador Chefe popup-->
+								<button class="bntAlterarParaPrivadoProjeto" onclick="location.href=''">Alterar para privado</button>
+								<!-- Fim da  Parte do Pesquisador Chefe -->
 							</div>
 						</div>
 					</div>
+					
+					<!-- Parte do Pesquisador Chefe -->
+					<button class="bntAlterarProjeto" onclick="location.href=''">Alterar</button>
+					<button class="bntExcluirProjeto" onclick="location.href=''">Excluir</button>
+					<!-- Fim da Parte do Pesquisador Chefe -->
 					
 					<button class="bntSairDoProjeto" onclick="location.href='javascript: abrirPopUpSairProjeto();'">Sair do Projeto</button>
 					
