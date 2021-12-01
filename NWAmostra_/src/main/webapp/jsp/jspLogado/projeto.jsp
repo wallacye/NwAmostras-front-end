@@ -35,6 +35,7 @@
 
 <script type="text/javascript">
 
+	//PopUp Ferramentas
 	function abrirFerramentasProjeto(){
 	
 	if(document.getElementById('idContainerFerramentasProjeto').style.display == 'block'){
@@ -45,6 +46,7 @@
 	
 	}
 	
+	//Pop up alterar tabela
 	function abrirOpcoesAlterarTabela(){
 		document.getElementById('idContainerMasterOpcoesAlterarTabela').style.display = 'block';
 	}
@@ -53,6 +55,8 @@
 		document.getElementById('idContainerMasterOpcoesAlterarTabela').style.display = 'none';
 	}
 	
+	
+	//PopUp sair do projeto
 	function abrirPopUpSairProjeto(){
 		document.getElementById('popUpSairProjeto').style.display = 'block';
 	}
@@ -60,6 +64,32 @@
 	function fecharPopUpSairProjeto(){
 		document.getElementById('popUpSairProjeto').style.display = 'none';
 	}
+	
+	//Pop up Alterar Projeto
+	
+	function abrirAlterarProjeto(){
+		document.getElementById('popUpAdicionarPesq').style.display = 'block';
+		document.getElementById('idBntAlterarParaPrivadoProjeto').style.display = 'initial';
+		document.getElementById('idBntSalvarEdicaoProjeto').style.display = 'block';
+		document.getElementById('idBtnAlterarProjeto').style.display = 'none';
+	}
+	
+	function fecharAlterarProjeto(){
+		document.getElementById('popUpAdicionarPesq').style.display = 'none';
+		document.getElementById('idBntAlterarParaPrivadoProjeto').style.display = 'none';
+		document.getElementById('idBntSalvarEdicaoProjeto').style.display = 'none';
+		document.getElementById('idBtnAlterarProjeto').style.display = 'block';
+	}
+	
+	//Pop up alterar celula
+	function abrirPopUpAlterarCelula(){
+		document.getElementById('popUpAlterarLinha').style.display = 'block';
+	}
+	
+	function fecharPopUpAlterarCelula(){
+		document.getElementById('popUpAlterarLinha').style.display = 'none';
+	}
+	
 	
 </script>
 
@@ -93,7 +123,7 @@
 					</div>
 					
 					<!-- Parte do Pesquisador Chefe popup-->
-					<div>
+					<div id="popUpAdicionarPesq">
 						<label class="palavrasAzul lblAdicionarPesqProjeto">Adicionar pesquisador</label>
 						<input type="text" class="txtAdicionarPesquisadorAoProjeto" placeholder="Digite o nome do pesquisador" id="txtAdicionarPesquisadorAoProjeto" name="txtAdicionarPesquisadorAoProjeto">
 					</div>
@@ -150,14 +180,15 @@
 								%>
 								</label>
 								<!-- Parte do Pesquisador Chefe popup-->
-								<button class="bntAlterarParaPrivadoProjeto" onclick="location.href=''">Alterar para privado</button>
+								<button class="bntAlterarParaPrivadoProjeto" id="idBntAlterarParaPrivadoProjeto" onclick="location.href=''">Alterar para privado</button>
 								<!-- Fim da  Parte do Pesquisador Chefe -->
 							</div>
 						</div>
 					</div>
 					
 					<!-- Parte do Pesquisador Chefe -->
-					<button class="bntAlterarProjeto" onclick="location.href=''">Alterar</button>
+					<button class="bntAlterarProjeto" id="idBtnAlterarProjeto" onclick="location.href='javascript: abrirAlterarProjeto();'">Alterar</button>
+					<button class="bntAlterarProjeto" id="idBntSalvarEdicaoProjeto" onclick="location.href='javascript: fecharAlterarProjeto();'">Salvar edição!</button>
 					<button class="bntExcluirProjeto" onclick="location.href=''">Excluir</button>
 					<!-- Fim da Parte do Pesquisador Chefe -->
 					
@@ -180,14 +211,35 @@
 		<div class="containerProjetoTabela">
 			<table class="tabelaProjeto">
 				<tr>
-					 <th><input type="text" value="Nome da Amostra" class="inputsTituloTabelaProjeto"></th>
+					 <th>
+					 <button  class="inputsTituloTabelaProjeto" onclick="location.href='javascript: abrirPopUpAlterarCelula();'">Nome da Amostra</button>
+					 </th>
 				<tr>
 				<tr>
-					<td><button class="" onclick="location.href='javascript: abrirOpcoesAlterarTabela();'">A</button>
-					<input type="text" value="Amostra A" class="inputsTabelaProjeto">
+					<td>
+					<button class="" onclick="location.href='javascript: abrirOpcoesAlterarTabela();'">A</button>
+					<button  class="inputsTabelaProjeto" onclick="location.href='javascript: abrirPopUpAlterarCelula();'">Amostra A</button>
 					</td>
 				<tr>
 			</table>
+		</div>
+		
+		<div class="popUpAlterarLinha" id="popUpAlterarLinha">	
+				<div class="containerFormAlterarLinha">
+					<form action="" method="post">
+					<div style="width:90%; margin:30px 5% 0 5%;">
+						<label class="lblEditarCelular" >Editar célula</label><br>
+						<label class="lblExplicacaoEditarCelula" >Digite o novo conteúdo da célula:</label>
+						<input type="text" class="txtEditarCelula" placeholder="Digite o conteúdo" id="idTxtEditarCelula" name="idTxtEditarCelula">
+					</div>
+					<div class="containerBtnsConfCanEditarCelula">
+						<input type="submit" value="Confirmar" class="inputConfirmarAlterarCelula">
+					</div>
+					</form>
+					<div class="containerBtnsConfCanEditarCelula">
+							<button  class="btnCancelarEditarCelula" onclick="location.href='javascript: fecharPopUpAlterarCelula();'">Cancelar</button>
+					</div>
+				</div>
 		</div>
 		
 		<div class="containerMasterOpcoesAlterarTabela" id="idContainerMasterOpcoesAlterarTabela">
