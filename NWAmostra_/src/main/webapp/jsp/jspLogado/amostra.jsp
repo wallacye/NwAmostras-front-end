@@ -51,7 +51,7 @@
 				
 				<div class="containerLblNomeLegendaAmostras">
 				<div class=centralizarNomeAmostra>
-					<label class="lblNomeAmostra"> <%= conteudo.getId_amostra() %> - <%= conteudo.getNome_amostra() %></label>
+					<label class="lblNomeAmostra"> <%= conteudo.getCodigo_amostra() %> - <%= conteudo.getNome_amostra() %></label>
 					<button class="btnLegendaAmostras" onclick="location.href=''">
 					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"></button>
 				</div>
@@ -71,7 +71,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Código</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra"><%= conteudo.getId_amostra() %></label>
+				<label class="lblsInfoAmostra"><%= conteudo.getCodigo_amostra() %></label>
 			</div>
 		</div>
 		
@@ -284,7 +284,7 @@
 		
 		<div class="containerBtnsEditarExcluirAmostra">
 		<div class="containerAjeitarBtnsAmostra">
-			<button class="btnEditarAmostra" onclick="location.href='amostraEditando.jsp'">Editar</button>
+			<button class="btnEditarAmostra" onclick="location.href='amostraEditando.jsp?id_amostra_mapa=<%= conteudo.getId_amostra_mapa() %>'">Editar</button>
 		</div>
 		<div class="containerAjeitarBtnsAmostra">
 		<button class="btnAdicionarRetirarVolumeAmostra" onclick="location.href=''">Adicionar ou retirar volume</button>

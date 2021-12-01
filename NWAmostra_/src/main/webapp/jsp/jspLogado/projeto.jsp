@@ -162,8 +162,9 @@
 					 <th><input type="text" value="Nome da Amostra" class="inputsTituloTabelaProjeto"></th>
 				<tr>
 				<tr>
+					
 					<td><button class="" onclick="location.href='javascript: abrirOpcoesAlterarTabela();'">A</button>
-					<input type="text" value="Amostra A" class="inputsTabelaProjeto">
+					<input type="text" value="Amostra A" class="inputsTabelaProjeto" name="inputNomeColuna" id="inputNomeColuna">
 					</td>
 				<tr>
 			</table>
