@@ -137,14 +137,13 @@
 					<button class="btnLegendaMapaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
 					
 					<%for (AmostraNoMapa conteudo : lista){ 
-					
-					java.sql.Date atual = new java.sql.Date(System.currentTimeMillis());
-					Date vencimento = conteudo.getValidade_amostra();
-		
-					Double alterarImgLegenda = conteudo.getVolume_amostra();
-					
 					if(l==conteudo.getN_linha_amostra()&&c==conteudo.getN_coluna_amostra()){
-						//out.println(vencimento);
+						
+						java.sql.Date atual = new java.sql.Date(System.currentTimeMillis());
+						Double alterarImgLegenda = conteudo.getVolume_amostra();
+						Date vencimento = conteudo.getValidade_amostra();
+						
+						out.println(vencimento);
 						if(alterarImgLegenda == 00.00){%>
 						
 					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras">
