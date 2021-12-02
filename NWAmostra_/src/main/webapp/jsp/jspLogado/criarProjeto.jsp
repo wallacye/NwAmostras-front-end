@@ -13,7 +13,7 @@ exibirPesquisadores dao = new exibirPesquisadores();
 
 ArrayList<Pesquisador> lista = dao.listar();
 
-String id = (String) request.getSession().getAttribute("id"); 
+//String id = (String) request.getSession().getAttribute("id"); 
 %>
 <!DOCTYPE html>
 <html>

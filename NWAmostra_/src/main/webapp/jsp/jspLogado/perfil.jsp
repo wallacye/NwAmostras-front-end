@@ -20,7 +20,7 @@
 <body>
 
 			<% String nome_pesq = (String) request.getSession().getAttribute("nome_pesq"); 
-               String id = (String) request.getSession().getAttribute("id");  
+               //String id = (String) request.getSession().getAttribute("id");  
                String email_pesq = (String) request.getSession().getAttribute("email_pesq");
                String cpf_pesq = (String) request.getSession().getAttribute("cpf_pesq");%>
 

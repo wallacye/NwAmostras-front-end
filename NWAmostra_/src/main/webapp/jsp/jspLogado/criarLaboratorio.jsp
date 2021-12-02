@@ -5,7 +5,7 @@
 <%@page import="java.util.ArrayList"%>
 
 <%  
-String id = (String) request.getSession().getAttribute("id"); 
+//String id = (String) request.getSession().getAttribute("id"); 
 %>
 
 <%@ include file="../../includes/validacao.jsp" %>

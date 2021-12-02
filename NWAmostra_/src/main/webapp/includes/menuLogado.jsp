@@ -1,3 +1,7 @@
+<% 
+String id = (String) request.getSession().getAttribute("id");  
+%>
+
 <header>
             <nav>
                 <input type="checkbox" id="check">
@@ -16,10 +20,20 @@
                     <li><button class="buttonMenu" id="idButtonMenuPerfilLogado" onclick="location.href='perfil.jsp'">
                     <img src="../../img/imgPerfilExemplo.png" class="menuFotoPerfil" id="" alt="Perfil">
                     </button></li>
-                    <li><button class="buttonMenu" id="btnModoClaroEscuro">
+                    
+                    <li>
+                    <form method="post" action="/NWAmostra_/alterarModoEscuro">
+                   	<input type="hidden" name="inputIdPesq" id="inputIdPesq" value="<%= id %>">
+                    <button class="buttonMenu" id="btnModoClaroEscuro" type="submit">
                         <img src="../../img/luaModoEscuro.png" class="imgBtnMenuTemaEscuroClaro" id="imgBtnMenuTemaEscuroLua" alt="Troca de temas">
                         <img src="../../img/solModoClaro.png" class="imgBtnMenuTemaEscuroClaro" id="imgBtnMenuTemaEscuroSol" alt="Troca de temas">
-                    </button></li>
+                    </button>
+                    </form>
+                    </li>
                 </ul>
             </nav>
+            
+            <script>
+
+            </script>
 </header>
