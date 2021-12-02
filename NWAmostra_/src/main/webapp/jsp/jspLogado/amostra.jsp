@@ -6,6 +6,7 @@
 
 <%@ page import="java.io.*,java.util.*" %>
 <%@ page import="javax.servlet.*,java.text.*" %>
+<%@ page import="java.time.LocalDateTime" %>
 
 <%
     Integer id_amostra_mapa = Integer.parseInt(request.getParameter("id_amostra_mapa"));
@@ -13,6 +14,15 @@
     exibirAmostra dao = new exibirAmostra();
     ArrayList<AmostraNoMapa> lista = dao.listar(id_amostra_mapa);
  %>
+ 
+ <% for(AmostraNoMapa conteudo : lista){
+	 Date amostraDesativada = conteudo.getData_inativacao_amostra();
+    if(amostraDesativada != null){
+        response.sendRedirect(request.getContextPath()+"/jsp/jspLogado/telaInicialAmostra.jsp");
+        
+    }}
+%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -410,7 +420,7 @@
 					
 					<div class="containerMasterExcluirMapaAmostras">
 						<div class="containersBtnsExcluirMapaAmostras">
-							<button class="btnSimExcluirMapaAmostras" onclick="location.href=''">Sim</button>
+							<button class="btnSimExcluirMapaAmostras" onclick="location.href='/NWAmostra_/desativarAmostra?id_amostra=<%= conteudo.getId_amostra() %>'">Sim</button>
 						</div>
 						<div class="containersBtnsExcluirMapaAmostras">
 							<button class="btnCancelarExcluirMapaAmostras" onclick="location.href='javascript: fecharPopUpExcluirAmostra();'">Cancelar</button>

@@ -29,7 +29,8 @@ public class exibirMapaAmostrasEspecifico extends HttpServlet {
             String sqlExibirMapaDeAmostrasEspecifico = "SELECT * FROM amostra_no_mapa_contem "
             		+ "INNER JOIN mapa_de_amostras ON mapa_de_amostras.id_mapa_amostra = amostra_no_mapa_contem.id_mapa_amostra "
             		+ "INNER JOIN amostra ON amostra_no_mapa_contem.id_amostra = amostra.id_amostra "
-            		+ "WHERE amostra_no_mapa_contem.id_mapa_amostra= "+id_mapa_amostra;
+            		+ "WHERE amostra_no_mapa_contem.id_mapa_amostra= "+id_mapa_amostra + " AND "
+            		+ "data_inativacao_amostra IS NULL";
             
             Connection con = Conexao.Conectar();
             Statement stExibirMapaDeAmostrasEspecifico = con.createStatement();

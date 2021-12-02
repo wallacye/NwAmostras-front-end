@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDateTime;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,6 +66,7 @@ public class exibirAmostra extends HttpServlet {
                 dados.setNome_categoria(rsExibirAmostras.getString("nome_categoria"));
                 dados.setNome_origem(rsExibirAmostras.getString("nome_origem"));
                 dados.setFase_coleta(rsExibirAmostras.getString("fase_coleta"));
+                dados.setData_inativacao_amostra(rsExibirAmostras.getDate("data_inativacao_amostra"));
                 
                 dados.setCodigo_amostra(rsExibirAmostras.getString("codigo_amostra"));
                 

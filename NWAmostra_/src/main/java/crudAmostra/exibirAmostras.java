@@ -26,7 +26,8 @@ public class exibirAmostras extends HttpServlet {
             		+ "INNER JOIN mapa_de_amostras ON mapa_de_amostras.id_mapa_amostra = amostra_no_mapa_contem.id_mapa_amostra "
             		+ "INNER JOIN amostra ON amostra_no_mapa_contem.id_amostra = amostra.id_amostra "
             		+ "INNER JOIN origem ON origem.id_origem = amostra.id_origem "
-            		+ "INNER JOIN categoria ON categoria.id_categoria = amostra.id_categoria";            		
+            		+ "INNER JOIN categoria ON categoria.id_categoria = amostra.id_categoria "
+            		+ "WHERE data_inativacao_amostra IS NULL";            		
             
             Connection con = Conexao.Conectar();
             Statement stExibirAmostras = con.createStatement();

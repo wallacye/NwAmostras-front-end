@@ -38,7 +38,7 @@ public class AmostraNoMapa extends HttpServlet {
 	private String tipo_amostra;
 	private Integer id_categoria;
 	private Integer id_origem;
-	private LocalDateTime data_inativacao_amostra;
+	private Date data_inativacao_amostra;
 	private String nome_amostra;
 	private String nome_categoria;
 
@@ -212,10 +212,10 @@ public class AmostraNoMapa extends HttpServlet {
 	public void setId_origem(Integer id_origem) {
 		this.id_origem = id_origem;
 	}
-	public LocalDateTime getData_inativacao_amostra() {
+	public Date getData_inativacao_amostra() {
 		return data_inativacao_amostra;
 	}
-	public void setData_inativacao_amostra(LocalDateTime data_inativacao_amostra) {
+	public void setData_inativacao_amostra(Date data_inativacao_amostra) {
 		this.data_inativacao_amostra = data_inativacao_amostra;
 	}
 	public String getNome_amostra() {
