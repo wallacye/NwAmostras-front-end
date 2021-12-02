@@ -51,6 +51,8 @@ public class exibirMapaAmostrasEspecifico extends HttpServlet {
                 dadosAmostraNoMapa.setTipo_amostra(rsExibirMapaDeAmostrasEspecifico.getString("tipo_amostra"));
                 dadosAmostraNoMapa.setNome_amostra(rsExibirMapaDeAmostrasEspecifico.getString("nome_amostra"));
                 
+                dadosAmostraNoMapa.setValidade_amostra(rsExibirMapaDeAmostrasEspecifico.getDate("validade_amostra"));
+                
                 Date dataAmostraParaConverter = rsExibirMapaDeAmostrasEspecifico.getDate("validade_amostra");                 
                 if(dataAmostraParaConverter != null) {
                 java.util.Date utilDate = new java.util.Date(dataAmostraParaConverter.getTime());
