@@ -102,11 +102,11 @@
 					<label class="lblsAcabouVencidaFaseColeta">Acabou</label>
 				</div>
 				<div class="containerImgLblLegendaMapaAmostra">
-					<img src="../../img/imgAmostraVencida.png" class="imgLegendaMapaAmostras">
+					<img src="../../img/imgAmostraVencida.png" class="imgLegendaMapaAmostrasFaseColeta">
 					<label class="lblsAcabouVencidaFaseColeta">Vencida</label>
 				</div>
 				<div class="containerImgLblLegendaMapaAmostra">
-					<img src="../../img/imgAmostraFaseColeta.png" class="imgLegendaMapaAmostras">
+					<img src="../../img/imgAmostraFaseColeta.png" class="imgLegendaMapaAmostrasFaseColeta">
 					<label class="lblsAcabouVencidaFaseColeta">Fase de Coleta</label>
 				</div>
 			</div>
@@ -143,14 +143,13 @@
 						Double alterarImgLegenda = conteudo.getVolume_amostra();
 						Date vencimento = conteudo.getValidade_amostra();
 						
-						out.println(vencimento);
 						if(alterarImgLegenda == 00.00){%>
 						
 					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras">
 					</button>
-					<%}else if(atual.after(atual)){
+					<%}else if(vencimento.after(atual)){
 						%>
-					<img src="../../img/imgAmostraVencida.png" class="imgLegendaMapaAmostras">
+					<img src="../../img/imgAmostraVencida.png" class="imgLegendaMapaAmostrasFaseColeta">
 					<% }}}%>
 					
 					<button class="btnVerCriarAmostra" 

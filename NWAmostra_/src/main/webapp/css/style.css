@@ -1985,6 +1985,14 @@ nav ul li button{
     max-width: 100%;
   }
   
+  .imgLegendaMapaAmostrasFaseColeta{
+  	height: auto;
+    max-height: 100%;
+    width:auto;
+    max-width: 100%;
+    filter: var(--iverterImg);
+  }
+  
   .containerBtnsAlterarExcluirMapaAmostra{
   	height: auto; width: 100%;
   	display: flex;
@@ -2483,7 +2491,7 @@ nav ul li button{
     height: 100%;
     box-shadow: 0 0 0.5em black;
     background: rgba(0,0,0, 0.5);
-    display: block;
+    display: none;
 }
 
 .containerInformaçõesPopUp{
@@ -2512,11 +2520,25 @@ nav ul li button{
 	border-bottom: var(--bordaMenu);
 }
 
+.btnAdicionarVolumeRetirar{
+	font-size: 20px; font-weight: bold;
+	color: var(--detalhes);
+	border: none; background-color: transparent;
+}
+
 .btnRetirarVolume{
 	font-size: 20px; font-weight: bold;
 	color: var(--detalhes);
 	border: none; background-color: transparent;
 	margin: 0 0 0 4%;
+}
+
+.btnRetirarVolumeRetirar{
+	font-size: 20px; font-weight: bold;
+	color: var(--detalhes);
+	border: none; background-color: transparent;
+	margin: 0 0 0 4%;
+	border-bottom: var(--bordaMenu);
 }
 
 .containerVolumeAtual{
@@ -3296,6 +3318,7 @@ nav ul li button{
     border-bottom: 1px solid #767171;
     font-size: 20px;
     color: var(--detalhes);
+    cursor: pointer;
 }
 
 .containerListaInformacoes{
@@ -3516,6 +3539,28 @@ nav ul li button{
     font-size: 20px;
 }
 
+.popUpTornarAdministradorReover{
+	background-color: var(--fundo);
+    height: 340px;
+    width: 45%;
+    position: absolute;
+    border-radius: 8px;
+    border: 1px solid #767171;
+    box-shadow: -1px 3px 0.5em black;
+    top: 265px;
+    display: none;
+}
+
+.btnsTornarAdministradorRemover{
+	height: 33.33%;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #767171;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 @media (max-width: 820px){
 	.divisaoIntegrantesInformaçõesProjeto{
 	width: 100%;
@@ -3535,6 +3580,27 @@ nav ul li button{
 	margin: 75px 5% 0 5%;
 	right: 0;
 	}
+	
+	.popUpTornarAdministradorReover{
+	width: 90%;
+	}
+	.containerBtnsConfCanEditarCelula{
+	width: 100%;
+}
+
+	.inputConfirmarAlterarCelula{
+	width: 90%;
+	margin: 30px 5% 0 5%;
+	}
+	
+	.btnCancelarEditarCelula{
+	width: 90%;
+	margin: 20px 5% 0 5%;
+	}
+	
+	.containerFormAlterarLinha{
+	height: 310px;
+	}
 }
 
 @media (max-width: 500px){
@@ -3543,6 +3609,10 @@ nav ul li button{
 }
 .bntAlterarParaPrivadoProjeto{
 	margin: 0 0 0 0;
+}
+
+.containerFormAlterarLinha{
+	width: 90%;
 }
 }
 
@@ -3553,6 +3623,12 @@ nav ul li button{
 .bntAlterarParaPrivadoProjeto{
 	width: 95%;
 }
+}
+
+@media (max-width: 370px){
+	.containerFormAlterarLinha{
+	height: 350px;
+	}
 }
 
 .txtAdicionarPesquisadorAoProjeto{

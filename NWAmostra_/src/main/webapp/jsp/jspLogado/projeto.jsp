@@ -90,6 +90,15 @@
 		document.getElementById('popUpAlterarLinha').style.display = 'none';
 	}
 	
+	//Pop up remover pesquisador
+	
+	function abrirPopUpRemoverPesquisador(){
+		document.getElementById('popUpTornarAdministradorReover').style.display = 'block';
+	}
+	
+	function fecharPopUpRemoverPesquisador(){
+		document.getElementById('popUpTornarAdministradorReover').style.display = 'none';
+	}
 	
 </script>
 
@@ -115,11 +124,15 @@
 						<% for(Pesquisador ConteudoIntegrantes : listaIntegrantes) 
 						{
 						%>					
-						<button class="btnsIntegrantesProjeto" onclick="location.href=''"><%= ConteudoIntegrantes.getNome_pesq() %></button>
+						<button class="btnsIntegrantesProjeto" onclick="location.href='javascript: abrirPopUpRemoverPesquisador();'"><%= ConteudoIntegrantes.getNome_pesq() %></button>
 						<%  
 						}
 						%>
-						
+						<div class="popUpTornarAdministradorReover" id="popUpTornarAdministradorReover">
+							<button class="btnsTornarAdministradorRemover palavrasAzul" onclick="location.href=''">Tornar administrador</button>
+							<button class="btnsTornarAdministradorRemover palavrasAzul" onclick="location.href=''">Remover</button>
+							<button class="btnsTornarAdministradorRemover" style="color: #FF0000;" onclick="location.href='javascript: fecharPopUpRemoverPesquisador();'">Cancelar</button>
+						</div>
 					</div>
 					
 					<!-- Parte do Pesquisador Chefe popup-->

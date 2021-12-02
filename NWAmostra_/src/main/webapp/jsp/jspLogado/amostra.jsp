@@ -35,6 +35,23 @@
 		document.getElementById('idPopUpAtencaoExcluirAmostra').style.display = 'none';
 	}
 	
+	function abrirPopUpAdicionarVolume(){
+		document.getElementById('popupAdicionarVolume').style.display = 'block';
+		document.getElementById('popupRetirarVolume').style.display = 'none';
+	}
+
+	function fecharPopUpAdicionarVolume(){
+		document.getElementById('popupAdicionarVolume').style.display = 'none';
+	}
+	
+	function abrirPopUpRetirarVolume(){
+		document.getElementById('popupAdicionarVolume').style.display = 'none';
+		document.getElementById('popupRetirarVolume').style.display = 'block';
+	}
+
+	function fecharPopUpRetirarVolume(){
+		document.getElementById('popupRetirarVolume').style.display = 'none';
+	}
 </script>
 
 </head>
@@ -287,7 +304,7 @@
 			<button class="btnEditarAmostra" onclick="location.href='amostraEditando.jsp'">Editar</button>
 		</div>
 		<div class="containerAjeitarBtnsAmostra">
-		<button class="btnAdicionarRetirarVolumeAmostra" onclick="location.href=''">Adicionar ou retirar volume</button>
+		<button class="btnAdicionarRetirarVolumeAmostra" onclick="location.href='javascript: abrirPopUpAdicionarVolume();'">Adicionar ou retirar volume</button>
 		</div>
 		<div class="containerAjeitarBtnsAmostra">
 		<button class="btnEcluirAmostra" onclick="location.href='javascript: abrirPopUpExcluirAmostra();'">Excluir</button>
@@ -296,12 +313,11 @@
 		
 		<!-- Pop ups -->
 		
-		<!-- 
-		<div class="popupAdicionarVolume">
+		<div class="popupAdicionarVolume" id="popupAdicionarVolume">
 			<div class="containerInformaçõesPopUp">
 				<div class="containerBtnsAdicionarRetirar">
 					<button class="btnAdicionarVolume">Adicionar</button>
-					<button class="btnRetirarVolume">Retirar</button>
+					<button class="btnRetirarVolume" onclick="location.href='javascript: abrirPopUpRetirarVolume();'">Retirar</button>
 				</div>
 				<div class="containerVolumeAtual">
 					<label class="palavrasAzul lblVolumeAtualAlterar">Volume atual -</label>
@@ -314,10 +330,32 @@
 				<div class="containerBtnAdicionarVolume" 
 				style="width:100%;display: flex;justify-content: center;align-items: center;">
 					<button class="btnImputAdicionarVolume" onclick="location.href=''">Adicionar</button>
-					<button class="btnImputCancelarAdicionarVolume" onclick="location.href=''">Cancelar</button>
+					<button class="btnImputCancelarAdicionarVolume" onclick="location.href='javascript: fecharPopUpAdicionarVolume();'">Cancelar</button>
 				</div>
 			</div>
-		</div> -->
+		</div>
+		
+		<div class="popupAdicionarVolume" id="popupRetirarVolume">
+			<div class="containerInformaçõesPopUp">
+				<div class="containerBtnsAdicionarRetirar">
+					<button class="btnAdicionarVolumeRetirar" onclick="location.href='javascript: abrirPopUpAdicionarVolume();'">Adicionar</button>
+					<button class="btnRetirarVolumeRetirar">Retirar</button>
+				</div>
+				<div class="containerVolumeAtual">
+					<label class="palavrasAzul lblVolumeAtualAlterar">Volume atual -</label>
+					<label class="lblVolumeAtualNumero"> <%= conteudo.getVolume_amostra() %>uL</label>
+				</div>
+				<div class="containerLblAdicionarInput">
+					<label class="palavrasAzul lblAdicionarVolume">Retirar</label>
+					<input type="text" class="inputAdicionarVolume" placeholder="Digite o volume a ser retirado">
+				</div>
+				<div class="containerBtnAdicionarVolume" 
+				style="width:100%;display: flex;justify-content: center;align-items: center;">
+					<button class="btnImputAdicionarVolume" onclick="location.href=''">Retirar</button>
+					<button class="btnImputCancelarAdicionarVolume" onclick="location.href='javascript: fecharPopUpRetirarVolume();'">Cancelar</button>
+				</div>
+			</div>
+		</div>
 		
 		<div class="popUpAtencaoExcluirAmostra" id="idPopUpAtencaoExcluirAmostra">
 			<div class="containerPopUpAtencaoExcluirMapaAmostras">
