@@ -34,7 +34,6 @@
 <script type="text/javascript" src="../../js/menuResponsivo.js" defer></script>
 
 <script type="text/javascript">
-
 	//PopUp Ferramentas
 	function abrirFerramentasProjeto(){
 	
@@ -50,7 +49,6 @@
 	function abrirOpcoesAlterarTabela(){
 		document.getElementById('idContainerMasterOpcoesAlterarTabela').style.display = 'block';
 	}
-
 	function fecharOpcoesAlterarTabela(){
 		document.getElementById('idContainerMasterOpcoesAlterarTabela').style.display = 'none';
 	}
@@ -60,7 +58,6 @@
 	function abrirPopUpSairProjeto(){
 		document.getElementById('popUpSairProjeto').style.display = 'block';
 	}
-
 	function fecharPopUpSairProjeto(){
 		document.getElementById('popUpSairProjeto').style.display = 'none';
 	}

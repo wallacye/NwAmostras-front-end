@@ -3,7 +3,9 @@ package crudAmostra;
 import java.io.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.*;
 import java.util.Date;
 
@@ -25,7 +27,7 @@ public class inserirAmostra extends HttpServlet {
     			PrintWriter out = response.getWriter();
                 try {
                 	
-                	Integer id_amostra = Integer.parseInt(request.getParameter("txtCodigoAmostra"));
+                	String codigo_amostra = request.getParameter("txtCodigoAmostra");
                 	String nome_amostra = request.getParameter("txtNomeAmostra");		
                 	String coletador_amostra = request.getParameter("txtColetadorAmostra");						
                 	String anotacoes_amostra = request.getParameter("txtAnotacoesAmostra");
@@ -45,6 +47,9 @@ public class inserirAmostra extends HttpServlet {
                 	java.sql.Date dt_coleta_amostra;
                 	Date UTILvalidade_amostra = null;
                 	java.sql.Date validade_amostra;
+                    int id_amostra;
+                    long id_para_converter = -1L;
+
                 	
                 	DateFormat df = new SimpleDateFormat ("yyyy-MM-dd");
                 	df.setLenient (false); 
@@ -66,36 +71,55 @@ public class inserirAmostra extends HttpServlet {
                 	validade_amostra = new java.sql.Date(UTILvalidade_amostra.getTime());
 
                 	
-                    String sqlInserirAmostra = "INSERT INTO amostra (id_amostra, coletador_amostra, anotacoes_amostra, tipo_amostra, id_categoria, id_origem, data_inativacao_amostra, nome_amostra)"
+                    String sqlInserirAmostra = "INSERT INTO amostra (coletador_amostra, anotacoes_amostra, tipo_amostra, id_categoria, id_origem, data_inativacao_amostra, nome_amostra, codigo_amostra)"
                     + " VALUES (?, ?, ?, ?, ?, ?, ?, ?) ";
 
                     Connection con = Conexao.Conectar();
-            	    PreparedStatement stInserirAmostra = con.prepareStatement(sqlInserirAmostra);
-            	    stInserirAmostra.setInt(1, id_amostra);
-            	    stInserirAmostra.setString(2, coletador_amostra);
-            	    stInserirAmostra.setString(3, anotacoes_amostra);
-            	    stInserirAmostra.setString(4, tipo_amostra);
-            	    stInserirAmostra.setInt(5, id_categoria);
-            	    stInserirAmostra.setInt(6, id_origem);
-            	    stInserirAmostra.setDate(7, null);
-            	    stInserirAmostra.setString(8, nome_amostra);
+            	    PreparedStatement stInserirAmostra = con.prepareStatement(sqlInserirAmostra, Statement.RETURN_GENERATED_KEYS);
+            	    stInserirAmostra.setString(1, coletador_amostra);
+            	    stInserirAmostra.setString(2, anotacoes_amostra);
+            	    stInserirAmostra.setString(3, tipo_amostra);
+            	    stInserirAmostra.setInt(4, id_categoria);
+            	    stInserirAmostra.setInt(5, id_origem);
+            	    stInserirAmostra.setDate(6, null);
+            	    stInserirAmostra.setString(7, nome_amostra);
+            	    stInserirAmostra.setString(8, codigo_amostra);
             	    
             	    stInserirAmostra.executeUpdate();
 			
-            	    String sqlInserirAmostraNoMapaContem = "INSERT INTO amostra_no_mapa_contem (n_coluna_amostra, n_linha_amostra, validade_amostra, dt_coleta_amostra, volume_amostra, hora_coleta_amostra, id_amostra, id_mapa_amostra)"
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-            	    
-            	    PreparedStatement stInserirAmostraNoMapaContem = con.prepareStatement(sqlInserirAmostraNoMapaContem);
-            	    
-            	    stInserirAmostraNoMapaContem.setInt(1, n_coluna_amostra);
-            	    stInserirAmostraNoMapaContem.setInt(2, n_linha_amostra);
-            	    stInserirAmostraNoMapaContem.setDate(3, validade_amostra);
-            	    stInserirAmostraNoMapaContem.setDate(4, dt_coleta_amostra);
-            	    stInserirAmostraNoMapaContem.setDouble(5, volume_amostra);
-            	    stInserirAmostraNoMapaContem.setString(6, hora_coleta_amostra);
-            	    stInserirAmostraNoMapaContem.setInt(7, id_amostra);
-            	    stInserirAmostraNoMapaContem.setInt(8, id_mapa_amostra);
-            	    stInserirAmostraNoMapaContem.executeUpdate();
+                    try (ResultSet generatedKeys = stInserirAmostra.getGeneratedKeys()) 
+                    {
+                        if (generatedKeys!=null && generatedKeys.next()) 
+                        {
+                            id_para_converter = generatedKeys.getLong(1);
+                            id_amostra = Math.toIntExact(id_para_converter);
+                            
+                    	    String sqlInserirAmostraNoMapaContem = "INSERT INTO amostra_no_mapa_contem (n_coluna_amostra, n_linha_amostra, validade_amostra, dt_coleta_amostra, volume_amostra, hora_coleta_amostra, id_amostra, id_mapa_amostra)"
+                                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";       	    
+                            	    
+                            	    
+                            	    PreparedStatement stInserirAmostraNoMapaContem = con.prepareStatement(sqlInserirAmostraNoMapaContem);
+                            	    
+                            	    stInserirAmostraNoMapaContem.setInt(1, n_coluna_amostra);
+                            	    stInserirAmostraNoMapaContem.setInt(2, n_linha_amostra);
+                            	    stInserirAmostraNoMapaContem.setDate(3, validade_amostra);
+                            	    stInserirAmostraNoMapaContem.setDate(4, dt_coleta_amostra);
+                            	    stInserirAmostraNoMapaContem.setDouble(5, volume_amostra);
+                            	    stInserirAmostraNoMapaContem.setString(6, hora_coleta_amostra);
+                            	    stInserirAmostraNoMapaContem.setInt(7, id_amostra);
+                            	    stInserirAmostraNoMapaContem.setInt(8, id_mapa_amostra);
+                            	    stInserirAmostraNoMapaContem.executeUpdate();
+                                                	    	
+                        }
+                        else 
+                        {
+                            throw new SQLException("CRIAR PESQUISADOR_PROJETO::NENHUM ID FOI OBTIDO");
+                        }   
+                	}
+            	    catch (SQLException ex)
+            	    {
+                        out.print("Erro *parte de generated keys*: " + ex);
+            	    }
             	    
                     response.sendRedirect("./jsp/jspLogado/mapaAmostras.jsp?id_mapa_amostra=" + id_mapa_amostra);
 

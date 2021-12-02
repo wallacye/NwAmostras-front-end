@@ -5,10 +5,10 @@
 <%@page import="java.util.ArrayList"%>
 
 <%
-    Integer id_amostra_mapa = Integer.parseInt(request.getParameter("id_amostra_mapa"));
-    
-    exibirAmostra dao = new exibirAmostra();
-    ArrayList<AmostraNoMapa> lista = dao.listar(id_amostra_mapa);
+	Integer id_amostra_mapa = Integer.parseInt(request.getParameter("id_amostra_mapa"));
+
+	exibirAmostra dao = new exibirAmostra();
+	ArrayList<AmostraNoMapa> lista = dao.listar(id_amostra_mapa);
  %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -29,13 +29,17 @@
 <body>
 	<%@ include file="../../includes/menuLogado.jsp" %>
 
+	<% 
+	for(AmostraNoMapa conteudo : lista) 
+	{%>		
+
 	<div class="containerTelaEditarAmostra">
 		<div class="containerNomeAmostra">
 			<div class="containerLblNomeAmostrasTelaEditarAmostra">
 				
 				<div class="containerLblNomeLegendaAmostrasTelaEditarAmostra">
 				<div class=centralizarNomeAmostraTelaEditarAmostra>
-					<label class="lblNomeAmostraTelaEditarAmostra">001 - Amostra A </label>
+					<label class="lblNomeAmostraTelaEditarAmostra"><%= conteudo.getCodigo_amostra() %> - <%= conteudo.getNome_amostra() %></label>
 					<label class="lblEditando"> (editando)</label>
 					<button class="btnLegendaAmostrasTelaEditarAmostra" onclick="location.href=''">
 					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"></button>
@@ -54,7 +58,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Código</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-			<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="001"/>
+			<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getCodigo_amostra() %>"/>
 			</div>
 		</div>
 		
@@ -63,7 +67,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Nome</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="Amostra A"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getNome_amostra() %>"/>
 			</div>
 		</div>
 		
@@ -72,7 +76,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Categoria</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="Vírus"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getNome_categoria() %>"/>
 			</div>
 		</div>
 		
@@ -81,7 +85,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Tipo</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="DNA"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getTipo_amostra() %>"/>
 			</div>
 		</div>
 		
@@ -90,7 +94,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Volume</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="0 uL"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getVolume_amostra() %> uL"/>
 			</div>
 		</div>
 		
@@ -99,7 +103,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Data de coleta</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="04/06/2021"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getData_formatada_coleta() %>"/>
 			</div>
 		</div>
 		
@@ -108,7 +112,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Hora da coleta</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="12:20"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getHora_coleta_amostra() %>"/>
 			</div>
 		</div>
 		
@@ -117,7 +121,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Coletador</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="Lindolfo Britines"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getColetador_amostra() %>"/>
 			</div>
 		</div>
 		
@@ -126,7 +130,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Data de Validade</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="10/07/2021"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getData_formatada_vencimento() %>"/>
 			</div>
 		</div>
 		
@@ -135,7 +139,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Anotações</label>
 			</div>
 			 <div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getAnotacoes_amostra() %>"/>
 			</div> 
 		</div>
 		
@@ -150,7 +154,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Nome da Instituição</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="xxx"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getNome_origem() %>"/>
 			</div>
 		</div>
 		<div class="linhaDadosAmostraTelaEditarAmostra">
@@ -158,7 +162,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Endereço</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="Rua Amendoin"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getRua_origem() %>"/>
 			</div>
 		</div>
 		<div class="linhaDadosAmostraTelaEditarAmostra">
@@ -166,7 +170,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">CEP</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="000000-00"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getCep_origem() %>"/>
 			</div>
 		</div>
 		<div class="linhaDadosAmostraTelaEditarAmostra">
@@ -174,7 +178,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Bairro</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="Jardim Food"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getBairro_origem() %>"/>
 			</div>
 		</div>
 		<div class="linhaDadosAmostraTelaEditarAmostra">
@@ -182,7 +186,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Número</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="809"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getNumero_origem() %>"/>
 			</div>
 		</div>
 		<div class="linhaDadosAmostraTelaEditarAmostra">
@@ -190,7 +194,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Complemento</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="Próximo ao shopping"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getComplemento_origem() %>"/>
 			</div>
 		</div>
 		
@@ -207,7 +211,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Mapa de amostras</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="Exemplo de nome do mapa de amostras"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getNome_mapa_amostra() %>"/>
 			</div>
 		</div>
 		<div class="linhaDadosAmostraTelaEditarAmostra">
@@ -215,7 +219,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Freezer</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="1"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getFreezer_mapa_amostra() %>"/>
 			</div>
 		</div>
 		<div class="linhaDadosAmostraTelaEditarAmostra">
@@ -223,7 +227,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Estante</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="A"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getEstante_mapa_amostra() %>"/>
 			</div>
 		</div>
 		<div class="linhaDadosAmostraTelaEditarAmostra">
@@ -231,7 +235,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Caixa</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="A10"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getCaixa_mapa_amostra() %>"/>
 			</div>
 		</div>
 		
@@ -248,7 +252,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Linha</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="1"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getN_linha_amostra() %>"/>
 			</div>
 		</div>
 		<div class="linhaDadosAmostraTelaEditarAmostra">
@@ -256,7 +260,7 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Coluna</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="1"/>
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" placeholder="<%= conteudo.getN_coluna_amostra() %>"/>
 			</div>
 		</div>
 		
@@ -268,6 +272,9 @@
 		<button class="btnEcluirAmostra2" onclick="location.href=''">Excluir</button>
 		</div>
 		</form>
+		
+		<% 
+		} %>
 		<%@ include file="../../includes/rodape.jsp" %>
 	</div>
 </body>

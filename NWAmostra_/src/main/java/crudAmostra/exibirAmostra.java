@@ -65,6 +65,8 @@ public class exibirAmostra extends HttpServlet {
                 dados.setNome_categoria(rsExibirAmostras.getString("nome_categoria"));
                 dados.setNome_origem(rsExibirAmostras.getString("nome_origem"));
                 
+                dados.setCodigo_amostra(rsExibirAmostras.getString("codigo_amostra"));
+                
                 String EnderecoParaSeparar = rsExibirAmostras.getString("endereco_origem");
                 
                 List<String> listaEndereco = Arrays.asList(EnderecoParaSeparar.split(","));

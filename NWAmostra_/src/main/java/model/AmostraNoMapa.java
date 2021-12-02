@@ -52,6 +52,8 @@ public class AmostraNoMapa extends HttpServlet {
 	
 	private String data_formatada_coleta;
 	
+	private String codigo_amostra;
+	
 	public String getEndereco_origem() {
 		return endereco_origem;
 	}
@@ -268,5 +270,11 @@ public class AmostraNoMapa extends HttpServlet {
 	}
 	public void setData_formatada_coleta(String data_formatada_coleta) {
 		this.data_formatada_coleta = data_formatada_coleta;
+	}
+	public String getCodigo_amostra() {
+		return codigo_amostra;
+	}
+	public void setCodigo_amostra(String codigo_amostra) {
+		this.codigo_amostra = codigo_amostra;
 	}	
 }
