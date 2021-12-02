@@ -59,6 +59,8 @@ public class exibirAmostras extends HttpServlet {
                 dados.setNome_amostra(rsExibirAmostras.getString("nome_amostra"));
                 dados.setNome_categoria(rsExibirAmostras.getString("nome_categoria"));
                 
+                dados.setCodigo_amostra(rsExibirAmostras.getString("codigo_amostra"));
+                
                 Date dataMapaAmostrasParaConverter = rsExibirAmostras.getDate("data_mapa_amostra");                 
                 if(dataMapaAmostrasParaConverter != null) {
                 java.util.Date utilDate = new java.util.Date(dataMapaAmostrasParaConverter.getTime());

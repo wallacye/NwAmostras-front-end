@@ -198,8 +198,6 @@
 		<div class="containerBtnFerramentasProjeto">
 			<button class="bntFerramentasProjeto" onclick="location.href='javascript: abrirFerramentasProjeto();'">Ferramentas +</button>
 			<div class="containerFerramentasProjeto" id="idContainerFerramentasProjeto">
-			<button class="btnsFerramentasProjeto palavrasAzul" onclick="location.href=''">Importar dados</button>
-			<button class="btnsFerramentasProjeto palavrasAzul" onclick="location.href=''">Exportar dados</button>
 			<button class="btnsFerramentasProjeto palavrasAzul" onclick="location.href=''">Inserir linha</button>
 			<button class="btnsFerramentasProjeto palavrasAzul" onclick="location.href=''">Inserir coluna</button>
 			</div>
@@ -208,16 +206,43 @@
 		<div class="containerProjetoTabela">
 			<table class="tabelaProjeto">
 				<tr>
+					<%  
+					int coluna = 1;
+					while(coluna <= Conteudo.getColunas_projeto())
+					{						
+					%>
 					 <th>
 					 <button  class="inputsTituloTabelaProjeto" onclick="location.href='javascript: abrirPopUpAlterarCelula();'">Nome da Amostra</button>
 					 </th>
+					<%  
+					coluna++;
+					}
+					%>
 				<tr>
+				<%  
+				int linha = 1;
+				while(linha <= Conteudo.getLinhas_projeto())
+				{
+				%>
 				<tr>
+					<%  
+					coluna = 1;
+					while(coluna <= Conteudo.getColunas_projeto())
+					{
+					%>
 					<td>
 					<button class="" onclick="location.href='javascript: abrirOpcoesAlterarTabela();'">A</button>
 					<button  class="inputsTabelaProjeto" onclick="location.href='javascript: abrirPopUpAlterarCelula();'">Amostra A</button>
 					</td>
+					<%  
+					coluna++;
+					}
+					%>
 				<tr>
+				<%
+				linha++;
+				}
+				%>
 			</table>
 		</div>
 		

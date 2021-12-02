@@ -34,6 +34,8 @@ public class exibirProjeto extends HttpServlet {
                 dados.setNome_projeto(rsExibirProjeto.getString("nome_projeto"));
                 dados.setDt_termino_projeto("00/00/0000");
                 dados.setPrivado_publico_projeto(rsExibirProjeto.getInt("privado_publico_projeto"));
+                dados.setColunas_projeto(rsExibirProjeto.getInt("colunas_projeto"));
+                dados.setLinhas_projeto(rsExibirProjeto.getInt("linhas_projeto"));
                 Integer id_pesquisador_chefe = rsExibirProjeto.getInt("fk_pesquisador_chefe");
                 
                 String sqlPesquisadorChefe = "SELECT nome_pesq FROM pesquisador WHERE id_pesq= " +id_pesquisador_chefe;

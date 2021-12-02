@@ -13,7 +13,24 @@ public class Projeto extends HttpServlet {
 	private String dt_inicio_projeto;
 	private Integer privado_publico_projeto;
 	private String pesquisador_chefe;
-
+	private Integer linhas_projeto;
+	private Integer colunas_projeto;
+	
+	public Integer getLinhas_projeto() {
+		return linhas_projeto;
+	}
+	public void setLinhas_projeto(Integer linhas_projeto) {
+		this.linhas_projeto = linhas_projeto;
+	}
+	public Integer getColunas_projeto() {
+		return colunas_projeto;
+	}
+	public void setColunas_projeto(Integer colunas_projeto) {
+		this.colunas_projeto = colunas_projeto;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
 	public Integer getId_projeto() {
 		return id_projeto;
