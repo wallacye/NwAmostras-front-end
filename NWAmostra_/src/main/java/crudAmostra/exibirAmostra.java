@@ -64,6 +64,7 @@ public class exibirAmostra extends HttpServlet {
                 dados.setNome_amostra(rsExibirAmostras.getString("nome_amostra"));
                 dados.setNome_categoria(rsExibirAmostras.getString("nome_categoria"));
                 dados.setNome_origem(rsExibirAmostras.getString("nome_origem"));
+                dados.setFase_coleta(rsExibirAmostras.getString("fase_coleta"));
                 
                 dados.setCodigo_amostra(rsExibirAmostras.getString("codigo_amostra"));
                 

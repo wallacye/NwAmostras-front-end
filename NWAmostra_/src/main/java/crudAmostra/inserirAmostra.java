@@ -94,8 +94,8 @@ public class inserirAmostra extends HttpServlet {
                             id_para_converter = generatedKeys.getLong(1);
                             id_amostra = Math.toIntExact(id_para_converter);
                             
-                    	    String sqlInserirAmostraNoMapaContem = "INSERT INTO amostra_no_mapa_contem (n_coluna_amostra, n_linha_amostra, validade_amostra, dt_coleta_amostra, volume_amostra, hora_coleta_amostra, id_amostra, id_mapa_amostra)"
-                                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";       	    
+                    	    String sqlInserirAmostraNoMapaContem = "INSERT INTO amostra_no_mapa_contem (n_coluna_amostra, n_linha_amostra, validade_amostra, dt_coleta_amostra, volume_amostra, hora_coleta_amostra, id_amostra, id_mapa_amostra, fase_coleta)"
+                                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";       	    
                             	    
                             	    
                             	    PreparedStatement stInserirAmostraNoMapaContem = con.prepareStatement(sqlInserirAmostraNoMapaContem);
@@ -108,6 +108,7 @@ public class inserirAmostra extends HttpServlet {
                             	    stInserirAmostraNoMapaContem.setString(6, hora_coleta_amostra);
                             	    stInserirAmostraNoMapaContem.setInt(7, id_amostra);
                             	    stInserirAmostraNoMapaContem.setInt(8, id_mapa_amostra);
+                            	    stInserirAmostraNoMapaContem.setString(9, "");
                             	    stInserirAmostraNoMapaContem.executeUpdate();
                                                 	    	
                         }

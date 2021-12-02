@@ -4,6 +4,9 @@
 <%@page import="crudAmostra.exibirAmostra" %>
 <%@page import="java.util.ArrayList"%>
 
+<%@ page import="java.io.*,java.util.*" %>
+<%@ page import="javax.servlet.*,java.text.*" %>
+
 <%
     Integer id_amostra_mapa = Integer.parseInt(request.getParameter("id_amostra_mapa"));
     
@@ -52,6 +55,14 @@
 	function fecharPopUpRetirarVolume(){
 		document.getElementById('popupRetirarVolume').style.display = 'none';
 	}
+	
+	function abrirLegendaMapaAmostra(){
+		document.getElementById('idLegendaAmostras').style.display = 'flex';
+	}
+	
+	function fecharLegendaMapaAmostra(){
+		document.getElementById('idLegendaAmostras').style.display = 'none';
+	}
 </script>
 
 </head>
@@ -69,8 +80,26 @@
 				<div class="containerLblNomeLegendaAmostras">
 				<div class=centralizarNomeAmostra>
 					<label class="lblNomeAmostra"> <%= conteudo.getCodigo_amostra() %> - <%= conteudo.getNome_amostra() %></label>
-					<button class="btnLegendaAmostras" onclick="location.href=''">
-					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"></button>
+					
+					<% 	
+					java.sql.Date atual = new java.sql.Date(System.currentTimeMillis());
+					Double alterarImgLegenda = conteudo.getVolume_amostra();
+					Date vencimento = conteudo.getValidade_amostra();
+					String faseDeColeta = conteudo.getFase_coleta();
+
+					if(alterarImgLegenda == 00.00){%>
+					<button class="btnLegendaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
+					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras">
+					</button>
+					<%}else if(vencimento.before(atual)){
+						%>
+					<button class="btnLegendaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
+					<img src="../../img/imgAmostraVencida.png" class="imgLegendaMapaAmostrasFaseColeta"></button>
+					<% }else if(faseDeColeta.equals("Sim")){%>
+					<button class="btnLegendaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
+					<img src="../../img/imgAmostraFaseColeta.png" class="imgLegendaMapaAmostrasFaseColeta"></button>
+					<% }%>
+					
 				</div>
 				</div>
 				<div class="containerBtnHistoricoAmostra">
@@ -125,7 +154,15 @@
 			</div>
 			<div class="containerLblsInfoAmostra">
 				<label class="lblsInfoAmostra"><%= conteudo.getVolume_amostra() %> uL</label>
-				<button class="btnColocarFaseColetaAmostra" onclick="location.href=''">Colocar em fase de coleta</button>
+				<% 
+				if(faseDeColeta.equals("") || faseDeColeta.equals("Nao")){
+				%>
+				<button class="btnColocarFaseColetaAmostra" onclick="location.href='/NWAmostra_/faseColetaAmostra?id_amostra_mapa=<%= conteudo.getId_amostra_mapa() %>&fase_coleta=<%= conteudo.getFase_coleta() %>'">
+				Colocar em fase de coleta</button>
+				<%}else if(faseDeColeta.equals("Sim")){ %>
+				<button class="btnColocarFaseColetaAmostra" onclick="location.href='/NWAmostra_/faseColetaAmostra?id_amostra_mapa=<%= conteudo.getId_amostra_mapa() %>&fase_coleta=<%= conteudo.getFase_coleta() %>'">
+				Retirar da fase de coleta</button>
+				<%} %>
 			</div>
 		</div>
 		
@@ -383,6 +420,30 @@
 				</div>
 			</div>
 		</div>	
+		
+		<div class="legendaMapaAmostras" id="idLegendaAmostras">
+			<div class="popUpLegendaMapaAmostras">
+			<div class="containerLblLegendaMapaAmostras"><label class="lblLegendaMapaAmostras">Legenda</label></div>
+			<button class="containerImagemXMapaAmostras" onclick="location.href='javascript: fecharLegendaMapaAmostra()'">
+			<img src="../../img/x.png" class="imgX"></button>
+			<div class="containerInfosLegendaMapaAmostra">
+				<div class="containerImgLblLegendaMapaAmostra">
+					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras">
+					<label class="lblsAcabouVencidaFaseColeta">Acabou</label>
+				</div>
+				<div class="containerImgLblLegendaMapaAmostra">
+					<img src="../../img/imgAmostraVencida.png" class="imgLegendaMapaAmostrasFaseColeta">
+					<label class="lblsAcabouVencidaFaseColeta">Vencida</label>
+				</div>
+				<div class="containerImgLblLegendaMapaAmostra">
+					<img src="../../img/imgAmostraFaseColeta.png" class="imgLegendaMapaAmostrasFaseColeta">
+					<label class="lblsAcabouVencidaFaseColeta">Fase de Coleta</label>
+				</div>
+			</div>
+			
+			</div>
+		</div>
+		
 		<% 
 		} %>
 		<%@ include file="../../includes/rodape.jsp" %>

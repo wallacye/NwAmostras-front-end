@@ -21,6 +21,7 @@ public class AmostraNoMapa extends HttpServlet {
 	private Integer id_amostra;
 	private Integer id_mapa_amostra;
 	private String data_formatada_vencimento;
+	private String fase_coleta;
 
 	private String estante_mapa_amostra;
 	private String nome_mapa_amostra;
@@ -276,5 +277,12 @@ public class AmostraNoMapa extends HttpServlet {
 	}
 	public void setCodigo_amostra(String codigo_amostra) {
 		this.codigo_amostra = codigo_amostra;
+	}	
+	
+	public String getFase_coleta() {
+		return fase_coleta;
+	}
+	public void setFase_coleta(String fase_coleta) {
+		this.fase_coleta = fase_coleta;
 	}	
 }

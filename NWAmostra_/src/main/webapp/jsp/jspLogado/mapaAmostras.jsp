@@ -134,24 +134,28 @@
 			while(c <= colunas) {				
 			%>
 				<td class="divAmostraMapaDeAmostra">
-					<button class="btnLegendaMapaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
-					
 					<%for (AmostraNoMapa conteudo : lista){ 
 					if(l==conteudo.getN_linha_amostra()&&c==conteudo.getN_coluna_amostra()){
 						
 						java.sql.Date atual = new java.sql.Date(System.currentTimeMillis());
 						Double alterarImgLegenda = conteudo.getVolume_amostra();
 						Date vencimento = conteudo.getValidade_amostra();
+						String faseDeColeta = conteudo.getFase_coleta();
 						
-						if(alterarImgLegenda == 00.00){%>
 						
+						
+					if(alterarImgLegenda == 00.00){%>
+					<button class="btnLegendaMapaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
 					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras">
 					</button>
-					<%}else if(vencimento.after(atual)){
+					<%}else if(vencimento.before(atual)){
 						%>
-					<img src="../../img/imgAmostraVencida.png" class="imgLegendaMapaAmostrasFaseColeta">
+					<button class="btnLegendaMapaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
+					<img src="../../img/imgAmostraVencida.png" class="imgLegendaMapaAmostrasFaseColeta"></button>
+					<% }else if(faseDeColeta.equals("Sim")){%>
+					<button class="btnLegendaMapaAmostras" onclick="location.href='javascript: abrirLegendaMapaAmostra();'">
+					<img src="../../img/imgAmostraFaseColeta.png" class="imgLegendaMapaAmostrasFaseColeta"></button>
 					<% }}}%>
-					
 					<button class="btnVerCriarAmostra" 
 					<% 
 					redirecionarBotao = "onclick=\"location.href='criarAmostra.jsp?id_mapa_amostra=" + mapaDeAmostras +"&n_linha_amostra=" + l + "&n_coluna_amostra=" + c + "'\""; 

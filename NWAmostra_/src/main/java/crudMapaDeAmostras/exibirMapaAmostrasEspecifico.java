@@ -50,6 +50,7 @@ public class exibirMapaAmostrasEspecifico extends HttpServlet {
                 dadosAmostraNoMapa.setAnotacoes_amostra(rsExibirMapaDeAmostrasEspecifico.getString("anotacoes_amostra"));
                 dadosAmostraNoMapa.setTipo_amostra(rsExibirMapaDeAmostrasEspecifico.getString("tipo_amostra"));
                 dadosAmostraNoMapa.setNome_amostra(rsExibirMapaDeAmostrasEspecifico.getString("nome_amostra"));
+                dadosAmostraNoMapa.setFase_coleta(rsExibirMapaDeAmostrasEspecifico.getString("fase_coleta"));
                 
                 dadosAmostraNoMapa.setValidade_amostra(rsExibirMapaDeAmostrasEspecifico.getDate("validade_amostra"));
                 
