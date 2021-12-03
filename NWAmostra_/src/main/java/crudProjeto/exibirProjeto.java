@@ -11,6 +11,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
 import conexao.Conexao;
+import model.AmostraNoProjeto;
+import model.Campo;
 import model.Pesquisador;
 import model.Projeto;
 
@@ -23,7 +25,11 @@ public class exibirProjeto extends HttpServlet {
     	ArrayList<Projeto> Conteudo = new ArrayList<Projeto>();
     	
         try {
-            String sqlExibirProjeto = "SELECT * FROM projeto WHERE inativacao_projeto IS NULL AND privado_publico_projeto = 1 ORDER BY nome_projeto";
+            String sqlExibirProjeto = "SELECT * FROM projeto "
+            		+ "WHERE inativacao_projeto IS NULL "
+            		+ "AND privado_publico_projeto = 1 "
+            		+ "AND id_projeto= "+ id_projeto
+            		+ " ORDER BY nome_projeto";
             
             Connection con = Conexao.Conectar();
             Statement stExibirProjeto = con.createStatement();
@@ -101,5 +107,69 @@ public class exibirProjeto extends HttpServlet {
         return null;
     }
 
-
+	public ArrayList<Campo> listarCampos(Integer id_projeto){
+        
+        ArrayList<Campo> ConteudoCampos = new ArrayList<Campo>();
+        
+        try{
+            String sqlCampos = "SELECT * FROM campo "
+            		+ "WHERE id_projeto= " +id_projeto;
+            
+            Connection con = Conexao.Conectar();
+            Statement stExibirCampos = con.createStatement();
+            ResultSet rsExibirCampos = stExibirCampos.executeQuery(sqlCampos);
+            while ( rsExibirCampos.next() ) {
+            	
+            	Campo dadosCampos = new Campo();
+              
+            	dadosCampos.setNome_campo(rsExibirCampos.getString("nome_campo"));
+            	dadosCampos.setId_campo(rsExibirCampos.getInt("id_campo"));
+            	dadosCampos.setColuna_campo(rsExibirCampos.getInt("coluna_campo"));
+            	
+            	ConteudoCampos.add(dadosCampos);
+            }
+            rsExibirCampos.close();
+            con.close();
+            
+            return ConteudoCampos;
+        }
+        catch(Exception e){
+            System.out.print("ERRO EXIBIR CAMPOS: ");
+            System.out.print(e.getMessage());
+        }
+        return null;
+    }
+	
+	public ArrayList<AmostraNoProjeto> listarAmostras(Integer id_projeto){
+        
+        ArrayList<AmostraNoProjeto> ConteudoAmostras = new ArrayList<AmostraNoProjeto>();
+        
+        try{
+            String sqlAmostras = "SELECT * FROM amostra_projeto_contem "
+            		+ "WHERE id_projeto= " +id_projeto;
+            
+            Connection con = Conexao.Conectar();
+            Statement stExibirAmostras = con.createStatement();
+            ResultSet rsExibirAmostras = stExibirAmostras.executeQuery(sqlAmostras);
+            while ( rsExibirAmostras.next() ) {
+            	
+            	AmostraNoProjeto dadosAmostras = new AmostraNoProjeto();
+              
+            	dadosAmostras.setNome_campo(rsExibirAmostras.getString("nome_campo"));
+            	dadosAmostras.setId_campo(rsExibirAmostras.getInt("id_campo"));
+            	dadosAmostras.setColuna_campo(rsExibirAmostras.getInt("coluna_campo"));
+            	
+            	ConteudoAmostras.add(dadosAmostras);
+            }
+            rsExibirAmostras.close();
+            con.close();
+            
+            return ConteudoAmostras;
+        }
+        catch(Exception e){
+            System.out.print("ERRO EXIBIR CAMPOS: ");
+            System.out.print(e.getMessage());
+        }
+        return null;
+    }
 }

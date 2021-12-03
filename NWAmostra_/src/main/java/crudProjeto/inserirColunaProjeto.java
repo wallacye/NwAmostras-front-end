@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import conexao.Conexao;
 
-@WebServlet("/inserirLinhaProjeto")
-public class inserirLinhaProjeto extends HttpServlet {
+@WebServlet("/inserirColunaProjeto")
+public class inserirColunaProjeto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,28 +25,28 @@ public class inserirLinhaProjeto extends HttpServlet {
     	Integer id_projeto = Integer.parseInt(request.getParameter("id_projeto"));		
 		
         try {
-            String sqlPegarLinhas = "SELECT linhas_projeto FROM projeto WHERE id_projeto= " +id_projeto;
+            String sqlPegarColunas = "SELECT colunas_projeto FROM projeto WHERE id_projeto= " +id_projeto;
             
             Connection con = Conexao.Conectar();
-                Statement stPegarLinhas = con.createStatement();
-                ResultSet rsPegarLinhas = stPegarLinhas.executeQuery(sqlPegarLinhas);
-                if ( rsPegarLinhas.next() ) 
+                Statement stPegarColunas = con.createStatement();
+                ResultSet rsPegarColunas = stPegarColunas.executeQuery(sqlPegarColunas);
+                if ( rsPegarColunas.next() ) 
                 {
             		PrintWriter out = response.getWriter();
             		
-            		Integer linhas_projeto = rsPegarLinhas.getInt("linhas_projeto");
-            		linhas_projeto++;
+            		Integer colunas_projeto = rsPegarColunas.getInt("colunas_projeto");
+            		colunas_projeto++;
             		
                     try
                     {
                     	
-                	String sqlAdicionarLinhas = "UPDATE projeto SET linhas_projeto = (?)"
+                	String sqlAdicionarColunas = "UPDATE projeto SET colunas_projeto = (?)"
                     + " WHERE id_projeto=" + id_projeto;
                 	
-                    PreparedStatement stAdicionarLinhas = con.prepareStatement(sqlAdicionarLinhas);
+                    PreparedStatement stAdicionarColunas = con.prepareStatement(sqlAdicionarColunas);
                     
-                    stAdicionarLinhas.setInt(1, linhas_projeto);
-                    stAdicionarLinhas.executeUpdate();
+                    stAdicionarColunas.setInt(1, colunas_projeto);
+                    stAdicionarColunas.executeUpdate();
                     
                     }catch (SQLException ex) 
                     {
@@ -57,7 +57,7 @@ public class inserirLinhaProjeto extends HttpServlet {
                     
                 }         
             
-                rsPegarLinhas.close();
+                rsPegarColunas.close();
                 con.close();
         	} 
         catch (Exception e) 

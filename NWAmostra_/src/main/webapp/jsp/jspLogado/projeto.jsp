@@ -2,6 +2,7 @@
 
 <%@page import="model.Projeto"  %>
 <%@page import="model.Pesquisador"  %>
+<%@page import="model.Campo"  %>
 <%@page import="crudProjeto.exibirProjeto" %>
 <%@page import="java.util.ArrayList"%>
 
@@ -12,6 +13,7 @@
 	
     ArrayList<Projeto> lista = dao.listar(id_projeto);    
     ArrayList<Pesquisador> listaIntegrantes = dao.listarIntegrantes(id_projeto);
+    ArrayList<Campo> listaCampos = dao.listarCampos(id_projeto);
  %>
  <% 
  for(Projeto Conteudo : lista){
@@ -211,8 +213,8 @@
 		<div class="containerBtnFerramentasProjeto">
 			<button class="bntFerramentasProjeto" onclick="location.href='javascript: abrirFerramentasProjeto();'">Ferramentas +</button>
 			<div class="containerFerramentasProjeto" id="idContainerFerramentasProjeto">
-			<button class="btnsFerramentasProjeto palavrasAzul" onclick="location.href=''">Inserir linha</button>
-			<button class="btnsFerramentasProjeto palavrasAzul" onclick="location.href=''">Inserir coluna</button>
+			<button class="btnsFerramentasProjeto palavrasAzul" onclick="location.href='/NWAmostra_/inserirLinhaProjeto?id_projeto=<%= Conteudo.getId_projeto() %>'">Inserir linha</button>
+			<button class="btnsFerramentasProjeto palavrasAzul" onclick="location.href='/NWAmostra_/inserirColunaProjeto?id_projeto=<%= Conteudo.getId_projeto() %>'">Inserir coluna</button>
 			</div>
 		</div>
 		
@@ -220,12 +222,25 @@
 			<table class="tabelaProjeto">
 				<tr>
 					<%  
+					int linha = 0;
 					int coluna = 1;
 					while(coluna <= Conteudo.getColunas_projeto())
 					{						
 					%>
 					 <th>
-					 <button  class="inputsTituloTabelaProjeto" onclick="location.href='javascript: abrirPopUpAlterarCelula();'">Nome da Amostra</button>
+					 <button  class="inputsTituloTabelaProjeto" onclick="location.href='javascript: abrirPopUpAlterarCelula();'">
+					 <%  
+					 for(Campo ConteudoCampo : listaCampos) 
+						{
+						 if(coluna==ConteudoCampo.getColuna_campo())
+						 {
+					 %>
+						<%= ConteudoCampo.getNome_campo() %>					 
+						<%  
+						 }
+						}
+						%>
+					 </button>
 					 </th>
 					<%  
 					coluna++;
@@ -233,7 +248,7 @@
 					%>
 				<tr>
 				<%  
-				int linha = 1;
+				linha = 1;
 				while(linha <= Conteudo.getLinhas_projeto())
 				{
 				%>
@@ -245,7 +260,12 @@
 					%>
 					<td>
 					<button class="" onclick="location.href='javascript: abrirOpcoesAlterarTabela();'">A</button>
-					<button  class="inputsTabelaProjeto" onclick="location.href='javascript: abrirPopUpAlterarCelula();'">Amostra A</button>
+					<button  class="inputsTabelaProjeto" onclick="location.href='javascript: abrirPopUpAlterarCelula();'">
+					<%  
+										
+					%>
+					Amostra A
+					</button>
 					</td>
 					<%  
 					coluna++;
@@ -266,6 +286,11 @@
 						<label class="lblEditarCelular" >Editar célula</label><br>
 						<label class="lblExplicacaoEditarCelula" >Digite o novo conteúdo da célula:</label>
 						<input type="text" class="txtEditarCelula" placeholder="Digite o conteúdo" id="idTxtEditarCelula" name="idTxtEditarCelula">
+						
+						<input type="hidden" id="inputLinha" name="inputLinha" value="<%= linha %>">
+						<input type="hidden" id="inputColuna" name="inputColuna" value="<%= coluna %>">
+						
+						<input type="hidden" id="inputProjeto" name="inputProjeto" value="<%= Conteudo.getId_projeto() %>">						
 					</div>
 					<div class="containerBtnsConfCanEditarCelula">
 						<input type="submit" value="Confirmar" class="inputConfirmarAlterarCelula">
