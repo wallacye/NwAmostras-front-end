@@ -819,7 +819,7 @@ nav ul li button{
 }
 
 .imagemMeuPerfil{
-	height: 80%;
+	height: 150%;
 	width: auto;
 	margin-top: 15px;
 }
@@ -2998,6 +2998,15 @@ nav ul li button{
     border-bottom:1px solid #767171;
     background-color:transparent;
 }
+
+.lblsInfoAmostraTelaEditarAmostraLinkOrigem{
+	display: block;
+    margin: 20px 0px 20px 4%;
+    font-size: 18px;
+    float: left;
+    border:none;
+    background-color:transparent;
+}
  
 .linhaDadosAmostraTelaEditarAmostra{
     width: 100%; height: auto;
@@ -3006,21 +3015,19 @@ nav ul li button{
 }
  
 .containerBtnsFinalizarExcluirAmostra{
-    width: 100%; height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 50%; height: auto;
+    float: left;
 }
  
 .btnFinalizarAmostra{
-    float: left;
+    float: right;
     width: 188px;
     height: 47px;
     color: var(--fundo);
     border-radius: 30px;
     border: none;
     background-color: var(--corPalavrasVerdeAzul);
-    margin: 0px 0px 0px 0;
+    margin: 30px 20px 30px 0;
     font-size: 20px;
 }
  
@@ -3032,7 +3039,7 @@ nav ul li button{
     border-radius: 30px;
     border: none;
     background-color: #FF0000;
-    margin: 0px 0px 0px 0px;
+    margin: 30px 0px 30px 20px;
     font-size: 20px;
 }
  
@@ -3058,17 +3065,24 @@ nav ul li button{
     .lblsInfoAmostraTelaEditarAmostra{
     margin: 10px 10% 20px 10%;
     }
+    
+    .lblsInfoAmostraTelaEditarAmostraLinkOrigem{
+    margin: 10px 10% 20px 10%;
+    }
 
     .btnFinalizarAmostra{
-    width: 100%;
+    width: 80%;
+    margin: 30px 10% 30px 10%;
     }
 
     .btnEcluirAmostra2{
-    width: 100%;
+    width: 80%;
+    margin: 0px 10% 30px 10%;
     }
 
     .containerBtnsFinalizarExcluirAmostra{
     float: left;
+    width: 100%;
     }
 
     .containerAjeitarBtnsEditarAmostra{
@@ -4016,5 +4030,54 @@ nav ul li button{
     width: 100%;
     height: 386px;
     box-shadow: none;
+}
+}
+
+/* Historico Amostra */
+
+.btnExcluirHistoricoAmostra{
+	width: 15%;
+    height: 37px;
+    color: var(--fundo);
+    border-radius: 30px;
+    border: none;
+    background-color: #FF0000;
+    margin: 25px 0 0px 00%;
+    font-size: 18px;
+}
+
+.containerLblNomeHistoricoAmostra{
+	width: 80%;
+    height: auto;
+    text-align: center;
+    margin: 34px 0px 10px 0px;
+    float: left;
+}
+
+.listaHistoricoAmostras{
+	width: 90%;
+    margin: 0px 0% 20px 3.8%;
+    text-align: left;
+}
+
+.dataHistoricoAmostrasLista{
+	float: right;
+}
+
+.containerTituloHistoricoAmostraData{
+	width: 100%;
+    height: auto;
+    float: left;
+    border-bottom: 1px solid #767171; 
+}
+
+@media (max-width: 820px){
+.btnExcluirHistoricoAmostra{
+	width: 50%;
+    margin: 25px 25% 0px 25%;
+}
+
+.containerLblNomeHistoricoAmostra{
+	width: 100%;
 }
 }
