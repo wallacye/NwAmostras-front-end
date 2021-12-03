@@ -210,12 +210,12 @@
 				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Mapa de amostras</label>
 			</div>
 			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<%
-			  		for(MapaDeAmostras ConteudoListaMapaAmostras : listarMapaAmostras){
-			  	%>
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" list="listMapaAmostras" value="<%= ConteudoListaMapaAmostras.getId_mapa_amostra() %>" name="txtEditarAmostraNomeMapaAmostras"/>
+				
+				<input type="text" class="lblsInfoAmostraTelaEditarAmostra" list="listMapaAmostras" value="<%= conteudo.getId_mapa_amostra() %>" name="txtEditarAmostraNomeMapaAmostras"/>
 				<datalist class="listOrigem" id="listMapaAmostras">
-			  		
+			  		<%
+			  		for(MapaDeAmostras ConteudoListaMapaAmostras : listarMapaAmostras){
+			  		%>
     					<option class="optionListOrigem palavrasAzul" value="<%= ConteudoListaMapaAmostras.getId_mapa_amostra() %>"><%= ConteudoListaMapaAmostras.getNome_mapa_amostra() %></option>
 			  		<%
 			  		}
