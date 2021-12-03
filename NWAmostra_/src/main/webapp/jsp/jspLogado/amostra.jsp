@@ -10,6 +10,7 @@
 
 <%
     Integer id_amostra_mapa = Integer.parseInt(request.getParameter("id_amostra_mapa"));
+	String id_pesq = (String) request.getSession().getAttribute("id"); 
     
     exibirAmostra dao = new exibirAmostra();
     ArrayList<AmostraNoMapa> lista = dao.listar(id_amostra_mapa);
@@ -113,7 +114,7 @@
 				</div>
 				</div>
 				<div class="containerBtnHistoricoAmostra">
-					<button class="btnExbirHistoricoAmostra" onclick="location.href='criarAmostra'">Exibir histórico</button>
+					<button class="btnExbirHistoricoAmostra" onclick="location.href='./historicoAmostra.jsp?id_amostra=<%= conteudo.getId_amostra() %>&id_amostra_mapa=<%= conteudo.getId_amostra_mapa() %>'">Exibir histórico</button>
 				</div>
 			</div>
 		</div>
@@ -366,19 +367,25 @@
 					<button class="btnAdicionarVolume">Adicionar</button>
 					<button class="btnRetirarVolume" onclick="location.href='javascript: abrirPopUpRetirarVolume();'">Retirar</button>
 				</div>
+				<form method="post" action="/NWAmostra_/adicionarVolumeAmostra">
 				<div class="containerVolumeAtual">
 					<label class="palavrasAzul lblVolumeAtualAlterar">Volume atual -</label>
 					<label class="lblVolumeAtualNumero"> <%= conteudo.getVolume_amostra() %>uL</label>
 				</div>
 				<div class="containerLblAdicionarInput">
 					<label class="palavrasAzul lblAdicionarVolume">Adicionar</label>
-					<input type="text" class="inputAdicionarVolume" placeholder="Digite o volume a ser adicionado">
+					<input type="text" class="inputAdicionarVolume" placeholder="Digite o volume a ser adicionado" name="inputAdicionarVolume">
+					<input type="hidden" value="<%= conteudo.getVolume_amostra() %>" name="volumeAtual">
+					<input type="hidden" value="<%= conteudo.getId_amostra() %>" name="idAmostraAdicionarVolume">
+					<input type="hidden" value="<%= conteudo.getId_amostra_mapa() %>" name="id_amostra_mapa">
+					<input type="hidden" value="<%= id_pesq%>" name="idPesqAdicionarVolume">
 				</div>
 				<div class="containerBtnAdicionarVolume" 
 				style="width:100%;display: flex;justify-content: center;align-items: center;">
 					<button class="btnImputAdicionarVolume" onclick="location.href=''">Adicionar</button>
 					<button class="btnImputCancelarAdicionarVolume" onclick="location.href='javascript: fecharPopUpAdicionarVolume();'">Cancelar</button>
 				</div>
+				</form>
 			</div>
 		</div>
 		
@@ -388,19 +395,25 @@
 					<button class="btnAdicionarVolumeRetirar" onclick="location.href='javascript: abrirPopUpAdicionarVolume();'">Adicionar</button>
 					<button class="btnRetirarVolumeRetirar">Retirar</button>
 				</div>
+				<form method="post" action="/NWAmostra_/retirarVolumeAmostra">
 				<div class="containerVolumeAtual">
 					<label class="palavrasAzul lblVolumeAtualAlterar">Volume atual -</label>
 					<label class="lblVolumeAtualNumero"> <%= conteudo.getVolume_amostra() %>uL</label>
 				</div>
 				<div class="containerLblAdicionarInput">
 					<label class="palavrasAzul lblAdicionarVolume">Retirar</label>
-					<input type="text" class="inputAdicionarVolume" placeholder="Digite o volume a ser retirado">
+					<input type="text" class="inputAdicionarVolume" placeholder="Digite o volume a ser retirado" name="inputRetirarVolume">
+					<input type="hidden" value="<%= conteudo.getVolume_amostra() %>" name="volumeAtual">
+					<input type="hidden" value="<%= conteudo.getId_amostra() %>" name="idAmostraAdicionarVolume">
+					<input type="hidden" value="<%= conteudo.getId_amostra_mapa() %>" name="id_amostra_mapa">
+					<input type="hidden" value="<%= id_pesq%>" name="idPesqAdicionarVolume">
 				</div>
 				<div class="containerBtnAdicionarVolume" 
 				style="width:100%;display: flex;justify-content: center;align-items: center;">
 					<button class="btnImputAdicionarVolume" onclick="location.href=''">Retirar</button>
 					<button class="btnImputCancelarAdicionarVolume" onclick="location.href='javascript: fecharPopUpRetirarVolume();'">Cancelar</button>
 				</div>
+				</form>
 			</div>
 		</div>
 		

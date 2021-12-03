@@ -44,7 +44,6 @@ public class editarAmostra extends HttpServlet {
     	Integer id_mapa_amostra = Integer.parseInt(request.getParameter("txtEditarAmostraNomeMapaAmostras"));
     	Integer n_coluna_amostra = Integer.parseInt(request.getParameter("txtEditarAmostraColuna"));
     	Integer n_linha_amostra = Integer.parseInt(request.getParameter("txtEditarAmostraLinha"));
-    	Double volume_amostra = Double.parseDouble(request.getParameter("txtEditarAmostraVolume"));
     	String hora_coleta_amostra = request.getParameter("txtEditarAmostraHoraColeta");
     	
     	Date UTILdt_coleta_amostra = null;
@@ -88,7 +87,7 @@ public class editarAmostra extends HttpServlet {
          	
          	
                     
-            	    String sqlEditarAmostraNoMapaContem = "UPDATE amostra_no_mapa_contem SET n_coluna_amostra = (?), n_linha_amostra = (?), validade_amostra = (?), dt_coleta_amostra = (?), volume_amostra = (?), hora_coleta_amostra = (?), id_amostra = (?), id_mapa_amostra = (?), fase_coleta = (?),  data_inativacao_amostra = (?) WHERE id_amostra =" + id_amostra;       	    
+            	    String sqlEditarAmostraNoMapaContem = "UPDATE amostra_no_mapa_contem SET n_coluna_amostra = (?), n_linha_amostra = (?), validade_amostra = (?), dt_coleta_amostra = (?), hora_coleta_amostra = (?), id_amostra = (?), id_mapa_amostra = (?), fase_coleta = (?),  data_inativacao_amostra = (?) WHERE id_amostra =" + id_amostra;       	    
                     	    
                     	    
                     	    PreparedStatement stEditarAmostraNoMapaContem = con.prepareStatement(sqlEditarAmostraNoMapaContem);
@@ -97,12 +96,11 @@ public class editarAmostra extends HttpServlet {
                     	    stEditarAmostraNoMapaContem.setInt(2, n_linha_amostra);
                     	    stEditarAmostraNoMapaContem.setDate(3, validade_amostra);
                     	    stEditarAmostraNoMapaContem.setDate(4, dt_coleta_amostra);
-                    	    stEditarAmostraNoMapaContem.setDouble(5, volume_amostra);
-                    	    stEditarAmostraNoMapaContem.setString(6, hora_coleta_amostra);
-                    	    stEditarAmostraNoMapaContem.setInt(7, id_amostra);
-                    	    stEditarAmostraNoMapaContem.setInt(8, id_mapa_amostra);
-                    	    stEditarAmostraNoMapaContem.setString(9, "");
-                    	    stEditarAmostraNoMapaContem.setDate(10, null);
+                    	    stEditarAmostraNoMapaContem.setString(5, hora_coleta_amostra);
+                    	    stEditarAmostraNoMapaContem.setInt(6, id_amostra);
+                    	    stEditarAmostraNoMapaContem.setInt(7, id_mapa_amostra);
+                    	    stEditarAmostraNoMapaContem.setString(8, "");
+                    	    stEditarAmostraNoMapaContem.setDate(9, null);
                     	    stEditarAmostraNoMapaContem.executeUpdate();
                  
             response.sendRedirect("./jsp/jspLogado/mapaAmostras.jsp?id_mapa_amostra=" + id_mapa_amostra);

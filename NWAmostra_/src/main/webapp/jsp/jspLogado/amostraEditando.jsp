@@ -52,8 +52,6 @@
 				<div class=centralizarNomeAmostraTelaEditarAmostra>
 					<label class="lblNomeAmostraTelaEditarAmostra"><%= conteudo.getCodigo_amostra() %> - <%= conteudo.getNome_amostra() %></label>
 					<label class="lblEditando"> (editando)</label>
-					<button class="btnLegendaAmostrasTelaEditarAmostra" onclick="location.href=''">
-					<img src="../../img/legendaMapaAmostrasAcabou.png" class="imgLegendaMapaAmostras"></button>
 				</div>
 				</div>
 				
@@ -94,9 +92,6 @@
 						<option class="optionListCatgoria palavrasAzul" value="4">Parasita</option>
 						<option class="optionListCatgoria palavrasAzul" value="3">Príon</option>
 						<option class="optionListCatgoria palavrasAzul" value="5">Vírus</option>
-						<option class="optionListCatgoria palavrasAzul" value="6">Humana</option>
-						<option class="optionListCatgoria palavrasAzul" value="7">Ambiental</option>
-						<option class="optionListCatgoria palavrasAzul" value="6">Animal</option>
   				</datalist>
 			</div>
 		</div>
@@ -110,14 +105,6 @@
 			</div>
 		</div>
 		
-		<div class="linhaDadosAmostraTelaEditarAmostra">
-			<div class="containerLblTipoInfoTelaEditarAmostra">
-				<label class="lblsDadoInfoAmostraTelaEditarAmostra palavrasAzul">Volume</label>
-			</div>
-			<div class="containerLblsInfoAmostraTelaEditarAmostra">
-				<input type="text" class="lblsInfoAmostraTelaEditarAmostra"  name="txtEditarAmostraVolume" value="<%= conteudo.getVolume_amostra() %>"/>
-			</div>
-		</div>
 		
 		<div class="linhaDadosAmostraTelaEditarAmostra">
 			<div class="containerLblTipoInfoTelaEditarAmostra">
@@ -256,9 +243,13 @@
 		
 		<div class="containerBtnsFinalizarExcluirAmostra">
 		<button class="btnFinalizarAmostra" onclick="location.href=''">Finalizar!</button>
-		<button class="btnEcluirAmostra2" onclick="location.href=''">Cancelar</button>
 		</div>
 		</form>
+		<div class="containerBtnsFinalizarExcluirAmostra">
+		<button class="btnEcluirAmostra2" onclick="location.href='amostra.jsp?id_amostra_mapa=<%= conteudo.getId_amostra_mapa() %>'">Cancelar</button>
+		</div>
+		
+		
 		
 		<% 
 		} %>
