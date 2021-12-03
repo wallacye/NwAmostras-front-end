@@ -2,6 +2,8 @@
 
 <%@page import="model.Projeto"  %>
 <%@page import="model.Pesquisador"  %>
+<%@page import="model.AmostraNoProjeto"  %>
+<%@page import="model.Informacao"  %>
 <%@page import="model.Campo"  %>
 <%@page import="crudProjeto.exibirProjeto" %>
 <%@page import="java.util.ArrayList"%>
@@ -13,7 +15,9 @@
 	
     ArrayList<Projeto> lista = dao.listar(id_projeto);    
     ArrayList<Pesquisador> listaIntegrantes = dao.listarIntegrantes(id_projeto);
+    ArrayList<AmostraNoProjeto> listaAmostras = dao.listarAmostras(id_projeto);
     ArrayList<Campo> listaCampos = dao.listarCampos(id_projeto);
+    ArrayList<Informacao> listaInformacoes = dao.listarInformacoes(id_projeto);
  %>
  <% 
  for(Projeto Conteudo : lista){
@@ -228,8 +232,14 @@
 					{						
 					%>
 					 <th>
-					 <button  class="inputsTituloTabelaProjeto" onclick="location.href='javascript: abrirPopUpAlterarCelula();'">
+					 <button  class="inputsTituloTabelaProjeto" <%if(coluna!=1&&linha!=1){%>onclick="location.href='javascript: abrirPopUpAlterarCelula();'"<% } %>>
+					 <p class="letraCorDeFundo"> _________ </p>
 					 <%  
+					 if(coluna==1){
+						   %>
+						   Nome da Amostra
+						   <%
+					 }
 					 for(Campo ConteudoCampo : listaCampos) 
 						{
 						 if(coluna==ConteudoCampo.getColuna_campo())
@@ -259,12 +269,46 @@
 					{
 					%>
 					<td>
+				
 					<button class="" onclick="location.href='javascript: abrirOpcoesAlterarTabela();'">A</button>
 					<button  class="inputsTabelaProjeto" onclick="location.href='javascript: abrirPopUpAlterarCelula();'">
-					<%  
-										
+					
+					<% 
+					if (coluna==1)
+					{
+						 for(AmostraNoProjeto ConteudoAmostras : listaAmostras) 
+						 {
+							 if(linha==ConteudoAmostras.getLinha_amostra())
+							 {
 					%>
-					Amostra A
+					<%= ConteudoAmostras.getNome_amostra() %>
+					<%  
+							 }
+							 else{
+									%>
+									<% 
+								 }
+						 }
+					}
+					else
+					{
+						for(Informacao ConteudoInformacoes : listaInformacoes)
+						{
+							if(linha==ConteudoInformacoes.getLinha_amostra()&&coluna==ConteudoInformacoes.getColuna_campo())
+							{
+					%>
+					<%= ConteudoInformacoes.getConteudo_informacao() %>
+					<%
+							}
+							 else{
+									%>
+									<p class="letraCorDeFundo"> _________ </p>
+									<% 
+								 }
+						}
+						
+					}
+					%>	
 					</button>
 					</td>
 					<%  
@@ -281,10 +325,11 @@
 		
 		<div class="popUpAlterarLinha" id="popUpAlterarLinha">	
 				<div class="containerFormAlterarLinha">
-					<form action="" method="post">
+				
+					<form action="/NWAmostra_/inserirCampo" method="post">
 					<div style="width:90%; margin:30px 5% 0 5%;">
 						<label class="lblEditarCelular" >Editar célula</label><br>
-						<label class="lblExplicacaoEditarCelula" >Digite o novo conteúdo da célula:</label>
+						<label class="lblExplicacaoEditarCelula" >Digite o novo conteúdo da célula: <%= linha %> - <%= coluna %> - <%= Conteudo.getId_projeto() %></label>
 						<input type="text" class="txtEditarCelula" placeholder="Digite o conteúdo" id="idTxtEditarCelula" name="idTxtEditarCelula">
 						
 						<input type="hidden" id="inputLinha" name="inputLinha" value="<%= linha %>">
@@ -296,6 +341,7 @@
 						<input type="submit" value="Confirmar" class="inputConfirmarAlterarCelula">
 					</div>
 					</form>
+					
 					<div class="containerBtnsConfCanEditarCelula">
 							<button  class="btnCancelarEditarCelula" onclick="location.href='javascript: fecharPopUpAlterarCelula();'">Cancelar</button>
 					</div>

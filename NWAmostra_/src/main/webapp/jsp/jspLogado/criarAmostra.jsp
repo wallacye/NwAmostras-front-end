@@ -72,9 +72,6 @@ ArrayList<Origem> lista = dao.listar();
 						<option class="optionListCatgoria palavrasAzul" value="4">Parasita</option>
 						<option class="optionListCatgoria palavrasAzul" value="3">Príon</option>
 						<option class="optionListCatgoria palavrasAzul" value="5">Vírus</option>
-						<option class="optionListCatgoria palavrasAzul" value="6">Humana</option>
-						<option class="optionListCatgoria palavrasAzul" value="7">Ambiental</option>
-						<option class="optionListCatgoria palavrasAzul" value="6">Animal</option>
   					</datalist>
                 </div>
                 

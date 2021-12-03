@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import conexao.Conexao;
 import model.AmostraNoProjeto;
 import model.Campo;
+import model.Informacao;
 import model.Pesquisador;
 import model.Projeto;
 
@@ -146,6 +147,7 @@ public class exibirProjeto extends HttpServlet {
         
         try{
             String sqlAmostras = "SELECT * FROM amostra_projeto_contem "
+            		+ "INNER JOIN amostra ON amostra_projeto_contem.id_amostra = amostra.id_amostra "
             		+ "WHERE id_projeto= " +id_projeto;
             
             Connection con = Conexao.Conectar();
@@ -155,9 +157,9 @@ public class exibirProjeto extends HttpServlet {
             	
             	AmostraNoProjeto dadosAmostras = new AmostraNoProjeto();
               
-            	dadosAmostras.setNome_campo(rsExibirAmostras.getString("nome_campo"));
-            	dadosAmostras.setId_campo(rsExibirAmostras.getInt("id_campo"));
-            	dadosAmostras.setColuna_campo(rsExibirAmostras.getInt("coluna_campo"));
+            	dadosAmostras.setLinha_amostra(rsExibirAmostras.getInt("linha_amostra"));
+            	dadosAmostras.setNome_amostra(rsExibirAmostras.getString("nome_amostra"));
+            	
             	
             	ConteudoAmostras.add(dadosAmostras);
             }
@@ -167,7 +169,43 @@ public class exibirProjeto extends HttpServlet {
             return ConteudoAmostras;
         }
         catch(Exception e){
-            System.out.print("ERRO EXIBIR CAMPOS: ");
+            System.out.print("ERRO EXIBIR AMOSTRAS: ");
+            System.out.print(e.getMessage());
+        }
+        return null;
+    }
+	
+	public ArrayList<Informacao> listarInformacoes(Integer id_projeto){
+        
+        ArrayList<Informacao> ConteudoInformacoes = new ArrayList<Informacao>();
+        
+        try{
+            String sqlInformacoes = "SELECT * FROM informacao "
+            		+ "INNER JOIN campo ON campo.id_campo = informacao.id_campo "
+            		+ "INNER JOIN amostra_projeto_contem ON amostra_projeto_contem.id_amostra_projeto = informacao.id_amostra_projeto "
+            		+ "WHERE campo.id_projeto= " +id_projeto;
+            
+            Connection con = Conexao.Conectar();
+            Statement stExibirInformacoes = con.createStatement();
+            ResultSet rsExibirInformacoes = stExibirInformacoes.executeQuery(sqlInformacoes);
+            while ( rsExibirInformacoes.next() ) {
+            	
+            	Informacao dadosInformacoes = new Informacao();
+              
+            	dadosInformacoes.setLinha_amostra(rsExibirInformacoes.getInt("linha_amostra"));
+            	dadosInformacoes.setColuna_campo(rsExibirInformacoes.getInt("coluna_campo"));
+            	dadosInformacoes.setConteudo_informacao(rsExibirInformacoes.getString("conteudo_informacao"));
+            	dadosInformacoes.setId_informacao(rsExibirInformacoes.getInt("id_informacao"));
+            	
+            	ConteudoInformacoes.add(dadosInformacoes);
+            }
+            rsExibirInformacoes.close();
+            con.close();
+            
+            return ConteudoInformacoes;
+        }
+        catch(Exception e){
+            System.out.print("ERRO EXIBIR INFORMACOES: ");
             System.out.print(e.getMessage());
         }
         return null;
