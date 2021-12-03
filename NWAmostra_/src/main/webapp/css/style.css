@@ -2998,6 +2998,15 @@ nav ul li button{
     border-bottom:1px solid #767171;
     background-color:transparent;
 }
+
+.lblsInfoAmostraTelaEditarAmostraLinkOrigem{
+	display: block;
+    margin: 20px 0px 20px 4%;
+    font-size: 18px;
+    float: left;
+    border:none;
+    background-color:transparent;
+}
  
 .linhaDadosAmostraTelaEditarAmostra{
     width: 100%; height: auto;
@@ -3056,6 +3065,10 @@ nav ul li button{
     }
 
     .lblsInfoAmostraTelaEditarAmostra{
+    margin: 10px 10% 20px 10%;
+    }
+    
+    .lblsInfoAmostraTelaEditarAmostraLinkOrigem{
     margin: 10px 10% 20px 10%;
     }
 

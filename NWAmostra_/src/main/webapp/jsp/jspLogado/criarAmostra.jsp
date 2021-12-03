@@ -126,9 +126,9 @@ ArrayList<Origem> lista = dao.listar();
                     <input type="text" class="txtInputOrigemAmostra" list="listOrigem" placeholder="Selecione a instituição de origem" name="txtIdOrigem"/>
                     <datalist class="listOrigem" id="listOrigem">
 			  		<%
-			  		for(Origem conteudo : lista){
+			  		for(Origem ConteudoOrigem : lista){
 			  		%>
-    					<option class="optionListOrigem palavrasAzul" value="<%= conteudo.getId_origem() %>"><%= conteudo.getNome_origem() %></option>
+    					<option class="optionListOrigem palavrasAzul" value="<%= ConteudoOrigem.getId_origem() %>"><%= ConteudoOrigem.getNome_origem() %></option>
 			  		<%
 			  		}
 			 		%>

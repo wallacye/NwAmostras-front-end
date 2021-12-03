@@ -17,7 +17,7 @@ public class exibirOrigens extends HttpServlet {
        
     public ArrayList<Origem> listar(){
     	
-    	ArrayList<Origem> Conteudo = new ArrayList<Origem>();
+    	ArrayList<Origem> ConteudoOrigem = new ArrayList<Origem>();
     	
         try {
             String sqlExibirOrigens = "SELECT * FROM origem";
@@ -32,7 +32,7 @@ public class exibirOrigens extends HttpServlet {
             	dados.setId_origem(rsExibirOrigens.getInt("id_origem"));
             	dados.setNome_origem(rsExibirOrigens.getString("nome_origem"));
                                            
-               Conteudo.add(dados);
+            	ConteudoOrigem.add(dados);
             }
             rsExibirOrigens.close();
             con.close();
@@ -40,7 +40,7 @@ public class exibirOrigens extends HttpServlet {
             System.out.println("listarOrigens::ERRO");
             System.out.println(e.getMessage());
         }
-        return Conteudo;
+        return ConteudoOrigem;
 
     }
 
