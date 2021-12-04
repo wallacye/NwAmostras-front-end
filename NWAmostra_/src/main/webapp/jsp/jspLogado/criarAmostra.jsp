@@ -72,9 +72,6 @@ ArrayList<Origem> lista = dao.listar();
 						<option class="optionListCatgoria palavrasAzul" value="4">Parasita</option>
 						<option class="optionListCatgoria palavrasAzul" value="3">Príon</option>
 						<option class="optionListCatgoria palavrasAzul" value="5">Vírus</option>
-						<option class="optionListCatgoria palavrasAzul" value="6">Humana</option>
-						<option class="optionListCatgoria palavrasAzul" value="7">Ambiental</option>
-						<option class="optionListCatgoria palavrasAzul" value="6">Animal</option>
   					</datalist>
                 </div>
                 
@@ -98,7 +95,7 @@ ArrayList<Origem> lista = dao.listar();
                     <input type="date" class="txtsCriarAmostra" id="txtDataColetaAmostra" name="txtDataColetaAmostra"/>
                 </div>
                 <div class="containerEspaçosFormsCriarAmostra">
-                    <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Hora da Coleta*</label></div>
+                    <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Hora da Coleta</label></div>
                     <input type="time" class="txtsCriarAmostra" placeholder="Digite a hora da coleta da amostra" id="txtHoraColetaAmostra" name="txtHoraColetaAmostra"/>
                 </div>
                 <div class="containerEspaçosFormsCriarAmostra">
@@ -122,7 +119,7 @@ ArrayList<Origem> lista = dao.listar();
         <div class="containerOrigemAmostra">
         	<p class="txtOrigem" >Origem</p>
         	<div class="containerEspaçosFormsCriarAmostra2">
-                    <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Selecione a instituição</label></div>
+                    <div class="containerLblsCriarAmostra"><label class="lblsCriarAmostra palavrasAzul ">Selecione a instituição*</label></div>
                     <input type="text" class="txtInputOrigemAmostra" list="listOrigem" placeholder="Selecione a instituição de origem" name="txtIdOrigem"/>
                     <datalist class="listOrigem" id="listOrigem">
 			  		<%
