@@ -85,13 +85,13 @@
 	}
 	
 	//Pop up alterar celula
-	function abrirPopUpAlterarCelula(){
-		document.getElementById('popUpAlterarLinha').style.display = 'block';
-	}
+	//function abrirPopUpAlterarCelula(){
+	//	document.getElementById('popUpAlterarLinha').style.display = 'block';
+	//}
 	
-	function fecharPopUpAlterarCelula(){
-		document.getElementById('popUpAlterarLinha').style.display = 'none';
-	}
+	//function fecharPopUpAlterarCelula(){
+	//	document.getElementById('popUpAlterarLinha').style.display = 'none';
+	//}
 	
 	//Pop up remover pesquisador
 	
@@ -271,7 +271,7 @@
 					<td>
 				
 					<button class="" onclick="location.href='javascript: abrirOpcoesAlterarTabela();'">A</button>
-					<button  class="inputsTabelaProjeto" onclick="location.href='javascript: abrirPopUpAlterarCelula();'">
+					<button  class="inputsTabelaProjeto" onclick="location.href='alterarCelula.jsp'">
 					
 					<% 
 					if (coluna==1)
@@ -323,6 +323,7 @@
 			</table>
 		</div>
 		
+		<!--  
 		<div class="popUpAlterarLinha" id="popUpAlterarLinha">	
 				<div class="containerFormAlterarLinha">
 				
@@ -346,7 +347,7 @@
 							<button  class="btnCancelarEditarCelula" onclick="location.href='javascript: fecharPopUpAlterarCelula();'">Cancelar</button>
 					</div>
 				</div>
-		</div>
+		</div>-->
 		
 		<div class="containerMasterOpcoesAlterarTabela" id="idContainerMasterOpcoesAlterarTabela">
 			<div class="containerOpcoesAlterarTabela">
