@@ -15,21 +15,39 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
 @WebServlet("/exibirMapaDeAmostras")
-public class exibirMapaDeAmostras extends HttpServlet {
+public class exibirMapaDeAmostras extends HttpServlet 
+{
 	private static final long serialVersionUID = 1L;
        
-    public ArrayList<MapaDeAmostras> listar(){
+    public ArrayList<MapaDeAmostras> listar(Integer filtro)
+    {
     	
-    	ArrayList<MapaDeAmostras> Conteudo = new ArrayList<MapaDeAmostras>();
+    	ArrayList<MapaDeAmostras> Conteudo = new ArrayList<MapaDeAmostras>(filtro);
     	
-        try {
-            String sqlExibirMapaDeAmostras = "SELECT * FROM mapa_de_amostras  WHERE data_inativacao_mapa_amostra IS NULL ORDER BY nome_mapa_amostra";
+        try 
+        {
+        	String orderBy = "A";
+        	
+        	if (filtro == null || filtro == 3)
+        	{
+        		orderBy = " ORDER BY nome_mapa_amostra ";
+        	}
+        	if (filtro == 1)
+        	{
+        		orderBy = " ORDER BY id_mapa_amostra DESC ";
+        	}
+        	if (filtro == 2)
+        	{
+        		orderBy = " ORDER BY id_mapa_amostra ASC ";
+        	}
+            String sqlExibirMapaDeAmostras = "SELECT * FROM mapa_de_amostras  WHERE data_inativacao_mapa_amostra IS NULL " + orderBy;
             
             Connection con = Conexao.Conectar();
             Statement stExibirMapaDeAmostras = con.createStatement();
             ResultSet rsExibirMapaDeAmostras = stExibirMapaDeAmostras.executeQuery(sqlExibirMapaDeAmostras);
             
-            while ( rsExibirMapaDeAmostras.next() ) {
+            while ( rsExibirMapaDeAmostras.next() ) 
+            {
                 MapaDeAmostras dados = new MapaDeAmostras();
                 dados.setId_mapa_amostra(rsExibirMapaDeAmostras.getInt("id_mapa_amostra"));
                 dados.setEstante_mapa_amostra(rsExibirMapaDeAmostras.getString("estante_mapa_amostra"));
@@ -43,19 +61,23 @@ public class exibirMapaDeAmostras extends HttpServlet {
                 
                 Date dataParaConverter = rsExibirMapaDeAmostras.getDate("data_mapa_amostra"); 
                 
-                if(dataParaConverter != null) {
+                if(dataParaConverter != null) 
+                {
                 java.util.Date utilDate = new java.util.Date(dataParaConverter.getTime());
                 String DataFormatada = new SimpleDateFormat("dd/MM/yyyy").format(utilDate);  
 
                 dados.setData_mapa_amostra_formatada(DataFormatada);
                 }
-                else {
+                else 
+                {
                     dados.setData_mapa_amostra_formatada(null);
                 }
                 Conteudo.add(dados);
             }
             rsExibirMapaDeAmostras.close();
             con.close();
+            
+            
         } catch (Exception e) {
             System.out.println("listarMapaDeAmostras::ERRO");
             System.out.println(e.getMessage());
