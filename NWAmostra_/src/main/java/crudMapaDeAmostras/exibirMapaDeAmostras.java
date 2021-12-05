@@ -28,7 +28,7 @@ public class exibirMapaDeAmostras extends HttpServlet
         {
         	String orderBy = "A";
         	
-        	if (filtro == null || filtro == 3)
+        	if (filtro == 3)
         	{
         		orderBy = " ORDER BY nome_mapa_amostra ";
         	}

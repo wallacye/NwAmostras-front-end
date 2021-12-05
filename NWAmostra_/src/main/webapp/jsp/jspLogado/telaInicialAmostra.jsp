@@ -4,8 +4,9 @@
 <%@page import="crudAmostra.exibirAmostras" %>
 
 <%
+	Integer filtro = Integer.parseInt(request.getParameter("filtro")) ;
 	exibirAmostras dao = new exibirAmostras();
-    ArrayList<AmostraNoMapa> lista = dao.listar();
+    ArrayList<AmostraNoMapa> lista = dao.listar(filtro);
 %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -68,20 +69,20 @@
             </button>
             
             <div class="containerFiltroListaAmostra" id="idContainerFiltroListaAmostra">
-            	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href=''">Código (0 - 9)</button>
-            	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href=''">Nome (A - Z)</button>
-            	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href=''">Data de validade</button>
-            	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href=''">Acabou</button>
-            	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href=''">Vencida</button>
-            	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href=''">Fase de coleta</button>
-            	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href=''">Nome do mapa de amostra (A - Z)</button>
+            	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=1'">Código (0 - 9)</button>
+            	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=2'">Nome (A - Z)</button>
+            	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=3'">Data de validade</button>
+            	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=4'">Acabou</button>
+            	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=5">Vencida</button>
+            	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=6'">Fase de coleta</button>
+            	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=7'">Nome do mapa de amostra (A - Z)</button>
             	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href='javascript: abrirFiltrarCategoriaAmostra();'">Categoria</button>
             	<div class="containerCategoriaFiltroListaAmostra" id="idContainerCategoriaFiltroListaAmostra">
-            		<button class="btnsFiltrosCategoriaListaAmostra palavrasAzul" onclick="location.href=''">Bactéria</button>
-            		<button class="btnsFiltrosCategoriaListaAmostra palavrasAzul" onclick="location.href=''">Fungo</button>
-            		<button class="btnsFiltrosCategoriaListaAmostra palavrasAzul" onclick="location.href=''">Parasita</button>
-            		<button class="btnsFiltrosCategoriaListaAmostra palavrasAzul" onclick="location.href=''">Príon</button>
-            		<button class="btnsFiltrosCategoriaListaAmostra palavrasAzul" onclick="location.href=''">Vírus</button>
+            		<button class="btnsFiltrosCategoriaListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=8'">Bactéria</button>
+            		<button class="btnsFiltrosCategoriaListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=9'">Fungo</button>
+            		<button class="btnsFiltrosCategoriaListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=11'">Parasita</button>
+            		<button class="btnsFiltrosCategoriaListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=10'">Príon</button>
+            		<button class="btnsFiltrosCategoriaListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=12'">Vírus</button>
             	</div>
             </div>
 			

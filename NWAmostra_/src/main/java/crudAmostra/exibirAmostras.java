@@ -17,17 +17,70 @@ import model.AmostraNoMapa;
 public class exibirAmostras extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ArrayList<AmostraNoMapa> listar(){
+    public ArrayList<AmostraNoMapa> listar(Integer filtro){
     	
-    	ArrayList<AmostraNoMapa> Conteudo = new ArrayList<AmostraNoMapa>();
+    	ArrayList<AmostraNoMapa> Conteudo = new ArrayList<AmostraNoMapa>(filtro);
     	
         try {
+        	
+        	String orderBy = "A";
+        	
+        	if (filtro == 1)
+        	{
+        		orderBy = " ORDER BY codigo_amostra ";
+        	}
+        	if (filtro == 2)
+        	{
+        		orderBy = " ORDER BY nome_amostra ";
+        	}
+        	if (filtro == 3)
+        	{
+        		orderBy = " ORDER BY validade_amostra ";
+        	}
+        	if (filtro == 4)
+        	{
+        		orderBy = " AND volume_amostra = 0 ";
+        	}
+        	if (filtro == 5)
+        	{
+        		orderBy = " AND DATE(validade_amostra) < curdate() ";
+        	}
+        	if (filtro == 6)
+        	{
+        		orderBy = " AND fase_coleta IS NOT null ";
+        	}
+        	if (filtro == 7)
+        	{
+        		orderBy = " ORDER BY nome_mapa_amostra ";
+        	}
+        	if (filtro == 8)
+        	{
+        		orderBy = " AND categoria.id_categoria = 1 ";
+        	}
+        	if (filtro == 9)
+        	{
+        		orderBy = " AND categoria.id_categoria = 2 ";
+        	}
+        	if (filtro == 10)
+        	{
+        		orderBy = " AND categoria.id_categoria = 3 ";
+        	}
+        	if (filtro == 11)
+        	{
+        		orderBy = " AND categoria.id_categoria = 4 ";
+        	}
+        	if (filtro == 12)
+        	{
+        		orderBy = " AND categoria.id_categoria = 5 ";
+        	}
+
             String sqlExibirAmostras = "SELECT * FROM amostra_no_mapa_contem "
             		+ "INNER JOIN mapa_de_amostras ON mapa_de_amostras.id_mapa_amostra = amostra_no_mapa_contem.id_mapa_amostra "
             		+ "INNER JOIN amostra ON amostra_no_mapa_contem.id_amostra = amostra.id_amostra "
             		+ "INNER JOIN origem ON origem.id_origem = amostra.id_origem "
             		+ "INNER JOIN categoria ON categoria.id_categoria = amostra.id_categoria "
-            		+ "WHERE data_inativacao_amostra IS NULL";            		
+            		+ "WHERE data_inativacao_amostra IS NULL "
+            		+ orderBy;            		
             
             Connection con = Conexao.Conectar();
             Statement stExibirAmostras = con.createStatement();
