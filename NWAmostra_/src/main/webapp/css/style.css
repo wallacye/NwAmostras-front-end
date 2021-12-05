@@ -1631,7 +1631,7 @@ nav ul li button{
   }
   
   .btnsFiltrosListaMapaAmostra{
-  	height: 25%;
+  	height: 33.3%;
   	width: 100%;
   	background-color: transparent;
   	border:none;
@@ -4091,4 +4091,102 @@ nav ul li button{
 .containerLblNomeHistoricoAmostra{
 	width: 100%;
 }
+}
+
+/* Tela Laboratorio */
+
+.containerTelaLab{
+	float: left;
+    width: 100%;
+    height: auto;
+    margin-top: 80px;
+}
+
+.containerMasterListaIntegrantesLab{
+	width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerListaIntegrantesLab{
+	width: 40%;
+    height: 340px;
+    float: left;
+    overflow-y: scroll;
+    border: 1px solid #767171;
+    border-radius: 8px;
+}
+
+/* width */
+   	.containerListaIntegrantesLab::-webkit-scrollbar {
+ 	 width: 11px;
+ 	 height: 11px;
+   	}
+
+	/* Track */
+	.containerListaIntegrantesLab::-webkit-scrollbar-track {
+  		background: transparent;
+	}
+
+	/* Handle */
+	.containerListaIntegrantesLab::-webkit-scrollbar-thumb {
+  		background: var(--scroll);
+  		border-radius: 10px;
+	}
+
+	/* Handle on hover */
+	.containerListaIntegrantesLab::-webkit-scrollbar-thumb:hover {
+  		background: var(--scrollHover);
+	}
+	
+.containerPessoasAdiconar{
+	margin: 40px 5% 0% 5%;
+    width: 90%;
+    border: 1px solid #767171;
+    height: 100px;
+    float: left;
+    border-radius: 8px;
+}
+
+.lblPessoasAdicionar{
+	font-size: 20px;
+	margin:40px 0 40px 25%;
+	display: block;
+	width: 50%;
+	float: left;
+	text-align: center;
+}
+
+.btnXVermelhoAdicionarPesq{
+	float: right;
+	width: 10%;
+	cursor: pointer;
+	height: 50px;
+	margin: 25px 0;
+	border: none;
+	background-color: transparent;
+}
+
+.containerBtnEnviarSolicitacoes{
+	width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnEnviarSolicitacoes{
+	float: left;
+    width: 259px;
+    height: 47px;
+    color: var(--fundo);
+    border-radius: 30px;
+    border: none;
+    background-color: var(--corPalavrasVerdeAzul);
+    margin: 30px 0px 0px 0;
+    font-size: 20px;
 }
