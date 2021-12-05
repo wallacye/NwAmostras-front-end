@@ -69,7 +69,6 @@
                 	<button class="btnsFiltrosListaMapaAmostra palavrasAzul" onclick="location.href='telaInicialMapaAmostras.jsp?filtro=2'">Mais antigo</button>
                 	<button class="btnsFiltrosListaMapaAmostra palavrasAzul" onclick="location.href='telaInicialMapaAmostras.jsp?filtro=3'">Nome (A - Z)</button>
                 		
-                
                 </div>
                 
 				</div>
