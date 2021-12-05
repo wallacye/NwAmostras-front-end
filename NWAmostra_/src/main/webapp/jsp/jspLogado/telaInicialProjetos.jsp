@@ -53,12 +53,25 @@
 			<div class="containerBuscarProjeto">
 				<div class="containerPessquisarFiltroProjeto">
 				
-				<button class="buttonPesquisarProjeto" onclick="location.href='#'">
+				<form method="post" action="/NWAmostra_/pesquisarProjeto" class="pesquisa">								
+				<button class="buttonPesquisarProjeto" type="submit">
                     <img src="../../img/lupa.png" class="imgLupa" alt="">
                 </button>
                 
-                <input type="text" class="inputBuscarProjeto" placeholder="Buscar"/>
-                
+                <input type="text" class="inputBuscarProjeto" placeholder="Buscar" list="listaProjetos" id="inputBuscarProjeto" name="inputBuscarProjeto"/>
+        		<datalist class="listaProjetos" id="listaProjetos">
+					<% if(lista.size() >= 1){ %>
+					<% for(Projeto conteudo : lista) {%>
+					<option value="<%= conteudo.getId_projeto() %>">
+        				<%= conteudo.getNome_projeto() %> - Criador (a): <%= conteudo.getPesquisador_chefe() %>
+					</option>
+					<%
+                 								}
+								}
+        			%>
+				</datalist>
+				</form> 
+				    
                 <button class="buttonFiltrarProjeto" onclick="location.href='javascript: abrirFiltrarProjeto();'">
                     <img src="../../img/filtro.png" class="imgFiltro" alt="">
                 </button>
@@ -87,9 +100,9 @@
 			<label class="lblDataTelaInicialMapaAmostras palavrasAzul">Data</label>
 			</div>
 		</div>
-		
+
 		<% if(lista.size() >= 1){ %>
-		<% for(Projeto conteudo : lista) {%>		
+		<% for(Projeto conteudo : lista) {%>
 		<button class="btnListaMapaAmostras" onclick="location.href='projeto.jsp?id_projeto=<%= conteudo.getId_projeto() %>'">
 		<table class="listaMapaAmostras">
     		<tr>
@@ -112,7 +125,7 @@
 		<%
                  								}
 								}
-        %>        
+        %>
         <%@ include file="../../includes/rodape.jsp" %>
            
 	</div>

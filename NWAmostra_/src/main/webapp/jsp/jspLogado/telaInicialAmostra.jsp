@@ -55,15 +55,28 @@
 	<%@ include file="../../includes/menuLogado.jsp" %>
 	
 	<div class="containerTelaIncialAmostra">
+	
 		<div class="containerBuscarAmostra">
 			<div class="containerPessquisarFiltroAmostras">
 			
-			<button class="buttomPesquisarAmostra" onclick="location.href='#'">
+			<form method="post" action="/NWAmostra_/pesquisarAmostra">
+			<button class="buttomPesquisarAmostra" type="submit">
                     <img src="../../img/lupa.png" class="imgLupa" alt="">
             </button>
 			
-			<input type="text" class="inputBuscarAmostras" placeholder="Buscar"/>
-			
+			<input type="text" class="inputBuscarAmostras" placeholder="Buscar" id="inputBuscarAmostras" name="inputBuscarAmostras" list="listaAmostras"/>
+        		<datalist class="listaAmostras" id="listaAmostras">
+					<% if(lista.size() >= 1){ %>
+					<% for(AmostraNoMapa conteudo : lista) {%>
+					<option value="<%= conteudo.getId_amostra_mapa() %>">
+        				<%= conteudo.getCodigo_amostra() %> - <%= conteudo.getNome_amostra() %>
+					</option>
+					<%
+                 								}
+								}
+        			%>
+				</datalist>
+			</form>		
 			<button class="buttonFiltrarAmostra" onclick="location.href='javascript: abrirFiltrarAmostra();'">
                     <img src="../../img/filtro.png" class="imgFiltro" alt="">
             </button>

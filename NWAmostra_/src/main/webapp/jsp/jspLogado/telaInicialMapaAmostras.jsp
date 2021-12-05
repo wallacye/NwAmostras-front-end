@@ -53,12 +53,25 @@
 			<div class="containerBuscarMapaAmostras">
 				<div class="containerPessquisarFiltroMapaAmostras">
 				
-				<button class="buttonPesquisarMapaAmostra" onclick="location.href='#'">
+				<form method="post" action="/NWAmostra_/pesquisarMapaDeAmostras">
+				<button class="buttonPesquisarMapaAmostra" type="submit">
                     <img src="../../img/lupa.png" class="imgLupa" alt="">
                 </button>
                 
-                <input type="text" class="inputBuscarMapaAmostras" placeholder="Buscar"/>
-                
+                <input type="text" class="inputBuscarMapaAmostras" placeholder="Buscar" id="inputBuscarMapaAmostras" name="inputBuscarMapaAmostras" list="listaAmostras"/>
+        		<datalist class="listaAmostras" id="listaAmostras">
+					<% if(lista.size() >= 1){ %>
+					<% for(MapaDeAmostras conteudo : lista) {%>
+					<option value="<%= conteudo.getId_mapa_amostra() %>">
+        				<%= conteudo.getNome_mapa_amostra() %> - Freezer: <%= conteudo.getFreezer_mapa_amostra() %> Estante: <%= conteudo.getEstante_mapa_amostra() %> Caixa: <%= conteudo.getCaixa_mapa_amostra() %>
+					</option>
+					<%
+                 								}
+								}
+        			%>
+				</datalist>
+				</form>
+				
                 <button class="buttonFiltrarMapaAmostra" onclick="location.href='javascript: abrirFiltrarMapaAmostra();'">
                     <img src="../../img/filtro.png" class="imgFiltro" alt="">
                 </button>
