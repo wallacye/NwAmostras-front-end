@@ -73,7 +73,7 @@
             	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=2'">Nome (A - Z)</button>
             	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=3'">Data de validade</button>
             	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=4'">Acabou</button>
-            	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=5">Vencida</button>
+            	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=5'">Vencida</button>
             	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=6'">Fase de coleta</button>
             	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href='telaInicialAmostra.jsp?filtro=7'">Nome do mapa de amostra (A - Z)</button>
             	<button class="btnsFiltrosListaAmostra palavrasAzul" onclick="location.href='javascript: abrirFiltrarCategoriaAmostra();'">Categoria</button>

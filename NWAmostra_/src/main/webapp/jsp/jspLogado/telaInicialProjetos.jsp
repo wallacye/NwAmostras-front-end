@@ -4,8 +4,9 @@
 <%@page import="crudProjeto.exibirProjetos" %>
 
 <%
+	Integer filtro = Integer.parseInt(request.getParameter("filtro")) ;
 	exibirProjetos dao = new exibirProjetos();
-    ArrayList<Projeto> lista = dao.listar();
+    ArrayList<Projeto> lista = dao.listar(filtro);
 %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -64,10 +65,10 @@
                 
                 <div class="containerFiltroListaProjeto" id="idContainerFiltroListaProjeto">
                 
-                	<button class="btnsFiltrosListaProjeto palavrasAzul" onclick="location.href=''">Mais recente</button>
-                	<button class="btnsFiltrosListaProjeto palavrasAzul" onclick="location.href=''">Mais antigo</button>
-                	<button class="btnsFiltrosListaProjeto palavrasAzul" onclick="location.href=''">Nome (A - Z)</button>
-                	<button class="btnsFiltrosListaProjeto palavrasAzul" onclick="location.href=''">Criador (A - Z)</button>
+                	<button class="btnsFiltrosListaProjeto palavrasAzul" onclick="location.href='telaInicialProjetos.jsp?filtro=1'">Mais recente</button>
+                	<button class="btnsFiltrosListaProjeto palavrasAzul" onclick="location.href='telaInicialProjetos.jsp?filtro=2'">Mais antigo</button>
+                	<button class="btnsFiltrosListaProjeto palavrasAzul" onclick="location.href='telaInicialProjetos.jsp?filtro=3'">Nome (A - Z)</button>
+                	<button class="btnsFiltrosListaProjeto palavrasAzul" onclick="location.href='telaInicialProjetos.jsp?filtro=4'">Criador (A - Z)</button>
                 	<button class="btnsFiltrosListaProjeto palavrasAzul" onclick="location.href=''">Privado</button>
                 	<button class="btnsFiltrosListaProjeto palavrasAzul" onclick="location.href=''">Público</button>
                 		

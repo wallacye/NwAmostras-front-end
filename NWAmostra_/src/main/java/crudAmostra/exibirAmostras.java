@@ -43,11 +43,11 @@ public class exibirAmostras extends HttpServlet {
         	}
         	if (filtro == 5)
         	{
-        		orderBy = " AND DATE(validade_amostra) < curdate() ";
+        		orderBy = " AND DATE(validade_amostra) <= CURDATE() ";
         	}
         	if (filtro == 6)
         	{
-        		orderBy = " AND fase_coleta IS NOT null ";
+        		orderBy = " AND fase_coleta LIKE 'Sim' ";
         	}
         	if (filtro == 7)
         	{

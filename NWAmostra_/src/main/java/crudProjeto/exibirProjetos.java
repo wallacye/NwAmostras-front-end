@@ -17,14 +17,35 @@ import model.Projeto;
 public class exibirProjetos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ArrayList<Projeto> listar(){
+    public ArrayList<Projeto> listar(Integer filtro){
     	
-    	ArrayList<Projeto> Conteudo = new ArrayList<Projeto>();
+    	ArrayList<Projeto> Conteudo = new ArrayList<Projeto>(filtro);
     	
         try {
         	
+        	String orderBy = "A";
         	
-            String sqlExibirProjeto = "SELECT * FROM projeto WHERE inativacao_projeto IS NULL AND privado_publico_projeto = 1 ORDER BY nome_projeto";
+        	if (filtro == 1)
+        	{
+        		orderBy = " ORDER BY id_projeto DESC";
+        	}
+        	if (filtro == 2)
+        	{
+        		orderBy = " ORDER BY id_projeto ASC ";
+        	}
+        	if (filtro == 3)
+        	{
+        		orderBy = " ORDER BY nome_projeto ";
+        	}
+        	if (filtro == 4)
+        	{
+        		orderBy = " ORDER BY nome_pesq ";
+        	}
+        	
+            String sqlExibirProjeto = "SELECT * FROM projeto "
+            		+ "INNER JOIN pesquisador ON projeto.fk_pesquisador_chefe = pesquisador.id_pesq "
+            		+ "WHERE inativacao_projeto IS NULL AND privado_publico_projeto = 1 "
+            		+ orderBy;
             
             Connection con = Conexao.Conectar();
             Statement stExibirProjeto = con.createStatement();
@@ -36,8 +57,6 @@ public class exibirProjetos extends HttpServlet {
                 dados.setDt_termino_projeto("00/00/0000");
                 dados.setPrivado_publico_projeto(rsExibirProjeto.getInt("privado_publico_projeto"));
                 Integer id_pesquisador_chefe = rsExibirProjeto.getInt("fk_pesquisador_chefe");
-                
-                
                 
                 String sqlPesquisadorChefe = "SELECT nome_pesq FROM pesquisador WHERE id_pesq= " +id_pesquisador_chefe;
                 

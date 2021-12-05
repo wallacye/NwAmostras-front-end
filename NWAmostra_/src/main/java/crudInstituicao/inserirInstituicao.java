@@ -83,7 +83,7 @@ public class inserirInstituicao extends HttpServlet {
     	    }
     	    
             
-            response.sendRedirect("./jsp/jspLogado/telaInicialMapaAmostras.jsp");
+            response.sendRedirect("./jsp/jspLogado/indexLogado.jsp");
 
         } catch (SQLException ex) {
             out.print("Erro na conexão: " + ex);
