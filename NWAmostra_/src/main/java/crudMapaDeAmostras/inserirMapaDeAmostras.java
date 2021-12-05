@@ -55,7 +55,7 @@ public class inserirMapaDeAmostras extends HttpServlet {
             stInserirMapaDeAmostras.setDate(8, data_mapa_amostra);
             stInserirMapaDeAmostras.executeUpdate();
             
-            response.sendRedirect("./jsp/jspLogado/telaInicialMapaAmostras.jsp");
+            response.sendRedirect("./jsp/jspLogado/telaInicialMapaAmostras.jsp?filtro=3");
 
         } catch (SQLException ex) {
             out.print("Erro na conexão: " + ex);

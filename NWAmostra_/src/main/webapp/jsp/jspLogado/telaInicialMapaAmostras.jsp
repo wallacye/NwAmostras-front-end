@@ -4,8 +4,9 @@
 <%@page import="crudMapaDeAmostras.exibirMapaDeAmostras" %>
 
 <%
+	Integer filtro = Integer.parseInt(request.getParameter("filtro")) ;
 	exibirMapaDeAmostras dao = new exibirMapaDeAmostras();
-    ArrayList<MapaDeAmostras> lista = dao.listar();
+    ArrayList<MapaDeAmostras> lista = dao.listar(filtro);
 %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -64,9 +65,9 @@
                 
                 <div class="containerFiltroListaMapaDeAmostra" id="idContainerFiltroListaMapaDeAmostra">
                 
-                	<button class="btnsFiltrosListaMapaAmostra palavrasAzul" onclick="location.href=''">Mais recente</button>
-                	<button class="btnsFiltrosListaMapaAmostra palavrasAzul" onclick="location.href=''">Mais antigo</button>
-                	<button class="btnsFiltrosListaMapaAmostra palavrasAzul" onclick="location.href=''">Nome (A - Z)</button>
+                	<button class="btnsFiltrosListaMapaAmostra palavrasAzul" onclick="location.href='telaInicialMapaAmostras.jsp?filtro=1'">Mais recente</button>
+                	<button class="btnsFiltrosListaMapaAmostra palavrasAzul" onclick="location.href='telaInicialMapaAmostras.jsp?filtro=2'">Mais antigo</button>
+                	<button class="btnsFiltrosListaMapaAmostra palavrasAzul" onclick="location.href='telaInicialMapaAmostras.jsp?filtro=3'">Nome (A - Z)</button>
                 		
                 </div>
                 
