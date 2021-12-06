@@ -40,6 +40,7 @@ public class Login extends HttpServlet {
                 session.setAttribute("erro",0);
                 session.setAttribute("logado","TRUE");
                 session.setAttribute("id",rsLogin.getString("id_pesq"));
+                session.setAttribute("idInt",rsLogin.getInt("id_pesq"));
                 session.setAttribute("nome_pesq",rsLogin.getString("nome_pesq"));
                 session.setAttribute("email_pesq",rsLogin.getString("email_pesq"));
                 session.setAttribute("cpf_pesq",rsLogin.getString("cpf_pesq"));

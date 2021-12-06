@@ -1,5 +1,13 @@
 <%@ include file="../../includes/validacao.jsp" %>
 
+<%@page import="crudInstituicao.exibirInstituicao" %>
+<%@page import="model.Instituicao"  %>
+
+<%@page import="java.util.ArrayList"%>
+<%@ page import="java.io.*,java.util.*" %>
+<%@ page import="javax.servlet.*,java.text.*" %>
+
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -20,12 +28,15 @@
 <%@ include file="../../includes/menuLogado.jsp" %>
 
 	<div class="containerTelaLab">
+	<% 
+	for(Instituicao ConteudoInstituicao : listaInstituicao){
+	%>
 	<div class="containerNomeAmostraBtnHistorico">
 			<div class="containerLblNomeAmostras">
 				
 				<div class="containerLblNomeLegendaAmostras">
 				<div class=centralizarNomeAmostra>
-					<label class="lblNomeAmostra"> Laboratório Oswaldo Cruz</label>					
+					<label class="lblNomeAmostra"> <%=ConteudoInstituicao.getNome_lab() %></label>					
 				</div>
 				</div>
 			</div>
@@ -41,7 +52,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Nome</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">Laboratório Oswaldo Cruz</label>
+				<label class="lblsInfoAmostra"><%=ConteudoInstituicao.getNome_lab() %></label>
 			</div>
 		</div>
 		
@@ -50,7 +61,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">CNPJ</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">00.000.000/0000-00</label>
+				<label class="lblsInfoAmostra"><%=ConteudoInstituicao.getCnpj_lab() %></label>
 			</div>
 		</div>
 		
@@ -59,7 +70,7 @@
 				<label class="lblsDadoInfoAmostra palavrasAzul">Telefone</label>
 			</div>
 			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">0000 000 0000</label>
+				<label class="lblsInfoAmostra"><%=ConteudoInstituicao.getTelefone_lab() %></label>
 			</div>
 		</div>
 		
@@ -127,7 +138,7 @@
 						</div>
 	</div>
 	</div>
-	
+	<%} %>
 	<div class="containerLblDadosAmostra">
 			<label class="lblDadosAmostra palavrasAzul">Enviar solicitações</label>
 	</div>

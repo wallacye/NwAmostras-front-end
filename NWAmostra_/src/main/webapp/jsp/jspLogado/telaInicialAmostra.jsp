@@ -59,7 +59,7 @@
 		<div class="containerBuscarAmostra">
 			<div class="containerPessquisarFiltroAmostras">
 			
-			<form method="post" action="/NWAmostra_/pesquisarAmostra">
+			<form method="post" action="/NWAmostra_/pesquisarAmostra" style="height: 100%;width: 90%;float: left;">
 			<button class="buttomPesquisarAmostra" type="submit">
                     <img src="../../img/lupa.png" class="imgLupa" alt="">
             </button>
