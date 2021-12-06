@@ -16,12 +16,12 @@ import model.Origem;
 public class exibirListaMapaAmostra extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-public ArrayList<MapaDeAmostras> listar(){
+public ArrayList<MapaDeAmostras> listar(Integer id_lab){
     	
     	ArrayList<MapaDeAmostras> ConteudoListaMapaAmostras = new ArrayList<MapaDeAmostras>();
     	
         try {
-            String sqlExibirListaMapaAmostras = "SELECT * FROM mapa_de_amostras";
+            String sqlExibirListaMapaAmostras = "SELECT * FROM mapa_de_amostras WHERE id_lab = " + id_lab;
             
             Connection con = Conexao.Conectar();
             Statement stExibirListaMapaAmostras = con.createStatement();

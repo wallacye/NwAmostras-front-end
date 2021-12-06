@@ -69,6 +69,12 @@
 				</div>
 			</div>
 			
+			<% 
+				for(Instituicao ConteudoInstituicao : listaInstituicao){
+			%>
+			<input type="hidden" value="<%=ConteudoInstituicao.getId_lab() %>" name="txtMapaDeAmostrasIdLab">
+			<%} %>
+			
 			<div class="containerLblCamposObrigatoriosMapaAmostras">
 				<label style="color: #FF0000; font-size: 16px;">*Campos obrigatórios</label>
 			</div>

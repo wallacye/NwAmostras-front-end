@@ -33,14 +33,15 @@ public class inserirMapaDeAmostras extends HttpServlet {
         	String freezer_mapa_amostra = request.getParameter("txtFreezerMapaDeAmostras");
         	String caixa_mapa_amostra = request.getParameter("txtCaixaMapaDeAmostras");
         	Integer n_coluna_mapa_amostra = Integer.parseInt(request.getParameter("txtColunasMapaDeAmostras"));
+        	Integer id_lab = Integer.parseInt(request.getParameter("txtMapaDeAmostrasIdLab"));
         	Integer n_linha_mapa_amostra = Integer.parseInt(request.getParameter("txtLinhasMapaDeAmostras"));
         	
             java.sql.Date data_mapa_amostra = new java.sql.Date(System.currentTimeMillis());
         	//LocalDateTime data_inativacao_mapa_amostra = null;
 
             String sqlInserirMapaDeAmostras = 
-            "INSERT INTO mapa_de_amostras (estante_mapa_amostra, nome_mapa_amostra, freezer_mapa_amostra, caixa_mapa_amostra, n_coluna_mapa_amostra, n_linha_mapa_amostra, data_inativacao_mapa_amostra, data_mapa_amostra)"
-            + " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            "INSERT INTO mapa_de_amostras (estante_mapa_amostra, nome_mapa_amostra, freezer_mapa_amostra, caixa_mapa_amostra, n_coluna_mapa_amostra, n_linha_mapa_amostra, data_inativacao_mapa_amostra, data_mapa_amostra, id_lab)"
+            + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             //+ "('" + estante_mapa_amostra  + "','" + nome_mapa_amostra + "','" + freezer_mapa_amostra + "','" + caixa_mapa_amostra + "','" + n_coluna_mapa_amostra + "','" + n_linha_mapa_amostra + "','" + data_inativacao_mapa_amostra + "')";
 
             Connection con = Conexao.Conectar();
@@ -53,6 +54,7 @@ public class inserirMapaDeAmostras extends HttpServlet {
             stInserirMapaDeAmostras.setInt(6, n_linha_mapa_amostra);
             stInserirMapaDeAmostras.setDate(7, null);
             stInserirMapaDeAmostras.setDate(8, data_mapa_amostra);
+            stInserirMapaDeAmostras.setInt(9, id_lab);
             stInserirMapaDeAmostras.executeUpdate();
             
             response.sendRedirect("./jsp/jspLogado/telaInicialMapaAmostras.jsp?filtro=3");
