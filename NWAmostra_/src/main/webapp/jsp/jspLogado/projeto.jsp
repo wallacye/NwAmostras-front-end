@@ -314,32 +314,6 @@
 			</table>
 		</div>
 		
-		<!--  
-		<div class="popUpAlterarLinha" id="popUpAlterarLinha">	
-				<div class="containerFormAlterarLinha">
-				
-					<form action="/NWAmostra_/inserirCampo" method="post">
-					<div style="width:90%; margin:30px 5% 0 5%;">
-						<label class="lblEditarCelular" >Editar célula</label><br>
-						<label class="lblExplicacaoEditarCelula" >Digite o novo conteúdo da célula: <%= linha %> - <%= coluna %> - <%= Conteudo.getId_projeto() %></label>
-						<input type="text" class="txtEditarCelula" placeholder="Digite o conteúdo" id="idTxtEditarCelula" name="idTxtEditarCelula">
-						
-						<input type="hidden" id="inputLinha" name="inputLinha" value="<%= linha %>">
-						<input type="hidden" id="inputColuna" name="inputColuna" value="<%= coluna %>">
-						
-						<input type="hidden" id="inputProjeto" name="inputProjeto" value="<%= Conteudo.getId_projeto() %>">						
-					</div>
-					<div class="containerBtnsConfCanEditarCelula">
-						<input type="submit" value="Confirmar" class="inputConfirmarAlterarCelula">
-					</div>
-					</form>
-					
-					<div class="containerBtnsConfCanEditarCelula">
-							<button  class="btnCancelarEditarCelula" onclick="location.href='javascript: fecharPopUpAlterarCelula();'">Cancelar</button>
-					</div>
-				</div>
-		</div>-->
-		
 		<div class="containerMasterOpcoesAlterarTabela" id="idContainerMasterOpcoesAlterarTabela">
 			<div class="containerOpcoesAlterarTabela">
 			<button class="btnsOpcoesAlterarTabela palavrasAzul" onclick="location.href=''">Excluir célula</button>
