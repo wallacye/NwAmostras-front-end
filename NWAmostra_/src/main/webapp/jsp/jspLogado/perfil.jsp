@@ -22,7 +22,8 @@
 			<% String nome_pesq = (String) request.getSession().getAttribute("nome_pesq"); 
                //String id = (String) request.getSession().getAttribute("id");  
                String email_pesq = (String) request.getSession().getAttribute("email_pesq");
-               String cpf_pesq = (String) request.getSession().getAttribute("cpf_pesq");%>
+               String cpf_pesq = (String) request.getSession().getAttribute("cpf_pesq");
+               Integer id_lab_pesq = (Integer) request.getSession().getAttribute("idLabPesq");%>
 
 	<%@ include file="../../includes/menuLogado.jsp" %>
 	
@@ -52,7 +53,15 @@
 			</div>
 		</div>
 		<div class="containersInformacoesMeuPerfil">
-			<div class="containerLinksMeuPerfil"><a href="criarLaboratorio.jsp" class="linkCriarInstituicaoMeuPerfil palavrasAzul">Criar instituição</a></div>
+			<div class="containerLinksMeuPerfil">
+			<% if(id_lab_pesq.equals(0)){%>
+			<a href="criarLaboratorio.jsp" class="linkCriarInstituicaoMeuPerfil palavrasAzul">Criar instituição</a>
+			<% } else{
+			for(Instituicao ConteudoInstituicao : listaInstituicao){
+			%>
+			<a href="criarLaboratorio.jsp" class="linkCriarInstituicaoMeuPerfil palavrasAzul"><%=ConteudoInstituicao.getNome_lab() %></a>
+			<%} }%>
+			</div>
 			<div class="containerTxtsInformacoesMeuPerfil">
 				<div class="containerLblsTituloInformacoesMeuPerfil"><label class="lblsTituloInformacoesMeuPerfil palavrasAzul">CPF</label></div>
 				<input type="text" class="txtsInformacoesMeuPerfil" disabled="disabled" value="<%=cpf_pesq%>"/>

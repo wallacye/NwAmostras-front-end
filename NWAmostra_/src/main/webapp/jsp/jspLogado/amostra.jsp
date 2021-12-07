@@ -10,7 +10,7 @@
 
 <%
     Integer id_amostra_mapa = Integer.parseInt(request.getParameter("id_amostra_mapa"));
-	String id_pesq = (String) request.getSession().getAttribute("id"); 
+	
     
     exibirAmostra dao = new exibirAmostra();
     ArrayList<AmostraNoMapa> lista = dao.listar(id_amostra_mapa);

@@ -65,11 +65,17 @@ public class inserirInstituicao extends HttpServlet {
                             + "VALUES (?, ?, ?)";   
                     	    
                     	    PreparedStatement stInserirLab_pesq_possui = con.prepareStatement(sqlInserirLab_pesq_possui);
-                    	    
+ 
                     	    stInserirLab_pesq_possui.setInt(1, id_laboratorio);
                     	    stInserirLab_pesq_possui.setInt(2, admin);
                     	    stInserirLab_pesq_possui.setInt(3, 1);
                     	    stInserirLab_pesq_possui.executeUpdate();
+                    	    
+                    String sqlAlterarPesqIdlab = "UPDATE pesquisador SET id_lab = (?)";
+                    PreparedStatement stAlterarPesqIdlab = con.prepareStatement(sqlAlterarPesqIdlab);
+                    
+                    stAlterarPesqIdlab.setInt(1, id_laboratorio);
+                    stAlterarPesqIdlab.executeUpdate();
                                         	    	
                 }
                 else 

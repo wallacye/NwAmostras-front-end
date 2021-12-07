@@ -80,8 +80,8 @@ public class inserirPesquisador extends HttpServlet {
                     response.sendRedirect("./jsp/cadastro.jsp");
                 }else {
                 
-                String sqlInserirPesquisador = "INSERT INTO pesquisador (nome_pesq, cpf_pesq, email_pesq, senha_pesq, cargo, tema_claro_escuro) "
-                + "VALUES (?, ?, ?, ?, ?, ?)";
+                String sqlInserirPesquisador = "INSERT INTO pesquisador (nome_pesq, cpf_pesq, email_pesq, senha_pesq, cargo, tema_claro_escuro, id_lab) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
                 
                 PreparedStatement stInserirPesquisador = con.prepareStatement(sqlInserirPesquisador);
                 stInserirPesquisador.setString(1, nome_pesq);
@@ -90,6 +90,7 @@ public class inserirPesquisador extends HttpServlet {
                 stInserirPesquisador.setString(4, passSHA512);
                 stInserirPesquisador.setInt(5, cargo);
                 stInserirPesquisador.setInt(6, tema_claro_escuro);
+                stInserirPesquisador.setInt(7, 0);
                 stInserirPesquisador.executeUpdate();
                 session.setAttribute("erro",0);
                 response.sendRedirect("./jsp/login.jsp");}
