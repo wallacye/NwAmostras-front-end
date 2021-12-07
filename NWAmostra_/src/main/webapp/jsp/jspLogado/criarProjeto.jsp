@@ -66,7 +66,11 @@ ArrayList<Pesquisador> lista = dao.listar();
 			 		%>
   				</datalist>
             </div>
-            
+            <%
+            for(Instituicao ConteudoInstituicao : listaInstituicao){
+			%>
+			<input type="hidden" value="<%=ConteudoInstituicao.getId_lab() %>" name="txtProjetoIdLab">
+			<%} %>
             <input type="hidden" value="<%= id %>" id="inputPesquisadorChefe" name="inputPesquisadorChefe">
             
             <p class="lblCamposObrigatorios" style="text-align: right; margin-top: 20px; margin-right:7.5%;">*Campos obrigatórios</p>

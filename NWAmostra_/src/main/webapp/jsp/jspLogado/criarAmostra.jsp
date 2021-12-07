@@ -134,7 +134,11 @@ ArrayList<Origem> lista = dao.listar();
             		<p class="lblCamposObrigatorios" style="text-align: right; margin-top: 20px;">*Campos obrigatórios</p>
             </div>
         </div>
-        
+        <% 
+		for(Instituicao ConteudoInstituicao : listaInstituicao){
+		%>
+			<input type="hidden" value="<%=ConteudoInstituicao.getId_lab() %>" name="txtAmostraIdLab">
+		<%} %>
  		<input type="hidden" id="inputMapaDeAmostras" name="inputMapaDeAmostras" value="<%= id_mapa_amostra %>">
  		<input type="hidden" id="inputColunaAmostra" name="inputColunaAmostra" value="<%= n_coluna_amostra %>">
  		<input type="hidden" id="inputLinhaAmostra" name="inputLinhaAmostra" value="<%= n_linha_amostra %>">

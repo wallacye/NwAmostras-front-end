@@ -3,12 +3,6 @@
 <%@page import="java.util.ArrayList" %>
 <%@page import="crudAmostra.exibirAmostras" %>
 
-<%
-	Integer filtro = Integer.parseInt(request.getParameter("filtro")) ;
-	exibirAmostras dao = new exibirAmostras();
-    ArrayList<AmostraNoMapa> lista = dao.listar(filtro);
-%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -53,6 +47,14 @@
 <body>
 
 	<%@ include file="../../includes/menuLogado.jsp" %>
+	
+	<%for(Instituicao ConteudoInstituicao : listaInstituicao){
+	Integer filtro = Integer.parseInt(request.getParameter("filtro")) ;
+	Integer id_lab = ConteudoInstituicao.getId_lab();
+	
+	exibirAmostras dao = new exibirAmostras();
+    ArrayList<AmostraNoMapa> lista = dao.listar(filtro, id_lab);
+	%>
 	
 	<div class="containerTelaIncialAmostra">
 	
@@ -143,7 +145,7 @@
 		
 		<%
                  								}
-								}
+								}}
         %>                  	
 		<%@ include file="../../includes/rodape.jsp" %>
 	</div>

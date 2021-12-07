@@ -43,6 +43,9 @@ public class inserirAmostra extends HttpServlet {
                 	Integer n_linha_amostra = Integer.parseInt(request.getParameter("inputLinhaAmostra"));
                 	Double volume_amostra = Double.parseDouble(request.getParameter("txtVolumeAmostra"));
                 	String hora_coleta_amostra = request.getParameter("txtHoraColetaAmostra");
+                	
+                	Integer id_lab = Integer.parseInt(request.getParameter("txtAmostraIdLab"));
+                	
                 	Date UTILdt_coleta_amostra = null;
                 	java.sql.Date dt_coleta_amostra;
                 	Date UTILvalidade_amostra = null;
@@ -71,8 +74,8 @@ public class inserirAmostra extends HttpServlet {
                 	validade_amostra = new java.sql.Date(UTILvalidade_amostra.getTime());
 
                 	
-                    String sqlInserirAmostra = "INSERT INTO amostra (coletador_amostra, anotacoes_amostra, tipo_amostra, id_categoria, id_origem, nome_amostra, codigo_amostra)"
-                    + " VALUES (?, ?, ?, ?, ?, ?, ?) ";
+                    String sqlInserirAmostra = "INSERT INTO amostra (coletador_amostra, anotacoes_amostra, tipo_amostra, id_categoria, id_origem, nome_amostra, codigo_amostra, id_lab)"
+                    + " VALUES (?, ?, ?, ?, ?, ?, ?, ?) ";
 
                     Connection con = Conexao.Conectar();
             	    PreparedStatement stInserirAmostra = con.prepareStatement(sqlInserirAmostra, Statement.RETURN_GENERATED_KEYS);
@@ -83,6 +86,7 @@ public class inserirAmostra extends HttpServlet {
             	    stInserirAmostra.setInt(5, id_origem);
             	    stInserirAmostra.setString(6, nome_amostra);
             	    stInserirAmostra.setString(7, codigo_amostra);
+            	    stInserirAmostra.setInt(8, id_lab);
             	    
             	    stInserirAmostra.executeUpdate();
 			

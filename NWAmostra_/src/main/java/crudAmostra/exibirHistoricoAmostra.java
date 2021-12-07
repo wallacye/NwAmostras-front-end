@@ -22,14 +22,15 @@ import model.MapaDeAmostras;
 public class exibirHistoricoAmostra extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	public ArrayList<HistoricoAmostra> listar(Integer id_amostra){
+	public ArrayList<HistoricoAmostra> listar(Integer id_amostra, Integer id_lab){
     	ArrayList<HistoricoAmostra> Conteudo = new ArrayList<HistoricoAmostra>();
     	
         try {
             String sqlExibirHistoricoAmostra = "SELECT * FROM historico_da_amostra_utiliza "
             		+ "INNER JOIN amostra ON historico_da_amostra_utiliza.id_amostra = amostra.id_amostra "
             		+ "INNER JOIN pesquisador ON historico_da_amostra_utiliza.id_pesq = pesquisador.id_pesq "
-            		+ "WHERE amostra.id_amostra = " + id_amostra + " ORDER BY id_hist_amostra DESC";
+            		+ "WHERE amostra.id_amostra = " + id_amostra + " AND amostra.id_lab =" + id_lab
+            		+ " ORDER BY id_hist_amostra DESC";
             
             Connection con = Conexao.Conectar();
             Statement stExibirHistoricoAmostra = con.createStatement();

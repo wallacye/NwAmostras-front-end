@@ -17,7 +17,7 @@ import model.AmostraNoMapa;
 public class exibirAmostras extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ArrayList<AmostraNoMapa> listar(Integer filtro){
+    public ArrayList<AmostraNoMapa> listar(Integer filtro, Integer id_lab){
     	
     	ArrayList<AmostraNoMapa> Conteudo = new ArrayList<AmostraNoMapa>(filtro);
     	
@@ -79,7 +79,7 @@ public class exibirAmostras extends HttpServlet {
             		+ "INNER JOIN amostra ON amostra_no_mapa_contem.id_amostra = amostra.id_amostra "
             		+ "INNER JOIN origem ON origem.id_origem = amostra.id_origem "
             		+ "INNER JOIN categoria ON categoria.id_categoria = amostra.id_categoria "
-            		+ "WHERE data_inativacao_amostra IS NULL "
+            		+ "WHERE data_inativacao_amostra IS NULL AND amostra.id_lab = " + id_lab
             		+ orderBy;            		
             
             Connection con = Conexao.Conectar();

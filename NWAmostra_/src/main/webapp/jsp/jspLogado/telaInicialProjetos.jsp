@@ -3,12 +3,6 @@
 <%@page import="java.util.ArrayList" %>
 <%@page import="crudProjeto.exibirProjetos" %>
 
-<%
-	Integer filtro = Integer.parseInt(request.getParameter("filtro")) ;
-	exibirProjetos dao = new exibirProjetos();
-    ArrayList<Projeto> lista = dao.listar(filtro);
-%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -44,6 +38,15 @@
 	
 	<%@ include file="../../includes/menuLogado.jsp" %>
 	
+	<%for(Instituicao ConteudoInstituicao : listaInstituicao){
+		
+	Integer id_lab = ConteudoInstituicao.getId_lab();
+	Integer filtro = Integer.parseInt(request.getParameter("filtro"));
+	
+	exibirProjetos dao = new exibirProjetos();
+    ArrayList<Projeto> lista = dao.listar(filtro, id_lab);
+	%>
+	
 	<div class="containerTelaInicialProjetos">
 	
 		<div class="containerBtnNovoBuscarProjetos">
@@ -53,7 +56,7 @@
 			<div class="containerBuscarProjeto">
 				<div class="containerPessquisarFiltroProjeto">
 				
-				<form method="post" action="/NWAmostra_/pesquisarProjeto" class="pesquisa">								
+				<form method="post" action="/NWAmostra_/pesquisarProjeto" class="pesquisa" style="height: 100%;width: 90%;float: left;">								
 				<button class="buttonPesquisarProjeto" type="submit">
                     <img src="../../img/lupa.png" class="imgLupa" alt="">
                 </button>
@@ -124,7 +127,7 @@
 		</button>
 		<%
                  								}
-								}
+								}}
         %>
         <%@ include file="../../includes/rodape.jsp" %>
            

@@ -1,6 +1,5 @@
 <%@ include file="../../includes/validacao.jsp" %>
 <%@page import="model.MapaDeAmostras" %>
-<%@page import="java.util.ArrayList" %>
 <%@page import="crudMapaDeAmostras.exibirMapaDeAmostras" %>
 
 
@@ -41,18 +40,18 @@
 	<%@ include file="../../includes/menuLogado.jsp" %>
 	
 	<%
-	Integer filtro = Integer.parseInt(request.getParameter("filtro")) ;
 	for(Instituicao ConteudoInstituicao : listaInstituicao){
 		Integer id_lab = ConteudoInstituicao.getId_lab();
+		Integer filtro = Integer.parseInt(request.getParameter("filtro")) ;
 		
-		exibirMapaDeAmostras dao = new exibirMapaDeAmostras();
-	    ArrayList<MapaDeAmostras> lista = dao.listar(filtro, id_lab);
+		exibirMapaDeAmostras daoExibirMapaDeAmostras = new exibirMapaDeAmostras();
+	    ArrayList<MapaDeAmostras> lista = daoExibirMapaDeAmostras.listar(filtro, id_lab);
 	
-
+		
 	%>
 	
 	<div class="containerTelaInicialMapaAmostras">
-	
+	<% out.print(id_lab); %>
 		<div class="containerBtnNovoBuscarMapaAmostras">
 			<div class="containerBtnNovoMapaAmostras">
 			<button class="btnNovoMapaAmostras" onclick="location.href='criarMapaAmostras.jsp'">Novo +</button>
@@ -60,7 +59,7 @@
 			<div class="containerBuscarMapaAmostras">
 				<div class="containerPessquisarFiltroMapaAmostras">
 				
-				<form method="post" action="/NWAmostra_/pesquisarMapaDeAmostras">
+				<form method="post" action="/NWAmostra_/pesquisarMapaDeAmostras" style="height: 100%;width: 90%;float: left;">
 				<button class="buttonPesquisarMapaAmostra" type="submit">
                     <img src="../../img/lupa.png" class="imgLupa" alt="">
                 </button>

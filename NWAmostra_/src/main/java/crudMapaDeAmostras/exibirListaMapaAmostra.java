@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 
 import conexao.Conexao;
 import model.MapaDeAmostras;
-import model.Origem;
 
 @WebServlet("/exibirListaMapaAmostra")
 public class exibirListaMapaAmostra extends HttpServlet {
@@ -21,7 +20,9 @@ public ArrayList<MapaDeAmostras> listar(Integer id_lab){
     	ArrayList<MapaDeAmostras> ConteudoListaMapaAmostras = new ArrayList<MapaDeAmostras>();
     	
         try {
-            String sqlExibirListaMapaAmostras = "SELECT * FROM mapa_de_amostras WHERE id_lab = " + id_lab;
+            String sqlExibirListaMapaAmostras = "SELECT * FROM mapa_de_amostras "
+            		+ "INNER JOIN laboratorio ON laboratorio.id_lab = mapa_de_amostras.id_lab "
+            		+ "WHERE mapa_de_amostras.id_lab = " + id_lab;
             
             Connection con = Conexao.Conectar();
             Statement stExibirListaMapaAmostras = con.createStatement();

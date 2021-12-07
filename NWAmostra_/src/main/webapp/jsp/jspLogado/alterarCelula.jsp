@@ -6,14 +6,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-<%  
-Integer linha = Integer.parseInt(request.getParameter("linha"));
-Integer coluna = Integer.parseInt(request.getParameter("coluna"));
-Integer projeto = Integer.parseInt(request.getParameter("projeto"));
-Integer filtro = 1;
-exibirAmostras dao = new exibirAmostras();
-ArrayList<AmostraNoMapa> lista = dao.listar(filtro);
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +24,18 @@ ArrayList<AmostraNoMapa> lista = dao.listar(filtro);
 </head>
 <body>
 	<%@ include file="../../includes/menuLogado.jsp" %>
+	
+	<% for(Instituicao ConteudoInstituicao : listaInstituicao){
+		
+	Integer id_lab = ConteudoInstituicao.getId_lab();
+	Integer linha = Integer.parseInt(request.getParameter("linha"));
+	Integer coluna = Integer.parseInt(request.getParameter("coluna"));
+	Integer projeto = Integer.parseInt(request.getParameter("projeto"));
+	Integer filtro = 1;
+	exibirAmostras dao = new exibirAmostras();
+	ArrayList<AmostraNoMapa> lista = dao.listar(filtro, id_lab);
+	%>
+	
 	<div class="popUpAlterarLinha" id="popUpAlterarLinha">	
 				<div class="containerFormAlterarLinha">
 				
@@ -77,7 +81,7 @@ ArrayList<AmostraNoMapa> lista = dao.listar(filtro);
 						<input type="submit" value="Confirmar" class="inputConfirmarAlterarCelula">
 					</div>
 					</form>
-					
+					<%} %>
 					<div class="containerBtnsConfCanEditarCelula">
 							<button  class="btnCancelarEditarCelula" onclick="location.href='javascript: fecharPopUpAlterarCelula();'">Cancelar</button>
 					</div>

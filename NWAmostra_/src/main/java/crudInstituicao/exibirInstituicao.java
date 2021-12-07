@@ -19,7 +19,7 @@ import model.MapaDeAmostras;
 public class exibirInstituicao extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-public ArrayList<Instituicao> listar(Integer id_pesq){
+public ArrayList<Instituicao> listarIntituicao(Integer id_pesq){
         
         ArrayList<Instituicao> ConteudoInstituicao = new ArrayList<Instituicao>();
         
@@ -27,7 +27,7 @@ public ArrayList<Instituicao> listar(Integer id_pesq){
             String sqlExibirInstituicao = "SELECT * FROM lab_pesq_possui "
             		+ "INNER JOIN laboratorio ON laboratorio.id_lab = lab_pesq_possui.id_lab "
             		+ "INNER JOIN pesquisador ON pesquisador.id_pesq = lab_pesq_possui.id_pesq "
-            		+ "WHERE lab_pesq_possui.id_pesq= "+ id_pesq;
+            		+ "WHERE lab_pesq_possui.id_pesq = "+ id_pesq;
             
             Connection con = Conexao.Conectar();
             Statement stExibirInstituicao = con.createStatement();

@@ -36,7 +36,10 @@ public class inserirProjeto extends HttpServlet
                 	
                 	String nome_projeto = request.getParameter("txtNomeProjeto");
                 	Integer privado_publico_projeto = Integer.parseInt(request.getParameter("txtVisibilidadeProjeto"));		
-                	String pesquisadores = request.getParameter("txtAdicionarpesquisadorProjeto");			
+                	String pesquisadores = request.getParameter("txtAdicionarpesquisadorProjeto");		
+                	
+                	Integer id_lab = Integer.parseInt(request.getParameter("txtProjetoIdLab"));
+                	
                     java.sql.Date dt_inicio_projeto = new java.sql.Date(System.currentTimeMillis()); 
                     int id_projeto;
                     long id_para_converter = -1L;
@@ -48,8 +51,8 @@ public class inserirProjeto extends HttpServlet
                     
                     Connection con = Conexao.Conectar();               
                     
-            	    String sqlInserirProjeto = "INSERT INTO projeto (dt_termino_projeto, nome_projeto, dt_inicio_projeto, privado_publico_projeto, fk_pesquisador_chefe, colunas_projeto, linhas_projeto)"
-                            + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+            	    String sqlInserirProjeto = "INSERT INTO projeto (dt_termino_projeto, nome_projeto, dt_inicio_projeto, privado_publico_projeto, fk_pesquisador_chefe, colunas_projeto, linhas_projeto, id_lab)"
+                            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                     	    
                     	    PreparedStatement stInserirProjeto = con.prepareStatement(sqlInserirProjeto, Statement.RETURN_GENERATED_KEYS);
                     	    stInserirProjeto.setDate(1, null);
@@ -59,6 +62,7 @@ public class inserirProjeto extends HttpServlet
                     	    stInserirProjeto.setInt(5, pesquisador_chefe);
                     	    stInserirProjeto.setInt(6, 1);
                     	    stInserirProjeto.setInt(7, 1);
+                    	    stInserirProjeto.setInt(8, id_lab);
                     	    stInserirProjeto.executeUpdate();
 
                         try (ResultSet generatedKeys = stInserirProjeto.getGeneratedKeys()) 
@@ -103,7 +107,7 @@ public class inserirProjeto extends HttpServlet
                                 out.print("Erro *parte de generated keys*: " + ex);
                     	    }
                 	                                       
-                       response.sendRedirect("./jsp/jspLogado/telaInicialProjetos.jsp");
+                       response.sendRedirect("./jsp/jspLogado/telaInicialProjetos.jsp?filtro=1");
 
                    } 
                        catch (SQLException ex) 

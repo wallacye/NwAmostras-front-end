@@ -9,18 +9,7 @@
 <%@page import="model.Origem"  %>
 <%@page import="crudAmostra.exibirOrigens" %>
 
-<%
-	Integer id_amostra_mapa = Integer.parseInt(request.getParameter("id_amostra_mapa"));
 
-	exibirAmostra dao = new exibirAmostra();
-	ArrayList<AmostraNoMapa> lista = dao.listar(id_amostra_mapa);
-	
-	exibirOrigens daoOrigens = new exibirOrigens();   
-	ArrayList<Origem> listaOrigens = daoOrigens.listar();
-	
-	exibirListaMapaAmostra daoListarMapaAmostras = new exibirListaMapaAmostra();   
-	ArrayList<MapaDeAmostras> listarMapaAmostras = daoListarMapaAmostras.listar();
- %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -39,6 +28,23 @@
 </head>
 <body>
 	<%@ include file="../../includes/menuLogado.jsp" %>
+
+	<%
+	for(Instituicao ConteudoInstituicao : listaInstituicao){
+		
+		Integer id_amostra_mapa = Integer.parseInt(request.getParameter("id_amostra_mapa"));
+
+		exibirAmostra dao = new exibirAmostra();
+		ArrayList<AmostraNoMapa> lista = dao.listar(id_amostra_mapa);
+		
+		exibirOrigens daoOrigens = new exibirOrigens();   
+		ArrayList<Origem> listaOrigens = daoOrigens.listar();
+		
+		Integer id_lab = ConteudoInstituicao.getId_lab();
+		
+		exibirListaMapaAmostra daoListarMapaAmostras = new exibirListaMapaAmostra();   
+		ArrayList<MapaDeAmostras> listarMapaAmostras = daoListarMapaAmostras.listar(id_lab);
+ 	%>
 
 	<% 
 	for(AmostraNoMapa conteudo : lista) 
@@ -252,7 +258,7 @@
 		
 		
 		<% 
-		} %>
+		} }%>
 		<%@ include file="../../includes/rodape.jsp" %>
 	</div>
 </body>

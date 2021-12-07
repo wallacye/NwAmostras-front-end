@@ -17,7 +17,7 @@ import model.Projeto;
 public class exibirProjetos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ArrayList<Projeto> listar(Integer filtro){
+    public ArrayList<Projeto> listar(Integer filtro, Integer id_lab){
     	
     	ArrayList<Projeto> Conteudo = new ArrayList<Projeto>(filtro);
     	
@@ -45,6 +45,7 @@ public class exibirProjetos extends HttpServlet {
             String sqlExibirProjeto = "SELECT * FROM projeto "
             		+ "INNER JOIN pesquisador ON projeto.fk_pesquisador_chefe = pesquisador.id_pesq "
             		+ "WHERE inativacao_projeto IS NULL AND privado_publico_projeto = 1 "
+            		+ "AND projeto.id_lab = " + id_lab
             		+ orderBy;
             
             Connection con = Conexao.Conectar();

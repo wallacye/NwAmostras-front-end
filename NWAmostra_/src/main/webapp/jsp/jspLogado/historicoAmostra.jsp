@@ -7,18 +7,6 @@
 <%@page import="model.AmostraNoMapa"  %>
 <%@page import="crudAmostra.exibirAmostra" %>
 
-<%
-	Integer id_amostra = Integer.parseInt(request.getParameter("id_amostra")) ;
-
-	exibirHistoricoAmostra dao = new exibirHistoricoAmostra();
-    ArrayList<HistoricoAmostra> lista = dao.listar(id_amostra);
-    
-    Integer id_amostra_mapa = Integer.parseInt(request.getParameter("id_amostra_mapa")); 
-       
-    exibirAmostra daoExibirAmostraHistorico = new exibirAmostra();
-    ArrayList<AmostraNoMapa> listaExibirAmostraHistorico = daoExibirAmostraHistorico.listar(id_amostra_mapa);
-%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -37,6 +25,21 @@
 </head>
 <body>
 	<%@ include file="../../includes/menuLogado.jsp" %>
+
+	<%
+	for(Instituicao ConteudoInstituicao : listaInstituicao){
+		
+	Integer id_lab = ConteudoInstituicao.getId_lab();
+	Integer id_amostra = Integer.parseInt(request.getParameter("id_amostra")) ;
+
+	exibirHistoricoAmostra dao = new exibirHistoricoAmostra();
+    ArrayList<HistoricoAmostra> lista = dao.listar(id_amostra, id_lab);
+    
+    Integer id_amostra_mapa = Integer.parseInt(request.getParameter("id_amostra_mapa")); 
+       
+    exibirAmostra daoExibirAmostraHistorico = new exibirAmostra();
+    ArrayList<AmostraNoMapa> listaExibirAmostraHistorico = daoExibirAmostraHistorico.listar(id_amostra_mapa);
+	%>
 
 	<div class="containerTelaAmostra">
 	<div class="containerBtnExcluirHistorico">
@@ -92,7 +95,7 @@
 		<div>
 		<%
                  								}
-								}
+								}}
         %>           
 <%@ include file="../../includes/rodape.jsp" %>
 	</div>

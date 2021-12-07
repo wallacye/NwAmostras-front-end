@@ -11,7 +11,7 @@ Integer id_pesq = (Integer) request.getSession().getAttribute("idInt");
 Integer cargo = 1;
 
 exibirInstituicao daoExibirInstituicao = new exibirInstituicao();
-ArrayList<Instituicao> listaInstituicao = daoExibirInstituicao.listar(id_pesq);
+ArrayList<Instituicao> listaInstituicao = daoExibirInstituicao.listarIntituicao(id_pesq);
 %>
 
 <header>

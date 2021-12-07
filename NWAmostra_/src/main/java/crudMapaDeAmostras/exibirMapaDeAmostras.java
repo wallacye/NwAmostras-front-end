@@ -19,7 +19,7 @@ public class exibirMapaDeAmostras extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
        
-    public ArrayList<MapaDeAmostras> listar(Integer filtro)
+    public ArrayList<MapaDeAmostras> listar(Integer filtro, Integer id_lab)
     {
     	
     	ArrayList<MapaDeAmostras> Conteudo = new ArrayList<MapaDeAmostras>(filtro);
@@ -40,7 +40,9 @@ public class exibirMapaDeAmostras extends HttpServlet
         	{
         		orderBy = " ORDER BY id_mapa_amostra ASC ";
         	}
-            String sqlExibirMapaDeAmostras = "SELECT * FROM mapa_de_amostras  WHERE data_inativacao_mapa_amostra IS NULL " + orderBy;
+            String sqlExibirMapaDeAmostras = "SELECT * FROM mapa_de_amostras "
+            		+ "INNER JOIN laboratorio ON laboratorio.id_lab = mapa_de_amostras.id_lab "
+            		+ "WHERE data_inativacao_mapa_amostra IS NULL AND mapa_de_amostras.id_lab = " + id_lab + orderBy;
             
             Connection con = Conexao.Conectar();
             Statement stExibirMapaDeAmostras = con.createStatement();
