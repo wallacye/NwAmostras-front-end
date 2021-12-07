@@ -3,6 +3,9 @@
 <%@page import="crudInstituicao.exibirInstituicao" %>
 <%@page import="model.Instituicao"  %>
 
+<%@page import="model.Pesquisador"  %>
+
+<%@page import="crudPesquisador.exibirPesquisadores" %>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.io.*,java.util.*" %>
 <%@ page import="javax.servlet.*,java.text.*" %>
@@ -29,6 +32,9 @@
 
 	<div class="containerTelaLab">
 	<% 
+	exibirPesquisadores dao = new exibirPesquisadores();
+
+	ArrayList<Pesquisador> lista = dao.listar();
 	for(Instituicao ConteudoInstituicao : listaInstituicao){
 	%>
 	<div class="containerNomeAmostraBtnHistorico">
@@ -150,7 +156,17 @@
                     <img src="../../img/lupa.png" class="imgLupa" alt="">
             </button>
 			
-			<input type="text" class="inputBuscarAmostras" placeholder="Pesquisar nomes" name="inputAdicionarPesq"/>
+			<input type="text" list="listPesquisadores" class="inputBuscarAmostras" placeholder="Pesquisar nomes" name="inputAdicionarPesq"/>
+			<datalist class="listPesquisadores" id="listPesquisadores">
+			  		<%
+			  		for(Pesquisador conteudo : lista){
+			  		%>
+    					<option class="optionListOrigem palavrasAzul" value="<%= conteudo.getEmail_pesq() %>"><%= conteudo.getNome_pesq()%>, CPF: <%= conteudo.getCpf_pesq()%></option>
+			  		<%
+			  		}
+			 		%>
+  			</datalist>
+			
 			
 			<button class="buttonFiltrarAmostra" onclick="location.href=''">
                     <img src="../../img/maisLab.png" class="imgFiltro" alt="">
