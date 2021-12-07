@@ -59,7 +59,7 @@
 			<% } else{
 			for(Instituicao ConteudoInstituicao : listaInstituicao){
 			%>
-			<a href="criarLaboratorio.jsp" class="linkCriarInstituicaoMeuPerfil palavrasAzul"><%=ConteudoInstituicao.getNome_lab() %></a>
+			<a class="linkCriarInstituicaoMeuPerfil palavrasAzul"><%=ConteudoInstituicao.getNome_lab() %></a>
 			<%} }%>
 			</div>
 			<div class="containerTxtsInformacoesMeuPerfil">
@@ -86,7 +86,16 @@
 		<div class="containerLinksModoCelular">
 			<div class="containerGeralPerfil containerGeralPerfilModoCelular"><label class="lblMeuPerfilGeral">Geral</label></div>
 			<div class="containerLinksMeuPerfil containerLinksMeuPerfilModoCelular"><a href="editarPerfil.jsp" class="linksMeuPerfil palavrasAzul" >Editar Perfil</a></div>
-			<div class="containerLinksMeuPerfil containerLinksMeuPerfilModoCelular"><a href="criarLaboratorio.jsp" class="linksMeuPerfil palavrasAzul">Criar instituição</a></div>
+			
+			<div class="containerLinksMeuPerfil containerLinksMeuPerfilModoCelular">
+			<% if(id_lab_pesq.equals(0)){%>
+			<a href="criarLaboratorio.jsp" class="linksMeuPerfil palavrasAzul">Criar instituição</a>
+			<% } else{
+			for(Instituicao ConteudoInstituicao : listaInstituicao){
+			%>
+			<a class="linksMeuPerfil palavrasAzul"><%=ConteudoInstituicao.getNome_lab() %></a>
+			<%} }%>
+			</div>
 			<div class="containerLinksMeuPerfil containerLinksMeuPerfilModoCelular"><a href="../../NWAmostra_/Logout" class="linksMeuPerfil linkDeslogar" >Sair</a></div>
 		</div>
 	</div>
