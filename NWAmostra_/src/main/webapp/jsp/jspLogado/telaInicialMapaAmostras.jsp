@@ -51,7 +51,6 @@
 	%>
 	
 	<div class="containerTelaInicialMapaAmostras">
-	<% out.print(id_lab); %>
 		<div class="containerBtnNovoBuscarMapaAmostras">
 			<div class="containerBtnNovoMapaAmostras">
 			<button class="btnNovoMapaAmostras" onclick="location.href='criarMapaAmostras.jsp'">Novo +</button>
