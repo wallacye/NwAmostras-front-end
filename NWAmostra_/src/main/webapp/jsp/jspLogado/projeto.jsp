@@ -232,7 +232,7 @@
 					{						
 					%>
 					 <th>
-					 <button  class="inputsTituloTabelaProjeto" <%if(coluna!=1&&linha!=1){%>onclick="location.href='javascript: abrirPopUpAlterarCelula();'"<% } %>>
+					 <button  class="inputsTituloTabelaProjeto" <%if(coluna!=1&&linha!=1){%>onclick="location.href='alterarCelula.jsp?coluna=<%= coluna %>&linha=0&projeto=<%= Conteudo.getId_projeto() %>'"<% } %>>
 					 <p class="letraCorDeFundo"> _________ </p>
 					 <%  
 					 if(coluna==1){
@@ -271,8 +271,8 @@
 					<td>
 				
 					<button class="" onclick="location.href='javascript: abrirOpcoesAlterarTabela();'">A</button>
-					<button  class="inputsTabelaProjeto" onclick="location.href='alterarCelula.jsp'">
-					
+					<button  class="inputsTabelaProjeto" onclick="location.href='alterarCelula.jsp?coluna=<%= coluna %>&linha=<%= linha %>&projeto=<%= Conteudo.getId_projeto() %>'">
+					 <p class="letraCorDeFundo"> _________ </p>				
 					<% 
 					if (coluna==1)
 					{
@@ -281,13 +281,9 @@
 							 if(linha==ConteudoAmostras.getLinha_amostra())
 							 {
 					%>
-					<%= ConteudoAmostras.getNome_amostra() %>
+					<%= ConteudoAmostras.getCodigo_amostra() %> - <%= ConteudoAmostras.getNome_amostra() %>
 					<%  
 							 }
-							 else{
-									%>
-									<% 
-								 }
 						 }
 					}
 					else
@@ -300,11 +296,6 @@
 					<%= ConteudoInformacoes.getConteudo_informacao() %>
 					<%
 							}
-							 else{
-									%>
-									<p class="letraCorDeFundo"> _________ </p>
-									<% 
-								 }
 						}
 						
 					}

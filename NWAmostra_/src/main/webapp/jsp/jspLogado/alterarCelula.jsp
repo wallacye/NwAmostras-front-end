@@ -1,7 +1,19 @@
 <%@ include file="../../includes/validacao.jsp" %>
+<%@page import="model.AmostraNoMapa" %>
+<%@page import="java.util.ArrayList" %>
+<%@page import="crudAmostra.exibirAmostras" %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%  
+Integer linha = Integer.parseInt(request.getParameter("linha"));
+Integer coluna = Integer.parseInt(request.getParameter("coluna"));
+Integer projeto = Integer.parseInt(request.getParameter("projeto"));
+Integer filtro = 1;
+exibirAmostras dao = new exibirAmostras();
+ArrayList<AmostraNoMapa> lista = dao.listar(filtro);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,12 +39,39 @@
 					<div style="width:90%; margin:30px 5% 0 5%;">
 						<label class="lblEditarCelular" >Editar célula</label><br>
 						<label class="lblExplicacaoEditarCelula" >Digite o novo conteúdo da célula: </label>
-						<input type="text" class="txtEditarCelula" placeholder="Digite o conteúdo" id="idTxtEditarCelula" name="idTxtEditarCelula">
 						
-						<input type="hidden" id="inputLinha" name="inputLinha" value="">
-						<input type="hidden" id="inputColuna" name="inputColuna" value="">
+						<input type="text" class="txtEditarCelula" placeholder="Digite o conteúdo" id="idTxtEditarCelula" 
+						<%  
+						if(coluna == 1){
+						%>
+						list="listaAmostras"
+						<% 
+						}
+						%>
+						 name="idTxtEditarCelula">
+					    
+        				<datalist class="listaAmostras" id="listaAmostras">
+							<% 
+							if(lista.size() >= 1)
+							{ 
+							%>
+							<% 
+								for(AmostraNoMapa conteudo : lista) 
+								{
+							%>
+									<option value="<%= conteudo.getId_amostra() %>">
+        								<%= conteudo.getCodigo_amostra() %> - <%= conteudo.getNome_amostra() %>
+									</option>
+							<%                 													
+								}													
+							}
+        					%>
+						</datalist>
 						
-						<input type="hidden" id="inputProjeto" name="inputProjeto" value="">						
+						<input type="hidden" id="inputLinha" name="inputLinha" value="<%= linha %>">
+						<input type="hidden" id="inputColuna" name="inputColuna" value="<%= coluna %>">
+						
+						<input type="hidden" id="inputProjeto" name="inputProjeto" value="<%= projeto %>">						
 					</div>
 					<div class="containerBtnsConfCanEditarCelula">
 						<input type="submit" value="Confirmar" class="inputConfirmarAlterarCelula">

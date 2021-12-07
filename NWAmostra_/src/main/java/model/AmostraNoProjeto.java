@@ -37,8 +37,15 @@ public String getNome_amostra() {
 public void setNome_amostra(String nome_amostra) {
 	this.nome_amostra = nome_amostra;
 }
+public String getCodigo_amostra() {
+	return codigo_amostra;
+}
+public void setCodigo_amostra(String codigo_amostra) {
+	this.codigo_amostra = codigo_amostra;
+}
 private Integer id_projeto;	
 private Integer id_amostra_projeto;
 private Integer linha_amostra;
 private String nome_amostra;
+private String codigo_amostra;
 }

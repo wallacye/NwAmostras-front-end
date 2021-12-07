@@ -159,7 +159,7 @@ public class exibirProjeto extends HttpServlet {
               
             	dadosAmostras.setLinha_amostra(rsExibirAmostras.getInt("linha_amostra"));
             	dadosAmostras.setNome_amostra(rsExibirAmostras.getString("nome_amostra"));
-            	
+            	dadosAmostras.setCodigo_amostra(rsExibirAmostras.getString("codigo_amostra"));;
             	
             	ConteudoAmostras.add(dadosAmostras);
             }
@@ -183,7 +183,7 @@ public class exibirProjeto extends HttpServlet {
             String sqlInformacoes = "SELECT * FROM informacao "
             		+ "INNER JOIN campo ON campo.id_campo = informacao.id_campo "
             		+ "INNER JOIN amostra_projeto_contem ON amostra_projeto_contem.id_amostra_projeto = informacao.id_amostra_projeto "
-            		+ "WHERE campo.id_projeto= " +id_projeto;
+            		+ "WHERE informacao.id_projeto= "+id_projeto;
             
             Connection con = Conexao.Conectar();
             Statement stExibirInformacoes = con.createStatement();
