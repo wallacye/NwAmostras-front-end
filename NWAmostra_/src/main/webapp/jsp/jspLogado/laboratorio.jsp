@@ -34,8 +34,14 @@
 	<% 
 	exibirPesquisadores dao = new exibirPesquisadores();
 
+	
+	
 	ArrayList<Pesquisador> lista = dao.listar();
 	for(Instituicao ConteudoInstituicao : listaInstituicao){
+		Integer id_lab = ConteudoInstituicao.getId_lab();
+		
+		exibirInstituicao daoLab = new exibirInstituicao();
+		ArrayList<Pesquisador> listaIntegrantes = daoLab.listarIntegrantesLab(id_lab);
 	%>
 	<div class="containerNomeAmostraBtnHistorico">
 			<div class="containerLblNomeAmostras">
@@ -133,10 +139,12 @@
 	<div class="containerMasterListaIntegrantesLab">
 	<div class="containerListaIntegrantesLab">
 					
-						<button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button>					
-									
-						<button class="btnsIntegrantesProjeto" onclick="location.href='javascript: abrirPopUpRemoverPesquisador();'">Josefina Bund Fin</button>
-						
+						<!--  <button class="btnsIntegrantesProjeto" onclick="location.href=''">Ana Adriely Oliveira</button>		-->			
+						<% for(Pesquisador ConteudoIntegrantes : listaIntegrantes) 
+						{
+						%>	
+						<button class="btnsIntegrantesProjeto" onclick="location.href='javascript: abrirPopUpRemoverPesquisador();'"><%= ConteudoIntegrantes.getNome_pesq() %> </button>
+						<% }%>
 						<div class="popUpTornarAdministradorReover" id="popUpTornarAdministradorReover">
 							<button class="btnsTornarAdministradorRemover palavrasAzul" onclick="location.href=''">Tornar administrador</button>
 							<button class="btnsTornarAdministradorRemover palavrasAzul" onclick="location.href=''">Remover</button>
@@ -148,11 +156,11 @@
 	<div class="containerLblDadosAmostra">
 			<label class="lblDadosAmostra palavrasAzul">Enviar solicitações</label>
 	</div>
-		<form method="post" action="/NWAmostra_/inserirPesquisadorInstituicao" style="height: 100%;width: 90%;float: left;">
+	
 		<div class="containerBuscarAmostra">
 			<div class="containerPessquisarFiltroAmostras">
 			
-			
+			<form method="post" action="/NWAmostra_/inserirPesquisadorInstituicao" style="height: 100%;width: 90%;float: left;">
 			<button class="buttomPesquisarAmostra" onclick="location.href='#'">
                     <img src="../../img/lupa.png" class="imgLupa" alt="">
             </button>
@@ -167,7 +175,7 @@
 			  		}
 			 		%>
   			</datalist>
-			
+			</form>
 			
 			<button class="buttonFiltrarAmostra" onclick="location.href=''">
                     <img src="../../img/maisLab.png" class="imgFiltro" alt="">
@@ -179,11 +187,10 @@
 		<!--  <div class="containerPessoasAdiconar">
 			<label class="palavrasAzul lblPessoasAdicionar" >Joãozinho Game Play</label>
 			<button class="btnXVermelhoAdicionarPesq"><img src="../../img/xVermelho.png"></button>
-		</div>-->
+		</div>
 		<div class="containerBtnEnviarSolicitacoes">
 			<button class="btnEnviarSolicitacoes" onclick="location.href=''"> Enviar solicitações</button>
-		</div>
-		</form>
+		</div>-->
 		
 		<div class="containerBtnsFinalizarExcluirAmostra">
 		<button class="btnFinalizarAmostra" onclick="location.href=''">Alterar</button>

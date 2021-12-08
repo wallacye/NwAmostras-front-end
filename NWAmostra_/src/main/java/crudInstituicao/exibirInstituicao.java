@@ -14,6 +14,7 @@ import conexao.Conexao;
 import model.AmostraNoMapa;
 import model.Instituicao;
 import model.MapaDeAmostras;
+import model.Pesquisador;
 
 @WebServlet("/exibirInstituicao")
 public class exibirInstituicao extends HttpServlet {
@@ -62,6 +63,37 @@ public ArrayList<Instituicao> listarIntituicao(Integer id_pesq){
         
         return null;
     }
-
+public ArrayList<Pesquisador> listarIntegrantesLab(Integer id_lab){
+    
+    ArrayList<Pesquisador> ConteudoIntegrantes = new ArrayList<Pesquisador>();
+    
+    try{
+        String sqlIntegrantes = "SELECT * FROM lab_pesq_possui "
+        		+ "INNER JOIN pesquisador ON lab_pesq_possui.id_pesq = pesquisador.id_pesq "
+        		+ "WHERE lab_pesq_possui.id_lab= " + id_lab;
+        
+        Connection con = Conexao.Conectar();
+        Statement stExibirIntegrantes = con.createStatement();
+        ResultSet rsExibirIntegrantes = stExibirIntegrantes.executeQuery(sqlIntegrantes);
+        while ( rsExibirIntegrantes.next() ) {
+        	
+        	Pesquisador dadosIntegrantes = new Pesquisador();
+          
+        	dadosIntegrantes.setNome_pesq(rsExibirIntegrantes.getString("nome_pesq"));
+        	dadosIntegrantes.setId_pesq(rsExibirIntegrantes.getInt("id_pesq"));
+        	
+        	ConteudoIntegrantes.add(dadosIntegrantes);
+        }
+        rsExibirIntegrantes.close();
+        con.close();
+        
+        return ConteudoIntegrantes;
+    }
+    catch(Exception e){
+        System.out.print("ERRO EXIBIR INTEGRANTES: ");
+        System.out.print(e.getMessage());
+    }
+    return null;
+}
 
 }

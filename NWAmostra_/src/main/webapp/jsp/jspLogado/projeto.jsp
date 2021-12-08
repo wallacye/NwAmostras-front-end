@@ -270,7 +270,7 @@
 					%>
 					<td>
 				
-					<button class="" onclick="location.href='javascript: abrirOpcoesAlterarTabela();'">A</button>
+					<!--  <button class="" onclick="location.href='javascript: abrirOpcoesAlterarTabela();'">A</button>-->
 					<button  class="inputsTabelaProjeto" onclick="location.href='alterarCelula.jsp?coluna=<%= coluna %>&linha=<%= linha %>&projeto=<%= Conteudo.getId_projeto() %>'">
 					 <p class="letraCorDeFundo"> _________ </p>				
 					<% 

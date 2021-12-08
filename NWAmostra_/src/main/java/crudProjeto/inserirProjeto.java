@@ -107,7 +107,7 @@ public class inserirProjeto extends HttpServlet
                                 out.print("Erro *parte de generated keys*: " + ex);
                     	    }
                 	                                       
-                       response.sendRedirect("./jsp/jspLogado/telaInicialProjetos.jsp");
+                       response.sendRedirect("./jsp/jspLogado/telaInicialProjetos.jsp?filtro=1");
 
                    } 
                        catch (SQLException ex) 
