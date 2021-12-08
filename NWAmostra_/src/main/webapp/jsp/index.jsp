@@ -21,19 +21,19 @@
             <figure id="carrossel">
                     <div class="img-slider">
                         <div class="slide active">
-                            <img src="https://image.freepik.com/fotos-gratis/retrato-de-pesquisadora-em-laboratorio-com-tubo-de-ensaio-e-espaco-de-copia_23-2148816383.jpg" alt="">
+                            <img src="../img/Carrosel1.jpg" alt="">
                         </div>
                         <div class="slide">
-                            <img src="https://image.freepik.com/fotos-gratis/close-up-mao-segurando-o-tubo-do-laboratorio_23-2148794441.jpg" alt="">
+                            <img src="../img/Carrossel2.jpg" alt="">
                         </div>
                         <div class="slide">
-                            <img src="https://image.freepik.com/fotos-gratis/medico-usando-mascara-facial-no-hospital_23-2148728373.jpg" alt="">
+                            <img src="../img/Carrossel3.jpg" alt="">
                         </div>
                         <div class="slide">
-                            <img src="https://image.freepik.com/fotos-gratis/pesquisador-embacado-segurando-objetos-de-vidro_23-2148794433.jpg" alt="">
+                            <img src="../img/Carrossel4.jpg" alt="">
                         </div>
                         <div class="slide">
-                            <img src="https://image.freepik.com/fotos-gratis/retrato-de-pesquisadora-em-laboratorio-com-tubo-de-ensaio-e-espaco-de-copia_23-2148816383.jpg" alt="">
+                            <img src="../img/Carrosel1.jpg" alt="">
                         </div>
                         <div class="navigation">
                             <div class="btn active"></div>
