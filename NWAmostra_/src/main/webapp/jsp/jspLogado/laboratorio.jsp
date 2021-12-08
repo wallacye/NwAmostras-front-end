@@ -144,19 +144,20 @@
 						</div>
 	</div>
 	</div>
-	<%} %>
+	
 	<div class="containerLblDadosAmostra">
 			<label class="lblDadosAmostra palavrasAzul">Enviar solicitações</label>
 	</div>
-	
+		<form method="post" action="/NWAmostra_/inserirPesquisadorInstituicao" style="height: 100%;width: 90%;float: left;">
 		<div class="containerBuscarAmostra">
 			<div class="containerPessquisarFiltroAmostras">
+			
 			
 			<button class="buttomPesquisarAmostra" onclick="location.href='#'">
                     <img src="../../img/lupa.png" class="imgLupa" alt="">
             </button>
-			
-			<input type="text" list="listPesquisadores" class="inputBuscarAmostras" placeholder="Pesquisar nomes" name="inputAdicionarPesq"/>
+            <input type="hidden" value="<%=ConteudoInstituicao.getId_lab() %>" name="txtIdlab">
+			<input type="email" list="listPesquisadores" class="inputBuscarAmostras" placeholder="Pesquisar nomes" name="inputAdicionarPesqLab" multiple/>
 			<datalist class="listPesquisadores" id="listPesquisadores">
 			  		<%
 			  		for(Pesquisador conteudo : lista){
@@ -175,13 +176,14 @@
 			</div>
 		</div>
 		
-		<div class="containerPessoasAdiconar">
+		<!--  <div class="containerPessoasAdiconar">
 			<label class="palavrasAzul lblPessoasAdicionar" >Joãozinho Game Play</label>
 			<button class="btnXVermelhoAdicionarPesq"><img src="../../img/xVermelho.png"></button>
-		</div>
+		</div>-->
 		<div class="containerBtnEnviarSolicitacoes">
 			<button class="btnEnviarSolicitacoes" onclick="location.href=''"> Enviar solicitações</button>
 		</div>
+		</form>
 		
 		<div class="containerBtnsFinalizarExcluirAmostra">
 		<button class="btnFinalizarAmostra" onclick="location.href=''">Alterar</button>
@@ -189,7 +191,7 @@
 		<div class="containerBtnsFinalizarExcluirAmostra">
 		<button class="btnEcluirAmostra2" onclick="location.href=''">Sair da instituição</button>
 		</div>
-		
+		<%} %>
 	</div>
 
 <%@ include file="../../includes/rodape.jsp" %>

@@ -3793,6 +3793,7 @@ nav ul li button{
 	text-align: center;
 	color: var(--detalhes);
 	font-size: 20px;
+	cursor: pointer;
 }
 
 .btnsFerramentasProjeto{
