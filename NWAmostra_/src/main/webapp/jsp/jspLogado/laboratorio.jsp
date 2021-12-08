@@ -87,50 +87,50 @@
 		</div>
 		
 		<div class="linhaDadosAmostra">
-			<div class="containerLblTipoInfo">
-				<label class="lblsDadoInfoAmostra palavrasAzul">CEP</label>
-			</div>
-			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">00000-000</label>
-			</div>
-		</div>
-		
-		<div class="linhaDadosAmostra">
-			<div class="containerLblTipoInfo">
-				<label class="lblsDadoInfoAmostra palavrasAzul">Rua ou avenida</label>
-			</div>
-			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra"> José Vieira </label>
-			</div>
-		</div>
-		
-		<div class="linhaDadosAmostra">
-			<div class="containerLblTipoInfo">
-				<label class="lblsDadoInfoAmostra palavrasAzul">Número</label>
-			</div>
-			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">000</label>
-			</div>
-		</div>
-		
-		<div class="linhaDadosAmostra">
-			<div class="containerLblTipoInfo">
-				<label class="lblsDadoInfoAmostra palavrasAzul">Bairro</label>
-			</div>
-			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">Vila Maria</label>
-			</div>
-		</div>
-		
-		<div class="linhaDadosAmostra">
-			<div class="containerLblTipoInfo">
-				<label class="lblsDadoInfoAmostra palavrasAzul">Complemento</label>
-			</div>
-			<div class="containerLblsInfoAmostra">
-				<label class="lblsInfoAmostra">Perto do shopping</label>
-			</div>
-		</div>
-	</div>
+<div class="containerLblTipoInfo">
+<label class="lblsDadoInfoAmostra palavrasAzul">CEP</label>
+</div>
+<div class="containerLblsInfoAmostra">
+<label class="lblsInfoAmostra"><%= ConteudoInstituicao.getCep_instituicao() %></label>
+</div>
+</div>
+
+<div class="linhaDadosAmostra">
+<div class="containerLblTipoInfo">
+<label class="lblsDadoInfoAmostra palavrasAzul">Rua ou avenida</label>
+</div>
+<div class="containerLblsInfoAmostra">
+<label class="lblsInfoAmostra"> <%= ConteudoInstituicao.getRua_instituicao() %> </label>
+</div>
+</div>
+
+<div class="linhaDadosAmostra">
+<div class="containerLblTipoInfo">
+<label class="lblsDadoInfoAmostra palavrasAzul">Número</label>
+</div>
+<div class="containerLblsInfoAmostra">
+<label class="lblsInfoAmostra"><%= ConteudoInstituicao.getNumero_instituicao() %></label>
+</div>
+</div>
+
+<div class="linhaDadosAmostra">
+<div class="containerLblTipoInfo">
+<label class="lblsDadoInfoAmostra palavrasAzul">Bairro</label>
+</div>
+<div class="containerLblsInfoAmostra">
+<label class="lblsInfoAmostra"><%= ConteudoInstituicao.getBairro_instituicao() %></label>
+</div>
+</div>
+
+<div class="linhaDadosAmostra">
+<div class="containerLblTipoInfo">
+<label class="lblsDadoInfoAmostra palavrasAzul">Complemento</label>
+</div>
+<div class="containerLblsInfoAmostra">
+<label class="lblsInfoAmostra"><%= ConteudoInstituicao.getComplemento_instituicao() %></label>
+</div>
+</div>
+</div>
 	
 	<div class="containerLblDadosAmostra">
 			<label class="lblDadosAmostra palavrasAzul">Membros</label>

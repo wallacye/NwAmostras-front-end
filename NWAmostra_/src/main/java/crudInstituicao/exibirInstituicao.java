@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,6 +50,16 @@ public ArrayList<Instituicao> listarIntituicao(Integer id_pesq){
                 
             	dadosAInstituicao.setCnpj_lab(rsExibirInstituicao.getString("cnpj_lab"));
                 
+            	String EnderecoParaSeparar = rsExibirInstituicao.getString("endereco_lab");
+
+            	List<String> listaEndereco = Arrays.asList(EnderecoParaSeparar.split(","));
+
+            	dadosAInstituicao.setRua_instituicao(listaEndereco.get(0));
+            	dadosAInstituicao.setCep_instituicao(listaEndereco.get(1));
+            	dadosAInstituicao.setNumero_instituicao(listaEndereco.get(2));
+            	dadosAInstituicao.setBairro_instituicao(listaEndereco.get(3));
+            	dadosAInstituicao.setComplemento_instituicao(listaEndereco.get(4));
+            	
             	ConteudoInstituicao.add(dadosAInstituicao);
         
             }

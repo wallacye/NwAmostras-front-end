@@ -18,6 +18,11 @@ public class Instituicao extends HttpServlet {
 	
 	private Integer id_lab_pesq_possui ;
 	private Integer cargo;
+	private String rua_instituicao;
+	private String numero_instituicao;
+	private String complemento_instituicao;
+	private String bairro_instituicao;
+	private String cep_instituicao;
 	
 	
 	public Integer getId_lab() {
@@ -70,6 +75,36 @@ public class Instituicao extends HttpServlet {
 	}
 	public void setCargo(Integer cargo) {
 		this.cargo = cargo;
+	}
+	public String getRua_instituicao() {
+		return rua_instituicao;
+	}
+	public void setRua_instituicao(String rua_instituicao) {
+		this.rua_instituicao = rua_instituicao;
+	}
+	public String getNumero_instituicao() {
+		return numero_instituicao;
+	}
+	public void setNumero_instituicao(String numero_instituicao) {
+		this.numero_instituicao = numero_instituicao;
+	}
+	public String getComplemento_instituicao() {
+		return complemento_instituicao;
+	}
+	public void setComplemento_instituicao(String complemento_instituicao) {
+		this.complemento_instituicao = complemento_instituicao;
+	}
+	public String getBairro_instituicao() {
+		return bairro_instituicao;
+	}
+	public void setBairro_instituicao(String bairro_instituicao) {
+		this.bairro_instituicao = bairro_instituicao;
+	}
+	public String getCep_instituicao() {
+		return cep_instituicao;
+	}
+	public void setCep_instituicao(String cep_instituicao) {
+		this.cep_instituicao = cep_instituicao;
 	}
 }
 
