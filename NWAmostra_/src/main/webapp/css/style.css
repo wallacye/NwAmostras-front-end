@@ -3440,7 +3440,7 @@ nav ul li button{
 .containerFerramentasProjeto{
 	display: none;
     background-color: var(--fundo);
-    height: 247px;
+    height: 125px;
     width: 254px;
     position: absolute;
     right: 2.5%;
@@ -3797,7 +3797,7 @@ nav ul li button{
 }
 
 .btnsFerramentasProjeto{
-	height: 25%;
+	height: 50%;
     width: 100%;
     background-color: transparent;
     border: none;

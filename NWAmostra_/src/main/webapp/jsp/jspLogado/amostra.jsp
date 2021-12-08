@@ -11,9 +11,11 @@
 <%
     Integer id_amostra_mapa = Integer.parseInt(request.getParameter("id_amostra_mapa"));
 	
-    
+	Integer id_lab_pesq = (Integer) request.getSession().getAttribute("idLabPesq");
     exibirAmostra dao = new exibirAmostra();
     ArrayList<AmostraNoMapa> lista = dao.listar(id_amostra_mapa);
+    
+    
  %>
  
  <% for(AmostraNoMapa conteudo : lista){
@@ -114,7 +116,12 @@
 				</div>
 				</div>
 				<div class="containerBtnHistoricoAmostra">
+				<% for(Instituicao ConteudoInstituicao : listaInstituicao){
+					if(cargo.equals(ConteudoInstituicao.getCargo())){%>
 					<button class="btnExbirHistoricoAmostra" onclick="location.href='./historicoAmostra.jsp?id_amostra=<%= conteudo.getId_amostra() %>&id_amostra_mapa=<%= conteudo.getId_amostra_mapa() %>'">Exibir histórico</button>
+				<%} else{%>
+				
+				<%}} %>
 				</div>
 			</div>
 		</div>
